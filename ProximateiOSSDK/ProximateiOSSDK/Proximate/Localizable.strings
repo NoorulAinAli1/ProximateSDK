@@ -1,0 +1,68 @@
+/* 
+  Localizable.strings
+  ProximateiOSSDK
+
+  Created by NoorulAinAli on 25/11/2016.
+  Copyright © 2016 ProximateiOSSDK. All rights reserved.
+*/
+
+"app_name" = "ProximateiOSSDK";
+
+
+// Progress Text
+"progress_loading" = "Loading...";
+"progress_searching" = "Searching...";
+"progress_fetching_route" = "Fetching route...";
+
+// HUD toast msgs
+"toast_campaign_not_found" = "Campaign not found";
+"toast_please_enter_some_search_criteria" = "Please enter some filter text in order to perform search";
+"toast_no_campaign_found_in_search" = "No campaign found with the search text '%1$@'";
+"toast_merchant_not_provided_website" = "%1$@ has not provided with its website yet";
+"toast_merchant_not_provided_phone" = "%1$@ has not provided with its phone number yet";
+"toast_merchant_not_provided_email" = "%1$@ has not provided with its email address yet";
+
+// Share
+"psdk__merchant_share" = "Amazing deals at %1$@. Avail them using %2$@.\n\nDownload now %3$@.";
+"psdk__campaign_share" = "Amazing deal \'%1$@\' Avail it using %2$@.\n\nDownload now %3$@.";
+
+// Title
+"title_available_at" = "Stores:";
+"title_available_on" = "Timings:";
+"title_available_on_cards" = "Deals available on:";
+"title_details" = "Details";
+
+// Buttons Title
+"btn_share_app" = "Share %1$@ to your friends";
+"btn_ok" = "OK";
+"btn_cancel" = "Cancel";
+"btn_see_all" = "See All (%1$d)";
+
+// Alert Text
+
+"alert_campaign_has_expired" = "Campaign titled '%1$@' has been expired.'";
+
+// Hints
+"hint_search" = "Search...";
+"text_ends_on" = "Ends on %1$@";
+"text_expired_on" = "Expired on %1$@";
+
+//"text_app_permissions_warning" = "Please enable Locations, Notifications & Background App Refresh Permissions to get Amazing offers from ProximateiOSSDK";
+//"text_app_low_power_mode_warning" = "Your device is in Low-Power Mode. Please disable Low-Power mode to get Amazing offers from ProximateiOSSDK";
+
+// Empty Texts
+"text_empty_no_campaigns_for_merchant" = "There are no active campaigns for this merchant yet";
+"text_empty_no_active_campaigns" = "There are no active campaigns at the moment";
+
+// Error Messages
+
+"error_view_no_internet" = "Cannot connect at this time.\nPlease check your internet connection.";
+"error_location_permission" = "You have not granted location permission for this app";
+"error_location_nearby"     = "ProximateiOSSDK cannot determine your current location now. Please try again later";
+"error_campaign_not_found"  = "Campaign was not found on server";
+"error_something_went_wrong" = "Oops! Something went wrong. Please try again later.";
+
+// Nearby Button distance
+//"nearby_distance_button_1" = "Within 2 km";
+//"nearby_distance_button_2" = "Within 5 km";
+//"nearby_distance_button_3" = "Within 10 km";
