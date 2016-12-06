@@ -1,0 +1,6 @@
+framework module ProximateiOSSDK {
+  umbrella header "ProximateiOSSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

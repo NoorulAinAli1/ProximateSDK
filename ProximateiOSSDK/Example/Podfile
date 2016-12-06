@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ProximateiOSSDK_Example' do
+  pod 'ProximateiOSSDK', :path => '../'
+
+  target 'ProximateiOSSDK_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

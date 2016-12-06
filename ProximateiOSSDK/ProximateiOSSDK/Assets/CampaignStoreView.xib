@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="CampaignStoreView" id="iN0-l3-epB" userLabel="CampaignStoreView" customClass="CampaignStoreView" customModule="ProximateiOSSDK" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDT-ak-BDx">
+                    <rect key="frame" x="10" y="10" width="580" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="22" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0XX-4x-Gmy">
+                    <rect key="frame" x="10" y="41" width="580" height="549"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="z26-30-m3L"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="EoA-aO-FCr"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="0XX-4x-Gmy" firstAttribute="trailing" secondItem="DDT-ak-BDx" secondAttribute="trailing" id="CXg-3J-aN8"/>
+                <constraint firstItem="DDT-ak-BDx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="FAw-J9-duH"/>
+                <constraint firstItem="0XX-4x-Gmy" firstAttribute="top" secondItem="DDT-ak-BDx" secondAttribute="bottom" constant="10" id="Y7r-vp-f0A"/>
+                <constraint firstAttribute="trailing" secondItem="DDT-ak-BDx" secondAttribute="trailing" constant="10" id="hZV-Y2-edC"/>
+                <constraint firstItem="DDT-ak-BDx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="m9f-gs-vvT"/>
+                <constraint firstItem="0XX-4x-Gmy" firstAttribute="leading" secondItem="DDT-ak-BDx" secondAttribute="leading" id="sLe-Wb-fPT"/>
+                <constraint firstAttribute="bottom" secondItem="0XX-4x-Gmy" secondAttribute="bottom" constant="10" id="uDh-Zj-gkf"/>
+            </constraints>
+            <connections>
+                <outlet property="campaignStoreTable" destination="0XX-4x-Gmy" id="WG3-XM-b79"/>
+                <outlet property="campaignStoreTitle" destination="DDT-ak-BDx" id="LOh-ab-Rk3"/>
+            </connections>
+        </view>
+    </objects>
+</document>
