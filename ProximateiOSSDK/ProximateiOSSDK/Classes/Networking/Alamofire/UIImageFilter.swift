@@ -97,7 +97,7 @@ extension UIImage {
 //        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
 
         UIGraphicsBeginImageContextWithOptions(newSize, true, 0.0)
-        let alpha = CGFloat(1)
+//        let alpha = CGFloat(1)
 //        self.drawInRect(rect, blendMode: .Luminosity, alpha: alpha)
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
