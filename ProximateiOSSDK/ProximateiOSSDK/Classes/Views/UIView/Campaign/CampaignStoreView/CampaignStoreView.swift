@@ -59,9 +59,8 @@ class CampaignStoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         let store = self.campaignStore[indexPath.row]
         cell.textLabel?.text = store.getTitle()
-        cell.imageView?.image = UIImage(named: "icon_location.png")
-        
-        
+        cell.imageView?.image = UIImage(named: "icon_location", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
+
         return cell
     }
     

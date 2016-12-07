@@ -303,7 +303,7 @@
                                                         <outlet property="delegate" destination="Hfg-ne-cIc" id="wat-GN-Tx6"/>
                                                     </connections>
                                                 </collectionView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="dQf-QX-hYf">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="dQf-QX-hYf">
                                                     <rect key="frame" x="0.0" y="80" width="570" height="119.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOS-Nk-LDx">
@@ -787,7 +787,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zni-ee-BnE" secondAttribute="height" multiplier="1:1" id="5md-Q1-QeR"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="X"/>
+                                <state key="normal" backgroundImage="button_cross.png"/>
                                 <connections>
                                     <action selector="crossBtnPressed" destination="17f-NA-KZE" eventType="touchUpInside" id="Syz-Sh-0vB"/>
                                 </connections>
@@ -829,9 +829,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="X" width="346" height="120"/>
-        <image name="background_gradient" width="346" height="120"/>
-        <image name="background_gradient.png" width="346" height="120"/>
+        <image name="background_gradient.png" width="1040" height="361"/>
+        <image name="button_cross.png" width="24" height="24"/>
         <image name="button_location" width="16" height="16"/>
         <image name="button_location.png" width="16" height="16"/>
         <image name="button_share" width="16" height="16"/>

@@ -21,8 +21,7 @@ class CampaignTimingTableViewCell: UITableViewCell {
     }
     
     private func updateTimingImage() {
-        timingImage.image = UIImage(named: "icon_timing.png")
-        
+        timingImage.image = UIImage(named: "icon_timing", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
     }
     
     private func updateView(){

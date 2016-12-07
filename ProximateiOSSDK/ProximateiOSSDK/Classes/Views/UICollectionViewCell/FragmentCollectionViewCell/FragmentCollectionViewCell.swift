@@ -49,7 +49,8 @@ class FragmentCollectionViewCell: UICollectionViewCell {
     
     private func setUpImageView(){
         collectionViewImage.backgroundColor = UIColor.whiteColor()
-        collectionViewImage.af_setImageWithURL(NSURL(string: self.mCampaignMedia.getMediaURL())!, placeholderImage: UIImage(named: "placeholder_campaign.png"))
+        collectionViewImage.af_setImageWithURL(NSURL(string: self.mCampaignMedia.getMediaURL())!, placeholderImage: ProximateSDK.getLoadingPlaceholderImage())
+        
         collectionViewImage.hidden = false
         if videoViewCampaign !=  nil {
             videoViewCampaign.view.hidden = true

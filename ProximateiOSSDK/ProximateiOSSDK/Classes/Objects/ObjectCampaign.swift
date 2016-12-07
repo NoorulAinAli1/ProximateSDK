@@ -82,10 +82,8 @@ internal class ObjectCampaign: NSObject {
         let campaignExpiryTextColor = isExpired ? UIColor.lightGrayColor() : UIColor.psdkPrimaryColor()
         
         let imageName = isExpired ? "time_icon_gray@3x" : "time_icon_gray@3x"//"time_icon_orange"
-        let image = ProximateSDK.getBundle().pathForResource(imageName, ofType: "png")
-
-        let campaignExpiryImage = UIImage(named: image!)!
-
+        let campaignExpiryImage = UIImage(named: imageName, inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
+        
         return (campaignExpiryText, campaignExpiryImage, campaignExpiryTextColor)
     }
     

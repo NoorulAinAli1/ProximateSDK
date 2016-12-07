@@ -78,7 +78,7 @@ class MerchantTableViewCell: UITableViewCell {
     private func updateCampaign(){
         campaignTitle.setHTMLFromString(mainCampaign.getCampaignTitle())
 
-        campaignImage.af_setImageWithURL(NSURL(string: mainCampaign.getMainMedia().getMediaURL())!, placeholderImage:UIImage(named: "placeholder_campaign.png"))
+        campaignImage.af_setImageWithURL(NSURL(string: mainCampaign.getMainMedia().getMediaURL())!, placeholderImage: ProximateSDK.getCampaignPlaceholderImage())
         let expiryStyle = mainCampaign.getCampaignExpiryStyle()
         campaignExpiryDateTime.textColor = expiryStyle.campaignExpiryTextColor
         campaignExpiryImage.image = expiryStyle.campaignExpiryImage

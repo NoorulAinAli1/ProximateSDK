@@ -57,7 +57,8 @@ class CampaignTimingView: UIView, UITableViewDelegate, UITableViewDataSource {
         let timing = self.campaignTiming[indexPath.row]
         cell.textLabel?.text = timing.getDay()
         cell.detailTextLabel?.text = timing.getTiming()
-        cell.imageView?.image = UIImage(named: "icon_timing.png")
+        cell.imageView?.image = UIImage(named: "icon_timing", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
+
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = .ByWordWrapping
         if (timing.getDay() == currentDay){

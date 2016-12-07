@@ -40,17 +40,22 @@ public class ProximateSDK: NSObject {
     private static var screenInteractionDelegate : PSDKScreenInteractionDelegate?
     private static var messageDelegate : PSDKMessageDelegate?
     private static var mPSDKValidated : Bool! = false
+  
+    private static func configure() {
+        OCMapperConfig.configure()
+        
+        ProximateSDK.psdkBundleIdentifer         = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleIdentifierKey as String) as! String
+    }
     
     public static func initialize(messageDelegate msgDelegate : PSDKMessageDelegate? = nil, screenInteractionDelegate screenDelegate : PSDKScreenInteractionDelegate? = nil) {
         
-        OCMapperConfig.configure()
+        ProximateSDK.configure()
         ProximateSDK.messageDelegate             = msgDelegate
         ProximateSDK.screenInteractionDelegate   = screenDelegate
         
-        ProximateSDK.psdkBundleIdentifer         = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleIdentifierKey as String) as! String
-        
         guard let proximateApiKey = NSBundle.mainBundle().objectForInfoDictionaryKey(psdkMerchantKey) as? String else {
             // show exception
+            assertionFailure("ProximateiOSSDK api key not set in Info.plist with key 'ProximateMerchantKey'")
             return
         }
         
@@ -74,7 +79,7 @@ public class ProximateSDK: NSObject {
     }
     
     internal static func getBundle() -> NSBundle {
-        let podBundle = NSBundle(forClass:  self.classForCoder())
+        let podBundle = NSBundle(forClass: self.classForCoder())
         let bundleURL = podBundle.URLForResource("ProximateiOSSDK", withExtension: "bundle")
         guard let bundle = NSBundle(URL: bundleURL!) else {
             assertionFailure("Couldn't load ProximateiOSSDK bundle")
@@ -84,19 +89,21 @@ public class ProximateSDK: NSObject {
         return bundle
     }
     
-    public static func openProximateSDK() -> UINavigationController {
-        if ProximateSDK.mPSDKValidated.boolValue {
-
-            let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDK.getBundle())
-
-            DebugLogger.debugLog("load the bundle")
-            let viewController = storyBoard.instantiateViewControllerWithIdentifier("ProximateSDKMainNav") as! UINavigationController
-            return viewController
-
-    //        self.presentViewController(viewController, animated: true, completion: nil)
-            //        self.navigationController?.pushViewController(viewController, animated: true)
-        }
-        return UINavigationController()
+    internal static func getCampaignPlaceholderImage() -> UIImage {
+        return UIImage(named: "placeholder_campaign", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
+    }
+    
+    internal static func getLoadingPlaceholderImage() -> UIImage {
+        return UIImage(named: "placeholder_loading", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
+    }
+    
+    
+    public static func openProximateSDK(viewController: UIViewController) {
+        assert(ProximateSDK.mPSDKValidated.boolValue, "ProximateiOSSDK is not initialized")
+        
+        let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDK.getBundle())
+        let proximateViewController = storyBoard.instantiateViewControllerWithIdentifier("ProximateSDKMainNav") as! UINavigationController
+        viewController.presentViewController(proximateViewController, animated: true, completion: nil)
     }
     
     internal static func getPackageIdentifer() -> String {

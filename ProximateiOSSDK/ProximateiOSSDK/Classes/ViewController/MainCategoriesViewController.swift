@@ -22,8 +22,10 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        
+        let searchImage =  UIImage(named: "button_search", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
 
-        let btnSearch : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "button_search.png"), style: .Plain, target: self, action: #selector(MainCategoriesViewController.showSearchView(_:)))
+        let btnSearch : UIBarButtonItem = UIBarButtonItem(image: searchImage, style: .Plain, target: self, action: #selector(MainCategoriesViewController.showSearchView(_:)))
 
         self.navigationItem.rightBarButtonItem = btnSearch
         
