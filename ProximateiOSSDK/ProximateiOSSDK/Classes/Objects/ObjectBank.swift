@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectBank: NSObject {
+internal class ObjectBank: NSObject {
 
     var merchantName            : String!
     var merchantLogoImagePath   : String!

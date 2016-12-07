@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PSDKMerchant: NSObject {
+internal class PSDKMerchant: NSObject {
 
     var apiExpiryDate       : NSNumber!
     var apiKey              : String!

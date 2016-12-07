@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectCampaignMedia: NSObject {
+internal class ObjectCampaignMedia: NSObject {
 
     var type        : String!
     var path        : String!

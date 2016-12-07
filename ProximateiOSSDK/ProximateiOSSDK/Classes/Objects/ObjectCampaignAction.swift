@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectCampaignAction: NSObject {
+internal class ObjectCampaignAction: NSObject {
     var actionType  : NSNumber!
     var actionClass : String!
     var actionTitle : String!

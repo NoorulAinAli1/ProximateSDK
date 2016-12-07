@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectMerchantStore: NSObject {
+internal class ObjectMerchantStore: NSObject {
     var storeId         : NSNumber!
     var merchantStoreId : NSNumber!
     var storeTitle      : String?

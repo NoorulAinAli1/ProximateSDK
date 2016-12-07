@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectMerchantGroup: NSObject {
+internal class ObjectMerchantGroup: NSObject {
     var merchantId          : NSNumber!
     var merchantName        : String!
     var sortOrder           : NSNumber!

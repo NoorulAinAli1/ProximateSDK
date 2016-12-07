@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectCampaignTiming: NSObject {
+internal class ObjectCampaignTiming: NSObject {
     var startTime           : String!
     var startTime2          : String?
     var endTime             : String!
@@ -45,11 +45,11 @@ class ObjectCampaignTiming: NSObject {
         return startTime2 == StoreEndTime1 && endTime2 == StoreEndTime2
     }
     
-    public func getDay() -> String {
+    internal func getDay() -> String {
         return days[day.integerValue]
     }
     
-    public func getTiming() -> String {
+    internal func getTiming() -> String {
         var timingText = ""//startTime + " - " + endTime + " \n" + startTime2 + " - " + endTime2;
     
         if (isFullDay()) {

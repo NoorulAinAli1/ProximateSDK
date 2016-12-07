@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectStore: NSObject {
+internal class ObjectStore: NSObject {
     var storeId         : NSNumber!
     var storeName       : String!
     var impLocationId   : NSNumber!

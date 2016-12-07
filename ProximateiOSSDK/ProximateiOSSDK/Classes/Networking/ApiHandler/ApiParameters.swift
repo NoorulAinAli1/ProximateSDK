@@ -18,7 +18,7 @@ class ApiParameters: NSObject {
     }
     
     private static func getWiFiAddress() -> String {
-        var address : String = "194.252.142.15"
+        let address : String = "194.252.142.15"
         
 //        // Get list of all interfaces on the local machine:
 //        var ifaddr : UnsafeMutablePointer<ifaddrs> = nil

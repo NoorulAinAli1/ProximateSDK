@@ -1,6 +1,6 @@
 {
   "name": "ProximateiOSSDK",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "summary": "Integrate ProximateiOSSDK with your merchant or bank app.",
   "description": "ProximateiOSSDK is developed to integrate Proximate app features with your own app. Simply register your app's bundle identifier on Proximate's portal, get the api key. Integrate the api key in your app having ProximateiOSSDK pods and you are ready to use Proximate features in your own app.",
   "homepage": "https://proximate.ae",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://gitlab.com/proximate/sdk.ios.git",
-    "tag": "0.1.0"
+    "tag": "1.0.0"
   },
   "social_media_url": "https://twitter.com/ProximateApp",
   "platforms": {
@@ -25,7 +25,6 @@
       "ProximateiOSSDK/Assets/*"
     ]
   },
-  "public_header_files": "Pod/Classes/**/*.h",
   "frameworks": [
     "UIKit",
     "MapKit"

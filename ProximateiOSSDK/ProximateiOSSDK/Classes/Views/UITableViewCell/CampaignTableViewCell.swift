@@ -89,7 +89,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let cell =  collectionView.cellForItemAtIndexPath(indexPath) as! FragmentCollectionViewCell
+//        let cell =  collectionView.cellForItemAtIndexPath(indexPath) as! FragmentCollectionViewCell
 //        if cell.content.type == "6601" {
 //            pageControl.currentPage = indexPath.row
 //            

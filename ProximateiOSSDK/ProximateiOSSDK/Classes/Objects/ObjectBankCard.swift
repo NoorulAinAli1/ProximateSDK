@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectBankCard: NSObject {
+internal class ObjectBankCard: NSObject {
     var offerText       : String?
     var tagLine         : String?
     var cardTitle       : String!

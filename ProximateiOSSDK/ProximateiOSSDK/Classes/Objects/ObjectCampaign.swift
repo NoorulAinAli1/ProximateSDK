@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectCampaign: NSObject {
+internal class ObjectCampaign: NSObject {
     
     var campaignId          : NSNumber!
     var summary             : String?

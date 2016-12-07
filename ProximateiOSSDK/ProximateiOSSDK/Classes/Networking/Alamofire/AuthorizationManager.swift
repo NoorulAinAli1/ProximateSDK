@@ -27,7 +27,7 @@ public class AuthorizationManager: Manager {
     
     public func startRequest(
         method method: Method,
-               var URLString: URLStringConvertible,
+               inout URLString: URLStringConvertible,
                parameters: [String: AnyObject]?,
                encoding: ParameterEncoding,
                success: NetworkSuccessHandler?,
@@ -41,7 +41,7 @@ public class AuthorizationManager: Manager {
             } else {
                 strongSelf.startRequest(
                     method: method,
-                    URLString: URLString,
+                    URLString: &URLString,
                     parameters: parameters,
                     encoding: encoding,
                     success: success,

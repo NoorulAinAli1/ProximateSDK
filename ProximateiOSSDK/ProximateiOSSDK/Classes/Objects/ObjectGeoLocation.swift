@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-class ObjectGeoLocation: NSObject {
+internal class ObjectGeoLocation: NSObject {
     var latitude    : NSNumber?
     var longitude   : NSNumber?
     

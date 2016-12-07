@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectCategory: NSObject {
+internal class ObjectCategory: NSObject {
     
     var success : Bool?
     var prodCategoryId : NSNumber!

@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ObjectBeacon: NSObject {
+internal class ObjectBeacon: NSObject {
     var beaconUUID      : String!
     var beaconMajorId   : Int!
     var beaconMinorId   : Int!
@@ -25,7 +25,7 @@ class ObjectBeacon: NSObject {
         super.init()
     }
     
-    func getGooglePlaceName() -> String{
+    internal func getGooglePlaceName() -> String{
         return "\(storeDTO.storeName), "
 //        return "\(storeDTO.storeName), \(storeDTO.cityName!)\n"
     }
