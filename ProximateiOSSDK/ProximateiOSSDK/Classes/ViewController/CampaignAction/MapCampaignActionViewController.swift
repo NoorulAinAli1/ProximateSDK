@@ -44,21 +44,18 @@ class MapCampaignActionViewController: BaseMapViewController {
     
     func setUserMapInitialLocation(){
         
-        var nearestDistance : Double  = -10000
         if CLLocationManager.locationServicesEnabled() {
             
             switch(CLLocationManager.authorizationStatus()) {
-            case .NotDetermined, .Restricted, .Denied:
-                DebugLogger.debugLog("No access")
-                ProximateSDK.getMessageDelegate()?.showMessage("Please enable location services")
-                
             case .AuthorizedAlways, .AuthorizedWhenInUse:
                 DebugLogger.debugLog("Access")
                 
                 centerMapOnLocation( locationManager.location!)
                 
+//            case .NotDetermined, .Restricted, .Denied:
             default:
-                DebugLogger.debugLog("...")
+                DebugLogger.debugLog("No access")
+                ProximateSDK.getMessageDelegate()?.showMessage("Please enable location services")
             }
             
         } else {

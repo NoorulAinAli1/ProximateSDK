@@ -38,7 +38,7 @@ s.resource_bundles = {
    'ProximateiOSSDK' => ['ProximateiOSSDK/ProximateiOSSDK/Assets/*']
  }
 
-#s.public_header_files = 'ProximateiOSSDK/Classes/**/*.h'
+s.public_header_files = 'ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.h'
 
   s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'OCMapper', '~> 2.1'

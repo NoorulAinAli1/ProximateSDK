@@ -38,7 +38,7 @@ extension String {
     }
     
     func urlEncoding() -> String {
-        return self.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        return self.stringByReplacingOccurrencesOfString(" ", withString: "%20")//self.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
     }
 
     func mapEncoding() -> String {

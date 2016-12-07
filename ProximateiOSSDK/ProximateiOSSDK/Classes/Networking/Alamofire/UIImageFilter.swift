@@ -94,7 +94,7 @@ extension UIImage {
     }
     
     class func scaleDownWithNewSize(newSize : CGSize) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+//        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
 
         UIGraphicsBeginImageContextWithOptions(newSize, true, 0.0)
         let alpha = CGFloat(1)
