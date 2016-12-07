@@ -72,7 +72,7 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
         DebugLogger.debugLog("showSearchView")
         
         if (navSearchView == nil) {
-            navSearchView = ProximateSDK.getBundle().loadNibNamed("SearchCategoryView", owner: self, options: nil)!.first as! SearchCategoryView
+            navSearchView = ProximateSDK.getBundle().loadNibNamed("SearchCategoryView", owner: self, options: nil)!.first as? SearchCategoryView
             navSearchView!.frame = (self.navigationController?.navigationBar.bounds)!
             navSearchView!.btnClose.addTarget(self, action: #selector(MainCategoriesViewController.removeSearchView(_:)), forControlEvents: .TouchUpInside)
             navSearchView!.btnSearch.addTarget(self, action: #selector(MainCategoriesViewController.performSearch(_:)), forControlEvents: .TouchUpInside)
@@ -82,7 +82,6 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
         }
         navSearchView!.slideInFromRight()
         DebugLogger.debugLog("showSearchView \(navSearchView!)")
-        
     }
     
     func performSearch(sender : UIButton){

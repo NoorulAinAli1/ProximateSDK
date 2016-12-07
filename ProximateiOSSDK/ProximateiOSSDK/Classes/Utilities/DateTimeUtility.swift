@@ -144,7 +144,6 @@ class DateTimeUtility: NSObject {
         return dateFormatter.stringFromDate(NSDate())
     }
     
-    
     static func getDateAsEndingDate(enddate :String) -> String {
         
         let dateFormatter = NSDateFormatter()
@@ -156,15 +155,15 @@ class DateTimeUtility: NSObject {
         return dateFormatter.stringFromDate(date)
     }
     
-    static func getDateAsCompleteEndingDate(var enddate :String) -> String {
-        
+    static func getDateAsCompleteEndingDate(enddate :String) -> String {
+        var endDate = enddate
         if enddate.utf16.count == 0 {
-            enddate = getCurrentDateTimestamp()
+            endDate = getCurrentDateTimestamp()
         }
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date : NSDate =  dateFormatter.dateFromString(enddate)!
+        let date : NSDate =  dateFormatter.dateFromString(endDate)!
         dateFormatter.timeZone = NSTimeZone.systemTimeZone()
         dateFormatter.dateFormat = "EEE MMM dd, yyyy hh:mm a"
         

@@ -80,7 +80,6 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
             }
         })
 
-        
         pageControl.hidesForSinglePage = true
         pageControl.numberOfPages =  (mCampaign.getMedia().count)
         campaignCollectionView.pagingEnabled = true
@@ -88,7 +87,6 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
         btnPhone.hidden = campaign.getMerchant().hasPhoneNumber()
         btnWebsite.hidden = campaign.getMerchant().hasWebsite()
         btnLocation.hidden = (campaign.beacons == nil)
-
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

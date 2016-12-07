@@ -97,7 +97,6 @@ public class ProximateSDK: NSObject {
         return UIImage(named: "placeholder_loading", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
     }
     
-    
     public static func openProximateSDK(viewController: UIViewController) {
         assert(ProximateSDK.mPSDKValidated.boolValue, "ProximateiOSSDK is not initialized")
         

@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  ProximateiOSSDK
 //
-//  Created by NoorulAinAli on 24/11/2016.
-//  Copyright © 2016 ProximateiOSSDK. All rights reserved.
+//  Created by noorulain.ali on 12/07/2016.
+//  Copyright (c) 2016 noorulain.ali. All rights reserved.
 //
 
 import UIKit
@@ -13,12 +13,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-    
-    @IBAction func openProximateSDK () {
-        self.presentViewController(ProximateSDK.openProximateSDK(), animated: true, completion: nil)
-//        self.navigationController?.pushViewController(ProximateSDK.openProximateSDK(), animated: true)
+        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +21,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func openSDK() {
+        ProximateSDK.openProximateSDK(self)
+    }
 }
 

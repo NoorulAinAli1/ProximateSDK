@@ -42,8 +42,8 @@ class ApiHandler: NSObject {
                     completion(result: res)
                     return
                 }
-                res = true
                 DebugLogger.debugLog("object \(object)")
+                res = true
             }
             
             completion(result: res)

@@ -18,20 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHW-Cy-a5c">
-                                <rect key="frame" x="150" y="560" width="300" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.72034333881578949" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPg-lz-pFP">
+                                <rect key="frame" x="150.5" y="150" width="300" height="300"/>
                                 <state key="normal" title="Open SDK"/>
                                 <connections>
-                                    <action selector="openProximateSDK" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ipv-Zt-tnS"/>
+                                    <action selector="openSDK" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jy3-MT-6cU"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uHW-Cy-a5c" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="1gH-7f-yOj"/>
-                            <constraint firstItem="uHW-Cy-a5c" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.5" id="DqP-BK-6SU"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="uHW-Cy-a5c" secondAttribute="bottom" constant="10" id="Tvt-im-sQF"/>
+                            <constraint firstItem="vPg-lz-pFP" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.5" id="2mW-UX-XRr"/>
+                            <constraint firstItem="vPg-lz-pFP" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="33z-Yt-m6h"/>
+                            <constraint firstItem="vPg-lz-pFP" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="EDv-sc-Xsf"/>
+                            <constraint firstItem="vPg-lz-pFP" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.5" id="IsT-fY-kf7"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -21,7 +21,7 @@ class MerchantHeaderView: UIView {
     @IBOutlet var btnShare : ImageCenterButton!
     @IBOutlet var btnWebsite : ImageCenterButton!
     @IBOutlet var btnPhone : ImageCenterButton!
-    private let colorCube = CCColorCube()
+//    private let colorCube = CCColorCube()
 
     private var merchantBannerColor : UIColor! = UIColor.psdkPrimaryColor()
     
@@ -38,11 +38,10 @@ class MerchantHeaderView: UIView {
             if response.result.error == nil {
                 let bannerImage = response.result.value
 
-                let colors = self.colorCube.extractColorsFromImage(bannerImage!, flags: CCAvoidWhite.rawValue) as! [UIColor]
-
-                self.merchantBannerColor = colors[0]
+//                let colors = self.colorCube.extractColorsFromImage(bannerImage!, flags: CCAvoidWhite.rawValue) as! [UIColor]
+//
+//                self.merchantBannerColor = colors[0]
                 self.merchantBanner.image = bannerImage
-
             }
         })
 

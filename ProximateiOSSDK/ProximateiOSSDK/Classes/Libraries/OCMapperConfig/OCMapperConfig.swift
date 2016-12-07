@@ -20,7 +20,6 @@ class OCMapperConfig: NSObject {
         ObjectMapper.sharedInstance().loggingProvider = commonLoggingProvider
         
         /******************* Any custom mapping would go here **********************/
-        
         inCodeMappingProvider.mapFromDictionaryKey("campaigns",
                                                    toPropertyKey: "campaigns",
                                                    withObjectType: ObjectCampaign.classForCoder(),

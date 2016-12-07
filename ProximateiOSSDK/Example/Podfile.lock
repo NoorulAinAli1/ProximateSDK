@@ -1,6 +1,6 @@
 PODS:
   - OCMapper (2.1)
-  - ProximateiOSSDK (1.0.0):
+  - ProximateiOSSDK (0.1.0):
     - OCMapper (~> 2.1)
 
 DEPENDENCIES:
@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   OCMapper: fa22e7b51de7cc38e66b993037076d28a0f31b29
-  ProximateiOSSDK: 4a6e0ecbb449b3e422dbe9910524d4a257ee8047
+  ProximateiOSSDK: 5ca53f9721db0560e0dafd813ff042cf91e265bb
 
 PODFILE CHECKSUM: 1ec100c8169a20d2e0f9e2d2d2b1094952c3d23d
 

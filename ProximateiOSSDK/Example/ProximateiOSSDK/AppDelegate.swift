@@ -2,33 +2,24 @@
 //  AppDelegate.swift
 //  ProximateiOSSDK
 //
-//  Created by NoorulAinAli on 24/11/2016.
-//  Copyright © 2016 ProximateiOSSDK. All rights reserved.
+//  Created by noorulain.ali on 12/07/2016.
+//  Copyright (c) 2016 noorulain.ali. All rights reserved.
 //
 
 import UIKit
 import ProximateiOSSDK
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, PSDKMessageDelegate, PSDKScreenInteractionDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-        ProximateSDK.initialize(messageDelegate: self, screenInteractionDelegate: self)
+        ProximateSDK.initialize(messageDelegate: nil, screenInteractionDelegate: nil)
         return true
     }
 
-    func showMessage(message: String) {
-//        DebugLogger.showToastMessage(message)
-    }
-    
-    func screenInteracted() {
-//        DebugLogger.showToastMessage("screenInteracted")
-    }
-    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -50,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PSDKMessageDelegate, PSDK
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+
 
 }
 
