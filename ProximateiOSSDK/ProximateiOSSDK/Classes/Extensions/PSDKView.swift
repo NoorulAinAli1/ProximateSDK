@@ -34,6 +34,11 @@ extension UILabel {
         set { self.font = UIFont(name: newValue, size: self.font.pointSize) }
     }
     
+    var sdkFontSize : CGFloat {
+        get { return self.font.pointSize }
+        set { self.font = UIFont(name: self.font!.fontName, size: newValue) }
+    }
+    
 //    var substituteFontName : String {
 //        get { return self.font.fontName }
 //        set {

@@ -67,7 +67,7 @@ public class ProximateSDK: NSObject {
     }
     
     private static func initializeFonts() {
-        UILabel.appearance().sdkFontName = "Futura"
+//        UILabel.appearance().sdkFontName = "Futura"
     }
     
     internal static func getMessageDelegate() -> PSDKMessageDelegate? {

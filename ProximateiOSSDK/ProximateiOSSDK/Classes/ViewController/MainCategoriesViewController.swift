@@ -120,21 +120,22 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
         
         // Customize menu (Optional)
         var parameters: [CAPSPageMenuOption] = [
-//            .ScrollMenuBackgroundColor(UIColor.clearColor()),
-//            .ViewBackgroundColor(UIColor.blackColor()),
-//            .SelectionIndicatorColor(UIColor.orangeColor()),
-//            .AddBottomMenuHairline(false),
-//            .MenuItemFont(UIFont(name: "HelveticaNeue", size: 20.0)!),
-//            .MenuHeight(30.0),
-//            .SelectionIndicatorHeight(0.0),
+            .SelectedMenuColor(UIColor.purpleColor()),
+            .UnselectedMenuColor(UIColor.cyanColor()),
+            .ViewBackgroundColor(UIColor.blackColor()),
+            .MenuMarginX(10),
+            .MenuMarginY(20),
+            .MenuItemFontSize(20.0),
+            .MenuHeight(100.0),
 //            .MenuItemWidthBasedOnTitleTextWidth(true),
-//            .SelectedMenuItemLabelColor(UIColor.orangeColor())
+            .UnselectedMenuItemLabelColor(UIColor.blueColor()),
+            .SelectedMenuItemLabelColor(UIColor.orangeColor())
         ]
         
         // Initialize scroll menu
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
         
-        pageMenu?.delegate = self
+       // pageMenu?.delegate = self
         self.view.addSubview(pageMenu!.view)
         
         let vC = controllerArray[(pageMenu?.currentPageIndex)!] as! CategoryTableViewController
