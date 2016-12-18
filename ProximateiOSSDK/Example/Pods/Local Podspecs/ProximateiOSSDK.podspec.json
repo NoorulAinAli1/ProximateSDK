@@ -26,7 +26,6 @@
       "ProximateiOSSDK/Assets/*"
     ]
   },
-  "public_header_files": "ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.h",
   "frameworks": [
     "UIKit",
     "MapKit",

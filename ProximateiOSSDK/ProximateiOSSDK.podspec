@@ -37,7 +37,7 @@ s.source_files = "ProximateiOSSDK/**/*.{swift,h,m}"
 
 #s.resources = "ProximateiOSSDK/**/*.{png,strings,storyboard,xib}"
 s.resource_bundles = {
-'ProximateiOSSDK' => ['ProximateiOSSDK/ProximateiOSSDK/Assets/*']
+'ProximateiOSSDK' => ['ProximateiOSSDK/Assets/*']
 }
 
 #s.public_header_files = 'ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.h'

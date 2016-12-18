@@ -20,6 +20,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPg-lz-pFP">
                                 <rect key="frame" x="150.5" y="150" width="300" height="300"/>
+                                <color key="backgroundColor" red="0.51189864309210531" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Open SDK"/>
                                 <connections>
                                     <action selector="openSDK" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jy3-MT-6cU"/>
