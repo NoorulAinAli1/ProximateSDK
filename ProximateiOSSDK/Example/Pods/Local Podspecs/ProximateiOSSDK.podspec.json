@@ -23,7 +23,7 @@
   "source_files": "ProximateiOSSDK/**/*.{swift,h,m}",
   "resource_bundles": {
     "ProximateiOSSDK": [
-      "ProximateiOSSDK/ProximateiOSSDK/Assets/*"
+      "ProximateiOSSDK/Assets/*"
     ]
   },
   "public_header_files": "ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.h",
