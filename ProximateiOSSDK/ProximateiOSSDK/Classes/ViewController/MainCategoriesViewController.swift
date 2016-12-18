@@ -127,9 +127,12 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
             .MenuMarginY(20),
             .MenuItemFontSize(20.0),
             .MenuHeight(100.0),
+<<<<<<< HEAD
             .MenuItemSelectedBorderColor(UIColor.whiteColor()),
             .MenuItemUnselectedBorderColor(UIColor.purpleColor()),
             .MenuItemBorderWidth(2.5),
+=======
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
 //            .MenuItemWidthBasedOnTitleTextWidth(true),
             .UnselectedMenuItemLabelColor(UIColor.blueColor()),
             .SelectedMenuItemLabelColor(UIColor.orangeColor())
@@ -138,7 +141,7 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
         // Initialize scroll menu
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
         
-        pageMenu?.delegate = self
+       // pageMenu?.delegate = self
         self.view.addSubview(pageMenu!.view)
         
         let vC = controllerArray[(pageMenu?.currentPageIndex)!] as! CategoryTableViewController

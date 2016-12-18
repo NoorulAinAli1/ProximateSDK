@@ -1,0 +1,6 @@
+framework module ImageCenterButton {
+  umbrella header "ImageCenterButton-umbrella.h"
+
+  export *
+  module * { export * }
+}

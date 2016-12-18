@@ -19,7 +19,11 @@
 
 import UIKit
 
+<<<<<<< HEAD
 class PaddedLabel : BaseLabel {
+=======
+class PaddedLabel : UILabel {
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
     @IBInspectable var inset: CGFloat = 5.0
     
     override func drawTextInRect(rect: CGRect) {
@@ -48,6 +52,7 @@ class MenuItemView: UIView {
     var titleLabel : PaddedLabel?
 
 
+<<<<<<< HEAD
     func setUpMenuItemView(menuItemWidth: CGFloat, menuItemSpacingY spacingY : CGFloat, menuScrollViewHeight: CGFloat, menuBorderColor borderColor : UIColor, menuBorderWidth borderWidth : CGFloat){
         titleLabel = PaddedLabel(frame: CGRectMake(0.0, spacingY, menuItemWidth, menuScrollViewHeight - (spacingY*2)))
         titleLabel?.layer.masksToBounds = true
@@ -55,6 +60,15 @@ class MenuItemView: UIView {
         titleLabel?.layer.borderColor = borderColor.CGColor
         titleLabel?.layer.borderWidth = borderWidth
 //        titleLabel?.sdkFontSize = 100
+=======
+    func setUpMenuItemView(menuItemWidth: CGFloat, menuItemSpacingY spacingY : CGFloat, menuScrollViewHeight: CGFloat){
+        titleLabel = PaddedLabel(frame: CGRectMake(0.0, spacingY, menuItemWidth, menuScrollViewHeight - (spacingY*2)))
+        titleLabel?.layer.masksToBounds = true
+        titleLabel?.layer.cornerRadius = (menuScrollViewHeight - (spacingY*2))/2
+        titleLabel?.layer.borderColor = UIColor.lightGrayColor().CGColor
+        titleLabel?.layer.borderWidth = 1.0
+        titleLabel?.sdkFontSize = 100
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
 //        titleLabel?.layer.shadowColor = UIColor.blueColor().CGColor
 //        titleLabel?.layer.shadowOffset = CGSize(width: 2, height: 2)
 //        titleLabel?.layer.shadowRadius = 2.0
@@ -80,10 +94,15 @@ public enum CAPSPageMenuOption {
     case UnselectedMenuItemLabelColor(UIColor)
     case SelectedMenuColor(UIColor)
     case UnselectedMenuColor(UIColor)
+<<<<<<< HEAD
     case MenuItemSelectedBorderColor(UIColor)
     case MenuItemUnselectedBorderColor(UIColor)
     case MenuItemBorderWidth(CGFloat)
     case MenuItemFontSize(CGFloat)
+=======
+    case MenuItemFontSize(CGFloat)
+//    case MenuItemWidth(CGFloat)
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
     case EnableHorizontalBounce(Bool)
     case MenuItemWidthBasedOnTitleTextWidth(Bool)
     case ScrollAnimationDurationOnMenuItemTap(Int)
@@ -115,13 +134,21 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
     public var selectedMenuColor : UIColor      = UIColor.psdkTabSelectedColor()
     public var unselectedMenuColor : UIColor    = UIColor.psdkTabUnselectedColor()
     public var viewBackgroundColor : UIColor    = UIColor.psdkTabViewBackgroundColor()
+<<<<<<< HEAD
     public var menuItemSelectedBorderColor : UIColor    = UIColor.psdkTabViewBackgroundColor()
     public var menuItemUnselectedBorderColor : UIColor    = UIColor.psdkTabSelectedColor()
     public var menuItemBorderWidth : CGFloat    = 1.0
+=======
+    public var menuBorderColor : UIColor    = UIColor.psdkTabViewBackgroundColor()
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
     
     public var menuItemFontSize : CGFloat = 15.0
     
     public var menuItemWidthBasedOnTitleTextWidth : Bool = true
+<<<<<<< HEAD
+=======
+    public var titleTextSizeBasedOnMenuItemWidth : Bool = false
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
     public var enableHorizontalBounce : Bool = false
     
     var currentOrientationIsPortrait : Bool = true
@@ -186,6 +213,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
                     selectedMenuColor = value
                 case let .UnselectedMenuColor(value):
                     unselectedMenuColor = value
+<<<<<<< HEAD
                 case let .MenuItemSelectedBorderColor(value):
                     menuItemSelectedBorderColor = value
                 case let .MenuItemUnselectedBorderColor(value):
@@ -194,6 +222,12 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
                     menuItemBorderWidth = value
                 case let .MenuItemFontSize(value):
                     menuItemFontSize = value
+=======
+                case let .MenuItemFontSize(value):
+                    menuItemFontSize = value
+//                case let .MenuItemWidth(value):
+//                    menuItemWidth = value
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
                 case let .EnableHorizontalBounce(value):
                     enableHorizontalBounce = value
                 case let .MenuItemWidthBasedOnTitleTextWidth(value):
@@ -336,7 +370,11 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
             
             let menuItemView : MenuItemView = MenuItemView(frame: menuItemFrame)
     
+<<<<<<< HEAD
             menuItemView.setUpMenuItemView(menuItemWidth, menuItemSpacingY: self.menuMarginY, menuScrollViewHeight: menuHeight, menuBorderColor: self.menuItemUnselectedBorderColor, menuBorderWidth: self.menuItemBorderWidth)
+=======
+            menuItemView.setUpMenuItemView(menuItemWidth, menuItemSpacingY: self.menuMarginY, menuScrollViewHeight: menuHeight)
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
             
             // Configure menu item label font if font is set by user
             menuItemView.titleLabel!.sdkFontSize = menuItemFontSize
@@ -344,7 +382,14 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
             menuItemView.titleLabel!.textAlignment = NSTextAlignment.Center
             menuItemView.titleLabel!.textColor = unselectedMenuItemLabelColor
             menuItemView.titleLabel!.backgroundColor = unselectedMenuColor
+<<<<<<< HEAD
             menuItemView.titleLabel!.layer.borderColor = menuItemUnselectedBorderColor.CGColor
+=======
+            
+            //**************************拡張*************************************
+            menuItemView.titleLabel!.adjustsFontSizeToFitWidth = titleTextSizeBasedOnMenuItemWidth
+            //**************************拡張ここまで*************************************
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
             
             // Set title depending on if controller has a title set
             if controller.title != nil {
@@ -372,7 +417,10 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
             if menuItems[currentPageIndex].titleLabel != nil {
                 menuItems[currentPageIndex].titleLabel!.textColor = selectedMenuItemLabelColor
                 menuItems[currentPageIndex].titleLabel!.backgroundColor = selectedMenuColor
+<<<<<<< HEAD
                 menuItems[currentPageIndex].titleLabel!.layer.borderColor = menuItemSelectedBorderColor.CGColor
+=======
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
             }
         }
         
@@ -395,6 +443,10 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
             for (index, menuItem) in menuItems.enumerate() {
                 let controllerTitle = controllerArray[index].title!
                 
+<<<<<<< HEAD
+=======
+                DebugLogger.debugLog("men \(self.menuItems.count)")
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
                 let itemWidthRect = controllerTitle.boundingRectWithSize(CGSizeMake(1000, 1000), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes:  [NSFontAttributeName:UIFont.systemFontOfSize(self.menuItemFontSize)], context: nil)
                 
                 menuItemWidth = itemWidthRect.width
@@ -636,12 +688,17 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
                     if self.menuItems[self.lastPageIndex].titleLabel != nil && self.menuItems[self.currentPageIndex].titleLabel != nil {
                         self.menuItems[self.lastPageIndex].titleLabel!.textColor = self.unselectedMenuItemLabelColor
                         self.menuItems[self.lastPageIndex].titleLabel!.backgroundColor = self.unselectedMenuColor
+<<<<<<< HEAD
                         self.menuItems[self.lastPageIndex].titleLabel!.layer.borderColor = self.menuItemUnselectedBorderColor.CGColor
 
                         self.menuItems[self.currentPageIndex].titleLabel!.textColor = self.selectedMenuItemLabelColor
                         self.menuItems[self.currentPageIndex].titleLabel!.backgroundColor = self.selectedMenuColor
                         self.menuItems[self.currentPageIndex].titleLabel!.layer.borderColor = self.menuItemSelectedBorderColor.CGColor
 
+=======
+                        self.menuItems[self.currentPageIndex].titleLabel!.textColor = self.selectedMenuItemLabelColor
+                        self.menuItems[self.currentPageIndex].titleLabel!.backgroundColor = self.selectedMenuColor
+>>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
                     }
                 }
             })
