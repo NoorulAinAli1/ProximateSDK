@@ -55,7 +55,7 @@ class MediaPagerFullScreenViewController: UIViewController, UICollectionViewData
         cell.collectionViewImage.frame.size = cell.frame.size
         //        DLog.println("image frame \(cell.frame.size)")
         if cell.content.type == "6601" {
-            cell.collectionViewImage.af_setImageWithURL(NSURL(string: cell.content.getMediaURL())!,placeholderImage: ProximateSDK.getLoadingPlaceholderImage())
+            cell.collectionViewImage.af_setImageWithURL(NSURL(string: cell.content.getMediaURL())!,placeholderImage: ProximateSDKSettings.getLoadingPlaceholderImage())
             cell.scrollView.minimumZoomScale = 1.0
             cell.scrollView.maximumZoomScale = 3.0
             cell.scrollView.frame.size = self.view.frame.size

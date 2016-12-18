@@ -22,19 +22,19 @@ extension String {
     
     
     var localized: String {
-        return NSLocalizedString(self, tableName: nil, bundle: ProximateSDK.getBundle(), value: "", comment: "")
+        return NSLocalizedString(self, tableName: nil, bundle: ProximateSDKSettings.getBundle(), value: "", comment: "")
     }
     
     func localizedWithComment(comment:String) -> String {
-        return NSLocalizedString(self, tableName: nil, bundle: ProximateSDK.getBundle(), value: "", comment: comment)
+        return NSLocalizedString(self, tableName: nil, bundle: ProximateSDKSettings.getBundle(), value: "", comment: comment)
     }
     
     func localizedWithValue(value:String) -> String {
-        return NSLocalizedString(self, tableName: nil, bundle: ProximateSDK.getBundle(), value: value, comment: "")
+        return NSLocalizedString(self, tableName: nil, bundle: ProximateSDKSettings.getBundle(), value: value, comment: "")
     }
     
     func localizedWithValueAndComment(value:String, andComment comment:String) -> String {
-        return NSLocalizedString(self, tableName: nil, bundle: ProximateSDK.getBundle(), value: value, comment: comment)
+        return NSLocalizedString(self, tableName: nil, bundle: ProximateSDKSettings.getBundle(), value: value, comment: comment)
     }
     
     func urlEncoding() -> String {

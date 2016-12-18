@@ -15,8 +15,8 @@ import UIKit
 
 class CampaignDetailView: UIView {
     
-    @IBOutlet var campaignDetailTitle : UILabel!
-    @IBOutlet var campaignDetailText : UILabel!
+    @IBOutlet var campaignDetailTitle : BaseLabel!
+    @IBOutlet var campaignDetailText : BaseLabel!
     
     @IBOutlet weak var campaignActionView : UIView!
     @IBOutlet weak var campaignActionHeight : NSLayoutConstraint!

@@ -11,8 +11,8 @@ import UIKit
 class CampaignTimingTableViewCell: UITableViewCell {
     @IBOutlet var timingImage : UIImageView!
     
-    @IBOutlet var timingDay : UILabel!
-    @IBOutlet var timingInfo : UILabel!
+    @IBOutlet var timingDay : BaseLabel!
+    @IBOutlet var timingInfo : BaseLabel!
     
     var timing : ObjectCampaignTiming! {
         didSet {
@@ -21,7 +21,7 @@ class CampaignTimingTableViewCell: UITableViewCell {
     }
     
     private func updateTimingImage() {
-        timingImage.image = UIImage(named: "icon_timing", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
+        timingImage.image = ProximateSDKSettings.getImageForName("icon_timing")
     }
     
     private func updateView(){

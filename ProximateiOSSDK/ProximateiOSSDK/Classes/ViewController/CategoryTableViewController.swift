@@ -16,7 +16,7 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
     private var mMerchantGroup : [ObjectMerchantGroup] = []
     private var searchString : String! = ""
     private var loadMoreAvailable: Bool = true
-    private let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDK.getBundle())
+    private let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDKSettings.getBundle())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +94,6 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
         }
         
         self.presentViewController(activityVC, animated: true, completion: nil)
-        
     }
     
     private func reloadList(){
@@ -151,7 +150,7 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
             cell.delegate = self
             return cell
         } else {
-            let cellnib  = ProximateSDK.getBundle().loadNibNamed("LoadMoreTableViewCell", owner:self, options: nil)![0] as! LoadMoreTableViewCell
+            let cellnib  = ProximateSDKSettings.getBundle().loadNibNamed("LoadMoreTableViewCell", owner:self, options: nil)![0] as! LoadMoreTableViewCell
             loadMore()
     
             return cellnib

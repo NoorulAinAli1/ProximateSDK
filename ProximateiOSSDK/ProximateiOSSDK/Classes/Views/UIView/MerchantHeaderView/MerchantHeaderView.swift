@@ -14,8 +14,8 @@ class MerchantHeaderView: UIView {
     @IBOutlet var merchantLogo : ImageSuperView!
     var delegate : MerchantInfoClickDelegate?
     
-    @IBOutlet var merchantTitle : UILabel!
-    @IBOutlet var merchantSlogan : UILabel!
+    @IBOutlet var merchantTitle : BaseLabel!
+    @IBOutlet var merchantSlogan : BaseLabel!
     
     @IBOutlet var btnLocation : ImageCenterButton!
     @IBOutlet var btnShare : ImageCenterButton!

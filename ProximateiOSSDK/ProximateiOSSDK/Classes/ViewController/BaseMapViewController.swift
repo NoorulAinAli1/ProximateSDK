@@ -64,8 +64,7 @@ class BaseMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
             v!.annotation = annotation
         }
         
-        v!.image = UIImage(named: "sdk_map_marker", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
-
+        v!.image = ProximateSDKSettings.getImageForName("sdk_map_marker")
         return v
     }
     

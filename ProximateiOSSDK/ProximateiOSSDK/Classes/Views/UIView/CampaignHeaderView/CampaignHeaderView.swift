@@ -19,8 +19,8 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
 
     @IBOutlet var merchantLogo : ImageSuperView!
     
-    @IBOutlet var merchantTitle : UILabel!
-    @IBOutlet var merchantSlogan : UILabel!
+    @IBOutlet var merchantTitle : BaseLabel!
+    @IBOutlet var merchantSlogan : BaseLabel!
     
     @IBOutlet var btnLocation : ImageCenterButton!
     @IBOutlet var btnShare : ImageCenterButton!
@@ -58,7 +58,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     
     func setCampaign(campaign : ObjectCampaign){
         mCampaign = campaign
-        self.campaignCollectionView.registerNib(UINib(nibName:"FragmentCollectionViewCell", bundle:ProximateSDK.getBundle()), forCellWithReuseIdentifier: "cell")
+        self.campaignCollectionView.registerNib(UINib(nibName:"FragmentCollectionViewCell", bundle:ProximateSDKSettings.getBundle()), forCellWithReuseIdentifier: "cell")
 
         merchantTitle.text = campaign.getMerchant().merchantName
         merchantSlogan.text = campaign.getMerchant().tagLine
@@ -109,6 +109,8 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        delegate?.didClickOnCampaign!(mCampaign)
+
 //        let cell =  collectionView.cellForItemAtIndexPath(indexPath) as! FragmentCollectionViewCell
         //        if cell.content.type == "6601" {
         //            pageControl.currentPage = indexPath.row

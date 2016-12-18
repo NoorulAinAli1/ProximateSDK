@@ -8,51 +8,6 @@
 
 import UIKit
 
-extension UILabel {
-    func setHTMLFromString(text: String, singleLine isSingleLine : Bool = true) {
-        let modifiedFont = NSString(format:"<style>b {color: #ae6b0f;}</style><span style=\"font-family: \(self.font!.fontName); font-size: \(self.font!.pointSize)\">%@</span>", text) as String
-
-//        let attrStr = try! NSAttributedString(
-//            data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
-//            options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
-//            documentAttributes: nil)
-        let attrStr = try! NSMutableAttributedString(
-            data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
-            options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
-            documentAttributes: nil)
-        if isSingleLine {
-            let style = NSMutableParagraphStyle()
-            style.lineBreakMode = .ByTruncatingTail
-            attrStr.addAttributes([ NSParagraphStyleAttributeName: style ],
-                                   range: NSMakeRange(0, attrStr.length))
-        }
-        self.attributedText = attrStr
-    }
-    
-    var sdkFontName : String {
-        get { return self.font.fontName }
-        set { self.font = UIFont(name: newValue, size: self.font.pointSize) }
-    }
-    
-//    var substituteFontName : String {
-//        get { return self.font.fontName }
-//        set {
-//            if self.font.fontName.rangeOfString("Medium") == nil {
-//                self.font = UIFont(name: newValue, size: self.font.pointSize)
-//            }
-//        }
-//    }
-//    
-//    var substituteFontNameBold : String {
-//        get { return self.font.fontName }
-//        set {
-//            if self.font.fontName.rangeOfString("Medium") != nil {
-//                self.font = UIFont(name: newValue, size: self.font.pointSize)
-//            }
-//        }
-//    }
-}
-
 extension UIView {
     
     func borderAndShadow(){

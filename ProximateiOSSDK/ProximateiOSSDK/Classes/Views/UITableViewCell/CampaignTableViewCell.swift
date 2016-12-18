@@ -21,8 +21,8 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     
     @IBOutlet var campaignCollectionView : UICollectionView!
     
-    @IBOutlet var campaignTitle : UILabel!
-    @IBOutlet var campaignExpiryDateTime : UILabel!
+    @IBOutlet var campaignTitle : BaseLabel!
+    @IBOutlet var campaignExpiryDateTime : BaseLabel!
     
     @IBOutlet var btnLocation : ImageCenterButton!
     @IBOutlet var btnShare : ImageCenterButton!
@@ -48,7 +48,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
   
     func setCampaign(campaign : ObjectCampaign){
-        self.campaignCollectionView.registerNib(UINib(nibName:"FragmentCollectionViewCell", bundle:ProximateSDK.getBundle()), forCellWithReuseIdentifier: "cell")
+        self.campaignCollectionView.registerNib(UINib(nibName:"FragmentCollectionViewCell", bundle:ProximateSDKSettings.getBundle()), forCellWithReuseIdentifier: "cell")
         
         mainCampaign  = campaign
         mainView.borderAndShadow()
@@ -89,6 +89,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        delegate?.didClickOnCampaign!(mainCampaign)
 //        let cell =  collectionView.cellForItemAtIndexPath(indexPath) as! FragmentCollectionViewCell
 //        if cell.content.type == "6601" {
 //            pageControl.currentPage = indexPath.row

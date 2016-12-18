@@ -14,7 +14,7 @@ import UIKit
 
 class CampaignStoreView: UIView, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var campaignStoreTitle : UILabel!
+    @IBOutlet var campaignStoreTitle : BaseLabel!
     @IBOutlet var campaignStoreTable : UITableView!
     private var campaignStore : [ObjectStore]!
     var storeDelegate : CampaignStoreDelegate?
@@ -59,8 +59,7 @@ class CampaignStoreView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         let store = self.campaignStore[indexPath.row]
         cell.textLabel?.text = store.getTitle()
-        cell.imageView?.image = UIImage(named: "icon_location", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
-
+        cell.imageView?.image = ProximateSDKSettings.getImageForName("icon_location")
         return cell
     }
     

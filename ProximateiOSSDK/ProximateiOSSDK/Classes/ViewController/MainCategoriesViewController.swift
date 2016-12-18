@@ -23,7 +23,7 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
-        let searchImage =  UIImage(named: "button_search", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
+        let searchImage =  ProximateSDKSettings.getImageForName("button_search")
 
         let btnSearch : UIBarButtonItem = UIBarButtonItem(image: searchImage, style: .Plain, target: self, action: #selector(MainCategoriesViewController.showSearchView(_:)))
 
@@ -72,7 +72,7 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
         DebugLogger.debugLog("showSearchView")
         
         if (navSearchView == nil) {
-            navSearchView = ProximateSDK.getBundle().loadNibNamed("SearchCategoryView", owner: self, options: nil)!.first as? SearchCategoryView
+            navSearchView = ProximateSDKSettings.getBundle().loadNibNamed("SearchCategoryView", owner: self, options: nil)!.first as! SearchCategoryView
             navSearchView!.frame = (self.navigationController?.navigationBar.bounds)!
             navSearchView!.btnClose.addTarget(self, action: #selector(MainCategoriesViewController.removeSearchView(_:)), forControlEvents: .TouchUpInside)
             navSearchView!.btnSearch.addTarget(self, action: #selector(MainCategoriesViewController.performSearch(_:)), forControlEvents: .TouchUpInside)
@@ -107,7 +107,7 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
     func initializeTabs(){
         mCategories.sortInPlace { $0.getCategoryTitle().compare($1.getCategoryTitle()) == .OrderedAscending }
         
-        let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDK.getBundle())
+        let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDKSettings.getBundle())
 
         for category in mCategories {
             let viewController = storyBoard.instantiateViewControllerWithIdentifier("CategoryTableViewController") as! CategoryTableViewController
@@ -120,15 +120,19 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
         
         // Customize menu (Optional)
         var parameters: [CAPSPageMenuOption] = [
-//            .ScrollMenuBackgroundColor(UIColor.clearColor()),
-//            .ViewBackgroundColor(UIColor.blackColor()),
-//            .SelectionIndicatorColor(UIColor.orangeColor()),
-//            .AddBottomMenuHairline(false),
-//            .MenuItemFont(UIFont(name: "HelveticaNeue", size: 20.0)!),
-//            .MenuHeight(30.0),
-//            .SelectionIndicatorHeight(0.0),
+            .SelectedMenuColor(UIColor.purpleColor()),
+            .UnselectedMenuColor(UIColor.cyanColor()),
+            .ViewBackgroundColor(UIColor.blackColor()),
+            .MenuMarginX(10),
+            .MenuMarginY(20),
+            .MenuItemFontSize(20.0),
+            .MenuHeight(100.0),
+            .MenuItemSelectedBorderColor(UIColor.whiteColor()),
+            .MenuItemUnselectedBorderColor(UIColor.purpleColor()),
+            .MenuItemBorderWidth(2.5),
 //            .MenuItemWidthBasedOnTitleTextWidth(true),
-//            .SelectedMenuItemLabelColor(UIColor.orangeColor())
+            .UnselectedMenuItemLabelColor(UIColor.blueColor()),
+            .SelectedMenuItemLabelColor(UIColor.orangeColor())
         ]
         
         // Initialize scroll menu

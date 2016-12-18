@@ -10,7 +10,7 @@ import UIKit
 
 class CampaignTimingView: UIView, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var campaignTimingTitle : UILabel!
+    @IBOutlet var campaignTimingTitle : BaseLabel!
     @IBOutlet var campaignTimingTable : UITableView!
     private var campaignTiming : [ObjectCampaignTiming]!
     private let currentDay  = DateTimeUtility.getCurrentDay()
@@ -57,7 +57,7 @@ class CampaignTimingView: UIView, UITableViewDelegate, UITableViewDataSource {
         let timing = self.campaignTiming[indexPath.row]
         cell.textLabel?.text = timing.getDay()
         cell.detailTextLabel?.text = timing.getTiming()
-        cell.imageView?.image = UIImage(named: "icon_timing", inBundle: ProximateSDK.getBundle(), compatibleWithTraitCollection: nil)!
+        cell.imageView?.image = ProximateSDKSettings.getImageForName("icon_timing")
 
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = .ByWordWrapping

@@ -10,7 +10,7 @@ import UIKit
 
 class CampaignBankView: UIView, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var campaignBankTitle : UILabel!
+    @IBOutlet var campaignBankTitle : BaseLabel!
     @IBOutlet var campaignBankTable : UITableView!
     private var campaignBank : [ObjectBank]!
     
@@ -23,7 +23,7 @@ class CampaignBankView: UIView, UITableViewDelegate, UITableViewDataSource {
         
 //        self.campaignBankTable.registerClass(BankCardTableViewCell.self, forCellReuseIdentifier:"cell")
 
-        self.campaignBankTable.registerNib(UINib(nibName:"BankCardTableViewCell", bundle:ProximateSDK.getBundle()), forCellReuseIdentifier: "cell")
+        self.campaignBankTable.registerNib(UINib(nibName:"BankCardTableViewCell", bundle:ProximateSDKSettings.getBundle()), forCellReuseIdentifier: "cell")
         
         self.campaignBank = cBank
         DebugLogger.debugLog("campaignBank \(campaignBank)")

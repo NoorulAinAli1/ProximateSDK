@@ -12,9 +12,9 @@ class BankCardTableViewCell : UITableViewCell {
     
     @IBOutlet var bankCardImage : UIImageView!
     
-    @IBOutlet var bankCardTitle : UILabel!
-    @IBOutlet var bankCardTagline : UILabel!
-    @IBOutlet var bankCardOfferText : UILabel!
+    @IBOutlet var bankCardTitle : BaseLabel!
+    @IBOutlet var bankCardTagline : BaseLabel!
+    @IBOutlet var bankCardOfferText : BaseLabel!
     
     var bankCard : ObjectBankCard! {
         didSet {

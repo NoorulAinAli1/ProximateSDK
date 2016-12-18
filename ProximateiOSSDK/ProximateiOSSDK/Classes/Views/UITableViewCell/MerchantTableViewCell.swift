@@ -21,6 +21,7 @@ import QuartzCore
     func didClickCampaignLocation(campaign : ObjectCampaign)
     optional func didClickCampaignWebsite()
     optional func didClickCampaignPhone()
+    optional func didClickOnCampaign(campaign : ObjectCampaign)
 }
 
 class MerchantTableViewCell: UITableViewCell {
@@ -34,9 +35,9 @@ class MerchantTableViewCell: UITableViewCell {
     @IBOutlet var campaignImage : UIImageView!
     @IBOutlet var merchantLogoView : ImageSuperView!
 
-    @IBOutlet var merchantTitle : UILabel!
-    @IBOutlet var campaignTitle : UILabel!
-    @IBOutlet var campaignExpiryDateTime : UILabel!
+    @IBOutlet var merchantTitle : BaseLabel!
+    @IBOutlet var campaignTitle : BaseLabel!
+    @IBOutlet var campaignExpiryDateTime : BaseLabel!
 
     @IBOutlet var btnLocation : ImageCenterButton!
     @IBOutlet var btnShare : ImageCenterButton!
@@ -76,9 +77,13 @@ class MerchantTableViewCell: UITableViewCell {
     }
     
     private func updateCampaign(){
+        merchantTitle.style(Styles.Labels.Standard(20), color: UIColor.purpleColor())
+//        campaignTitle.style(.Standard(12, UIColor.blueColor()))
+//        merchantTitle.style(.LargeText(40, UIColor.purpleColor()))
+
         campaignTitle.setHTMLFromString(mainCampaign.getCampaignTitle())
 
-        campaignImage.af_setImageWithURL(NSURL(string: mainCampaign.getMainMedia().getMediaURL())!, placeholderImage: ProximateSDK.getCampaignPlaceholderImage())
+        campaignImage.af_setImageWithURL(NSURL(string: mainCampaign.getMainMedia().getMediaURL())!, placeholderImage: ProximateSDKSettings.getCampaignPlaceholderImage())
         let expiryStyle = mainCampaign.getCampaignExpiryStyle()
         campaignExpiryDateTime.textColor = expiryStyle.campaignExpiryTextColor
         campaignExpiryImage.image = expiryStyle.campaignExpiryImage

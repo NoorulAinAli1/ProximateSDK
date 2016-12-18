@@ -14,8 +14,8 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     private var pageNumber : NSInteger = 0
     private var mCampaigns : [ObjectCampaign] = []
     private var loadMoreAvailable: Bool = true
-    private let merchantHeaderView = ProximateSDK.getBundle().loadNibNamed("MerchantHeaderView", owner: MerchantTableViewController.self, options: nil)!.first as! MerchantHeaderView
-    private let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDK.getBundle())
+    private let merchantHeaderView = ProximateSDKSettings.getBundle().loadNibNamed("MerchantHeaderView", owner: MerchantTableViewController.self, options: nil)!.first as! MerchantHeaderView
+    private let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDKSettings.getBundle())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +95,10 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
         let vC = storyBoard.instantiateViewControllerWithIdentifier("CampaignMapViewController") as! CampaignMapViewController
         vC.mCampaign = campaign
         self.navigationController?.pushViewController(vC, animated: true)
+    }
+    
+    func didClickOnCampaign(campaign: ObjectCampaign) {
+        didSelectCampaign(campaign)
     }
     
     private func showShareViewController(shareText : String){
@@ -205,17 +209,21 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
             cell.delegate = self
             return cell
         } else {
-            let cellnib  = ProximateSDK.getBundle().loadNibNamed("LoadMoreTableViewCell", owner:self, options: nil)![0] as! LoadMoreTableViewCell
+            let cellnib  = ProximateSDKSettings.getBundle().loadNibNamed("LoadMoreTableViewCell", owner:self, options: nil)![0] as! LoadMoreTableViewCell
             loadMore()
         
             return cellnib
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    private func didSelectCampaign(campaign : ObjectCampaign){
         let vC = storyBoard.instantiateViewControllerWithIdentifier("CampaignViewController") as! CampaignViewController
-        vC.mCampaign = mCampaigns[indexPath.row]
+        vC.mCampaign = campaign
         self.navigationController?.pushViewController(vC, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        didSelectCampaign(mCampaigns[indexPath.row])
     }
     
     func  loadMore() {

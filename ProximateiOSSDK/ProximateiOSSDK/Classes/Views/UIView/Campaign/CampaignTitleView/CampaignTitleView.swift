@@ -12,8 +12,8 @@ class CampaignTitleView: UIView {
     
     @IBOutlet var campaignExpiryImage : UIImageView!
     
-    @IBOutlet var campaignTitle : UILabel!
-    @IBOutlet var campaignExpiryDateTime : UILabel!
+    @IBOutlet var campaignTitle : BaseLabel!
+    @IBOutlet var campaignExpiryDateTime : BaseLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
