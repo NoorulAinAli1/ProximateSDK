@@ -79,10 +79,10 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
         
         DebugLogger.debugLog("3 yIndex \(yIndex)")
         
-        let campaignTitleView = CampaignTitleView(frame: CGRectInset(view1.bounds, outerPadding, outerPadding), withInnerPadding: innerPadding)
+        let campaignTitleView = CampaignTitleView(frame: view1.bounds, withInnerPadding: innerPadding)
         self.view1.addSubview(campaignTitleView)
         
-        campaignTitleView.setCampaign(mCampaign, forWidth: self.view.frame.width)
+        campaignTitleView.setCampaign(mCampaign)
         
         let height = campaignTitleView.getContentHeight()
         
@@ -99,10 +99,8 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     }
     
     private func setDetailView(){
-        //        var height = self.view.frame.width * 0.35
         
-        let campaignDetailView = CampaignDetailView(frame: view2.bounds)
-        campaignDetailView.setCampaignDetail(mCampaign.details, campaignActions: mCampaign.campaignActions ?? [])
+        let campaignDetailView = CampaignDetailView(frame: view2.bounds, withInnerPadding: innerPadding, withDetails: mCampaign.details, withCampaignActions: mCampaign.getActions())
         campaignDetailView.actionDelegate = self
         
         self.view2.addSubview(campaignDetailView)
@@ -126,13 +124,12 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
         
         DebugLogger.debugLog("count \(mCampaign.campaignTimings?.count)")
         
-        let campaignTimingView = CampaignTimingView(frame: view3.bounds, campaignTiming: mCampaign.getTiming() ?? [])//ProximateSDKSettings.getBundle().loadNibNamed("CampaignStoreView", owner: CampaignStoreView, options: nil)!.first as! CampaignStoreView
-//ProximateSDKSettings.getBundle().loadNibNamed("CampaignTimingView", owner: CampaignTimingView.self, options: nil)!.first as! CampaignTimingView
-//        campaignTimingView.frame = CGRectMake(0, yIndex, self.scrollView.frame.width, height)
+        let campaignTimingView = CampaignTimingView(frame: view3.bounds, campaignTiming: mCampaign.getTiming() ?? [], withInnerPadding: innerPadding)
         
         self.view3.addSubview(campaignTimingView)
         view3Height.constant = campaignTimingView.getContentHeight()
-
+        campaignTimingView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
         DebugLogger.debugLog("campaignTimingView \(campaignTimingView)")
         yIndex += view3Height.constant
         yIndex += outerPadding
@@ -147,8 +144,8 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
         
         DebugLogger.debugLog("setStoreView yIndex \(yIndex)")
         
-        let campaignStoreView = CampaignStoreView(frame: view4.bounds, campaignStore: mCampaign.getStores())//ProximateSDKSettings.getBundle().loadNibNamed("CampaignStoreView", owner: CampaignStoreView, options: nil)!.first as! CampaignStoreView
-                campaignStoreView.storeDelegate = self
+        let campaignStoreView = CampaignStoreView(frame: view4.bounds, campaignStore: mCampaign.getStores(), withInnerPadding: innerPadding)
+        campaignStoreView.storeDelegate = self
         self.view4.addSubview(campaignStoreView)
         view4Height.constant = campaignStoreView.getContentHeight()
         campaignStoreView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
@@ -166,10 +163,11 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
             view5Height.constant = 0
             return
         }
-        let campaignBankView = CampaignBankView(frame: view5.bounds, campaignBank: mCampaign.campaignCards!)
+        let campaignBankView = CampaignBankView(frame: view5.bounds, campaignBank: mCampaign.campaignCards! , withInnerPadding: innerPadding)
         self.view5.addSubview(campaignBankView)
         
         view5Height.constant = campaignBankView.getContentHeight()
+        campaignBankView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 
         DebugLogger.debugLog("campaignBankView \(campaignBankView)")
         yIndex += view5Height.constant
@@ -266,7 +264,8 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     }
     
     func didClickCampaignPhone() {
-        let callAlert : UIAlertView = UIAlertView(title: "app_name".localized, message: "App wants to call merchant".localized, delegate: self, cancelButtonTitle: "button_cancel".localized, otherButtonTitles: "button_call".localized)
+        let msgStr = String(format: "psdk_alert_app_wants_to_call".localized, "psdk_app_name".localized, mCampaign.getMerchant().getPhoneNumber())
+        let callAlert : UIAlertView = UIAlertView(title: "psdk_app_name".localized, message: msgStr, delegate: self, cancelButtonTitle: "psdk_button_cancel".localized, otherButtonTitles: "psdk_button_call".localized)
         callAlert.tag = 99
         callAlert.show()
     }

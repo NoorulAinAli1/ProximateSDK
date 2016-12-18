@@ -29,7 +29,7 @@ import Foundation
     Types adopting the `URLStringConvertible` protocol can be used to construct URL strings, which are then used to 
     construct URL requests.
 */
-public protocol URLStringConvertible {
+internal protocol URLStringConvertible {
     /**
         A URL that conforms to RFC 2396.
 
@@ -71,7 +71,7 @@ extension NSURLRequest: URLStringConvertible {
 /**
     Types adopting the `URLRequestConvertible` protocol can be used to construct URL requests.
 */
-public protocol URLRequestConvertible {
+internal protocol URLRequestConvertible {
     /// The URL request.
     var URLRequest: NSMutableURLRequest { get }
 }
@@ -82,9 +82,9 @@ extension NSURLRequest: URLRequestConvertible {
     }
 }
 
-public class Alamofire {
+internal class Alamofire {
 
-    public static let sharedInstance: Alamofire = {
+    internal static let sharedInstance: Alamofire = {
         return Alamofire()
     }()
     

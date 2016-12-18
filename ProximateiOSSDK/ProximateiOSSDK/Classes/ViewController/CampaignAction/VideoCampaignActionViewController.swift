@@ -10,11 +10,12 @@ import UIKit
 import MediaPlayer
 import AVFoundation
 
-class VideoCampaignActionViewController: UIViewController {
+class VideoCampaignActionViewController: BaseViewController {
     var mCampaignAction : ObjectCampaignAction!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.title = mCampaignAction.actionTitle
         
         setupVideoPlayer()

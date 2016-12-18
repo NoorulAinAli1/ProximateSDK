@@ -40,11 +40,11 @@ internal class ObjectMerchant: NSObject {
     }
     
     func hasWebsite() -> Bool {
-       return website?.utf16.count != 0
+       return website != nil //website?.utf16.count != 0
     }
     
     func hasPhoneNumber() -> Bool {
-        return phone?.utf16.count != 0
+        return phone != nil //phone?.utf16.count != 0
     }
     
     func getBanner() -> String {

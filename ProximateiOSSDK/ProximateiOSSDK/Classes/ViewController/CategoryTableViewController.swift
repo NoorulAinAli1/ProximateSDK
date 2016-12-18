@@ -8,7 +8,8 @@
 
 import UIKit
 
-class CategoryTableViewController: UITableViewController, SearchDelegate, CampaignInfoClickDelegate {
+class CategoryTableViewController: UITableViewController, SearchDelegate, CampaignInfoClickDelegate, UIViewControllerTransitioningDelegate {    var navigationControllerAnimationController : ReversibleAnimationController!
+    
     var mCategory : ObjectCategory!
     var parentNavigationController : UINavigationController?
 
@@ -18,15 +19,26 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
     private var loadMoreAvailable: Bool = true
     private let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDKSettings.getBundle())
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.transitioningDelegate = self;
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationControllerAnimationController = PortalAnimationController()
+        
+        self.view.backgroundColor = ProximateSDKSettings.getViewOptions().viewBackgroundColor
+        self.tableView.backgroundColor = ProximateSDKSettings.getViewOptions().viewBackgroundColor
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
         self.title = mCategory.getCategoryTitle()
 
         self.refreshControl = UIRefreshControl()
-        self.refreshControl!.tintColor = UIColor.psdkPrimaryColor()
+        self.refreshControl!.tintColor = ProximateSDKSettings.getViewOptions().primaryColor
         self.refreshControl!.addTarget(self, action: #selector(CategoryTableViewController.handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
         
         self.tableView.addSubview(self.refreshControl!)
@@ -167,17 +179,32 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
         callWebservice()
     }
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "ShowMerchant" {
+            let toVC : UIViewController = segue.destinationViewController
+            toVC.transitioningDelegate = self;
+        }
+        super.prepareForSegue(segue, sender: sender)
     }
-    */
+    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        self.wirePopInteractionControllerTo(viewController)
+    }
+    
+    func wirePopInteractionControllerTo(viewController : UIViewController) {
+        
+    }
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        if (self.navigationControllerAnimationController != nil) {
+            self.navigationControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
+        }
+        
+        return self.navigationControllerAnimationController;
+    }
 
     /*
     // MARK: - Navigation

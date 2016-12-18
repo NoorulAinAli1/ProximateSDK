@@ -31,7 +31,7 @@ import Cocoa
 // MARK: ImageCache
 
 /// The `ImageCache` protocol defines a set of APIs for adding, removing and fetching images from a cache.
-public protocol ImageCache {
+internal protocol ImageCache {
     /// Adds the image to the cache with the given identifier.
     func addImage(image: Image, withIdentifier identifier: String)
 
@@ -47,7 +47,7 @@ public protocol ImageCache {
 
 /// The `ImageRequestCache` protocol extends the `ImageCache` protocol by adding methods for adding, removing and
 /// fetching images from a cache given an `NSURLRequest` and additional identifier.
-public protocol ImageRequestCache: ImageCache {
+internal protocol ImageRequestCache: ImageCache {
     /// Adds the image to the cache using an identifier created from the request and additional identifier.
     func addImage(image: Image, forRequest request: NSURLRequest, withAdditionalIdentifier identifier: String?)
 
@@ -64,7 +64,7 @@ public protocol ImageRequestCache: ImageCache {
 /// the memory capacity is reached, the image cache is sorted by last access date, then the oldest image is continuously 
 /// purged until the preferred memory usage after purge is met. Each time an image is accessed through the cache, the 
 /// internal access date of the image is updated.
-public class AutoPurgingImageCache: ImageRequestCache {
+internal class AutoPurgingImageCache: ImageRequestCache {
     private class CachedImage {
         let image: Image
         let identifier: String
@@ -100,7 +100,7 @@ public class AutoPurgingImageCache: ImageRequestCache {
     // MARK: Properties
 
     /// The current total memory usage in bytes of all images stored within the cache.
-    public var memoryUsage: UInt64 {
+    internal var memoryUsage: UInt64 {
         var memoryUsage: UInt64 = 0
         dispatch_sync(synchronizationQueue) { memoryUsage = self.currentMemoryUsage }
 

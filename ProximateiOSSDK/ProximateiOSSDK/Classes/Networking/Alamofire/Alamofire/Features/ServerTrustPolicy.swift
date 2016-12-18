@@ -23,7 +23,7 @@
 import Foundation
 
 /// Responsible for managing the mapping of `ServerTrustPolicy` objects to a given host.
-public class ServerTrustPolicyManager {
+internal class ServerTrustPolicyManager {
     /// The dictionary of policies mapped to a particular host.
     public let policies: [String: ServerTrustPolicy]
     

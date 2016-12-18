@@ -10,14 +10,21 @@ import UIKit
 
 @objc public protocol PSDKScreenInteractionDelegate {
     func screenInteracted()
+}
 
+@objc public enum PSDKMessageType : Int {
+    case Message
+    case Error
+    case Progress
 }
 
 @objc public protocol PSDKMessageDelegate {
     func showMessage(message : String)
+    func showMessage(message : String, forMessageType messageType : PSDKMessageType)
+
 }
 
-public enum CAMPAIGN_MEDIA_TYPE : Int {
+internal enum CAMPAIGN_MEDIA_TYPE : Int {
     case Image  = 6601
     case Video  = 6602
     case PDF    = 6603
@@ -26,7 +33,7 @@ public enum CAMPAIGN_MEDIA_TYPE : Int {
     case PPT    = 6606
 }
 
-public enum CAMPAIGN_ACTION_TYPE : String {
+internal enum CAMPAIGN_ACTION_TYPE : String {
     case IMAGELIST  = "ImageList"
     case VIDEO      = "Video"
     case URL        = "URL"
@@ -40,7 +47,7 @@ public class ProximateSDK: NSObject {
     private static var screenInteractionDelegate : PSDKScreenInteractionDelegate?
     private static var messageDelegate : PSDKMessageDelegate?
     private static var mPSDKValidated : Bool! = false
-  
+      
     public static func initialize(messageDelegate msgDelegate : PSDKMessageDelegate? = nil, screenInteractionDelegate screenDelegate : PSDKScreenInteractionDelegate? = nil) {
         
         ProximateSDK.psdkBundleIdentifer         = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleIdentifierKey as String) as! String
@@ -61,13 +68,6 @@ public class ProximateSDK: NSObject {
         })
     }
     
-<<<<<<< HEAD
-=======
-    private static func initializeFonts() {
-//        UILabel.appearance().sdkFontName = "Futura"
-    }
-    
->>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
     internal static func getMessageDelegate() -> PSDKMessageDelegate? {
         return messageDelegate
     }

@@ -19,8 +19,9 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+
+        self.tableView.backgroundColor =  ProximateSDKSettings.getViewOptions().viewBackgroundColor
+        self.view.backgroundColor =  ProximateSDKSettings.getViewOptions().viewBackgroundColor
 
         self.tableView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
 
@@ -33,21 +34,22 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     }
     
     private func setTableHeaderView(){
-        self.merchantHeaderView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width*0.8)
+        self.merchantHeaderView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height*0.5)
         self.merchantHeaderView.setMerchant(mMerchant)
         self.merchantHeaderView.delegate = self
         self.tableView.tableHeaderView = self.merchantHeaderView
     }
     
     func didClickMerchantShare() {
-        let shareText = String(format: "psdk__merchant_share".localized, arguments: [self.mMerchant.merchantName, self.mMerchant.merchantName, self.mMerchant.merchantName, ])
+        let shareText = String(format: "psdk_merchant_share".localized, arguments: [self.mMerchant.merchantName, self.mMerchant.merchantName, self.mMerchant.merchantName, ])
 
         self.showShareViewController(shareText)
     }
     
     func didClickMerchantPhone() {
-        
-        let callAlert : UIAlertView = UIAlertView(title: "app_name".localized, message: "App wants to call merchant".localized, delegate: self, cancelButtonTitle: "button_cancel".localized, otherButtonTitles: "button_call".localized)
+        let msgStr = String(format: "psdk_alert_app_wants_to_call".localized, "psdk_app_name".localized,  mMerchant.getPhoneNumber())
+
+        let callAlert : UIAlertView = UIAlertView(title: "psdk_app_name".localized, message: msgStr, delegate: self, cancelButtonTitle: "psdk_button_cancel".localized, otherButtonTitles: "psdk_button_call".localized)
         callAlert.tag = 99
         callAlert.show()
     }
@@ -112,7 +114,7 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     
     private func setRefreshControl(){
         self.refreshControl = UIRefreshControl()
-        self.refreshControl!.tintColor = UIColor.psdkPrimaryColor()
+        self.refreshControl!.tintColor = ProximateSDKSettings.getViewOptions().primaryColor
         self.refreshControl!.addTarget(self, action: #selector(MerchantTableViewController.handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
         
         self.tableView.addSubview(self.refreshControl!)
@@ -233,7 +235,7 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.barTintColor = UIColor.psdkPrimaryColor()
+        self.navigationController?.navigationBar.barTintColor = ProximateSDKSettings.getViewOptions().primaryColor
     }
     
     /*

@@ -13,20 +13,27 @@ protocol SearchDelegate{
     func didCancelSearch()
 }
 
-class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
+class MainCategoriesViewController: BaseViewController, CAPSPageMenuDelegate {
+
     var pageMenu : CAPSPageMenu?
     var navSearchView : SearchCategoryView? = nil
     var mCategories : [ObjectCategory] = []
     var controllerArray : [UITableViewController] = []
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+   
+        let btnBack = UIBarButtonItem.init(barButtonSystemItem: .Add, target: self, action: #selector(MainCategoriesViewController.removeSDK(_:)))
+        self.navigationItem.leftBarButtonItem = btnBack
         
         let searchImage =  ProximateSDKSettings.getImageForName("button_search")
-
+        
         let btnSearch : UIBarButtonItem = UIBarButtonItem(image: searchImage, style: .Plain, target: self, action: #selector(MainCategoriesViewController.showSearchView(_:)))
-
+        
         self.navigationItem.rightBarButtonItem = btnSearch
         
         self.mCategories.append(ObjectCategory())
@@ -34,38 +41,13 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
             categories in
             self.mCategories.appendContentsOf(categories)
             self.initializeTabs()
-            DebugLogger.debugLog("categories \(categories)")
         })
-        
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.lightGrayColor()
-        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.purpleColor()
-//        UIPageControl.appearance().backgroundColor = UIColor.cyanColor()
       
-        UISegmentedControl.appearance().tintColor = UIColor.psdkPrimaryColor()
-//        UISegmentedControl.appearance().backgroundColor = UIColor.cyanColor()
-
-//        // Customize menu (Optional)
-//        var parameters: [CAPSPageMenuOption] = [
-//            .ScrollMenuBackgroundColor(UIColor.orangeColor()),
-//            .ViewBackgroundColor(UIColor.whiteColor()),
-//            .SelectionIndicatorColor(UIColor.whiteColor()),
-//            .UnselectedMenuItemLabelColor(UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.4)),
-//            .MenuItemFont(UIFont(name: "HelveticaNeue", size: 35.0)!),
-//            .MenuHeight(44.0),
-//            .MenuMargin(20.0),
-//            .SelectionIndicatorHeight(0.0),
-//            .BottomMenuHairlineColor(UIColor.orangeColor()),
-//            .MenuItemWidthBasedOnTitleTextWidth(true),
-//            .SelectedMenuItemLabelColor(UIColor.whiteColor())
-//        ]
-        
-        self.title = "Merchant List"
-        self.navigationController?.navigationBar.barTintColor = UIColor.psdkPrimaryColor()
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.title = "psdk_title_merchant_list".localized
+    }
+    
+    func removeSDK(sender: UIBarButtonItem){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func showSearchView(sender: UIBarButtonItem){
@@ -87,7 +69,7 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
     func performSearch(sender : UIButton){
         if(navSearchView!.searchBar.text!.isEmpty){
             // show Error
-            ProximateSDK.getMessageDelegate()?.showMessage("toast_please_enter_some_search_criteria".localized)
+            ProximateSDK.getMessageDelegate()?.showMessage("psdk_message_please_enter_some_search_criteria".localized)
         } else {
             let vC = controllerArray[(pageMenu?.currentPageIndex)!] as! CategoryTableViewController
             DebugLogger.debugLog("vC \(vC)")
@@ -117,31 +99,12 @@ class MainCategoriesViewController: UIViewController, CAPSPageMenuDelegate {
             //            controller3.view.backgroundColor = getRandomColor()
             controllerArray.append(viewController)
         }
-        
-        // Customize menu (Optional)
-        var parameters: [CAPSPageMenuOption] = [
-            .SelectedMenuColor(UIColor.purpleColor()),
-            .UnselectedMenuColor(UIColor.cyanColor()),
-            .ViewBackgroundColor(UIColor.blackColor()),
-            .MenuMarginX(10),
-            .MenuMarginY(20),
-            .MenuItemFontSize(20.0),
-            .MenuHeight(100.0),
-<<<<<<< HEAD
-            .MenuItemSelectedBorderColor(UIColor.whiteColor()),
-            .MenuItemUnselectedBorderColor(UIColor.purpleColor()),
-            .MenuItemBorderWidth(2.5),
-=======
->>>>>>> 0fdc7c6e75a293416616ee6dd86ce04d767d1548
-//            .MenuItemWidthBasedOnTitleTextWidth(true),
-            .UnselectedMenuItemLabelColor(UIColor.blueColor()),
-            .SelectedMenuItemLabelColor(UIColor.orangeColor())
-        ]
+       
         
         // Initialize scroll menu
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
+        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: ProximateSDKSettings.psdkTabOptions)
         
-       // pageMenu?.delegate = self
+        pageMenu?.delegate = self
         self.view.addSubview(pageMenu!.view)
         
         let vC = controllerArray[(pageMenu?.currentPageIndex)!] as! CategoryTableViewController

@@ -78,8 +78,8 @@ internal class ObjectCampaign: NSObject {
     
     func getCampaignExpiryStyle() -> (campaignExpiryText : String, campaignExpiryImage : UIImage , campaignExpiryTextColor : UIColor) {
         let isExpired = self.isExpired()
-        let campaignExpiryText = isExpired ? String(format: "text_expired_on".localized, arguments: [self.getExpiryDateTime()]) : String(format: "text_ends_on".localized, arguments: [self.getExpiryDateTime()])
-        let campaignExpiryTextColor = isExpired ? UIColor.lightGrayColor() : UIColor.psdkPrimaryColor()
+        let campaignExpiryText = isExpired ? String(format: "psdk_text_expired_on".localized, arguments: [self.getExpiryDateTime()]) : String(format: "psdk_text_ends_on".localized, arguments: [self.getExpiryDateTime()])
+        let campaignExpiryTextColor = isExpired ? ProximateSDKSettings.getFontStyleOptions().expiredFontColor : ProximateSDKSettings.getFontStyleOptions().expiryTextFontColor
         
         let imageName = isExpired ? "time_icon_gray" : "time_icon_gray"//"time_icon_orange"
         let campaignExpiryImage = ProximateSDKSettings.getImageForName(imageName)
@@ -112,13 +112,24 @@ internal class ObjectCampaign: NSObject {
         var stores : [ObjectStore] = []
 
         if self.beacons == nil { return stores }
+        var storesSet : [Int : ObjectStore] = [:]
+
         for beacon in self.beacons! {
-            DebugLogger.debugLog("beacon \(beacon.storeDTO)")
-            stores.append(beacon.storeDTO)
+            storesSet[beacon.storeDTO.storeId.integerValue] = beacon.storeDTO
         }
-        stores = Array(Set(stores))
+        stores = Array(storesSet.values)
 
         return stores
+    }
+    
+    func getActions() -> [ObjectCampaignAction] {
+        var actions : [ObjectCampaignAction] = []
+    
+        for cAction in self.campaignActions! {
+            cAction.actionClass != "REDEEM" ? actions.append(cAction) : DebugLogger.debugLog("not appended")
+        }
+       
+        return actions
     }
     
     func getTiming() -> [ObjectCampaignTiming]{

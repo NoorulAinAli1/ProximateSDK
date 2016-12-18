@@ -55,11 +55,11 @@ class MapCampaignActionViewController: BaseMapViewController {
 //            case .NotDetermined, .Restricted, .Denied:
             default:
                 DebugLogger.debugLog("No access")
-                ProximateSDK.getMessageDelegate()?.showMessage("Please enable location services")
+                ProximateSDK.getMessageDelegate()?.showMessage("psdk_message_enable_location_services".localized, forMessageType: .Error)
             }
             
         } else {
-            ProximateSDK.getMessageDelegate()?.showMessage("Please enable location services")
+            ProximateSDK.getMessageDelegate()?.showMessage("psdk_message_enable_location_services".localized, forMessageType: .Error)
         }
     }
     

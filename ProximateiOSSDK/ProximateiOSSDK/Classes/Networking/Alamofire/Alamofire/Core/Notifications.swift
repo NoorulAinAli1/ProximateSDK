@@ -23,9 +23,9 @@
 import Foundation
 
 /// Contains all the `NSNotification` names posted by Alamofire with descriptions of each notification's payload.
-public struct Notifications {
+internal struct Notifications {
     /// Used as a namespace for all `NSURLSessionTask` related notifications.
-    public struct Task {
+    internal struct Task {
         /// Notification posted when an `NSURLSessionTask` is resumed. The notification `object` contains the resumed
         /// `NSURLSessionTask`.
         public static let DidResume = "com.alamofire.notifications.task.didResume"

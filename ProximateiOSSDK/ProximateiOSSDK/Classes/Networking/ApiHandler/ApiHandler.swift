@@ -18,12 +18,13 @@ class ApiHandler: NSObject {
         do {
             let JSON = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
             msg =  JSON["message"] as! String
+            ProximateSDK.getMessageDelegate()?.showMessage(msg)
             
         } catch _ as NSError {
-            msg = "error_something_went_wrong".localized
+            msg = "psdk_error_something_went_wrong".localized
+            ProximateSDK.getMessageDelegate()?.showMessage(msg, forMessageType: .Error)
         }
         
-        ProximateSDK.getMessageDelegate()?.showMessage(msg)
     }
     
     func verifyMerchant(apiKey : String, completion:(result : Bool) -> Void){
@@ -80,7 +81,7 @@ class ApiHandler: NSObject {
         var allCampaigns : [ObjectCampaign] = []
         Alamofire.sharedInstance.startRequest(method: .POST, URLString: ApiWebURLs.getSearchCampaignUrl("\(merchantId)_\(pageNumber)"), parameters:ApiParameters.getParticularMerchantParams(merchantId, forPageNumber: pageNumber), encoding: .JSON, success: {JSON in
             
-            DebugLogger.debugLog("JSON: \(JSON)")
+//            DebugLogger.debugLog("JSON: \(JSON)")
             
             if JSON![JSON_Keys.BODY] != nil {
                 let jsonDict = JSON![JSON_Keys.BODY] as! [NSDictionary]
@@ -110,7 +111,7 @@ class ApiHandler: NSObject {
         var allCampaigns : [ObjectMerchantGroup] = []
         Alamofire.sharedInstance.startRequest(method: .POST, URLString: ApiWebURLs.getGroupedCampaignsUrl("\(categoryId)_\(search)_\(pageNumber)"), parameters:ApiParameters.getParticularCategoryParams(search, forCategoryId: categoryId, forPageNumber: pageNumber), encoding: .JSON, success: {JSON in
             
-            DebugLogger.debugLog("JSON: \(JSON)")
+//            DebugLogger.debugLog("JSON: \(JSON)")
             
             if JSON![JSON_Keys.BODY] != nil {
                 let jsonDict = JSON![JSON_Keys.BODY] as! [NSDictionary]
@@ -133,13 +134,13 @@ class ApiHandler: NSObject {
         var allCampaigns : [ObjectMerchantGroup] = []
         Alamofire.sharedInstance.startRequest(method: .POST, URLString: ApiWebURLs.getGroupedCampaignsUrl("All_\(search)_\(pageNumber)"), parameters:ApiParameters.getAllSearchParams(search, forPageNumber: pageNumber), encoding: .JSON, success: {JSON in
             
-            DebugLogger.debugLog("JSON: \(JSON)")
+//            DebugLogger.debugLog("JSON: \(JSON)")
             
             if JSON![JSON_Keys.BODY] != nil {
                 let jsonDict = JSON![JSON_Keys.BODY] as! [NSDictionary]
                 
                 if (search.utf8.count > 0 && jsonDict.count == 0){
-                    let toastMessage = String(format: "toast_no_campaign_found_in_search".localized, arguments: [search])
+                    let toastMessage = String(format: "psdk_message_no_campaign_found_in_search".localized, arguments: [search])
                     ProximateSDK.getMessageDelegate()?.showMessage(toastMessage)
                 }
                 guard let object = ObjectMapper.sharedInstance().objectFromSource(jsonDict, toInstanceOfClass: ObjectMerchantGroup.self) as? [ObjectMerchantGroup] else {
@@ -176,7 +177,7 @@ class ApiHandler: NSObject {
 
         Alamofire.sharedInstance.startRequest(method: .POST, URLString: ApiWebURLs.fetchMerchantStores("\(merchantId)"), parameters:ApiParameters.getMerchantParams(merchantId), encoding: .JSON, success: {JSON in
             
-            DebugLogger.debugLog("JSON: \(JSON)")
+//            DebugLogger.debugLog("JSON: \(JSON)")
             
             if JSON![JSON_Keys.STORES] != nil {
                 let jsonDict = JSON![JSON_Keys.STORES] as! [NSDictionary]

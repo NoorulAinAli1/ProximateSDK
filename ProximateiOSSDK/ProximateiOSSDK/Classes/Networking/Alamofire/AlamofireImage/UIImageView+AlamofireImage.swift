@@ -54,7 +54,7 @@ extension UIImageView {
         )
 
         /// The duration of the image transition in seconds.
-        public var duration: NSTimeInterval {
+        internal var duration: NSTimeInterval {
             switch self {
             case None:
                 return 0.0
@@ -78,7 +78,7 @@ extension UIImageView {
         }
 
         /// The animation options of the image transition.
-        public var animationOptions: UIViewAnimationOptions {
+        internal var animationOptions: UIViewAnimationOptions {
             switch self {
             case None:
                 return .TransitionNone
@@ -102,7 +102,7 @@ extension UIImageView {
         }
 
         /// The animation options of the image transition.
-        public var animations: ((UIImageView, UIImage) -> Void) {
+        internal var animations: ((UIImageView, UIImage) -> Void) {
             switch self {
             case Custom(_, _, let animations, _):
                 return animations
@@ -112,7 +112,7 @@ extension UIImageView {
         }
 
         /// The completion closure associated with the image transition.
-        public var completion: (Bool -> Void)? {
+        internal var completion: (Bool -> Void)? {
             switch self {
             case Custom(_, _, _, let completion):
                 return completion
@@ -135,7 +135,7 @@ extension UIImageView {
     /// The instance image downloader used to download all images. If this property is `nil`, the `UIImageView` will
     /// fallback on the `af_sharedImageDownloader` for all downloads. The most common use case for needing to use a
     /// custom instance image downloader is when images are behind different basic auth credentials.
-    public var af_imageDownloader: ImageDownloader? {
+    internal var af_imageDownloader: ImageDownloader? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.ImageDownloaderKey) as? ImageDownloader
         }
@@ -148,7 +148,7 @@ extension UIImageView {
     /// instance backed with an `AutoPurgingImageCache` which automatically evicts images from the cache when the memory
     /// capacity is reached or memory warning notifications occur. The shared image downloader is only used if the
     /// `af_imageDownloader` is `nil`.
-    public class var af_sharedImageDownloader: ImageDownloader {
+    internal class var af_sharedImageDownloader: ImageDownloader {
         get {
             if let downloader = objc_getAssociatedObject(self, &AssociatedKeys.SharedImageDownloaderKey) as? ImageDownloader {
                 return downloader
@@ -205,7 +205,7 @@ extension UIImageView {
                                                 image or the error that occurred. If the image was returned from the
                                                 image cache, the response will be `nil`. Defaults to `nil`.
     */
-    public func af_setImageWithURL(
+    internal func af_setImageWithURL(
         URL: NSURL,
         placeholderImage: UIImage? = nil,
         filter: ImageFilter? = nil,
@@ -260,7 +260,7 @@ extension UIImageView {
                                                 image or the error that occurred. If the image was returned from the
                                                 image cache, the response will be `nil`. Defaults to `nil`.
     */
-    public func af_setImageWithURLRequest(
+    internal func af_setImageWithURLRequest(
         URLRequest: URLRequestConvertible,
         placeholderImage: UIImage? = nil,
         filter: ImageFilter? = nil,
@@ -343,7 +343,7 @@ extension UIImageView {
     /**
         Cancels the active download request, if one exists.
     */
-    public func af_cancelImageRequest() {
+    internal func af_cancelImageRequest() {
         guard let activeRequestReceipt = af_activeRequestReceipt else { return }
 
         let imageDownloader = af_imageDownloader ?? UIImageView.af_sharedImageDownloader

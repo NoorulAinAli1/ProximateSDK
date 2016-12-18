@@ -31,7 +31,7 @@ import Cocoa
 // MARK: ImageFilter
 
 /// The `ImageFilter` protocol defines properties for filtering an image as well as identification of the filter.
-public protocol ImageFilter {
+internal protocol ImageFilter {
     /// A closure used to create an alternative representation of the given image.
     var filter: Image -> Image { get }
 
@@ -41,20 +41,20 @@ public protocol ImageFilter {
 
 extension ImageFilter {
     /// The unique identifier for any `ImageFilter` type.
-    public var identifier: String { return "\(self.dynamicType)" }
+    internal var identifier: String { return "\(self.dynamicType)" }
 }
 
 // MARK: - Sizable
 
 /// The `Sizable` protocol defines a size property intended for use with `ImageFilter` types.
-public protocol Sizable {
+internal protocol Sizable {
     /// The size of the type.
     var size: CGSize { get }
 }
 
 extension ImageFilter where Self: Sizable {
     /// The unique idenitifier for an `ImageFilter` conforming to the `Sizable` protocol.
-    public var identifier: String {
+    internal var identifier: String {
         let width = Int64(round(size.width))
         let height = Int64(round(size.height))
 
@@ -65,14 +65,14 @@ extension ImageFilter where Self: Sizable {
 // MARK: - Roundable
 
 /// The `Roundable` protocol defines a radius property intended for use with `ImageFilter` types.
-public protocol Roundable {
+internal protocol Roundable {
     /// The radius of the type.
     var radius: CGFloat { get }
 }
 
 extension ImageFilter where Self: Roundable {
     /// The unique idenitifier for an `ImageFilter` conforming to the `Roundable` protocol.
-    public var identifier: String {
+    internal var identifier: String {
         let radius = Int64(round(self.radius))
         return "\(self.dynamicType)-radius:(\(radius))"
     }
@@ -81,7 +81,7 @@ extension ImageFilter where Self: Roundable {
 // MARK: - DynamicImageFilter
 
 /// The `DynamicImageFilter` class simplifies custom image filter creation by using a trailing closure initializer.
-public struct DynamicImageFilter: ImageFilter {
+internal struct DynamicImageFilter: ImageFilter {
     /// The string used to uniquely identify the image filter operation.
     public let identifier: String
 
@@ -105,12 +105,12 @@ public struct DynamicImageFilter: ImageFilter {
 // MARK: - CompositeImageFilter
 
 /// The `CompositeImageFilter` protocol defines an additional `filters` property to support multiple composite filters.
-public protocol CompositeImageFilter: ImageFilter {
+internal protocol CompositeImageFilter: ImageFilter {
     /// The image filters to apply to the image in sequential order.
     var filters: [ImageFilter] { get }
 }
 
-public extension CompositeImageFilter {
+internal extension CompositeImageFilter {
     /// The unique idenitifier for any `CompositeImageFilter` type.
     var identifier: String {
         return filters.map { $0.identifier }.joinWithSeparator("_")
@@ -127,7 +127,7 @@ public extension CompositeImageFilter {
 // MARK: - DynamicCompositeImageFilter
 
 /// The `DynamicCompositeImageFilter` class is a composite image filter based on a specified array of filters.
-public struct DynamicCompositeImageFilter: CompositeImageFilter {
+internal struct DynamicCompositeImageFilter: CompositeImageFilter {
     /// The image filters to apply to the image in sequential order.
     public let filters: [ImageFilter]
 
@@ -159,7 +159,7 @@ public struct DynamicCompositeImageFilter: CompositeImageFilter {
 // MARK: - Single Pass Image Filters (iOS, tvOS and watchOS only) -
 
 /// Scales an image to a specified size.
-public struct ScaledToSizeFilter: ImageFilter, Sizable {
+internal struct ScaledToSizeFilter: ImageFilter, Sizable {
     /// The size of the filter.
     public let size: CGSize
 
@@ -175,7 +175,7 @@ public struct ScaledToSizeFilter: ImageFilter, Sizable {
     }
 
     /// The filter closure used to create the modified representation of the given image.
-    public var filter: Image -> Image {
+    internal var filter: Image -> Image {
         return { image in
             return image.af_imageScaledToSize(self.size)
         }
@@ -185,7 +185,7 @@ public struct ScaledToSizeFilter: ImageFilter, Sizable {
 // MARK: -
 
 /// Scales an image from the center while maintaining the aspect ratio to fit within a specified size.
-public struct AspectScaledToFitSizeFilter: ImageFilter, Sizable {
+internal struct AspectScaledToFitSizeFilter: ImageFilter, Sizable {
     /// The size of the filter.
     public let size: CGSize
 
@@ -201,7 +201,7 @@ public struct AspectScaledToFitSizeFilter: ImageFilter, Sizable {
     }
 
     /// The filter closure used to create the modified representation of the given image.
-    public var filter: Image -> Image {
+    internal var filter: Image -> Image {
         return { image in
             return image.af_imageAspectScaledToFitSize(self.size)
         }
@@ -212,7 +212,7 @@ public struct AspectScaledToFitSizeFilter: ImageFilter, Sizable {
 
 /// Scales an image from the center while maintaining the aspect ratio to fill a specified size. Any pixels that fall
 /// outside the specified size are clipped.
-public struct AspectScaledToFillSizeFilter: ImageFilter, Sizable {
+internal struct AspectScaledToFillSizeFilter: ImageFilter, Sizable {
     /// The size of the filter.
     public let size: CGSize
 
@@ -228,7 +228,7 @@ public struct AspectScaledToFillSizeFilter: ImageFilter, Sizable {
     }
 
     /// The filter closure used to create the modified representation of the given image.
-    public var filter: Image -> Image {
+    internal var filter: Image -> Image {
         return { image in
             return image.af_imageAspectScaledToFillSize(self.size)
         }
@@ -238,7 +238,7 @@ public struct AspectScaledToFillSizeFilter: ImageFilter, Sizable {
 // MARK: -
 
 /// Rounds the corners of an image to the specified radius.
-public struct RoundedCornersFilter: ImageFilter, Roundable {
+internal struct RoundedCornersFilter: ImageFilter, Roundable {
     /// The radius of the filter.
     public let radius: CGFloat
 
@@ -263,7 +263,7 @@ public struct RoundedCornersFilter: ImageFilter, Roundable {
     }
 
     /// The filter closure used to create the modified representation of the given image.
-    public var filter: Image -> Image {
+    internal var filter: Image -> Image {
         return { image in
             return image.af_imageWithRoundedCornerRadius(
                 self.radius,
@@ -273,7 +273,7 @@ public struct RoundedCornersFilter: ImageFilter, Roundable {
     }
 
     /// The unique idenitifier for an `ImageFilter` conforming to the `Roundable` protocol.
-    public var identifier: String {
+    internal var identifier: String {
         let radius = Int64(round(self.radius))
         return "\(self.dynamicType)-radius:(\(radius))-divided:(\(divideRadiusByImageScale))"
     }
@@ -282,7 +282,7 @@ public struct RoundedCornersFilter: ImageFilter, Roundable {
 // MARK: -
 
 /// Rounds the corners of an image into a circle.
-public struct CircleFilter: ImageFilter {
+internal struct CircleFilter: ImageFilter {
     /**
         Initializes the `CircleFilter` instance.
 
@@ -291,7 +291,7 @@ public struct CircleFilter: ImageFilter {
     public init() {}
 
     /// The filter closure used to create the modified representation of the given image.
-    public var filter: Image -> Image {
+    internal var filter: Image -> Image {
         return { image in
             return image.af_imageRoundedIntoCircle()
         }
@@ -303,7 +303,7 @@ public struct CircleFilter: ImageFilter {
 #if os(iOS) || os(tvOS)
 
 /// Blurs an image using a `CIGaussianBlur` filter with the specified blur radius.
-public struct BlurFilter: ImageFilter {
+internal struct BlurFilter: ImageFilter {
     /// The blur radius of the filter.
     let blurRadius: UInt
 
@@ -319,7 +319,7 @@ public struct BlurFilter: ImageFilter {
     }
 
     /// The filter closure used to create the modified representation of the given image.
-    public var filter: Image -> Image {
+    internal var filter: Image -> Image {
         return { image in
             let parameters = ["inputRadius": self.blurRadius]
             return image.af_imageWithAppliedCoreImageFilter("CIGaussianBlur", filterParameters: parameters) ?? image
@@ -332,7 +332,7 @@ public struct BlurFilter: ImageFilter {
 // MARK: - Composite Image Filters (iOS, tvOS and watchOS only) -
 
 /// Scales an image to a specified size, then rounds the corners to the specified radius.
-public struct ScaledToSizeWithRoundedCornersFilter: CompositeImageFilter {
+internal struct ScaledToSizeWithRoundedCornersFilter: CompositeImageFilter {
     /**
         Initializes the `ScaledToSizeWithRoundedCornersFilter` instance with the given size and radius.
 
@@ -361,7 +361,7 @@ public struct ScaledToSizeWithRoundedCornersFilter: CompositeImageFilter {
 
 /// Scales an image from the center while maintaining the aspect ratio to fit within a specified size, then rounds the 
 /// corners to the specified radius.
-public struct AspectScaledToFillSizeWithRoundedCornersFilter: CompositeImageFilter {
+internal struct AspectScaledToFillSizeWithRoundedCornersFilter: CompositeImageFilter {
     /**
         Initializes the `AspectScaledToFillSizeWithRoundedCornersFilter` instance with the given size and radius.
 
@@ -389,7 +389,7 @@ public struct AspectScaledToFillSizeWithRoundedCornersFilter: CompositeImageFilt
 // MARK: -
 
 /// Scales an image to a specified size, then rounds the corners into a circle.
-public struct ScaledToSizeCircleFilter: CompositeImageFilter {
+internal struct ScaledToSizeCircleFilter: CompositeImageFilter {
     /**
         Initializes the `ScaledToSizeCircleFilter` instance with the given size.
 
@@ -409,7 +409,7 @@ public struct ScaledToSizeCircleFilter: CompositeImageFilter {
 
 /// Scales an image from the center while maintaining the aspect ratio to fit within a specified size, then rounds the
 /// corners into a circle.
-public struct AspectScaledToFillSizeCircleFilter: CompositeImageFilter {
+internal struct AspectScaledToFillSizeCircleFilter: CompositeImageFilter {
     /**
         Initializes the `AspectScaledToFillSizeCircleFilter` instance with the given size.
 

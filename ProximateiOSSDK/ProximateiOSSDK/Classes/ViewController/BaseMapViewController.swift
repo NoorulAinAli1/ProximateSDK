@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class BaseMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class BaseMapViewController: BaseViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     internal var locationStatus : String = ""
     internal var locationManager : CLLocationManager!
@@ -21,8 +21,8 @@ class BaseMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = UIColor.psdkPrimaryColor()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.barTintColor = ProximateSDKSettings.getViewOptions().primaryColor
+        
 
         initLocationManager()
     }

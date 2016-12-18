@@ -51,7 +51,7 @@ extension Request {
 
         - parameter contentTypes: The additional content types.
     */
-    public class func addAcceptableImageContentTypes(contentTypes: Set<String>) {
+    internal  class func addAcceptableImageContentTypes(contentTypes: Set<String>) {
         Request.acceptableImageContentTypes.unionInPlace(contentTypes)
     }
 
@@ -75,7 +75,7 @@ extension Request {
 
         - returns: An image response serializer.
     */
-    public class func imageResponseSerializer(
+    internal  class func imageResponseSerializer(
         imageScale imageScale: CGFloat = Request.imageScale,
         inflateResponseImage: Bool = true)
         -> ResponseSerializer<UIImage, NSError>
@@ -163,7 +163,7 @@ extension Request {
 
         - returns: An image response serializer.
     */
-    public class func imageResponseSerializer() -> ResponseSerializer<NSImage, NSError> {
+    internal  class func imageResponseSerializer() -> ResponseSerializer<NSImage, NSError> {
         return ResponseSerializer { request, response, data, error in
             guard error == nil else { return .Failure(error!) }
 

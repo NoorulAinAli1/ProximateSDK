@@ -12,9 +12,26 @@ class BankCardTableViewCell : UITableViewCell {
     
     @IBOutlet var bankCardImage : UIImageView!
     
-    @IBOutlet var bankCardTitle : BaseLabel!
-    @IBOutlet var bankCardTagline : BaseLabel!
-    @IBOutlet var bankCardOfferText : BaseLabel!
+    @IBOutlet var bankCardTitle : BaseLabel! {
+        didSet {
+            bankCardTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTextSize)
+        }
+    }
+    
+    @IBOutlet var bankCardTagline : BaseLabel! {
+        didSet {
+            bankCardTagline.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTextColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTextSize)
+        }
+        
+    }
+
+    @IBOutlet var bankCardOfferText : BaseLabel!  {
+        didSet {
+            bankCardOfferText.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignBoldFontColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTextSize)
+        }
+        
+    }
+
     
     var bankCard : ObjectBankCard! {
         didSet {
@@ -34,7 +51,6 @@ class BankCardTableViewCell : UITableViewCell {
     }
     
     private func updateView(){
-        
         bankCardTitle.text = bankCard.cardTitle
         bankCardTagline.text = bankCard.tagLine ?? ""
         bankCardOfferText.text = bankCard.offerText ?? ""

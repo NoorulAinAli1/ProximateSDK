@@ -14,16 +14,27 @@ class MerchantHeaderView: UIView {
     @IBOutlet var merchantLogo : ImageSuperView!
     var delegate : MerchantInfoClickDelegate?
     
-    @IBOutlet var merchantTitle : BaseLabel!
-    @IBOutlet var merchantSlogan : BaseLabel!
-    
-    @IBOutlet var btnLocation : ImageCenterButton!
-    @IBOutlet var btnShare : ImageCenterButton!
-    @IBOutlet var btnWebsite : ImageCenterButton!
-    @IBOutlet var btnPhone : ImageCenterButton!
-//    private let colorCube = CCColorCube()
+    @IBOutlet var merchantTitle : BaseLabel! {
+        didSet {
+            merchantTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().merchantTitleFontColor, size: ProximateSDKSettings.getFontStyleOptions().merchantTitleFontSize)
 
-    private var merchantBannerColor : UIColor! = UIColor.psdkPrimaryColor()
+        }
+    }
+    @IBOutlet var merchantSlogan : BaseLabel!{
+        didSet {
+            merchantSlogan.setStyle(ProximateSDKSettings.getFontStyleOptions().merchantTaglineFontColor, size: ProximateSDKSettings.getFontStyleOptions().merchantTaglineFontSize)
+        }
+    }
+
+    @IBOutlet var btnWebsiteWidth : NSLayoutConstraint!
+
+    @IBOutlet var btnLocation : BaseImageButton!
+    @IBOutlet var btnShare : BaseImageButton!
+    @IBOutlet var btnWebsite : BaseImageButton!
+    @IBOutlet var btnPhone : BaseImageButton!
+    private let colorCube = CCColorCube()
+
+    private var merchantBannerColor : UIColor! = ProximateSDKSettings.getViewOptions().primaryColor
     
     private var mMerchant : ObjectMerchant!
     
@@ -38,9 +49,9 @@ class MerchantHeaderView: UIView {
             if response.result.error == nil {
                 let bannerImage = response.result.value
 
-//                let colors = self.colorCube.extractColorsFromImage(bannerImage!, flags: CCAvoidWhite.rawValue) as! [UIColor]
-//
-//                self.merchantBannerColor = colors[0]
+                let colors = self.colorCube.extractColorsFromImage(bannerImage!, flags: CCAvoidWhite.rawValue) as! [UIColor]
+
+                self.merchantBannerColor = colors[0]
                 self.merchantBanner.image = bannerImage
             }
         })
@@ -50,8 +61,10 @@ class MerchantHeaderView: UIView {
             self.merchantLogo.image = response.result.value
         })
         
-        btnPhone.hidden = merchant.hasPhoneNumber()
-        btnWebsite.hidden = merchant.hasWebsite()
+        btnPhone.hidden = !merchant.hasPhoneNumber()
+        btnWebsite.hidden = !merchant.hasWebsite()
+        btnWebsiteWidth.constant = merchant.hasWebsite() ? self.btnWebsite.frame.width : 0
+
     }
     
     @IBAction func merchantLocationClicked() {

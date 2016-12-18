@@ -16,6 +16,9 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30l-oc-Z2N" customClass="BaseLabel" customModule="ProximateiOSSDK">
                     <rect key="frame" x="10" y="545" width="580" height="21"/>
@@ -47,7 +50,8 @@
             <connections>
                 <outlet property="campaignActionHeight" destination="VU7-d9-Cg9" id="Akt-VY-RTD"/>
                 <outlet property="campaignActionView" destination="YMJ-jN-ToS" id="Hmk-9b-6vM"/>
-                <outlet property="campaignDetailText" destination="30l-oc-Z2N" id="4ql-IB-Nbd"/>
+                <outlet property="campaignDetailText" destination="30l-oc-Z2N" id="1bN-d6-5gT"/>
+                <outlet property="campaignDetailTitle" destination="JPQ-Dn-4Ti" id="KS6-9r-WHm"/>
             </connections>
         </view>
     </objects>

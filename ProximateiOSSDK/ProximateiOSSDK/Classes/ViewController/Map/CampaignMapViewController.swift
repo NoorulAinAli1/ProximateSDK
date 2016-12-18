@@ -17,14 +17,12 @@ class CampaignMapViewController: BaseMapViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-
         DebugLogger.debugLog("mCampaign.beacons \(mCampaign.beacons)")
 
         stores = self.mCampaign.getStores()
 
         self.loadMap()
-        self.title = self.mCampaign.merchant!.merchantName
+        self.title = self.mCampaign.title
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,11 +79,12 @@ class CampaignMapViewController: BaseMapViewController {
 //            case .NotDetermined, .Restricted, .Denied:
             default:
                 DebugLogger.debugLog("No access")
-                ProximateSDK.getMessageDelegate()?.showMessage("Please enable location services")
+                ProximateSDK.getMessageDelegate()?.showMessage("psdk_message_enable_location_services".localized, forMessageType: .Error)
+
             }
             
         } else {
-            ProximateSDK.getMessageDelegate()?.showMessage("Please enable location services")
+            ProximateSDK.getMessageDelegate()?.showMessage("psdk_message_enable_location_services".localized, forMessageType: .Error)
         }
     }
 

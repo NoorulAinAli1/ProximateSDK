@@ -106,10 +106,10 @@ extension UIImage {
     
 }
 
-public struct GrayImageFilter: ImageFilter {
+internal struct GrayImageFilter: ImageFilter {
     
     /// The filter closure used to create the modified representation of the given image.
-    public var filter: Image -> Image {
+    internal var filter: Image -> Image {
         return { image in
             return image.grayImage()
         }

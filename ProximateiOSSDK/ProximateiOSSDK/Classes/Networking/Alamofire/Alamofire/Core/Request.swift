@@ -25,7 +25,7 @@ import Foundation
     Responsible for sending a request and receiving the response and associated data from the server, as well as 
     managing its underlying `NSURLSessionTask`.
 */
-public class Request {
+internal class Request {
 
     // MARK: - Properties
 
@@ -33,19 +33,19 @@ public class Request {
     public let delegate: TaskDelegate
 
     /// The underlying task.
-    public var task: NSURLSessionTask { return delegate.task }
+    internal var task: NSURLSessionTask { return delegate.task }
 
     /// The session belonging to the underlying task.
     public let session: NSURLSession
 
     /// The request sent or to be sent to the server.
-    public var request: NSURLRequest? { return task.originalRequest }
+    internal var request: NSURLRequest? { return task.originalRequest }
 
     /// The response received from the server, if any.
-    public var response: NSHTTPURLResponse? { return task.response as? NSHTTPURLResponse }
+    internal var response: NSHTTPURLResponse? { return task.response as? NSHTTPURLResponse }
 
     /// The progress of the request lifecycle.
-    public var progress: NSProgress { return delegate.progress }
+    internal var progress: NSProgress { return delegate.progress }
 
     var startTime: CFAbsoluteTime?
     var endTime: CFAbsoluteTime?
@@ -194,7 +194,7 @@ public class Request {
         The task delegate is responsible for handling all delegate callbacks for the underlying task as well as 
         executing all operations attached to the serial operation queue upon task completion.
     */
-    public class TaskDelegate: NSObject {
+    internal class TaskDelegate: NSObject {
 
         /// The serial operation queue used to execute all operations after the task completes.
         public let queue: NSOperationQueue
@@ -442,7 +442,7 @@ extension Request: CustomStringConvertible {
         The textual representation used when written to an output stream, which includes the HTTP method and URL, as 
         well as the response status code if a response has been received.
     */
-    public var description: String {
+    internal var description: String {
         var components: [String] = []
 
         if let HTTPMethod = request?.HTTPMethod {
@@ -545,7 +545,7 @@ extension Request: CustomDebugStringConvertible {
     }
 
     /// The textual representation used when written to an output stream, in the form of a cURL command.
-    public var debugDescription: String {
+    internal var debugDescription: String {
         return cURLRepresentation()
     }
 }

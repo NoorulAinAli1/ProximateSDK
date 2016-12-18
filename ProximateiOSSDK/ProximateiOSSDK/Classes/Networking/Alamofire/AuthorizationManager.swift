@@ -8,24 +8,24 @@
 
 import Foundation
 
-public class AuthorizationManager: Manager {
+internal class AuthorizationManager: Manager {
     private let OAUTH_EXPIRY_CODE  : NSNumber! = 401
-    public typealias NetworkSuccessHandler = (NSDictionary?) -> Void
-    public typealias NetworkFailureHandler = (NSHTTPURLResponse?, AnyObject?, NSError) -> Void
+    internal typealias NetworkSuccessHandler = (NSDictionary?) -> Void
+    internal typealias NetworkFailureHandler = (NSHTTPURLResponse?, AnyObject?, NSError) -> Void
     
     private typealias CachedTask = (NSHTTPURLResponse?, AnyObject?, NSError?) -> Void
     
     private var cachedTasks = Array<CachedTask>()
     private var isRefreshing = false
     
-    public static let sharedManager: AuthorizationManager = {
+    internal static let sharedManager: AuthorizationManager = {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.HTTPAdditionalHeaders = Manager.defaultHTTPHeaders
         
         return AuthorizationManager(configuration: configuration)
     }()
     
-    public func startRequest(
+    internal func startRequest(
         method method: Method,
                URLString: URLStringConvertible,
                parameters: [String: AnyObject]?,

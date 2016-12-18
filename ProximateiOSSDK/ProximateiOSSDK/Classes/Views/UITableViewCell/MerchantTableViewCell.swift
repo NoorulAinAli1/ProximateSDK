@@ -25,7 +25,12 @@ import QuartzCore
 }
 
 class MerchantTableViewCell: UITableViewCell {
-    @IBOutlet var mainView : UIView!
+    @IBOutlet var mainView : CardView! {
+        didSet {
+            self.backgroundColor = UIColor.clearColor()
+            self.contentView.backgroundColor = UIColor.clearColor()
+        }
+    }
 
     @IBOutlet var promotionImage : UIImageView!
     @IBOutlet var campaignNewImage : UIImageView!
@@ -35,13 +40,23 @@ class MerchantTableViewCell: UITableViewCell {
     @IBOutlet var campaignImage : UIImageView!
     @IBOutlet var merchantLogoView : ImageSuperView!
 
-    @IBOutlet var merchantTitle : BaseLabel!
-    @IBOutlet var campaignTitle : BaseLabel!
+    @IBOutlet var merchantTitle : BaseLabel! {
+        didSet {
+            merchantTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().merchantTitleFontColor, size: ProximateSDKSettings.getFontStyleOptions().merchantTitleFontSize)
+        }
+    }
+    
+    @IBOutlet var campaignTitle : BaseLabel! {
+        didSet {
+            campaignTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignTextFontColor, size: ProximateSDKSettings.getFontStyleOptions().campaignTextFontSize)
+        }
+    }
+
     @IBOutlet var campaignExpiryDateTime : BaseLabel!
 
-    @IBOutlet var btnLocation : ImageCenterButton!
-    @IBOutlet var btnShare : ImageCenterButton!
-    @IBOutlet var btnMerchantTotalCampaigns : UIButton!
+    @IBOutlet var btnLocation : BaseImageButton!
+    @IBOutlet var btnShare : BaseImageButton!
+    @IBOutlet var btnMerchantTotalCampaigns : BaseButton!
     private var mainCampaign : ObjectCampaign! {
         didSet {
             updateCampaign()
@@ -53,16 +68,15 @@ class MerchantTableViewCell: UITableViewCell {
     }
     
     @IBAction func campaignShareClicked() {
-        let shareText = String(format: "psdk__campaign_share".localized, arguments: [self.mainCampaign.title, self.mainCampaign.getMerchant().merchantName, self.mainCampaign.details, ])
+        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mainCampaign.title, self.mainCampaign.getMerchant().merchantName, self.mainCampaign.details])
         delegate?.didClickCampaignShare(shareText)
     }
     
-    
     func setMerchantGroup(merchantGroup : ObjectMerchantGroup){
-        mainView.borderAndShadow()
-        btnMerchantTotalCampaigns.setTitleColor(UIColor.psdkPrimaryColor(), forState: UIControlState.Normal)
-        
-        let seeAll = "See All (\(merchantGroup.activeCampaignCount))"
+        let seeAll = String(format: "psdk_button_see_all".localized, arguments: [merchantGroup.activeCampaignCount.integerValue])
+
+        btnMerchantTotalCampaigns.setStyle(ProximateSDKSettings.getFontStyleOptions().seeAllFontColor, size: ProximateSDKSettings.getFontStyleOptions().seeAllFontSize)
+
         btnMerchantTotalCampaigns.setTitle(seeAll, forState: .Normal)
         
         merchantTitle.text = merchantGroup.merchantName
@@ -77,18 +91,17 @@ class MerchantTableViewCell: UITableViewCell {
     }
     
     private func updateCampaign(){
-        merchantTitle.style(Styles.Labels.Standard(20), color: UIColor.purpleColor())
-//        campaignTitle.style(.Standard(12, UIColor.blueColor()))
-//        merchantTitle.style(.LargeText(40, UIColor.purpleColor()))
+//        merchantTitle.style(Styles.Labels.Standard(20), color: UIColor.purpleColor())
 
         campaignTitle.setHTMLFromString(mainCampaign.getCampaignTitle())
 
         campaignImage.af_setImageWithURL(NSURL(string: mainCampaign.getMainMedia().getMediaURL())!, placeholderImage: ProximateSDKSettings.getCampaignPlaceholderImage())
         let expiryStyle = mainCampaign.getCampaignExpiryStyle()
-        campaignExpiryDateTime.textColor = expiryStyle.campaignExpiryTextColor
+//        campaignExpiryDateTime.textColor = expiryStyle.campaignExpiryTextColor
         campaignExpiryImage.image = expiryStyle.campaignExpiryImage
         campaignExpiryDateTime.text = expiryStyle.campaignExpiryText
-        
+        campaignExpiryDateTime.setStyle(expiryStyle.campaignExpiryTextColor, size: ProximateSDKSettings.getFontStyleOptions().expiryTextFontSize)
+
         btnLocation.hidden = (mainCampaign.beacons == nil)
     }
     

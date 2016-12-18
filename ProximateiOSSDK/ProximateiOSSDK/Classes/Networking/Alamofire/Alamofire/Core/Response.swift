@@ -23,7 +23,7 @@
 import Foundation
 
 /// Used to store all response data returned from a completed `Request`.
-public struct Response<Value, Error: ErrorType> {
+internal struct Response<Value, Error: ErrorType> {
     /// The URL request sent to the server.
     public let request: NSURLRequest?
 
@@ -73,7 +73,7 @@ public struct Response<Value, Error: ErrorType> {
 extension Response: CustomStringConvertible {
     /// The textual representation used when written to an output stream, which includes whether the result was a
     /// success or failure.
-    public var description: String {
+    internal var description: String {
         return result.debugDescription
     }
 }
@@ -83,7 +83,7 @@ extension Response: CustomStringConvertible {
 extension Response: CustomDebugStringConvertible {
     /// The debug textual representation used when written to an output stream, which includes the URL request, the URL
     /// response, the server data and the response serialization result.
-    public var debugDescription: String {
+    internal var debugDescription: String {
         var output: [String] = []
 
         output.append(request != nil ? "[Request]: \(request!)" : "[Request]: nil")

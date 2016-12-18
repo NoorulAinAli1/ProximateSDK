@@ -200,7 +200,7 @@ extension Manager {
         - Failure: Used to represent a failure in the `MultipartFormData` encoding and also contains the encoding 
                    error.
     */
-    public enum MultipartFormDataEncodingResult {
+    internal enum MultipartFormDataEncodingResult {
         case Success(request: Request, streamingFromDisk: Bool, streamFileURL: NSURL?)
         case Failure(ErrorType)
     }

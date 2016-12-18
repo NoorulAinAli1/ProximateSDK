@@ -26,6 +26,7 @@
     ]
   },
   "public_header_files": "ProximateiOSSDK/Classes/**/*.h",
+  "requires_arc": true,
   "frameworks": [
     "UIKit",
     "MapKit"
@@ -33,6 +34,12 @@
   "dependencies": {
     "OCMapper": [
       "~> 2.1"
+    ],
+    "ImageCenterButton": [
+      "~> 0.1.4"
+    ],
+    "DDPageControl": [
+      "~> 0.1"
     ]
   }
 }

@@ -32,12 +32,12 @@ import Cocoa
 /// to cancel active requests running on the `ImageDownloader` session. As a general rule, image download requests 
 /// should be cancelled using the `RequestReceipt` instead of calling `cancel` directly on the `request` itself. The 
 /// `ImageDownloader` is optimized to handle duplicate request scenarios as well as pending versus active downloads.
-public class RequestReceipt {
+internal class RequestReceipt {
     /// The download request created by the `ImageDownloader`.
     public let request: Request
 
     /// The unique identifier for the image filters and completion handlers when duplicate requests are made.
-    public let receiptID: String
+    internal let receiptID: String
 
     init(request: Request, receiptID: String) {
         self.request = request
@@ -51,12 +51,12 @@ public class RequestReceipt {
 /// By default, any download request with a cached image equivalent in the image cache will automatically be served the
 /// cached image representation. Additional advanced features include supporting multiple image filters and completion 
 /// handlers for a single request.
-public class ImageDownloader {
+internal class ImageDownloader {
     /// The completion handler closure used when an image download completes.
-    public typealias CompletionHandler = Response<Image, NSError> -> Void
+    internal typealias CompletionHandler = Response<Image, NSError> -> Void
 
     /// The progress handler closure called periodically during an image download.
-    public typealias ProgressHandler = (bytesRead: Int64, totalBytesRead: Int64, totalExpectedBytesToRead: Int64) -> Void
+    internal typealias ProgressHandler = (bytesRead: Int64, totalBytesRead: Int64, totalExpectedBytesToRead: Int64) -> Void
 
     /**
         Defines the order prioritization of incoming download requests being inserted into the queue.
@@ -64,7 +64,7 @@ public class ImageDownloader {
         - FIFO: All incoming downloads are added to the back of the queue.
         - LIFO: All incoming downloads are added to the front of the queue.
     */
-    public enum DownloadPrioritization {
+    internal enum DownloadPrioritization {
         case FIFO, LIFO
     }
 
@@ -83,13 +83,13 @@ public class ImageDownloader {
     // MARK: - Properties
 
     /// The image cache used to store all downloaded images in.
-    public let imageCache: ImageRequestCache?
+    internal let imageCache: ImageRequestCache?
 
     /// The credential used for authenticating each download request.
-    public private(set) var credential: NSURLCredential?
+    internal private(set) var credential: NSURLCredential?
 
     /// The underlying Alamofire `Manager` instance used to handle all download requests.
-    public let sessionManager: Manager
+    internal let sessionManager: Manager
 
     let downloadPrioritization: DownloadPrioritization
     let maximumActiveDownloads: Int
@@ -111,14 +111,14 @@ public class ImageDownloader {
     // MARK: - Initialization
 
     /// The default instance of `ImageDownloader` initialized with default values.
-    public static let defaultInstance = ImageDownloader()
+    internal static let defaultInstance = ImageDownloader()
 
     /**
         Creates a default `NSURLSessionConfiguration` with common usage parameter values.
     
         - returns: The default `NSURLSessionConfiguration` instance.
     */
-    public class func defaultURLSessionConfiguration() -> NSURLSessionConfiguration {
+    internal class func defaultURLSessionConfiguration() -> NSURLSessionConfiguration {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
 
         configuration.HTTPAdditionalHeaders = Manager.defaultHTTPHeaders
@@ -139,7 +139,7 @@ public class ImageDownloader {
 
         - returns: The default `NSURLCache` instance.
     */
-    public class func defaultURLCache() -> NSURLCache {
+    internal class func defaultURLCache() -> NSURLCache {
         return NSURLCache(
             memoryCapacity: 20 * 1024 * 1024, // 20 MB
             diskCapacity: 150 * 1024 * 1024,  // 150 MB
@@ -159,7 +159,7 @@ public class ImageDownloader {
 
         - returns: The new `ImageDownloader` instance.
     */
-    public init(
+    internal init(
         configuration: NSURLSessionConfiguration = ImageDownloader.defaultURLSessionConfiguration(),
         downloadPrioritization: DownloadPrioritization = .FIFO,
         maximumActiveDownloads: Int = 4,
@@ -184,7 +184,7 @@ public class ImageDownloader {
 
         - returns: The new `ImageDownloader` instance.
     */
-    public init(
+    internal init(
         sessionManager: Manager,
         downloadPrioritization: DownloadPrioritization = .FIFO,
         maximumActiveDownloads: Int = 4,
@@ -207,7 +207,7 @@ public class ImageDownloader {
         - parameter password:    The password.
         - parameter persistence: The URL credential persistence. `.ForSession` by default.
     */
-    public func addAuthentication(
+    internal func addAuthentication(
         user user: String,
         password: String,
         persistence: NSURLCredentialPersistence = .ForSession)
@@ -221,7 +221,7 @@ public class ImageDownloader {
 
         - parameter credential: The credential.
     */
-    public func addAuthentication(usingCredential credential: NSURLCredential) {
+    internal func addAuthentication(usingCredential credential: NSURLCredential) {
         dispatch_sync(synchronizationQueue) {
             self.credential = credential
         }

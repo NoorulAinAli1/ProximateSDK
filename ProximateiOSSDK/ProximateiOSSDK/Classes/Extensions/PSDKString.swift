@@ -22,7 +22,14 @@ extension String {
     
     
     var localized: String {
-        return NSLocalizedString(self, tableName: nil, bundle: ProximateSDKSettings.getBundle(), value: "", comment: "")
+        
+        var localizedString = NSLocalizedString(self, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+        if (localizedString == self) {
+            localizedString = NSLocalizedString(self, tableName: nil, bundle: ProximateSDKSettings.getBundle(), value: "", comment: "")
+        }
+        
+        return localizedString
+//        return NSLocalizedString(self, tableName: nil, bundle: ProximateSDKSettings.getBundle(), value: "", comment: "")
     }
     
     func localizedWithComment(comment:String) -> String {
@@ -45,7 +52,6 @@ extension String {
         return self.stringByReplacingOccurrencesOfString(" ", withString: "+")
     }
 
-    
     var numberValue:NSNumber? {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .DecimalStyle

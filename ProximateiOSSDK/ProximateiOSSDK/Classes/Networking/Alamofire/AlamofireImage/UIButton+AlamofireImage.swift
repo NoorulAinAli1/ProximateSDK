@@ -39,7 +39,7 @@ extension UIButton {
     /// The instance image downloader used to download all images. If this property is `nil`, the `UIButton` will
     /// fallback on the `af_sharedImageDownloader` for all downloads. The most common use case for needing to use a
     /// custom instance image downloader is when images are behind different basic auth credentials.
-    public var af_imageDownloader: ImageDownloader? {
+    internal var af_imageDownloader: ImageDownloader? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.ImageDownloaderKey) as? ImageDownloader
         }
@@ -52,7 +52,7 @@ extension UIButton {
     /// instance backed with an `AutoPurgingImageCache` which automatically evicts images from the cache when the memory
     /// capacity is reached or memory warning notifications occur. The shared image downloader is only used if the
     /// `af_imageDownloader` is `nil`.
-    public class var af_sharedImageDownloader: ImageDownloader {
+    internal class var af_sharedImageDownloader: ImageDownloader {
         get {
             guard let
                 downloader = objc_getAssociatedObject(self, &AssociatedKeys.SharedImageDownloaderKey) as? ImageDownloader
@@ -118,7 +118,7 @@ extension UIButton {
                                       the image was returned from the image cache, the response will be `nil`. Defaults 
                                       to `nil`.
     */
-    public func af_setImageForState(
+    internal func af_setImageForState(
         state: UIControlState,
         URL: NSURL,
         placeHolderImage: UIImage? = nil,
@@ -154,7 +154,7 @@ extension UIButton {
                                       the image was returned from the image cache, the response will be `nil`. Defaults
                                       to `nil`.
     */
-    public func af_setImageForState(
+    internal func af_setImageForState(
         state: UIControlState,
         URLRequest: URLRequestConvertible,
         placeholderImage: UIImage? = nil,
@@ -223,7 +223,7 @@ extension UIButton {
     /**
         Cancels the active download request for the image, if one exists.
     */
-    public func af_cancelImageRequestForState(state: UIControlState) {
+    internal func af_cancelImageRequestForState(state: UIControlState) {
         guard let receipt = imageRequestReceiptForState(state) else { return }
 
         let imageDownloader = af_imageDownloader ?? UIButton.af_sharedImageDownloader
@@ -253,7 +253,7 @@ extension UIButton {
                                       the image was returned from the image cache, the response will be `nil`. Defaults
                                       to `nil`.
     */
-    public func af_setBackgroundImageForState(
+    internal func af_setBackgroundImageForState(
         state: UIControlState,
         URL: NSURL,
         placeHolderImage: UIImage? = nil,
@@ -286,7 +286,7 @@ extension UIButton {
                                       the image was returned from the image cache, the response will be `nil`. Defaults
                                       to `nil`.
     */
-    public func af_setBackgroundImageForState(
+    internal func af_setBackgroundImageForState(
         state: UIControlState,
         URLRequest: URLRequestConvertible,
         placeholderImage: UIImage? = nil,
@@ -355,7 +355,7 @@ extension UIButton {
     /**
         Cancels the active download request for the background image, if one exists.
     */
-    public func af_cancelBackgroundImageRequestForState(state: UIControlState) {
+    internal func af_cancelBackgroundImageRequestForState(state: UIControlState) {
         guard let receipt = backgroundImageRequestReceiptForState(state) else { return }
 
         let imageDownloader = af_imageDownloader ?? UIButton.af_sharedImageDownloader

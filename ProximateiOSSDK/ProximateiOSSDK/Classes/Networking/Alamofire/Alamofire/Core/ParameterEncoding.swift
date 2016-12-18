@@ -59,7 +59,7 @@ public enum Method: String {
     - `Custom`:          Uses the associated closure value to construct a new request given an existing request and
                          parameters.
 */
-public enum ParameterEncoding {
+internal enum ParameterEncoding {
     case URL
     case URLEncodedInURL
     case JSON

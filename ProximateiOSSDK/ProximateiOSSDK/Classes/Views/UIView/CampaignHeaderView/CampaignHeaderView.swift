@@ -7,28 +7,47 @@
 //
 
 import UIKit
+import DDPageControl
 
 class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     var delegate : CampaignInfoClickDelegate?
     @IBOutlet var promotionImage : UIImageView!
     @IBOutlet var campaignNewImage : UIImageView!
-   
+    @IBOutlet var btnWebsiteWidth : NSLayoutConstraint?
+    @IBOutlet var btnLocationWidth : NSLayoutConstraint?
+
     @IBOutlet var campaignCollectionView : UICollectionView!
-    @IBOutlet var pageControl : UIPageControl!
+    @IBOutlet var pageControl : DDPageControl! {
+        didSet {
+            pageControl.onColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSelectedColor
+            pageControl.offColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorUnselectedColor
+            pageControl.indicatorDiameter = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorDiameter
+            pageControl.indicatorSpace = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSpace
+        }
+    }
 
     @IBOutlet var merchantLogo : ImageSuperView!
     
-    @IBOutlet var merchantTitle : BaseLabel!
-    @IBOutlet var merchantSlogan : BaseLabel!
+    @IBOutlet var merchantTitle : BaseLabel! {
+        didSet {
+            merchantTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().merchantTitleFontColor, size: ProximateSDKSettings.getFontStyleOptions().merchantTitleFontSize)
+        }
+    }
     
-    @IBOutlet var btnLocation : ImageCenterButton!
-    @IBOutlet var btnShare : ImageCenterButton!
-    @IBOutlet var btnPhone : ImageCenterButton!
-    @IBOutlet var btnWebsite : ImageCenterButton!
+    @IBOutlet var merchantSlogan : BaseLabel!{
+        didSet {
+            merchantSlogan.setStyle(ProximateSDKSettings.getFontStyleOptions().merchantTaglineFontColor, size: ProximateSDKSettings.getFontStyleOptions().merchantTaglineFontSize)
+        }
+    }
+    
+    @IBOutlet var btnLocation : BaseImageButton!
+    @IBOutlet var btnShare : BaseImageButton!
+    @IBOutlet var btnPhone : BaseImageButton!
+    @IBOutlet var btnWebsite : BaseImageButton!
     
     private var mCampaign  : ObjectCampaign!
-    private var campaignBannerColor : UIColor! = UIColor.psdkPrimaryColor()
+    private var campaignBannerColor : UIColor! = ProximateSDKSettings.getViewOptions().primaryColor
     private let colorCube = CCColorCube()
 
     override init(frame : CGRect){
@@ -44,7 +63,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     }
    
     @IBAction func campaignShareClicked() {
-        let shareText = String(format: "psdk__campaign_share".localized, arguments: [self.mCampaign.title, self.mCampaign.getMerchant().merchantName, self.mCampaign.details, ])
+        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mCampaign.title, self.mCampaign.getMerchant().merchantName, self.mCampaign.details, ])
         delegate?.didClickCampaignShare(shareText)
     }
     
@@ -83,10 +102,15 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
         pageControl.hidesForSinglePage = true
         pageControl.numberOfPages =  (mCampaign.getMedia().count)
         campaignCollectionView.pagingEnabled = true
+     
+        btnPhone.hidden = !campaign.getMerchant().hasPhoneNumber()
         
-        btnPhone.hidden = campaign.getMerchant().hasPhoneNumber()
-        btnWebsite.hidden = campaign.getMerchant().hasWebsite()
         btnLocation.hidden = (campaign.beacons == nil)
+        btnLocationWidth?.constant = (campaign.beacons == nil) ? 1 : self.btnLocation.frame.width
+        
+        btnWebsite.hidden = !campaign.getMerchant().hasWebsite()
+        btnWebsiteWidth?.constant = !campaign.getMerchant().hasWebsite() ? 1 : self.btnWebsite.frame.width
+
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

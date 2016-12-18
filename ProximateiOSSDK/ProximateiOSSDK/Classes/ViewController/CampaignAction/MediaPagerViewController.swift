@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import DDPageControl
 
-class MediaPagerFullScreenViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MediaPagerFullScreenViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var screenTitle : String!
     var mediaItem :[ObjectCampaignMedia]! = [ObjectCampaignMedia]()
     @IBOutlet var contentsCollectionView : UICollectionView!
-    @IBOutlet var pageControl : UIPageControl!
+    @IBOutlet var pageControl : DDPageControl! {
+        didSet {
+            pageControl.onColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSelectedColor
+            pageControl.offColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorUnselectedColor
+            pageControl.indicatorDiameter = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorDiameter
+            pageControl.indicatorSpace = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSpace
+        }
+    }
+
     @IBOutlet var crossBtn : UIButton!
     
     override func viewDidLoad() {

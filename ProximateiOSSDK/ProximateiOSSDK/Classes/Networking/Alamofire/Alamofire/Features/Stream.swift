@@ -88,7 +88,7 @@ extension Manager.SessionDelegate: NSURLSessionStreamDelegate {
     // MARK: Override Closures
 
     /// Overrides default behavior for NSURLSessionStreamDelegate method `URLSession:readClosedForStreamTask:`.
-    public var streamTaskReadClosed: ((NSURLSession, NSURLSessionStreamTask) -> Void)? {
+    internal var streamTaskReadClosed: ((NSURLSession, NSURLSessionStreamTask) -> Void)? {
         get {
             return _streamTaskReadClosed as? (NSURLSession, NSURLSessionStreamTask) -> Void
         }
@@ -98,7 +98,7 @@ extension Manager.SessionDelegate: NSURLSessionStreamDelegate {
     }
 
     /// Overrides default behavior for NSURLSessionStreamDelegate method `URLSession:writeClosedForStreamTask:`.
-    public var streamTaskWriteClosed: ((NSURLSession, NSURLSessionStreamTask) -> Void)? {
+    internal var streamTaskWriteClosed: ((NSURLSession, NSURLSessionStreamTask) -> Void)? {
         get {
             return _streamTaskWriteClosed as? (NSURLSession, NSURLSessionStreamTask) -> Void
         }
@@ -108,7 +108,7 @@ extension Manager.SessionDelegate: NSURLSessionStreamDelegate {
     }
 
     /// Overrides default behavior for NSURLSessionStreamDelegate method `URLSession:betterRouteDiscoveredForStreamTask:`.
-    public var streamTaskBetterRouteDiscovered: ((NSURLSession, NSURLSessionStreamTask) -> Void)? {
+    internal var streamTaskBetterRouteDiscovered: ((NSURLSession, NSURLSessionStreamTask) -> Void)? {
         get {
             return _streamTaskBetterRouteDiscovered as? (NSURLSession, NSURLSessionStreamTask) -> Void
         }
@@ -118,7 +118,7 @@ extension Manager.SessionDelegate: NSURLSessionStreamDelegate {
     }
 
     /// Overrides default behavior for NSURLSessionStreamDelegate method `URLSession:streamTask:didBecomeInputStream:outputStream:`.
-    public var streamTaskDidBecomeInputStream: ((NSURLSession, NSURLSessionStreamTask, NSInputStream, NSOutputStream) -> Void)? {
+    internal var streamTaskDidBecomeInputStream: ((NSURLSession, NSURLSessionStreamTask, NSInputStream, NSOutputStream) -> Void)? {
         get {
             return _streamTaskDidBecomeInputStream as? (NSURLSession, NSURLSessionStreamTask, NSInputStream, NSOutputStream) -> Void
         }

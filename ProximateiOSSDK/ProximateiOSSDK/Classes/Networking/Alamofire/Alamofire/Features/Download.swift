@@ -143,7 +143,7 @@ extension Request {
 
         - returns: A download file destination closure.
     */
-    public class func suggestedDownloadDestination(
+    internal class func suggestedDownloadDestination(
         directory directory: NSSearchPathDirectory = .DocumentDirectory,
         domain: NSSearchPathDomainMask = .UserDomainMask)
         -> DownloadFileDestination
@@ -160,7 +160,7 @@ extension Request {
     }
 
     /// The resume data of the underlying download task if available after a failure.
-    public var resumeData: NSData? {
+    internal var resumeData: NSData? {
         var data: NSData?
 
         if let delegate = delegate as? DownloadTaskDelegate {

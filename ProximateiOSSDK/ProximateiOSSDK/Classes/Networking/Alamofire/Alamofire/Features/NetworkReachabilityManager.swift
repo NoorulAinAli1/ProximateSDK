@@ -33,7 +33,7 @@ import SystemConfiguration
     network requests when a connection is established. It should not be used to prevent a user from initiating a network
     request, as it's possible that an initial request may be required to establish reachability.
 */
-public class NetworkReachabilityManager {
+internal class NetworkReachabilityManager {
     /**
         Defines the various states of network reachability.
 
@@ -42,7 +42,7 @@ public class NetworkReachabilityManager {
         - ReachableOnWWAN: The network is reachable over the WWAN connection.
         - ReachableOnWiFi: The network is reachable over the WiFi connection.
     */
-    public enum NetworkReachabilityStatus {
+    internal enum NetworkReachabilityStatus {
         case Unknown
         case NotReachable
         case Reachable(ConnectionType)
@@ -54,7 +54,7 @@ public class NetworkReachabilityManager {
         - EthernetOrWiFi: The connection type is either over Ethernet or WiFi.
         - WWAN:           The connection type is a WWAN connection.
     */
-    public enum ConnectionType {
+    internal enum ConnectionType {
         case EthernetOrWiFi
         case WWAN
     }
@@ -66,25 +66,25 @@ public class NetworkReachabilityManager {
     // MARK: - Properties
 
     /// Whether the network is currently reachable.
-    public var isReachable: Bool { return isReachableOnWWAN || isReachableOnEthernetOrWiFi }
+    internal var isReachable: Bool { return isReachableOnWWAN || isReachableOnEthernetOrWiFi }
 
     /// Whether the network is currently reachable over the WWAN interface.
-    public var isReachableOnWWAN: Bool { return networkReachabilityStatus == .Reachable(.WWAN) }
+    internal var isReachableOnWWAN: Bool { return networkReachabilityStatus == .Reachable(.WWAN) }
 
     /// Whether the network is currently reachable over Ethernet or WiFi interface.
-    public var isReachableOnEthernetOrWiFi: Bool { return networkReachabilityStatus == .Reachable(.EthernetOrWiFi) }
+    internal var isReachableOnEthernetOrWiFi: Bool { return networkReachabilityStatus == .Reachable(.EthernetOrWiFi) }
 
     /// The current network reachability status.
-    public var networkReachabilityStatus: NetworkReachabilityStatus {
+    internal var networkReachabilityStatus: NetworkReachabilityStatus {
         guard let flags = self.flags else { return .Unknown }
         return networkReachabilityStatusForFlags(flags)
     }
 
     /// The dispatch queue to execute the `listener` closure on.
-    public var listenerQueue: dispatch_queue_t = dispatch_get_main_queue()
+    internal var listenerQueue: dispatch_queue_t = dispatch_get_main_queue()
 
     /// A closure executed when the network reachability status changes.
-    public var listener: Listener?
+    internal var listener: Listener?
 
     private var flags: SCNetworkReachabilityFlags? {
         var flags = SCNetworkReachabilityFlags()
@@ -231,7 +231,7 @@ extension NetworkReachabilityManager.NetworkReachabilityStatus: Equatable {}
 
     - returns: `true` if the two values are equal, `false` otherwise.
 */
-public func ==(
+internal func ==(
     lhs: NetworkReachabilityManager.NetworkReachabilityStatus,
     rhs: NetworkReachabilityManager.NetworkReachabilityStatus)
     -> Bool

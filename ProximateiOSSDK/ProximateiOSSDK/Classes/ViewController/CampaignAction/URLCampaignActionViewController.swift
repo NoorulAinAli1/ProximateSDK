@@ -8,12 +8,13 @@
 
 import UIKit
 
-class URLCampaignActionViewController: UIViewController, UIWebViewDelegate {
+class URLCampaignActionViewController: BaseViewController, UIWebViewDelegate {
     var mCampaignAction : ObjectCampaignAction!
     @IBOutlet var webView : UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.webView.backgroundColor = ProximateSDKSettings.getViewOptions().viewBackgroundColor
 
         self.title = mCampaignAction.actionTitle
 

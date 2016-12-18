@@ -23,7 +23,7 @@
 import Foundation
 
 /// Responsible for computing the timing metrics for the complete lifecycle of a `Request`.
-public struct Timeline {
+internal struct Timeline {
     /// The time the request was initialized.
     public let requestStartTime: CFAbsoluteTime
 
@@ -83,7 +83,7 @@ public struct Timeline {
 extension Timeline: CustomStringConvertible {
     /// The textual representation used when written to an output stream, which includes the latency, the request 
     /// duration and the total duration.
-    public var description: String {
+    internal var description: String {
         let latency = String(format: "%.3f", self.latency)
         let requestDuration = String(format: "%.3f", self.requestDuration)
         let serializationDuration = String(format: "%.3f", self.serializationDuration)
@@ -106,7 +106,7 @@ extension Timeline: CustomDebugStringConvertible {
     /// The textual representation used when written to an output stream, which includes the request start time, the 
     /// initial response time, the request completed time, the serialization completed time, the latency, the request
     /// duration and the total duration.
-    public var debugDescription: String {
+    internal var debugDescription: String {
         let timings = [
             "\"Request Start Time\": \(requestStartTime)",
             "\"Initial Response Time\": \(initialResponseTime)",

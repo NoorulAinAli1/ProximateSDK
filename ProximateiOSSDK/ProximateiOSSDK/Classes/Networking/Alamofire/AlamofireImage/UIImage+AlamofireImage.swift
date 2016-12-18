@@ -83,7 +83,7 @@ extension UIImage {
     }
 
     /// Returns whether the image is inflated.
-    public var af_inflated: Bool {
+    internal var af_inflated: Bool {
         get {
             if let inflated = objc_getAssociatedObject(self, &AssociatedKeys.InflatedKey) as? Bool {
                 return inflated
@@ -114,7 +114,7 @@ extension UIImage {
 
 extension UIImage {
     /// Returns whether the image contains an alpha component.
-    public var af_containsAlphaComponent: Bool {
+    internal var af_containsAlphaComponent: Bool {
         let alphaInfo = CGImageGetAlphaInfo(CGImage!)
 
         return (
@@ -126,7 +126,7 @@ extension UIImage {
     }
 
     /// Returns whether the image is opaque.
-    public var af_isOpaque: Bool { return !af_containsAlphaComponent }
+    internal var af_isOpaque: Bool { return !af_containsAlphaComponent }
 }
 
 // MARK: - Scaling

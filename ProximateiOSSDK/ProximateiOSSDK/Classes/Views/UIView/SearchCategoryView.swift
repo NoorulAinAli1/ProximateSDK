@@ -34,7 +34,9 @@ class SearchCategoryView: UIView {
     }
     
     private func customize() {
-        searchBar.placeholder = "hint_search".localized
+        self.backgroundColor = ProximateSDKSettings.getViewOptions().searchBarColor
+        self.searchBar.placeholder = "psdk_hint_search".localized
+
     }
 
 }

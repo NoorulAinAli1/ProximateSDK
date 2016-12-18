@@ -35,7 +35,7 @@ public enum Result<Value, Error: ErrorType> {
     case Failure(Error)
 
     /// Returns `true` if the result is a success, `false` otherwise.
-    public var isSuccess: Bool {
+    internal var isSuccess: Bool {
         switch self {
         case .Success:
             return true
@@ -45,12 +45,12 @@ public enum Result<Value, Error: ErrorType> {
     }
 
     /// Returns `true` if the result is a failure, `false` otherwise.
-    public var isFailure: Bool {
+    internal var isFailure: Bool {
         return !isSuccess
     }
 
     /// Returns the associated value if the result is a success, `nil` otherwise.
-    public var value: Value? {
+    internal var value: Value? {
         switch self {
         case .Success(let value):
             return value
@@ -60,7 +60,7 @@ public enum Result<Value, Error: ErrorType> {
     }
 
     /// Returns the associated error value if the result is a failure, `nil` otherwise.
-    public var error: Error? {
+    internal var error: Error? {
         switch self {
         case .Success:
             return nil

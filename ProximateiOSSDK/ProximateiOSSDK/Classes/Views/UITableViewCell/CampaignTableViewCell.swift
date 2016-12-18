@@ -8,10 +8,16 @@
 
 import UIKit
 import QuartzCore
+import DDPageControl
 
 class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
-    @IBOutlet var mainView : UIView!
+    @IBOutlet var mainView : CardView! {
+        didSet {
+            self.backgroundColor = UIColor.clearColor()
+            self.contentView.backgroundColor = UIColor.clearColor()
+        }
+    }
     
     @IBOutlet var promotionImage : UIImageView!
     @IBOutlet var campaignNewImage : UIImageView!
@@ -21,12 +27,24 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     
     @IBOutlet var campaignCollectionView : UICollectionView!
     
-    @IBOutlet var campaignTitle : BaseLabel!
+    @IBOutlet var campaignTitle : BaseLabel! {
+        didSet {
+            campaignTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignTextFontColor, size: ProximateSDKSettings.getFontStyleOptions().campaignTextFontSize)
+        }
+    }
+
     @IBOutlet var campaignExpiryDateTime : BaseLabel!
     
-    @IBOutlet var btnLocation : ImageCenterButton!
-    @IBOutlet var btnShare : ImageCenterButton!
-    @IBOutlet var pageControl : UIPageControl!
+    @IBOutlet var btnLocation : BaseImageButton!
+    @IBOutlet var btnShare : BaseImageButton!
+    @IBOutlet var pageControl : DDPageControl! {
+        didSet {
+            pageControl.onColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSelectedColor
+            pageControl.offColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorUnselectedColor
+            pageControl.indicatorDiameter = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorDiameter
+            pageControl.indicatorSpace = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSpace
+        }
+    }
 
     private var mainCampaign : ObjectCampaign! {
         didSet {
@@ -43,7 +61,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     @IBAction func campaignShareClicked() {
-        let shareText = String(format: "psdk__campaign_share".localized, arguments: [self.mainCampaign.title, self.mainCampaign.getMerchant().merchantName, self.mainCampaign.details, ])
+        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mainCampaign.title, self.mainCampaign.getMerchant().merchantName, self.mainCampaign.details, ])
         delegate?.didClickCampaignShare(shareText)
     }
   
@@ -51,7 +69,6 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         self.campaignCollectionView.registerNib(UINib(nibName:"FragmentCollectionViewCell", bundle:ProximateSDKSettings.getBundle()), forCellWithReuseIdentifier: "cell")
         
         mainCampaign  = campaign
-        mainView.borderAndShadow()
 
         pageControl.hidesForSinglePage = true
         pageControl.numberOfPages =  (mainCampaign.getMedia().count)
@@ -62,9 +79,10 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         campaignTitle.setHTMLFromString(mainCampaign.getCampaignTitle())
 
         let expiryStyle = mainCampaign.getCampaignExpiryStyle()
-        campaignExpiryDateTime.textColor = expiryStyle.campaignExpiryTextColor
+//        campaignExpiryDateTime.textColor = expiryStyle.campaignExpiryTextColor
         campaignExpiryImage.image = expiryStyle.campaignExpiryImage
         campaignExpiryDateTime.text = expiryStyle.campaignExpiryText
+        campaignExpiryDateTime.setStyle(expiryStyle.campaignExpiryTextColor, size: ProximateSDKSettings.getFontStyleOptions().expiryTextFontSize)
         
         btnLocation.hidden = (mainCampaign.beacons == nil)
     }

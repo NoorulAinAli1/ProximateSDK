@@ -18,7 +18,6 @@ class MerchantMapViewController: BaseMapViewController {
         super.viewDidLoad()
         
         self.title = self.mMerchant!.merchantName
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
         ApiHandler.sharedInstance.getStoresForMerchant(self.mMerchant.getMerchantId(),   completion:({
             merchantStores in
@@ -90,11 +89,11 @@ class MerchantMapViewController: BaseMapViewController {
 //            case .NotDetermined, .Restricted, .Denied:
             default:
                 DebugLogger.debugLog("No access")
-                ProximateSDK.getMessageDelegate()?.showMessage("Please enable location services")
+                ProximateSDK.getMessageDelegate()?.showMessage("psdk_message_enable_location_services".localized, forMessageType: .Error)
             }
             
         } else {
-            ProximateSDK.getMessageDelegate()?.showMessage("Please enable location services")
+            ProximateSDK.getMessageDelegate()?.showMessage("psdk_message_enable_location_services".localized, forMessageType: .Error)
         }
     }
 

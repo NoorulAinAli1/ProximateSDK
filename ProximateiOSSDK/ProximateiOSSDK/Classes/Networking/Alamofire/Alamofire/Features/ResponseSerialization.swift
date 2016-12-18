@@ -27,7 +27,7 @@ import Foundation
 /**
     The type in which all response serializers must conform to in order to serialize a response.
 */
-public protocol ResponseSerializerType {
+internal protocol ResponseSerializerType {
     /// The type of serialized object to be created by this `ResponseSerializerType`.
     associatedtype SerializedObject
 
@@ -45,7 +45,7 @@ public protocol ResponseSerializerType {
 /**
     A generic `ResponseSerializerType` used to serialize a request, response, and data into a serialized object.
 */
-public struct ResponseSerializer<Value, Error: ErrorType>: ResponseSerializerType {
+internal struct ResponseSerializer<Value, Error: ErrorType>: ResponseSerializerType {
     /// The type of serialized object to be created by this `ResponseSerializer`.
     public typealias SerializedObject = Value
 
@@ -55,7 +55,7 @@ public struct ResponseSerializer<Value, Error: ErrorType>: ResponseSerializerTyp
     /**
         A closure used by response handlers that takes a request, response, data and error and returns a result.
     */
-    public var serializeResponse: (NSURLRequest?, NSHTTPURLResponse?, NSData?, NSError?) -> Result<Value, Error>
+    internal var serializeResponse: (NSURLRequest?, NSHTTPURLResponse?, NSData?, NSError?) -> Result<Value, Error>
 
     /**
         Initializes the `ResponseSerializer` instance with the given serialize response closure.

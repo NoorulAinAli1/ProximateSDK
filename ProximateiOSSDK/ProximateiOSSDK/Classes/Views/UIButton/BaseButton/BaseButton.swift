@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseButton: UIButton {
+internal class BaseButton: UIButton {
     
     override init(frame:CGRect) {
         super.init(frame:frame)
@@ -24,31 +24,13 @@ class BaseButton: UIButton {
         self.customize()
     }
     
-    private func customize(){
-//        self.titleLabel?.font = UIFont(name: AppConstants.kAppNormalFontName, size: 12.0)
-        self.titleLabel?.textColor = UIColor.whiteColor()
-        self.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal);
-        self.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Highlighted);
-//        self.backgroundColor = UIColor.buttonBgStartColor()
-        self.clipsToBounds = true
-        
-        self.layer.borderWidth = 0.8
-        self.layer.borderColor = UIColor.psdkPrimaryDarkColor().CGColor
-        self.layer.cornerRadius = 4///self.frame.size.height/2
-        
-        self.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Disabled);
-     
-        setAppThemeGradientLayer()
+    internal func customize(){
+       
     }
     
-    private func setAppThemeGradientLayer(){
-        let layer : CAGradientLayer = CAGradientLayer()
-        layer.frame.size = self.frame.size
-        layer.frame.origin = CGPointMake(0.0,0.0)
-        layer.cornerRadius = 4///self.frame.size.height/2
-        
-        layer.colors = [UIColor.psdkPrimaryColor().CGColor, UIColor.psdkPrimaryDarkColor().CGColor]
-        self.layer.insertSublayer(layer, atIndex: 0)
+    internal func setStyle(textColor : UIColor, size fontSize: CGFloat){
+        self.setTitleColor(textColor, forState: UIControlState.Normal)
+        self.titleLabel?.font = UIFont(name: ProximateSDKSettings.getViewOptions().fontRegular, size: fontSize)
     }
     
     // Only override drawRect: if you perform custom drawing.
