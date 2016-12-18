@@ -269,7 +269,7 @@
                                                     <rect key="frame" x="0.0" y="79.5" width="570" height="118"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOS-Nk-LDx" customClass="BaseLabel" customModule="ProximateiOSSDK">
-                                                    <rect key="frame" x="10" y="197.5" width="550" height="40"/>
+                                                    <rect key="frame" x="10" y="199.5" width="550" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="x1p-IU-9Lv"/>
                                                     </constraints>
@@ -285,13 +285,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Expiry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qie-Aq-g5O" customClass="BaseLabel" customModule="ProximateiOSSDK">
-                                                    <rect key="frame" x="48" y="239" width="511.5" height="32"/>
+                                                    <rect key="frame" x="44" y="241" width="515.5" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uC0-gC-CX6">
-                                                    <rect key="frame" x="10" y="239" width="32" height="32"/>
+                                                    <rect key="frame" x="10" y="241" width="28" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="uC0-gC-CX6" secondAttribute="height" multiplier="1:1" id="Rdg-fP-BOh"/>
                                                     </constraints>
@@ -324,7 +324,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNq-7v-WGr" customClass="DDPageControl">
-                                                    <rect key="frame" x="0.0" y="271" width="570" height="10.5"/>
+                                                    <rect key="frame" x="0.0" y="269" width="570" height="12.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -333,7 +333,7 @@
                                                 <constraint firstItem="ZYm-g4-kOM" firstAttribute="bottom" secondItem="dQf-QX-hYf" secondAttribute="bottom" id="0ov-eu-Ud3"/>
                                                 <constraint firstItem="iNq-7v-WGr" firstAttribute="leading" secondItem="RCd-c2-gMY" secondAttribute="leading" id="2sc-5A-nJh"/>
                                                 <constraint firstItem="uC0-gC-CX6" firstAttribute="leading" secondItem="eOS-Nk-LDx" secondAttribute="leading" id="3Zm-HO-baB"/>
-                                                <constraint firstItem="Qie-Aq-g5O" firstAttribute="height" secondItem="eOS-Nk-LDx" secondAttribute="height" multiplier="0.8" id="4J4-SS-Ash"/>
+                                                <constraint firstItem="Qie-Aq-g5O" firstAttribute="height" secondItem="eOS-Nk-LDx" secondAttribute="height" multiplier="0.7" id="4J4-SS-Ash"/>
                                                 <constraint firstItem="dQf-QX-hYf" firstAttribute="bottom" secondItem="brJ-1X-Gfg" secondAttribute="bottom" id="6LY-Le-IQ7"/>
                                                 <constraint firstItem="iNq-7v-WGr" firstAttribute="top" secondItem="Qie-Aq-g5O" secondAttribute="bottom" id="7cD-iX-wjE"/>
                                                 <constraint firstItem="97X-pQ-bZ7" firstAttribute="leading" secondItem="ZYm-g4-kOM" secondAttribute="trailing" constant="10" id="8vI-qi-Wzg"/>
@@ -360,7 +360,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="iNq-7v-WGr" secondAttribute="bottom" constant="10" id="gTx-Ob-Agv"/>
                                                 <constraint firstAttribute="trailing" secondItem="eOS-Nk-LDx" secondAttribute="trailing" constant="10" id="iwy-sB-zHC"/>
                                                 <constraint firstItem="Qie-Aq-g5O" firstAttribute="trailing" secondItem="eOS-Nk-LDx" secondAttribute="trailing" id="jdI-0g-WxR"/>
-                                                <constraint firstItem="eOS-Nk-LDx" firstAttribute="top" secondItem="brJ-1X-Gfg" secondAttribute="bottom" id="lKl-eu-fjY"/>
+                                                <constraint firstItem="eOS-Nk-LDx" firstAttribute="top" secondItem="brJ-1X-Gfg" secondAttribute="bottom" constant="2" id="lKl-eu-fjY"/>
                                                 <constraint firstItem="dQf-QX-hYf" firstAttribute="centerX" secondItem="brJ-1X-Gfg" secondAttribute="centerX" id="lNs-aj-Ckl"/>
                                                 <constraint firstItem="eOS-Nk-LDx" firstAttribute="height" secondItem="RCd-c2-gMY" secondAttribute="height" multiplier="0.1" id="lYX-Qc-ULY"/>
                                                 <constraint firstItem="iNq-7v-WGr" firstAttribute="width" secondItem="RCd-c2-gMY" secondAttribute="width" id="mu6-e4-90l"/>

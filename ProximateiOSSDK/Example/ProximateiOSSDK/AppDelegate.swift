@@ -17,58 +17,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PSDKMessageDelegate, PSDK
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         
-        // Customize menu (Optional)
-        let tabParameters: [PSDKTabOption] = [
-            .SelectedMenuColor(UIColor.purpleColor()),
-            .UnselectedMenuColor(UIColor.cyanColor()),
-            .ViewBackgroundColor(UIColor.blackColor()),
-            .MenuMarginX(10),
-            .MenuMarginY(20),
-            .MenuItemFontSize(14.0),
-            .MenuHeight(60.0),
-            .MenuItemSelectedBorderColor(UIColor.whiteColor()),
-            .MenuItemUnselectedBorderColor(UIColor.purpleColor()),
-            .MenuItemBorderWidth(2.5),
-            //            .MenuItemWidthBasedOnTitleTextWidth(true),
-            .UnselectedMenuItemLabelColor(UIColor.blueColor()),
-            .SelectedMenuItemLabelColor(UIColor.orangeColor())
-        ]
-        
-        ProximateSDKSettings.setTabStyleOptions(tabParameters)
-        
-        let cardParameters : [PSDKCardOptions] = [
-            .CardBackgroundColor(UIColor.whiteColor()),
-            .CardShadowColor(UIColor.grayColor()),
-            .CardBorderColor(UIColor.blackColor()),
-            .CardShadowOffset(CGSizeMake(2, 4)),
-            .CardBorderWidth(0.2),
-            .CardCornerRadius(4.0),
-            .CardShadowRadius(2.0),
-            .CardShadowOpacity(2.5)
-        ]
-        ProximateSDKSettings.setCardOptions(cardParameters)
-        
-        let viewParameters : [PSDKViewOptions] = [
-            .ViewBackgroundColor(UIColor.lightGrayColor()),
-            .NavigationBarTitle(UIColor.whiteColor(), 13.0),
-            .NavigationBarTintColor(UIColor.whiteColor()),
-            .PrimaryColor(UIColor.redColor()),
-            .SearchBar(UIColor.brownColor()),
-            .Font("Futura", "Futura-CondensedExtraBold")
-        ]
-        
-        ProximateSDKSettings.setViewOptions(viewParameters)
-        
-        let fontParameters : [PSDKFontStyleOptions] = [
-            .SeeAllFontStyle(UIColor.blueColor(), 12.0),
-            .MerchantTitleFontStyle(UIColor.brownColor(), 16.0),
-            .ExpiryTextFontStyle(UIColor.cyanColor(), UIColor.blueColor(), 14.0),
-            .CampaignTitleFontStyle(UIColor.brownColor(), UIColor.blueColor(), 20.0),
-            .CampaignDetailFontStyle(UIColor.brownColor(), 18.0, UIColor.cyanColor(), 14.0)
-        ]
+//        // Customize menu (Optional)
+//        let tabParameters: [PSDKTabOption] = [
+//            .SelectedMenuColor(UIColor.purpleColor()),
+//            .UnselectedMenuColor(UIColor.cyanColor()),
+//            .ViewBackgroundColor(UIColor.blackColor()),
+//            .MenuMarginX(10),
+//            .MenuMarginY(20),
+//            .MenuItemFontSize(14.0),
+//            .MenuHeight(60.0),
+//            .MenuItemSelectedBorderColor(UIColor.whiteColor()),
+//            .MenuItemUnselectedBorderColor(UIColor.purpleColor()),
+//            .MenuItemBorderWidth(2.5),
+//            //            .MenuItemWidthBasedOnTitleTextWidth(true),
+//            .UnselectedMenuItemLabelColor(UIColor.blueColor()),
+//            .SelectedMenuItemLabelColor(UIColor.orangeColor())
+//        ]
+//        
+//        ProximateSDKSettings.setTabStyleOptions(tabParameters)
+//        
+//        let cardParameters : [PSDKCardOptions] = [
+//            .CardBackgroundColor(UIColor.whiteColor()),
+//            .CardShadowColor(UIColor.grayColor()),
+//            .CardBorderColor(UIColor.blackColor()),
+//            .CardShadowOffset(CGSizeMake(2, 4)),
+//            .CardBorderWidth(0.2),
+//            .CardCornerRadius(4.0),
+//            .CardShadowRadius(2.0),
+//            .CardShadowOpacity(2.5)
+//        ]
+//        ProximateSDKSettings.setCardOptions(cardParameters)
+//        
+//        let viewParameters : [PSDKViewOptions] = [
+//            .ViewBackgroundColor(UIColor.lightGrayColor()),
+//            .NavigationBarTitle(UIColor.whiteColor(), 13.0),
+//            .NavigationBarTintColor(UIColor.whiteColor()),
+//            .PrimaryColor(UIColor.redColor()),
+//            .SearchBar(UIColor.brownColor()),
+//            .Font("Futura", "Futura-CondensedExtraBold")
+//        ]
+//        
+//        ProximateSDKSettings.setViewOptions(viewParameters)
+//        
+//        let fontParameters : [PSDKFontStyleOptions] = [
+//            .SeeAllFontStyle(UIColor.blueColor(), 12.0),
+//            .MerchantTitleFontStyle(UIColor.brownColor(), 16.0),
+//            .ExpiryTextFontStyle(UIColor.cyanColor(), UIColor.blueColor(), 14.0),
+//            .CampaignTitleFontStyle(UIColor.brownColor(), UIColor.blueColor(), 20.0),
+//            .CampaignDetailFontStyle(UIColor.brownColor(), 18.0, UIColor.cyanColor(), 14.0)
+//        ]
+//
+//        ProximateSDKSettings.setFontStyleOptions(fontParameters)
 
-        ProximateSDKSettings.setFontStyleOptions(fontParameters)
-
+        ProximateSDKSettings.configureSettingsPlist("PSDKSettings")
         ProximateSDK.initialize(messageDelegate: self, screenInteractionDelegate: self)
         
 //        UILabel.appearance().font = UIFont(name: "Arial", size: 24)

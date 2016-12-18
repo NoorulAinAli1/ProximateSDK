@@ -38,7 +38,7 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scrollView.backgroundColor = ProximateSDKSettings.getViewOptions().viewBackgroundColor
+        self.scrollView.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
         
         self.scrollView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
         
@@ -348,7 +348,7 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.barTintColor = ProximateSDKSettings.getViewOptions().primaryColor
+//        self.navigationController?.navigationBar.translucent = false
+//        self.navigationController?.navigationBar.barTintColor = ProximateSDKSettings.psdkViewOptions.primaryColor
     }
 }

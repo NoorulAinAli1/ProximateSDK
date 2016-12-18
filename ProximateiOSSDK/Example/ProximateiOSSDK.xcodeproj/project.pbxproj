@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		064CF06B44B13AE360E94A05 /* Pods_ProximateiOSSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731E2AB52685C77AA06102C6 /* Pods_ProximateiOSSDK_Tests.framework */; };
+		4EAF39731E0695FF00B40B26 /* PSDKSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EAF39721E0695FF00B40B26 /* PSDKSettings.plist */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		09A2DCA44C5486B1B203C136 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1C7B54799195E40F24257257 /* Pods-ProximateiOSSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProximateiOSSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProximateiOSSDK_Tests/Pods-ProximateiOSSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4EAF39721E0695FF00B40B26 /* PSDKSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PSDKSettings.plist; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ProximateiOSSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProximateiOSSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				4EAF39721E0695FF00B40B26 /* PSDKSettings.plist */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
@@ -249,6 +252,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				4EAF39731E0695FF00B40B26 /* PSDKSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import UIKit
 
 class CampaignTimingView: CardView, UITableViewDelegate, UITableViewDataSource {
-    private var innerPadding : CGFloat  = 0.0
+    private var innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
     let rowHeight : CGFloat  = 30.0
     
     private var contentHeight : CGFloat  = 0.0
@@ -32,15 +32,15 @@ class CampaignTimingView: CardView, UITableViewDelegate, UITableViewDataSource {
         super.init(frame: frame)
         innerPadding = iPadding
         let viewWidth = frame.width/600 * UIScreen.mainScreen().bounds.size.width
-        campaignTimingTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize))
+        campaignTimingTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize))
         campaignTimingTitle.backgroundColor = UIColor.cyanColor()
-        campaignTimingTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize)
+        campaignTimingTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTitleColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize)
         campaignTimingTitle.text = "psdk_title_timings".localized
         campaignTimingTitle.isBold = true
         self.addSubview(campaignTimingTitle)
         
         
-        campaignTimingTable = UITableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), rowHeight * CGFloat(cTiming.count)))
+        campaignTimingTable = UITableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), rowHeight * CGFloat(cTiming.count)))
         self.campaignTiming = cTiming
 
         campaignTimingTable.backgroundColor = UIColor.darkGrayColor()
@@ -52,7 +52,7 @@ class CampaignTimingView: CardView, UITableViewDelegate, UITableViewDataSource {
         self.campaignTimingTable.registerClass(UITableViewCell.self, forCellReuseIdentifier:"cell")
         self.campaignTimingTable.reloadData()
         
-        contentHeight =  ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize  + innerPadding*3 + (rowHeight * CGFloat(campaignTiming.count))
+        contentHeight =  ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize  + innerPadding*3 + (rowHeight * CGFloat(campaignTiming.count))
     }
     
     // MARK: - Table view data source
@@ -81,20 +81,20 @@ class CampaignTimingView: CardView, UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = timing.getDay()
         cell.detailTextLabel?.text = timing.getTiming()
         cell.backgroundColor = UIColor.brownColor()
-        cell.textLabel?.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTextColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTextSize)
-        cell.textLabel?.font = UIFont(name: ProximateSDKSettings.getViewOptions().fontRegular, size: (cell.textLabel?.font.pointSize)!)
-        cell.detailTextLabel?.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTextColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTextSize)
-        cell.detailTextLabel?.font = UIFont(name: ProximateSDKSettings.getViewOptions().fontRegular, size: (cell.textLabel?.font.pointSize)!)
+        cell.textLabel?.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTextColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
+        cell.textLabel?.font = UIFont(name: ProximateSDKSettings.psdkViewOptions.fontRegular, size: (cell.textLabel?.font.pointSize)!)
+        cell.detailTextLabel?.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTextColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
+        cell.detailTextLabel?.font = UIFont(name: ProximateSDKSettings.psdkViewOptions.fontRegular, size: (cell.textLabel?.font.pointSize)!)
 
         cell.imageView?.image = ProximateSDKSettings.getImageForName("icon_timing")
 
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = .ByWordWrapping
         if (timing.getDay() == currentDay){
-            cell.textLabel?.textColor = ProximateSDKSettings.getViewOptions().primaryColor
-            cell.detailTextLabel?.textColor = ProximateSDKSettings.getViewOptions().primaryColor
+            cell.textLabel?.textColor = ProximateSDKSettings.psdkViewOptions.primaryColor
+            cell.detailTextLabel?.textColor = ProximateSDKSettings.psdkViewOptions.primaryColor
             cell.imageView?.image = cell.imageView?.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-            cell.imageView?.tintColor = ProximateSDKSettings.getViewOptions().primaryColor
+            cell.imageView?.tintColor = ProximateSDKSettings.psdkViewOptions.primaryColor
         }
         
         return cell

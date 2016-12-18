@@ -30,7 +30,7 @@ internal class BaseButton: UIButton {
     
     internal func setStyle(textColor : UIColor, size fontSize: CGFloat){
         self.setTitleColor(textColor, forState: UIControlState.Normal)
-        self.titleLabel?.font = UIFont(name: ProximateSDKSettings.getViewOptions().fontRegular, size: fontSize)
+        self.titleLabel?.font = UIFont(name: ProximateSDKSettings.psdkViewOptions.fontRegular, size: fontSize)
     }
     
     // Only override drawRect: if you perform custom drawing.

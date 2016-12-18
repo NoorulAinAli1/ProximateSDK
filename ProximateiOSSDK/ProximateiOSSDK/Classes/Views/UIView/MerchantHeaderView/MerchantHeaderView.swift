@@ -16,13 +16,13 @@ class MerchantHeaderView: UIView {
     
     @IBOutlet var merchantTitle : BaseLabel! {
         didSet {
-            merchantTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().merchantTitleFontColor, size: ProximateSDKSettings.getFontStyleOptions().merchantTitleFontSize)
+            merchantTitle.setStyle(ProximateSDKSettings.psdkFontOptions.merchantTitleFontColor, size: ProximateSDKSettings.psdkFontOptions.merchantTitleFontSize)
 
         }
     }
     @IBOutlet var merchantSlogan : BaseLabel!{
         didSet {
-            merchantSlogan.setStyle(ProximateSDKSettings.getFontStyleOptions().merchantTaglineFontColor, size: ProximateSDKSettings.getFontStyleOptions().merchantTaglineFontSize)
+            merchantSlogan.setStyle(ProximateSDKSettings.psdkFontOptions.merchantTaglineFontColor, size: ProximateSDKSettings.psdkFontOptions.merchantTaglineFontSize)
         }
     }
 
@@ -34,7 +34,7 @@ class MerchantHeaderView: UIView {
     @IBOutlet var btnPhone : BaseImageButton!
     private let colorCube = CCColorCube()
 
-    private var merchantBannerColor : UIColor! = ProximateSDKSettings.getViewOptions().primaryColor
+    private var merchantBannerColor : UIColor! = ProximateSDKSettings.psdkViewOptions.primaryColor
     
     private var mMerchant : ObjectMerchant!
     

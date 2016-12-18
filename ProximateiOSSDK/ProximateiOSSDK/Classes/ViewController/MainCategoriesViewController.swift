@@ -121,6 +121,8 @@ class MainCategoriesViewController: BaseViewController, CAPSPageMenuDelegate {
         super.viewWillAppear(animated)
         navSearchView?.alpha = 1.0
         ProximateSDK.getScreenInteractionDelegate()?.screenInteracted()
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barTintColor = ProximateSDKSettings.psdkViewOptions.primaryColor
     }
     
     

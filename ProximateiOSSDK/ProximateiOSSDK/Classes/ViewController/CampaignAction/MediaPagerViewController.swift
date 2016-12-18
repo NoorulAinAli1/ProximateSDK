@@ -16,10 +16,10 @@ class MediaPagerFullScreenViewController: BaseViewController, UICollectionViewDa
     @IBOutlet var contentsCollectionView : UICollectionView!
     @IBOutlet var pageControl : DDPageControl! {
         didSet {
-            pageControl.onColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSelectedColor
-            pageControl.offColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorUnselectedColor
-            pageControl.indicatorDiameter = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorDiameter
-            pageControl.indicatorSpace = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSpace
+            pageControl.onColor = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorSelectedColor
+            pageControl.offColor = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorUnselectedColor
+            pageControl.indicatorDiameter = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorDiameter
+            pageControl.indicatorSpace = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorSpace
         }
     }
 

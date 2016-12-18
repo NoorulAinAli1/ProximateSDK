@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
 s.name             = 'ProximateiOSSDK'
 s.version          = '0.1.0'
 s.summary          = 'Integrate ProximateiOSSDK with your merchant or bank app.'
+s.requires_arc = true
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -31,15 +32,21 @@ s.social_media_url = 'https://twitter.com/ProximateApp'
 
 s.ios.deployment_target = '8.0'
 
-s.source_files     = 'ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.{swift,h,m}'
+#s.source_files     = 'ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.{swift,h,m}'
+s.source_files = "ProximateiOSSDK/**/*.{swift,h,m}"
 
-s.resource_bundles = {
-'ProximateiOSSDK' => ['ProximateiOSSDK/ProximateiOSSDK/Assets/*']
-}
+s.resources = "ProximateiOSSDK/**/*.{png,strings,storyboard,xib}"
+#s.resource_bundles = {
+#'ProximateiOSSDK' => ['ProximateiOSSDK/ProximateiOSSDK/Assets/*']
+#}
 
 s.public_header_files = 'ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.h'
 
-s.frameworks = 'UIKit', 'MapKit'
+s.frameworks = ['UIKit', 'MapKit', 'SafariServices']
 s.dependency 'OCMapper', '~> 2.1'
+s.dependency 'DDPageControl', '~> 0.1'
+s.dependency 'ImageCenterButton', '~> 0.1.4'
+s.dependency 'Fabric', '~> 1.6.11'
+s.dependency 'Crashlytics', '~> 3.8.3'
 
 end

@@ -43,7 +43,7 @@ class BaseActionButton : BaseButton {
         layer.frame.origin = CGPointMake(0.0,0.0)
         layer.cornerRadius = 4///self.frame.size.height/2
 
-        layer.colors = [ProximateSDKSettings.getViewOptions().primaryColor.CGColor, UIColor.psdkPrimaryDarkColor().CGColor]
+        layer.colors = [ProximateSDKSettings.psdkViewOptions.primaryColor.CGColor, UIColor.psdkPrimaryDarkColor().CGColor]
         self.layer.insertSublayer(layer, atIndex: 0)
     }
     

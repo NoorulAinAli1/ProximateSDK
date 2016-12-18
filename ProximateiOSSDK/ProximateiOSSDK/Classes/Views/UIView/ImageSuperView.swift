@@ -72,7 +72,7 @@ class ImageSuperView: UIView {
 //            layer.addSublayer(imageLayer)
 //        }
         
-        let options = ProximateSDKSettings.getCardOptions()
+        let options = ProximateSDKSettings.psdkCardOptions
 //        for option in options {
 //            switch (option) {
 //            case let .CardBackgroundColor(value):

@@ -42,13 +42,13 @@ class MerchantTableViewCell: UITableViewCell {
 
     @IBOutlet var merchantTitle : BaseLabel! {
         didSet {
-            merchantTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().merchantTitleFontColor, size: ProximateSDKSettings.getFontStyleOptions().merchantTitleFontSize)
+            merchantTitle.setStyle(ProximateSDKSettings.psdkFontOptions.merchantTitleFontColor, size: ProximateSDKSettings.psdkFontOptions.merchantTitleFontSize)
         }
     }
     
     @IBOutlet var campaignTitle : BaseLabel! {
         didSet {
-            campaignTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignTextFontColor, size: ProximateSDKSettings.getFontStyleOptions().campaignTextFontSize)
+            campaignTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignTextFontColor, size: ProximateSDKSettings.psdkFontOptions.campaignTextFontSize)
         }
     }
 
@@ -75,7 +75,7 @@ class MerchantTableViewCell: UITableViewCell {
     func setMerchantGroup(merchantGroup : ObjectMerchantGroup){
         let seeAll = String(format: "psdk_button_see_all".localized, arguments: [merchantGroup.activeCampaignCount.integerValue])
 
-        btnMerchantTotalCampaigns.setStyle(ProximateSDKSettings.getFontStyleOptions().seeAllFontColor, size: ProximateSDKSettings.getFontStyleOptions().seeAllFontSize)
+        btnMerchantTotalCampaigns.setStyle(ProximateSDKSettings.psdkFontOptions.seeAllFontColor, size: ProximateSDKSettings.psdkFontOptions.seeAllFontSize)
 
         btnMerchantTotalCampaigns.setTitle(seeAll, forState: .Normal)
         
@@ -100,7 +100,7 @@ class MerchantTableViewCell: UITableViewCell {
 //        campaignExpiryDateTime.textColor = expiryStyle.campaignExpiryTextColor
         campaignExpiryImage.image = expiryStyle.campaignExpiryImage
         campaignExpiryDateTime.text = expiryStyle.campaignExpiryText
-        campaignExpiryDateTime.setStyle(expiryStyle.campaignExpiryTextColor, size: ProximateSDKSettings.getFontStyleOptions().expiryTextFontSize)
+        campaignExpiryDateTime.setStyle(expiryStyle.campaignExpiryTextColor, size: ProximateSDKSettings.psdkFontOptions.expiryTextFontSize)
 
         btnLocation.hidden = (mainCampaign.beacons == nil)
     }

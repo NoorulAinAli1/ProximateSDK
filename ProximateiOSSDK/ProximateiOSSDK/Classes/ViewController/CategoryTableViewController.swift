@@ -30,15 +30,15 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
         
         self.navigationControllerAnimationController = PortalAnimationController()
         
-        self.view.backgroundColor = ProximateSDKSettings.getViewOptions().viewBackgroundColor
-        self.tableView.backgroundColor = ProximateSDKSettings.getViewOptions().viewBackgroundColor
+        self.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
+        self.tableView.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
         self.title = mCategory.getCategoryTitle()
 
         self.refreshControl = UIRefreshControl()
-        self.refreshControl!.tintColor = ProximateSDKSettings.getViewOptions().primaryColor
+        self.refreshControl!.tintColor = ProximateSDKSettings.psdkViewOptions.primaryColor
         self.refreshControl!.addTarget(self, action: #selector(CategoryTableViewController.handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
         
         self.tableView.addSubview(self.refreshControl!)

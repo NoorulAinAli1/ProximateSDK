@@ -19,27 +19,33 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "ProximateiOSSDK/Classes/**/*.{swift,h,m}",
+  "source_files": "ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.{swift,h,m}",
   "resource_bundles": {
     "ProximateiOSSDK": [
-      "ProximateiOSSDK/Assets/*"
+      "ProximateiOSSDK/ProximateiOSSDK/Assets/*"
     ]
   },
-  "public_header_files": "ProximateiOSSDK/Classes/**/*.h",
-  "requires_arc": true,
+  "public_header_files": "ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.h",
   "frameworks": [
     "UIKit",
-    "MapKit"
+    "MapKit",
+    "SafariServices"
   ],
   "dependencies": {
     "OCMapper": [
       "~> 2.1"
     ],
+    "DDPageControl": [
+      "~> 0.1"
+    ],
     "ImageCenterButton": [
       "~> 0.1.4"
     ],
-    "DDPageControl": [
-      "~> 0.1"
+    "Fabric": [
+      "~> 1.6.11"
+    ],
+    "Crashlytics": [
+      "~> 3.8.3"
     ]
   }
 }

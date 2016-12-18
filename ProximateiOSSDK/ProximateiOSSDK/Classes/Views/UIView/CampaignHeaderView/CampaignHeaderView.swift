@@ -20,10 +20,11 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     @IBOutlet var campaignCollectionView : UICollectionView!
     @IBOutlet var pageControl : DDPageControl! {
         didSet {
-            pageControl.onColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSelectedColor
-            pageControl.offColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorUnselectedColor
-            pageControl.indicatorDiameter = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorDiameter
-            pageControl.indicatorSpace = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSpace
+            pageControl.backgroundColor = UIColor.clearColor()
+            pageControl.onColor = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorSelectedColor
+            pageControl.offColor = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorUnselectedColor
+            pageControl.indicatorDiameter = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorDiameter
+            pageControl.indicatorSpace = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorSpace
         }
     }
 
@@ -31,13 +32,13 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     
     @IBOutlet var merchantTitle : BaseLabel! {
         didSet {
-            merchantTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().merchantTitleFontColor, size: ProximateSDKSettings.getFontStyleOptions().merchantTitleFontSize)
+            merchantTitle.setStyle(ProximateSDKSettings.psdkFontOptions.merchantTitleFontColor, size: ProximateSDKSettings.psdkFontOptions.merchantTitleFontSize)
         }
     }
     
     @IBOutlet var merchantSlogan : BaseLabel!{
         didSet {
-            merchantSlogan.setStyle(ProximateSDKSettings.getFontStyleOptions().merchantTaglineFontColor, size: ProximateSDKSettings.getFontStyleOptions().merchantTaglineFontSize)
+            merchantSlogan.setStyle(ProximateSDKSettings.psdkFontOptions.merchantTaglineFontColor, size: ProximateSDKSettings.psdkFontOptions.merchantTaglineFontSize)
         }
     }
     
@@ -47,7 +48,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     @IBOutlet var btnWebsite : BaseImageButton!
     
     private var mCampaign  : ObjectCampaign!
-    private var campaignBannerColor : UIColor! = ProximateSDKSettings.getViewOptions().primaryColor
+    private var campaignBannerColor : UIColor! = ProximateSDKSettings.psdkViewOptions.primaryColor
     private let colorCube = CCColorCube()
 
     override init(frame : CGRect){

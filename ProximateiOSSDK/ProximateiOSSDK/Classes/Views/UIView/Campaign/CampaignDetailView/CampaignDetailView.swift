@@ -13,7 +13,7 @@ import UIKit
 }
 
 class CampaignDetailView: CardView {
-    private var innerPadding : CGFloat  = 0.0
+    private var innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
     private var contentHeight : CGFloat  = 0.0
 
     var campaignDetailTitle : BaseLabel!
@@ -37,17 +37,17 @@ class CampaignDetailView: CardView {
 
         let viewWidth = self.frame.width/600 * UIScreen.mainScreen().bounds.size.width
 
-        campaignDetailTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize))
+        campaignDetailTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize))
         campaignDetailTitle.backgroundColor = UIColor.cyanColor()
         campaignDetailTitle.text = "psdk_title_details".localized
         campaignDetailTitle.isBold = true
-        campaignDetailTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize)
+        campaignDetailTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTitleColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize)
         self.addSubview(campaignDetailTitle)
         
-        campaignDetailText = BaseLabel(frame: CGRectMake(innerPadding, ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), innerPadding))
+        campaignDetailText = BaseLabel(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), innerPadding))
         campaignDetailText.numberOfLines = 0
         campaignDetailText.numberOfLines = 0
-        campaignDetailText.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTextColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTextSize)
+        campaignDetailText.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTextColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
         campaignDetailText.backgroundColor = UIColor.darkGrayColor()
         self.addSubview(campaignDetailText)
         
@@ -92,7 +92,7 @@ class CampaignDetailView: CardView {
     }
     
     func getContentHeight() -> CGFloat {
-        return contentHeight + ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize + (innerPadding * 3)
+        return contentHeight + ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + (innerPadding * 3)
     }
     
     override func layoutSubviews(){

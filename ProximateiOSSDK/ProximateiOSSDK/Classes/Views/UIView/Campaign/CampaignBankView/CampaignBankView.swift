@@ -9,7 +9,7 @@
 import UIKit
 
 class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
-    private var innerPadding : CGFloat  = 0.0
+    private var innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
     let rowHeight : CGFloat  = 200.0
     
     private var contentHeight : CGFloat  = 0.0
@@ -31,17 +31,17 @@ class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
         innerPadding = iPadding
         let viewWidth = frame.width/600 * UIScreen.mainScreen().bounds.size.width
         
-        campaignBankTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize))
+        campaignBankTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize))
         campaignBankTitle.backgroundColor = UIColor.cyanColor()
         campaignBankTitle.isBold = true
         campaignBankTitle.text = "psdk_title_deals_available_at".localized
-        campaignBankTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize)
+        campaignBankTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTitleColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize)
         self.addSubview(campaignBankTitle)
         
         for bank in cBank {
             contentHeight += (rowHeight * CGFloat((bank.cards?.count)!))
         }
-        campaignBankTable = UITableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), contentHeight))
+        campaignBankTable = UITableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), contentHeight))
         
         campaignBankTable.backgroundColor = UIColor.darkGrayColor()
         self.addSubview(campaignBankTable)
@@ -89,7 +89,7 @@ class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func getContentHeight() -> CGFloat {
-        return ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize + innerPadding*3 + contentHeight
+        return ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding*3 + contentHeight
     }
     
 }

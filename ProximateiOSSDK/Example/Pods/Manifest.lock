@@ -1,9 +1,14 @@
 PODS:
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
   - DDPageControl (0.1)
+  - Fabric (1.6.11)
   - ImageCenterButton (0.1.4)
   - OCMapper (2.1)
   - ProximateiOSSDK (0.1.0):
+    - Crashlytics (~> 3.8.3)
     - DDPageControl (~> 0.1)
+    - Fabric (~> 1.6.11)
     - ImageCenterButton (~> 0.1.4)
     - OCMapper (~> 2.1)
 
@@ -15,10 +20,12 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   DDPageControl: 60c7d350477922b1e67fcf927f7e50eddc7dd207
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   ImageCenterButton: 5c04d336f678ae10fef7dd297910ecb8592b7bdd
   OCMapper: fa22e7b51de7cc38e66b993037076d28a0f31b29
-  ProximateiOSSDK: 00f040c1e258958a1f5efc474fb2e0cc220442a7
+  ProximateiOSSDK: b71e13985a596feadaf722537f323698539c8146
 
 PODFILE CHECKSUM: 1ec100c8169a20d2e0f9e2d2d2b1094952c3d23d
 

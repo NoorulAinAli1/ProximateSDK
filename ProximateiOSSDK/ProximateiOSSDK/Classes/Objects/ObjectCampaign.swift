@@ -79,7 +79,7 @@ internal class ObjectCampaign: NSObject {
     func getCampaignExpiryStyle() -> (campaignExpiryText : String, campaignExpiryImage : UIImage , campaignExpiryTextColor : UIColor) {
         let isExpired = self.isExpired()
         let campaignExpiryText = isExpired ? String(format: "psdk_text_expired_on".localized, arguments: [self.getExpiryDateTime()]) : String(format: "psdk_text_ends_on".localized, arguments: [self.getExpiryDateTime()])
-        let campaignExpiryTextColor = isExpired ? ProximateSDKSettings.getFontStyleOptions().expiredFontColor : ProximateSDKSettings.getFontStyleOptions().expiryTextFontColor
+        let campaignExpiryTextColor = isExpired ? ProximateSDKSettings.psdkFontOptions.expiredFontColor : ProximateSDKSettings.psdkFontOptions.expiryTextFontColor
         
         let imageName = isExpired ? "time_icon_gray" : "time_icon_gray"//"time_icon_orange"
         let campaignExpiryImage = ProximateSDKSettings.getImageForName(imageName)

@@ -51,6 +51,16 @@ extension String {
     func mapEncoding() -> String {
         return self.stringByReplacingOccurrencesOfString(" ", withString: "+")
     }
+    
+    func hexStringFromColor (color : UIColor) -> NSString {
+        let components = CGColorGetComponents(color.CGColor)
+        
+        let r : Float = Float(components[0])
+        let g : Float = Float(components[1])
+        let b : Float = Float(components[2])
+        
+        return NSString(format: "#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255));
+    }
 
     var numberValue:NSNumber? {
         let formatter = NSNumberFormatter()

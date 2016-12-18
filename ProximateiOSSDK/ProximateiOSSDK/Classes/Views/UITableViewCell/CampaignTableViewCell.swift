@@ -29,7 +29,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     
     @IBOutlet var campaignTitle : BaseLabel! {
         didSet {
-            campaignTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignTextFontColor, size: ProximateSDKSettings.getFontStyleOptions().campaignTextFontSize)
+            campaignTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignTextFontColor, size: ProximateSDKSettings.psdkFontOptions.campaignTextFontSize)
         }
     }
 
@@ -39,10 +39,10 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     @IBOutlet var btnShare : BaseImageButton!
     @IBOutlet var pageControl : DDPageControl! {
         didSet {
-            pageControl.onColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSelectedColor
-            pageControl.offColor = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorUnselectedColor
-            pageControl.indicatorDiameter = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorDiameter
-            pageControl.indicatorSpace = ProximateSDKSettings.getPageIndicatorOptions().pageIndicatorSpace
+            pageControl.onColor = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorSelectedColor
+            pageControl.offColor = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorUnselectedColor
+            pageControl.indicatorDiameter = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorDiameter
+            pageControl.indicatorSpace = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorSpace
         }
     }
 
@@ -82,7 +82,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
 //        campaignExpiryDateTime.textColor = expiryStyle.campaignExpiryTextColor
         campaignExpiryImage.image = expiryStyle.campaignExpiryImage
         campaignExpiryDateTime.text = expiryStyle.campaignExpiryText
-        campaignExpiryDateTime.setStyle(expiryStyle.campaignExpiryTextColor, size: ProximateSDKSettings.getFontStyleOptions().expiryTextFontSize)
+        campaignExpiryDateTime.setStyle(expiryStyle.campaignExpiryTextColor, size: ProximateSDKSettings.psdkFontOptions.expiryTextFontSize)
         
         btnLocation.hidden = (mainCampaign.beacons == nil)
     }

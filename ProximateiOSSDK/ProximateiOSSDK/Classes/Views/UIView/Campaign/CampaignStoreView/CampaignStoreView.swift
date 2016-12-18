@@ -13,7 +13,7 @@ import UIKit
 }
 
 class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
-    private var innerPadding : CGFloat  = 0.0
+    private var innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
     let rowHeight : CGFloat  = 30.0
     
     private var contentHeight : CGFloat  = 0.0
@@ -37,14 +37,14 @@ class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
         innerPadding = iPadding
         let viewWidth = frame.width/600 * UIScreen.mainScreen().bounds.size.width
         DebugLogger.debugLog("screenWidth \(viewWidth)")
-        campaignStoreTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize))
+        campaignStoreTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize))
         campaignStoreTitle.backgroundColor = UIColor.cyanColor()
         campaignStoreTitle.text = "psdk_title_stores".localized
         campaignStoreTitle.isBold = true
-        campaignStoreTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize)
+        campaignStoreTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTitleColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize)
         self.addSubview(campaignStoreTitle)
         
-        campaignStoreTable = UITableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), rowHeight * CGFloat(cStore.count)))
+        campaignStoreTable = UITableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), rowHeight * CGFloat(cStore.count)))
         campaignStoreTable.bounces = false
         campaignStoreTable.backgroundColor = UIColor.darkGrayColor()
         self.addSubview(campaignStoreTable)
@@ -55,7 +55,7 @@ class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
 
         self.campaignStore = cStore
 
-        contentHeight =  ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleSize  + innerPadding*3 + (rowHeight * CGFloat(campaignStore.count))
+        contentHeight =  ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize  + innerPadding*3 + (rowHeight * CGFloat(campaignStore.count))
     }
     
     // MARK: - Table view data source
@@ -84,8 +84,8 @@ class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
         let store = self.campaignStore[indexPath.row]
         cell.textLabel?.text = store.getTitle()
         cell.imageView?.image = ProximateSDKSettings.getImageForName("icon_location")
-        cell.textLabel?.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTextColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTextSize)
-        cell.textLabel?.font = UIFont(name: ProximateSDKSettings.getViewOptions().fontRegular, size: (cell.textLabel?.font.pointSize)!)
+        cell.textLabel?.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTextColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
+        cell.textLabel?.font = UIFont(name: ProximateSDKSettings.psdkViewOptions.fontRegular, size: (cell.textLabel?.font.pointSize)!)
         return cell
     }
     

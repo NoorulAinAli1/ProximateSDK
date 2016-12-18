@@ -14,20 +14,20 @@ class BankCardTableViewCell : UITableViewCell {
     
     @IBOutlet var bankCardTitle : BaseLabel! {
         didSet {
-            bankCardTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTitleColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTextSize)
+            bankCardTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTitleColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
         }
     }
     
     @IBOutlet var bankCardTagline : BaseLabel! {
         didSet {
-            bankCardTagline.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignDetailTextColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTextSize)
+            bankCardTagline.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTextColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
         }
         
     }
 
     @IBOutlet var bankCardOfferText : BaseLabel!  {
         didSet {
-            bankCardOfferText.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignBoldFontColor, size: ProximateSDKSettings.getFontStyleOptions().campaignDetailTextSize)
+            bankCardOfferText.setStyle(ProximateSDKSettings.psdkFontOptions.campaignBoldFontColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
         }
         
     }

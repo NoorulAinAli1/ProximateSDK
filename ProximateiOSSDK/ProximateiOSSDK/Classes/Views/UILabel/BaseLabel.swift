@@ -30,7 +30,7 @@ class BaseLabel: UILabel {
     }
     
     private func customize(){
-        let fontName = isBold.boolValue ? ProximateSDKSettings.getViewOptions().fontBold : ProximateSDKSettings.getViewOptions().fontRegular
+        let fontName = isBold.boolValue ? ProximateSDKSettings.psdkViewOptions.fontBold : ProximateSDKSettings.psdkViewOptions.fontRegular
         self.font = UIFont(name: fontName, size: self.font.pointSize)
     }
     
@@ -50,10 +50,10 @@ class BaseLabel: UILabel {
     }
     
     func setHTMLFromString(text: String, singleLine isSingleLine : Bool = true) {
-        let boldColor = hexStringFromColor(ProximateSDKSettings.getFontStyleOptions().campaignBoldFontColor)
-        let normalColor = hexStringFromColor(ProximateSDKSettings.getFontStyleOptions().campaignTextFontColor)
-//        let modifiedFont = NSString(format:"<style>b {color: \(boldColor); font-family: \(ProximateSDKSettings.getViewOptions().fontBold);}</style><span style=\"font-family: \(self.font!.fontName); color: \(normalColor); font-size: \(self.font!.pointSize)\">%@</span>", text) as String
-        let modifiedFont = NSString(format:"<style>span {font-family: \(ProximateSDKSettings.getViewOptions().fontRegular); color: \(normalColor); font-size: \(self.font!.pointSize)}; b {color: \(boldColor); font-family: \(ProximateSDKSettings.getViewOptions().fontBold);}</style><span>%@</span>", text) as String
+        let boldColor = hexStringFromColor(ProximateSDKSettings.psdkFontOptions.campaignBoldFontColor)
+        let normalColor = hexStringFromColor(ProximateSDKSettings.psdkFontOptions.campaignTextFontColor)
+//        let modifiedFont = NSString(format:"<style>b {color: \(boldColor); font-family: \(ProximateSDKSettings.psdkViewOptions.fontBold);}</style><span style=\"font-family: \(self.font!.fontName); color: \(normalColor); font-size: \(self.font!.pointSize)\">%@</span>", text) as String
+        let modifiedFont = NSString(format:"<style>span {font-family: \(ProximateSDKSettings.psdkViewOptions.fontRegular); color: \(normalColor); font-size: \(self.font!.pointSize)}; b {color: \(boldColor); font-family: \(ProximateSDKSettings.psdkViewOptions.fontBold);}</style><span>%@</span>", text) as String
         
         let attrStr = try! NSMutableAttributedString(
             data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,

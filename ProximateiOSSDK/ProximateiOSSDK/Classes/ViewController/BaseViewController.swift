@@ -12,7 +12,7 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = ProximateSDKSettings.getViewOptions().viewBackgroundColor
+        self.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
    
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
@@ -25,7 +25,7 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = false
+//        self.navigationController?.navigationBar.hidden = false
     }
     
     override func viewWillDisappear(animated: Bool) {

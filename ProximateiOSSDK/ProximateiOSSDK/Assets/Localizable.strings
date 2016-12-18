@@ -25,8 +25,8 @@
 
 // Title
 "psdk_title_merchant_list" = "Merchants List";
-"psdk_title_available_at" = "Stores:";
-"psdk_title_available_on" = "Timings:";
+"psdk_title_stores" = "Stores:";
+"psdk_title_timingsn" = "Timings:";
 "psdk_title_deals_available_at" = "Deals available at:";
 "psdk_title_details" = "Details";
 

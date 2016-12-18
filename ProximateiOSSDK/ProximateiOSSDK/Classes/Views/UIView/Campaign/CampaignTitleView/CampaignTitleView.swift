@@ -10,7 +10,7 @@ import UIKit
 
 class CampaignTitleView: CardView {
     
-    private var innerPadding : CGFloat  = 0.0
+    private var innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
     var campaignExpiryImage : UIImageView?
     private var contentHeight : CGFloat  = 0.0
     
@@ -18,7 +18,7 @@ class CampaignTitleView: CardView {
         didSet {
             campaignTitle.numberOfLines = 0
             campaignTitle.isBold = false
-            campaignTitle.setStyle(ProximateSDKSettings.getFontStyleOptions().campaignTextFontColor, size: ProximateSDKSettings.getFontStyleOptions().campaignTextFontSize)
+            campaignTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignTextFontColor, size: ProximateSDKSettings.psdkFontOptions.campaignTextFontSize)
         }
     }
 
@@ -38,11 +38,11 @@ class CampaignTitleView: CardView {
     private func addViews() {
         let viewWidth = self.frame.width/600 * UIScreen.mainScreen().bounds.size.width
 
-        campaignTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.getFontStyleOptions().campaignTextFontSize))
+        campaignTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.campaignTextFontSize))
         campaignTitle.backgroundColor = UIColor.cyanColor()
         self.addSubview(campaignTitle)
         
-        campaignExpiryDateTime = BaseLabel(frame: CGRectMake(innerPadding, ProximateSDKSettings.getFontStyleOptions().campaignTextFontSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.getFontStyleOptions().expiryTextFontSize))
+        campaignExpiryDateTime = BaseLabel(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignTextFontSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.expiryTextFontSize))
         campaignExpiryDateTime.backgroundColor = UIColor.darkGrayColor()
         self.addSubview(campaignExpiryDateTime)
 
@@ -58,7 +58,7 @@ class CampaignTitleView: CardView {
         let expiryStyle = campaign.getCampaignExpiryStyle()
         campaignExpiryImage?.image = expiryStyle.campaignExpiryImage
         campaignExpiryDateTime?.text = expiryStyle.campaignExpiryText
-        campaignExpiryDateTime?.setStyle(expiryStyle.campaignExpiryTextColor, size: ProximateSDKSettings.getFontStyleOptions().expiryTextFontSize)
+        campaignExpiryDateTime?.setStyle(expiryStyle.campaignExpiryTextColor, size: ProximateSDKSettings.psdkFontOptions.expiryTextFontSize)
 
 //        campaignTitle.text = campaign.getCampaignTitle()
         campaignTitle.setHTMLFromString(campaign.getCampaignTitle(), singleLine: false)
@@ -80,7 +80,7 @@ class CampaignTitleView: CardView {
     
     func getContentHeight() -> CGFloat {
 
-        return contentHeight + ProximateSDKSettings.getFontStyleOptions().expiryTextFontSize + innerPadding*5
+        return contentHeight + ProximateSDKSettings.psdkFontOptions.expiryTextFontSize + innerPadding*5
 
     }
 

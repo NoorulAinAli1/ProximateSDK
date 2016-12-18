@@ -22,7 +22,7 @@ class CardView: UIView {
     
     override init(frame : CGRect){
         super.init(frame: frame)
-        cardOptions = ProximateSDKSettings.getCardOptions()
+        cardOptions = ProximateSDKSettings.psdkCardOptions
 
         loadCardOptions()
     }
@@ -46,7 +46,7 @@ class CardView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cardOptions = ProximateSDKSettings.getCardOptions()
+        cardOptions = ProximateSDKSettings.psdkCardOptions
         loadCardOptions()
     }
     

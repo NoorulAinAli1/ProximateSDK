@@ -22,13 +22,13 @@ class ProximateSDKNavViewController: UINavigationController, UINavigationControl
         
         self.campaignControllerAnimationController = PortalAnimationController()
         self.navigationControllerAnimationController = CrossFadeAnimationController()
-        self.navigationBar.barTintColor =  ProximateSDKSettings.getViewOptions().primaryColor
+        self.navigationBar.barTintColor =  ProximateSDKSettings.psdkViewOptions.primaryColor
         
-        self.view.backgroundColor = ProximateSDKSettings.getViewOptions().viewBackgroundColor
+        self.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
         
-        self.navigationBar.tintColor = ProximateSDKSettings.getViewOptions().navigationBarTintColor
+        self.navigationBar.tintColor = ProximateSDKSettings.psdkViewOptions.navigationBarTintColor
         
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ProximateSDKSettings.getViewOptions().navigationBarTitleColor,
+        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ProximateSDKSettings.psdkViewOptions.navigationBarTitleColor,
         NSFontAttributeName : UIFont(name: "Futura", size: 16.0)!]
 
         self.navigationBar.shadowImage = UIImage()
@@ -36,7 +36,7 @@ class ProximateSDKNavViewController: UINavigationController, UINavigationControl
         self.navigationBar.barStyle = UIBarStyle.Black
         
 
-//        let textTitleOptionsNormal = [NSForegroundColorAttributeName: ProximateSDKSettings.getViewOptions().navigationBarTextColor, NSFontAttributeName : UIFont(name: "Futura", size: 11.0)]
+//        let textTitleOptionsNormal = [NSForegroundColorAttributeName: ProximateSDKSettings.psdkViewOptions.navigationBarTextColor, NSFontAttributeName : UIFont(name: "Futura", size: 11.0)]
 
 //        [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
 //        

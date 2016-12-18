@@ -31,10 +31,10 @@ class CampaignTimingTableViewCell: UITableViewCell {
     }
     
     func setCurrentDay() {
-        timingDay.textColor = ProximateSDKSettings.getViewOptions().primaryColor
-        timingInfo.textColor = ProximateSDKSettings.getViewOptions().primaryColor
+        timingDay.textColor = ProximateSDKSettings.psdkViewOptions.primaryColor
+        timingInfo.textColor = ProximateSDKSettings.psdkViewOptions.primaryColor
         timingImage.image = timingImage.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        timingImage.tintColor = ProximateSDKSettings.getViewOptions().primaryColor
+        timingImage.tintColor = ProximateSDKSettings.psdkViewOptions.primaryColor
     }
     
     override func awakeFromNib() {

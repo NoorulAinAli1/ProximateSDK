@@ -20,8 +20,8 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.backgroundColor =  ProximateSDKSettings.getViewOptions().viewBackgroundColor
-        self.view.backgroundColor =  ProximateSDKSettings.getViewOptions().viewBackgroundColor
+        self.tableView.backgroundColor =  ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
+        self.view.backgroundColor =  ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
 
         self.tableView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
 
@@ -114,7 +114,7 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     
     private func setRefreshControl(){
         self.refreshControl = UIRefreshControl()
-        self.refreshControl!.tintColor = ProximateSDKSettings.getViewOptions().primaryColor
+        self.refreshControl!.tintColor = ProximateSDKSettings.psdkViewOptions.primaryColor
         self.refreshControl!.addTarget(self, action: #selector(MerchantTableViewController.handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
         
         self.tableView.addSubview(self.refreshControl!)
@@ -234,21 +234,9 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.barTintColor = ProximateSDKSettings.getViewOptions().primaryColor
+//        self.navigationController?.navigationBar.translucent = false
+//        self.navigationController?.navigationBar.barTintColor = ProximateSDKSettings.psdkViewOptions.primaryColor
     }
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-     if editingStyle == .Delete {
-     // Delete the row from the data source
-     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-     } else if editingStyle == .Insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
     
     /*
      // MARK: - Navigation
