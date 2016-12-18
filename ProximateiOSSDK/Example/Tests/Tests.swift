@@ -2,7 +2,7 @@ import UIKit
 import XCTest
 //import ProximateiOSSDK
 
-class Tests: XCTestCase {
+class Tests : XCTestCase {
     
     override func setUp() {
         super.setUp()
