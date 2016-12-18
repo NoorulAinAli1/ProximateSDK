@@ -2,6 +2,7 @@
   "name": "ProximateiOSSDK",
   "version": "0.1.0",
   "summary": "Integrate ProximateiOSSDK with your merchant or bank app.",
+  "requires_arc": true,
   "description": "ProximateiOSSDK is developed to integrate Proximate app features with your own app. Simply register your app's bundle identifier on Proximate's portal, get the api key. Integrate the api key in your app having ProximateiOSSDK pods and you are ready to use Proximate features in your own app.",
   "homepage": "https://proximate.ae",
   "license": {
@@ -19,7 +20,7 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.{swift,h,m}",
+  "source_files": "ProximateiOSSDK/**/*.{swift,h,m}",
   "resource_bundles": {
     "ProximateiOSSDK": [
       "ProximateiOSSDK/ProximateiOSSDK/Assets/*"
@@ -40,12 +41,6 @@
     ],
     "ImageCenterButton": [
       "~> 0.1.4"
-    ],
-    "Fabric": [
-      "~> 1.6.11"
-    ],
-    "Crashlytics": [
-      "~> 3.8.3"
     ]
   }
 }
