@@ -22,7 +22,7 @@ pod "ProximateiOSSDK"
 
 ## Author
 
-proximate, info@proximate.ae
+noorulain.ali, noorulain.ali@avanzasolutions.com
 
 ## License
 
