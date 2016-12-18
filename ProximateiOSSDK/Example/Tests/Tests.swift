@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import ProximateiOSSDK
+//import ProximateiOSSDK
 
 class Tests: XCTestCase {
     

@@ -10,6 +10,7 @@
 		183240DA205DECA142A6C32F /* Pods_ProximateiOSSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F542B070FE223FF47480AD65 /* Pods_ProximateiOSSDK_Example.framework */; };
 		498D076EF63969A52FA22604 /* Pods_ProximateiOSSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252CFA02E791D9BB68ED5E76 /* Pods_ProximateiOSSDK_Tests.framework */; };
 		4EAF3C2F1E07173000B40B26 /* PSDKSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EAF3C2E1E07173000B40B26 /* PSDKSettings.plist */; };
+		4EAF3C301E07238000B40B26 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 607FACEA1AFB9204008FA782 /* Info.plist */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -260,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EAF3C301E07238000B40B26 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,10 +495,11 @@
 			baseConfigurationReference = 3E065B3551682506E3D7FE06 /* Pods-ProximateiOSSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ProximateiOSSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.proximate.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -506,10 +509,11 @@
 			baseConfigurationReference = 717A50EFD99F5D788CC14D91 /* Pods-ProximateiOSSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ProximateiOSSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.proximate.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -518,6 +522,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8A3B78CA6187DDF6F984232 /* Pods-ProximateiOSSDK_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -537,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8186967B720AD89F73BFE5F6 /* Pods-ProximateiOSSDK_Tests.release.xcconfig */;
 			buildSettings = {
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
