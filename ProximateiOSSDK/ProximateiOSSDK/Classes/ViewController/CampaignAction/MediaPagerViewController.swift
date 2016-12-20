@@ -9,6 +9,15 @@
 import UIKit
 import DDPageControl
 
+internal enum CAMPAIGN_MEDIA_TYPE : String {
+    case Image  = "6601"
+    case Video  = "6602"
+    case PDF    = "6603"
+    case Word   = "6604"
+    case Doc    = "6605"
+    case PPT    = "6606"
+}
+
 class MediaPagerFullScreenViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var screenTitle : String!
@@ -62,19 +71,22 @@ class MediaPagerFullScreenViewController: BaseViewController, UICollectionViewDa
         cell.content = self.mediaItem[indexPath.row]
         
         cell.collectionViewImage.frame.size = cell.frame.size
-        //        DLog.println("image frame \(cell.frame.size)")
-        if cell.content.type == "6601" {
+        let mediaType = CAMPAIGN_MEDIA_TYPE(rawValue: cell.content.type)!
+
+        switch mediaType {
+        case .Image:
             cell.collectionViewImage.af_setImageWithURL(NSURL(string: cell.content.getMediaURL())!,placeholderImage: ProximateSDKSettings.getLoadingPlaceholderImage())
             cell.scrollView.minimumZoomScale = 1.0
             cell.scrollView.maximumZoomScale = 3.0
             cell.scrollView.frame.size = self.view.frame.size
             cell.scrollView.contentSize =  self.view.frame.size
-        } else {
-            
+        case .Video:
             cell.collectionViewImage.hidden = true
             cell.setupVideoPlayer()
             cell.scrollView.minimumZoomScale = 1.0
             cell.scrollView.maximumZoomScale = 1.0
+        default:
+            DebugLogger.debugLog("no view")
         }
         
         
@@ -106,7 +118,7 @@ class MediaPagerFullScreenViewController: BaseViewController, UICollectionViewDa
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.hidden = false
+//        self.navigationController?.navigationBar.hidden = false
     }
 
 

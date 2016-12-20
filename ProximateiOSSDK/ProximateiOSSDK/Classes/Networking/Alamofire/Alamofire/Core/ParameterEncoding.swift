@@ -75,7 +75,7 @@ internal enum ParameterEncoding {
         - returns: A tuple containing the constructed request and the error that occurred during parameter encoding, 
                    if any.
     */
-    public func encode(
+    internal func encode(
         URLRequest: URLRequestConvertible,
         parameters: [String: AnyObject]?)
         -> (NSMutableURLRequest, NSError?)
@@ -184,7 +184,7 @@ internal enum ParameterEncoding {
 
         - returns: The percent-escaped, URL encoded query string components.
     */
-    public func queryComponents(key: String, _ value: AnyObject) -> [(String, String)] {
+    internal func queryComponents(key: String, _ value: AnyObject) -> [(String, String)] {
         var components: [(String, String)] = []
 
         if let dictionary = value as? [String: AnyObject] {
@@ -218,7 +218,7 @@ internal enum ParameterEncoding {
 
         - returns: The percent-escaped string.
     */
-    public func escape(string: String) -> String {
+    internal func escape(string: String) -> String {
         let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
         let subDelimitersToEncode = "!$&'()*+,;="
 

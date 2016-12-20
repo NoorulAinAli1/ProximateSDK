@@ -79,7 +79,7 @@ extension Manager {
 
         - returns: The created upload request.
     */
-    public func upload(URLRequest: URLRequestConvertible, file: NSURL) -> Request {
+    internal func upload(URLRequest: URLRequestConvertible, file: NSURL) -> Request {
         return upload(.File(URLRequest.URLRequest, file))
     }
 
@@ -95,7 +95,7 @@ extension Manager {
 
         - returns: The created upload request.
     */
-    public func upload(
+    internal func upload(
         method: Method,
         _ URLString: URLStringConvertible,
         headers: [String: String]? = nil,
@@ -118,7 +118,7 @@ extension Manager {
 
         - returns: The created upload request.
     */
-    public func upload(URLRequest: URLRequestConvertible, data: NSData) -> Request {
+    internal func upload(URLRequest: URLRequestConvertible, data: NSData) -> Request {
         return upload(.Data(URLRequest.URLRequest, data))
     }
 
@@ -134,7 +134,7 @@ extension Manager {
 
         - returns: The created upload request.
     */
-    public func upload(
+    internal func upload(
         method: Method,
         _ URLString: URLStringConvertible,
         headers: [String: String]? = nil,
@@ -158,7 +158,7 @@ extension Manager {
 
         - returns: The created upload request.
     */
-    public func upload(URLRequest: URLRequestConvertible, stream: NSInputStream) -> Request {
+    internal func upload(URLRequest: URLRequestConvertible, stream: NSInputStream) -> Request {
         return upload(.Stream(URLRequest.URLRequest, stream))
     }
 
@@ -174,7 +174,7 @@ extension Manager {
 
         - returns: The created upload request.
     */
-    public func upload(
+    internal func upload(
         method: Method,
         _ URLString: URLStringConvertible,
         headers: [String: String]? = nil,
@@ -231,7 +231,7 @@ extension Manager {
                                              `MultipartFormDataEncodingMemoryThreshold` by default.
         - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
     */
-    public func upload(
+    internal func upload(
         method: Method,
         _ URLString: URLStringConvertible,
         headers: [String: String]? = nil,
@@ -273,7 +273,7 @@ extension Manager {
                                              `MultipartFormDataEncodingMemoryThreshold` by default.
         - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
     */
-    public func upload(
+    internal func upload(
         URLRequest: URLRequestConvertible,
         multipartFormData: MultipartFormData -> Void,
         encodingMemoryThreshold: UInt64 = Manager.MultipartFormDataEncodingMemoryThreshold,

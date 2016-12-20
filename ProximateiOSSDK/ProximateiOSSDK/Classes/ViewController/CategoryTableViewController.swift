@@ -9,7 +9,6 @@
 import UIKit
 
 class CategoryTableViewController: UITableViewController, SearchDelegate, CampaignInfoClickDelegate, UIViewControllerTransitioningDelegate {    var navigationControllerAnimationController : ReversibleAnimationController!
-    
     var mCategory : ObjectCategory!
     var parentNavigationController : UINavigationController?
 
@@ -151,7 +150,7 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.row < mMerchantGroup.count ? 300 : 100
+        return indexPath.row < mMerchantGroup.count ? ProximateSDKSettings.psdkViewOptions.cardHeight : 100
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

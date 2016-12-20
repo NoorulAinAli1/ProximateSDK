@@ -9,13 +9,22 @@
 import UIKit
 import SafariServices
 
+internal enum CAMPAIGN_ACTION_TYPE : String {
+    case IMAGELIST  = "ImageList"
+    case VIDEO      = "Video"
+    case URL        = "URL"
+    case MAP        = "MAP"
+    case REDEEM     = "REDEEM"
+}
+
 class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, CampaignStoreDelegate, CampaignActionButtonDelegate, UIAlertViewDelegate, UIScrollViewDelegate {
     
     var mCampaign : ObjectCampaign!
-    private let outerPadding : CGFloat  = 10.0
-    private let innerPadding : CGFloat  = 4.0
+    private let outerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.outerPadding
+    private let innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
 
     @IBOutlet var scrollView: UIScrollView!
+    private var navBarVisible : Bool = false
 
     private var yIndex : CGFloat = 40.0
     @IBOutlet var view0 : UIView!
@@ -32,34 +41,71 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     @IBOutlet var view4Height : NSLayoutConstraint!
     @IBOutlet var view5Height : NSLayoutConstraint!
 
+    @IBOutlet var viewSpacing : [NSLayoutConstraint]!
+    
     private let campaignHeaderView = ProximateSDKSettings.getBundle().loadNibNamed("CampaignHeaderView", owner: CampaignViewController.self, options: nil)!.first as! CampaignHeaderView
 
     private let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDKSettings.getBundle())
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+
         self.scrollView.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
-        
         self.scrollView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
         
         hideNavigationBar()
         
         self.title = mCampaign.getMerchant().merchantName
+        
+        setOuterSpacing()
+        
         setHeaderView()
         setTitleView()
-        setDetailView()
-        setTimingView()
-        setStoreView()
-        setBankView()
         
-        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: yIndex)
+        populateSequentialViews()
+    }
+    
+    private func setOuterSpacing() {
+//        for item in self.viewSpacing {
+//            item.constant = outerPadding
+//        }
+    }
+    
+    private func populateSequentialViews(){
+        let viewObjects = [view2, view3, view4, view5]
+        let viewObjectsHeight = [view2Height, view3Height, view4Height, view5Height]
+        DebugLogger.debugLog("viewObjects \(viewObjects)")
+        
+        //1 2 3 4
+        var index : NSInteger = 0
+        for index = 0; index < ProximateSDKSettings.psdkCampaignSectionSequence.count; index += 1 {
+            
+            let viewSeq = ProximateSDKSettings.psdkCampaignSectionSequence[index]
+            DebugLogger.debugLog("viewSeq \(index)")
+            let testView = viewObjects[index]
+            let viewHeight = viewObjectsHeight[index]
+            
+            switch viewSeq {
+            case .Detail:
+                setDetailView(testView, andViewHeight: viewHeight)
+            case .Store:
+                setStoreView(testView, andViewHeight: viewHeight)
+            case .Timing:
+                setTimingView(testView, andViewHeight: viewHeight)
+            case .Bank:
+                setBankView(testView, andViewHeight: viewHeight)
+            default:
+                DebugLogger.debugLog("here")
+            }
+        }
+        
+        yIndex += outerPadding
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: yIndex + 50)
     }
     
     private func setHeaderView(){
-        
-        yIndex = self.view.frame.height*0.5//*0.65
-        
-        DebugLogger.debugLog("1 yIndex \(yIndex)")
+        yIndex = ProximateSDKSettings.psdkViewOptions.headerHeight//self.view.frame.height*0.5
 
         self.campaignHeaderView.frame = view0.bounds
         campaignHeaderView.setCampaign(mCampaign)
@@ -67,117 +113,89 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
         self.view0.addSubview(campaignHeaderView)
         view0Height.constant = yIndex
         campaignHeaderView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        
-
         yIndex += outerPadding
-        DebugLogger.debugLog("2 yIndex \(yIndex)")
-        
-        DebugLogger.debugLog("campaignHeaderView \(campaignHeaderView)")
     }
     
     private func setTitleView(){
-        
-        DebugLogger.debugLog("3 yIndex \(yIndex)")
-        
-        let campaignTitleView = CampaignTitleView(frame: view1.bounds, withInnerPadding: innerPadding)
+        let campaignTitleView = CampaignTitleView(frame: view1.bounds)
         self.view1.addSubview(campaignTitleView)
-        
         campaignTitleView.setCampaign(mCampaign)
         
         let height = campaignTitleView.getContentHeight()
         
-        DebugLogger.debugLog("3 yIndex \(yIndex)")
-        
         view1Height.constant = height
         campaignTitleView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        
         DebugLogger.debugLog("campaignTitleView \(campaignTitleView)")
         
         yIndex += view1Height.constant
         yIndex += outerPadding
-
     }
     
-    private func setDetailView(){
+    private func setDetailView(addView : UIView, andViewHeight addViewHeight : NSLayoutConstraint){
         
-        let campaignDetailView = CampaignDetailView(frame: view2.bounds, withInnerPadding: innerPadding, withDetails: mCampaign.details, withCampaignActions: mCampaign.getActions())
+        let campaignDetailView = CampaignDetailView(frame: addView.bounds, withDetails: mCampaign.details, withCampaignActions: mCampaign.getActions())
         campaignDetailView.actionDelegate = self
+        addView.addSubview(campaignDetailView)
         
-        self.view2.addSubview(campaignDetailView)
-        
-        view2Height.constant = campaignDetailView.getContentHeight()
+        addViewHeight.constant = campaignDetailView.getContentHeight()
         campaignDetailView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        
-        DebugLogger.debugLog("campaignDetailView \(campaignDetailView)")
-        yIndex += view2Height.constant
+        yIndex += addViewHeight.constant
         yIndex += outerPadding
-
-        DebugLogger.debugLog("campaignDetailView yIndex \(yIndex)")
-        
     }
     
-    private func setTimingView(){
+    private func setTimingView(addView : UIView, andViewHeight addViewHeight : NSLayoutConstraint){
         if mCampaign.campaignTimings == nil {
-            view3Height.constant = 0
+            addViewHeight.constant = 0
             return
         }
-        
         DebugLogger.debugLog("count \(mCampaign.campaignTimings?.count)")
+        let campaignTimingView = CampaignTimingView(frame: addView.bounds, campaignTiming: mCampaign.getTiming() ?? [])
         
-        let campaignTimingView = CampaignTimingView(frame: view3.bounds, campaignTiming: mCampaign.getTiming() ?? [], withInnerPadding: innerPadding)
-        
-        self.view3.addSubview(campaignTimingView)
-        view3Height.constant = campaignTimingView.getContentHeight()
+        addView.addSubview(campaignTimingView)
+        addViewHeight.constant = campaignTimingView.getContentHeight()
         campaignTimingView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         DebugLogger.debugLog("campaignTimingView \(campaignTimingView)")
-        yIndex += view3Height.constant
+        yIndex += addViewHeight.constant
         yIndex += outerPadding
-
     }
     
-    private func setStoreView(){
+    private func setStoreView(addView : UIView, andViewHeight addViewHeight : NSLayoutConstraint){
         if mCampaign.beacons == nil {
-            view4Height.constant = 0
+            addViewHeight.constant = 0
             return
         }
         
-        DebugLogger.debugLog("setStoreView yIndex \(yIndex)")
-        
-        let campaignStoreView = CampaignStoreView(frame: view4.bounds, campaignStore: mCampaign.getStores(), withInnerPadding: innerPadding)
+        let campaignStoreView = CampaignStoreView(frame: addView.bounds, campaignStore: mCampaign.getStores())
         campaignStoreView.storeDelegate = self
-        self.view4.addSubview(campaignStoreView)
-        view4Height.constant = campaignStoreView.getContentHeight()
+        addView.addSubview(campaignStoreView)
+        addViewHeight.constant = campaignStoreView.getContentHeight()
         campaignStoreView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
-
-        DebugLogger.debugLog("campaignStoreView \(campaignStoreView)")
-        yIndex += view4Height.constant
+        yIndex += addViewHeight.constant
         yIndex += outerPadding
-
     }
     
-    
-    private func setBankView(){
+    private func setBankView(addView : UIView, andViewHeight addViewHeight : NSLayoutConstraint){
         if mCampaign.campaignCards == nil {
-            view5Height.constant = 0
+            addViewHeight.constant = 0
             return
         }
-        let campaignBankView = CampaignBankView(frame: view5.bounds, campaignBank: mCampaign.campaignCards! , withInnerPadding: innerPadding)
-        self.view5.addSubview(campaignBankView)
+        let campaignBankView = CampaignBankView(frame: addView.bounds, campaignBank: mCampaign.campaignCards!)
+        addView.addSubview(campaignBankView)
         
-        view5Height.constant = campaignBankView.getContentHeight()
+        addViewHeight.constant = campaignBankView.getContentHeight()
         campaignBankView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 
         DebugLogger.debugLog("campaignBankView \(campaignBankView)")
-        yIndex += view5Height.constant
+        yIndex += addViewHeight.constant
         yIndex += outerPadding
     }
     
-    //    override func viewDidLayoutSubviews() {
-    //        super.viewDidLayoutSubviews()
-    //        self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: yIndex)
-    //    }
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: yIndex)
+//    }
     
     // MARK: - CampaignActionButtonDelegate methods
     
@@ -188,7 +206,7 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
         switch actionClass {
         case .IMAGELIST:
             DebugLogger.debugLog("images list")
-            let viewController =    self.storyboard!.instantiateViewControllerWithIdentifier("MediaPagerFullScreenViewController") as! MediaPagerFullScreenViewController
+            let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("MediaPagerFullScreenViewController") as! MediaPagerFullScreenViewController
             viewController.mediaItem = campaignAction.media
             viewController.screenTitle = campaignAction.actionTitle
             self.navigationController?.pushViewController(viewController, animated: true)
@@ -264,8 +282,8 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     }
     
     func didClickCampaignPhone() {
-        let msgStr = String(format: "psdk_alert_app_wants_to_call".localized, "psdk_app_name".localized, mCampaign.getMerchant().getPhoneNumber())
-        let callAlert : UIAlertView = UIAlertView(title: "psdk_app_name".localized, message: msgStr, delegate: self, cancelButtonTitle: "psdk_button_cancel".localized, otherButtonTitles: "psdk_button_call".localized)
+        let msgStr = String(format: "psdk_alert_app_wants_to_call".localized, ProximateSDK.getAppName(), mCampaign.getMerchant().getPhoneNumber())
+        let callAlert : UIAlertView = UIAlertView(title: ProximateSDK.getAppName(), message: msgStr, delegate: self, cancelButtonTitle: "psdk_button_cancel".localized, otherButtonTitles: "psdk_button_call".localized)
         callAlert.tag = 99
         callAlert.show()
     }
@@ -303,17 +321,19 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     // MARK: - CollapsingNavigationBar
     
     private func hideNavigationBar(){
+        self.navBarVisible = false
         //        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clearColor()
+        //        self.navigationController?.view.backgroundColor = UIColor.clearColor()
+        self.navigationController?.navigationBar.barTintColor =  UIColor.clearColor()
         self.title = ""
         
     }
     
     private func showNavigationBar(){
+        self.navBarVisible = true
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = self.campaignHeaderView.getAverageColor()
-        
         //        self.navigationController?.view.backgroundColor = self.campaignHeaderView.getAverageColor()
         self.title = mCampaign.getMerchant().merchantName
     }
@@ -321,6 +341,12 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         ProximateSDK.getScreenInteractionDelegate()?.screenInteracted()
+        if self.navBarVisible {
+            showNavigationBar()
+        } else {
+            hideNavigationBar()
+        }
+
     }
     
     // MARK: - Scroll view delegate methods

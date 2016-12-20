@@ -19,6 +19,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         }
     }
     
+    @IBOutlet var viewSpacing : [NSLayoutConstraint]!
     @IBOutlet var promotionImage : UIImageView!
     @IBOutlet var campaignNewImage : UIImageView!
     var delegate : CampaignInfoClickDelegate?
@@ -61,11 +62,18 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     @IBAction func campaignShareClicked() {
-        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mainCampaign.title, self.mainCampaign.getMerchant().merchantName, self.mainCampaign.details, ])
+        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mainCampaign.title, self.mainCampaign.getMerchant().merchantName, ProximateSDK.getAppName() ])
         delegate?.didClickCampaignShare(shareText)
     }
   
+    private func setOuterSpacing() {
+        for item in self.viewSpacing {
+            item.constant = ProximateSDKSettings.psdkViewOptions.outerPadding
+        }
+    }
+    
     func setCampaign(campaign : ObjectCampaign){
+        setOuterSpacing()
         self.campaignCollectionView.registerNib(UINib(nibName:"FragmentCollectionViewCell", bundle:ProximateSDKSettings.getBundle()), forCellWithReuseIdentifier: "cell")
         
         mainCampaign  = campaign

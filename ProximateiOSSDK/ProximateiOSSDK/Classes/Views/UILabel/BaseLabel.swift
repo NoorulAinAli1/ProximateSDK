@@ -49,7 +49,7 @@ class BaseLabel: UILabel {
         return NSString(format: "#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255));
     }
     
-    func setHTMLFromString(text: String, singleLine isSingleLine : Bool = true) {
+    func setHTMLFromString(text: String, isSingleLine singleLine : Bool = true) {
         let boldColor = hexStringFromColor(ProximateSDKSettings.psdkFontOptions.campaignBoldFontColor)
         let normalColor = hexStringFromColor(ProximateSDKSettings.psdkFontOptions.campaignTextFontColor)
 //        let modifiedFont = NSString(format:"<style>b {color: \(boldColor); font-family: \(ProximateSDKSettings.psdkViewOptions.fontBold);}</style><span style=\"font-family: \(self.font!.fontName); color: \(normalColor); font-size: \(self.font!.pointSize)\">%@</span>", text) as String
@@ -60,10 +60,15 @@ class BaseLabel: UILabel {
             options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
             documentAttributes: nil)
         let style = NSMutableParagraphStyle()
-//        style.lineSpacing = 0.75
-//        style.paragraphSpacing = 0.25 * self.font.lineHeight
-        if isSingleLine {
-            style.lineBreakMode = .ByTruncatingTail
+
+        
+        if singleLine {
+            style.lineSpacing = -10.0 //self.font.lineHeight
+            style.paragraphSpacing = -10.0// 1.25 * self.font.lineHeight
+            style.minimumLineHeight = ProximateSDKSettings.psdkFontOptions.campaignTextFontSize
+            style.maximumLineHeight = ProximateSDKSettings.psdkFontOptions.campaignTextFontSize
+            style.alignment         = .Left
+            style.lineBreakMode     = .ByTruncatingTail
         }
         attrStr.addAttributes([ NSParagraphStyleAttributeName: style ],
                               range: NSMakeRange(0, attrStr.length))
@@ -76,8 +81,7 @@ class BaseLabel: UILabel {
 //        get { return self.font.fontName }
 //        set { self.font = UIFont(name: newValue, size: self.font.pointSize) }
 //    }
-//    
-    
+//
 //    var sdkFontSize : CGFloat {
 //        get { return self.font.pointSize }
 //        set { self.font = UIFont(name: self.font!.fontName, size: newValue) }

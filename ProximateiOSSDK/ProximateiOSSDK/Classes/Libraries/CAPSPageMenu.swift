@@ -810,7 +810,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
     
     :param: index Index of the page to move to
     */
-    public func moveToPage(index: Int) {
+    internal func moveToPage(index: Int) {
         if index >= 0 && index < controllerArray.count {
             // Update page if changed
             if index != currentPageIndex {

@@ -6,12 +6,14 @@
 	<dict>
 		<key>PrimaryColor</key>
 		<string>ydaf</string>
+		<key>PrimaryDarkColor</key>
+		<string>#dea9f0</string>
 		<key>SearchBarColor</key>
 		<string></string>
 		<key>NavigationBarTintColor</key>
 		<string>892152</string>
 		<key>ViewBackgroundColor</key>
-		<string>#752951</string>
+		<string>#ffeeff</string>
 		<key>NavigationBarTitle</key>
 		<dict>
 			<key>FontSize</key>
@@ -22,29 +24,29 @@
 		<key>Font</key>
 		<dict>
 			<key>Regular</key>
-			<string>Futura</string>
+			<string>Fuutura</string>
 			<key>Bold</key>
-			<string>Futura-CondensedExtraBold</string>
+			<string>Futura-CuondensedExtraBold</string>
 		</dict>
 		<key>Padding</key>
 		<dict>
 			<key>InnerPadding</key>
-			<integer>10</integer>
+			<integer>4</integer>
 			<key>OuterPadding</key>
-			<integer>20</integer>
+			<integer>2</integer>
 		</dict>
 		<key>Height</key>
 		<dict>
 			<key>CardHeight</key>
-			<integer>200</integer>
+			<integer>250</integer>
 			<key>HeaderHeight</key>
-			<integer>400</integer>
+			<integer>300</integer>
 		</dict>
 	</dict>
 	<key>Card</key>
 	<dict>
 		<key>CardBackgroundColor</key>
-		<string>#7d7a7d</string>
+		<string>#feffff</string>
 		<key>CardShadowColor</key>
 		<string>#0d0d0d</string>
 		<key>CardBorderColor</key>
@@ -102,7 +104,7 @@
 			<key>BoldColor</key>
 			<string>#710421</string>
 			<key>FontSize</key>
-			<integer>12</integer>
+			<integer>14</integer>
 		</dict>
 		<key>CampaignDetail</key>
 		<dict>
@@ -111,9 +113,9 @@
 			<key>BoldColor</key>
 			<string>#710421</string>
 			<key>FontSize</key>
-			<integer>12</integer>
-			<key>TitleFontSize</key>
 			<integer>16</integer>
+			<key>TitleFontSize</key>
+			<integer>20</integer>
 		</dict>
 	</dict>
 	<key>PageIndicator</key>
@@ -121,13 +123,52 @@
 		<key>PageSelectedColor</key>
 		<string>#7d9a0dee</string>
 		<key>PageUnselectedColor</key>
-		<string>#91841052</string>
+		<string>#918415</string>
 		<key>PageIndicatorDiameter</key>
-		<integer>10</integer>
+		<integer>6</integer>
 		<key>PageIndicatorSpace</key>
-		<integer>2</integer>
+		<integer>3</integer>
 	</dict>
 	<key>Tab</key>
-	<dict/>
+	<dict>
+		<key>ViewBackgroundColor</key>
+		<string>#feffff</string>
+		<key>MenuHeight</key>
+		<integer>40</integer>
+		<key>MenuMargin</key>
+		<dict>
+			<key>X</key>
+			<integer>4</integer>
+			<key>Y</key>
+			<integer>4</integer>
+		</dict>
+		<key>MenuItemLabelColor</key>
+		<dict>
+			<key>Selected</key>
+			<string>#000000</string>
+			<key>Unselected</key>
+			<string>#dd88dd</string>
+		</dict>
+		<key>MenuItemBackgroundColor</key>
+		<dict>
+			<key>Selected</key>
+			<string>#dd88dd</string>
+			<key>Unselected</key>
+			<string>#6d56d3</string>
+		</dict>
+		<key>MenuItemBorderColor</key>
+		<dict>
+			<key>Selected</key>
+			<string>#1e0010</string>
+			<key>Unselected</key>
+			<string>#de87d2</string>
+		</dict>
+		<key>MenuItemBorderWidth</key>
+		<real>1.2</real>
+		<key>MenuItemFontSize</key>
+		<integer>14</integer>
+		<key>ScrollAnimation</key>
+		<integer>1000</integer>
+	</dict>
 </dict>
 </plist>

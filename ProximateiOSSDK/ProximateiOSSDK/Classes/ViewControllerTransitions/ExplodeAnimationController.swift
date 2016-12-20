@@ -29,14 +29,14 @@ class ExplodeAnimationController: ReversibleAnimationController {
         var x : CGFloat = 0.0
         var y : CGFloat = 0.0
         for x = 0.0; x < size.width; x += size.width/xFactor {
-//            for y = 0.0; x < size.height; x += size.height/yFactor {
+            for y = 0.0; x < size.height; x += size.height/yFactor {
 
                 let snapshotRegion : CGRect = CGRectMake(x, y, size.width / xFactor, size.height / yFactor)
                 let snapshot : UIView = fromViewSnapshot.resizableSnapshotViewFromRect(snapshotRegion, afterScreenUpdates:false, withCapInsets:UIEdgeInsetsZero)
                 snapshot.frame = snapshotRegion
                 containerView.addSubview(snapshot)
                 snapshots.addObject(snapshot)
-//            }
+            }
         }
         
         containerView.sendSubviewToBack(fromView)

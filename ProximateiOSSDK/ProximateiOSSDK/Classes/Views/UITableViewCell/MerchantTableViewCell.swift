@@ -34,6 +34,8 @@ class MerchantTableViewCell: UITableViewCell {
 
     @IBOutlet var promotionImage : UIImageView!
     @IBOutlet var campaignNewImage : UIImageView!
+    @IBOutlet var viewSpacing : [NSLayoutConstraint]!
+
     @IBOutlet var campaignExpiryImage : UIImageView!
     var delegate : CampaignInfoClickDelegate?
 
@@ -68,7 +70,7 @@ class MerchantTableViewCell: UITableViewCell {
     }
     
     @IBAction func campaignShareClicked() {
-        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mainCampaign.title, self.mainCampaign.getMerchant().merchantName, self.mainCampaign.details])
+        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mainCampaign.title, self.mainCampaign.getMerchant().merchantName, ProximateSDK.getAppName() ])
         delegate?.didClickCampaignShare(shareText)
     }
     
@@ -87,12 +89,16 @@ class MerchantTableViewCell: UITableViewCell {
         imgView.af_setImageWithURL(NSURL(string: mainCampaign.getMerchantLogo())!,  completion: { response in
             self.merchantLogoView.image = response.result.value
         })
-
+    }
+    
+    private func setOuterSpacing() {
+        for item in self.viewSpacing {
+            item.constant = ProximateSDKSettings.psdkViewOptions.outerPadding
+        }
     }
     
     private func updateCampaign(){
-//        merchantTitle.style(Styles.Labels.Standard(20), color: UIColor.purpleColor())
-
+        setOuterSpacing()
         campaignTitle.setHTMLFromString(mainCampaign.getCampaignTitle())
 
         campaignImage.af_setImageWithURL(NSURL(string: mainCampaign.getMainMedia().getMediaURL())!, placeholderImage: ProximateSDKSettings.getCampaignPlaceholderImage())

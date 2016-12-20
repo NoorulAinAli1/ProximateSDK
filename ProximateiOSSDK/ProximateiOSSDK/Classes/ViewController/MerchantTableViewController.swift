@@ -10,6 +10,7 @@ import UIKit
 import SafariServices
 
 class MerchantTableViewController: UITableViewController, MerchantInfoClickDelegate, CampaignInfoClickDelegate, UIAlertViewDelegate {
+    private var navBarVisible : Bool = false
     var mMerchant : ObjectMerchant!
     private var pageNumber : NSInteger = 0
     private var mCampaigns : [ObjectCampaign] = []
@@ -34,31 +35,29 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     }
     
     private func setTableHeaderView(){
-        self.merchantHeaderView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height*0.5)
+        self.merchantHeaderView.frame = CGRectMake(0, 0, self.view.frame.width, ProximateSDKSettings.psdkViewOptions.headerHeight)//self.view.frame.height*0.5)
         self.merchantHeaderView.setMerchant(mMerchant)
         self.merchantHeaderView.delegate = self
         self.tableView.tableHeaderView = self.merchantHeaderView
     }
     
     func didClickMerchantShare() {
-        let shareText = String(format: "psdk_merchant_share".localized, arguments: [self.mMerchant.merchantName, self.mMerchant.merchantName, self.mMerchant.merchantName, ])
+        let shareText = String(format: "psdk_merchant_share".localized, arguments: [self.mMerchant.merchantName, self.mMerchant.merchantName, ProximateSDK.getAppName() ])
 
         self.showShareViewController(shareText)
     }
     
     func didClickMerchantPhone() {
-        let msgStr = String(format: "psdk_alert_app_wants_to_call".localized, "psdk_app_name".localized,  mMerchant.getPhoneNumber())
+        let msgStr = String(format: "psdk_alert_app_wants_to_call".localized, ProximateSDK.getAppName(),  mMerchant.getPhoneNumber())
 
-        let callAlert : UIAlertView = UIAlertView(title: "psdk_app_name".localized, message: msgStr, delegate: self, cancelButtonTitle: "psdk_button_cancel".localized, otherButtonTitles: "psdk_button_call".localized)
+        let callAlert : UIAlertView = UIAlertView(title: ProximateSDK.getAppName(), message: msgStr, delegate: self, cancelButtonTitle: "psdk_button_cancel".localized, otherButtonTitles: "psdk_button_call".localized)
         callAlert.tag = 99
         callAlert.show()
     }
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if(alertView.tag == 99) {
-            if(buttonIndex == 1) {
-                callMerchant()
-            }
+        if alertView.tag == 99 && buttonIndex == 1 {
+            callMerchant()
         }
     }
 
@@ -122,13 +121,17 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     }
     
     private func hideNavigationBar(){
+        self.navBarVisible = false
 //        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clearColor()
+//        self.navigationController?.view.backgroundColor = UIColor.clearColor()
+        self.navigationController?.navigationBar.barTintColor =  UIColor.clearColor()
+
         self.title = ""
     }
     
     private func showNavigationBar(){
+        self.navBarVisible = true
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = self.merchantHeaderView.getAverageColor()
         self.title = mMerchant.merchantName
@@ -137,6 +140,11 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         ProximateSDK.getScreenInteractionDelegate()?.screenInteracted()
+        if self.navBarVisible {
+            showNavigationBar()
+        } else {
+            hideNavigationBar()
+        }
     }
     
     override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
@@ -200,7 +208,7 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.row < mCampaigns.count ? 300 : 100
+        return indexPath.row < mCampaigns.count ? ProximateSDKSettings.psdkViewOptions.cardHeight : 100
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

@@ -138,7 +138,7 @@ internal  class MultipartFormData {
         - parameter data: The data to encode into the multipart form data.
         - parameter name: The name to associate with the data in the `Content-Disposition` HTTP header.
     */
-    public func appendBodyPart(data data: NSData, name: String) {
+    internal func appendBodyPart(data data: NSData, name: String) {
         let headers = contentHeaders(name: name)
         let stream = NSInputStream(data: data)
         let length = UInt64(data.length)
@@ -160,7 +160,7 @@ internal  class MultipartFormData {
         - parameter name:     The name to associate with the data in the `Content-Disposition` HTTP header.
         - parameter mimeType: The MIME type to associate with the data content type in the `Content-Type` HTTP header.
     */
-    public func appendBodyPart(data data: NSData, name: String, mimeType: String) {
+    internal func appendBodyPart(data data: NSData, name: String, mimeType: String) {
         let headers = contentHeaders(name: name, mimeType: mimeType)
         let stream = NSInputStream(data: data)
         let length = UInt64(data.length)
@@ -183,7 +183,7 @@ internal  class MultipartFormData {
         - parameter fileName: The filename to associate with the data in the `Content-Disposition` HTTP header.
         - parameter mimeType: The MIME type to associate with the data in the `Content-Type` HTTP header.
     */
-    public func appendBodyPart(data data: NSData, name: String, fileName: String, mimeType: String) {
+    internal func appendBodyPart(data data: NSData, name: String, fileName: String, mimeType: String) {
         let headers = contentHeaders(name: name, fileName: fileName, mimeType: mimeType)
         let stream = NSInputStream(data: data)
         let length = UInt64(data.length)
@@ -208,7 +208,7 @@ internal  class MultipartFormData {
         - parameter fileURL: The URL of the file whose content will be encoded into the multipart form data.
         - parameter name:    The name to associate with the file content in the `Content-Disposition` HTTP header.
     */
-    public func appendBodyPart(fileURL fileURL: NSURL, name: String) {
+    internal func appendBodyPart(fileURL fileURL: NSURL, name: String) {
         if let
             fileName = fileURL.lastPathComponent,
             pathExtension = fileURL.pathExtension
@@ -236,7 +236,7 @@ internal  class MultipartFormData {
         - parameter fileName: The filename to associate with the file content in the `Content-Disposition` HTTP header.
         - parameter mimeType: The MIME type to associate with the file content in the `Content-Type` HTTP header.
     */
-    public func appendBodyPart(fileURL fileURL: NSURL, name: String, fileName: String, mimeType: String) {
+    internal func appendBodyPart(fileURL fileURL: NSURL, name: String, fileName: String, mimeType: String) {
         let headers = contentHeaders(name: name, fileName: fileName, mimeType: mimeType)
 
         //============================================================
@@ -331,7 +331,7 @@ internal  class MultipartFormData {
         - parameter fileName: The filename to associate with the stream content in the `Content-Disposition` HTTP header.
         - parameter mimeType: The MIME type to associate with the stream content in the `Content-Type` HTTP header.
     */
-    public func appendBodyPart(
+    internal func appendBodyPart(
         stream stream: NSInputStream,
         length: UInt64,
         name: String,
@@ -355,7 +355,7 @@ internal  class MultipartFormData {
         - parameter length:  The content length of the stream.
         - parameter headers: The HTTP headers for the body part.
     */
-    public func appendBodyPart(stream stream: NSInputStream, length: UInt64, headers: [String: String]) {
+    internal func appendBodyPart(stream stream: NSInputStream, length: UInt64, headers: [String: String]) {
         let bodyPart = BodyPart(headers: headers, bodyStream: stream, bodyContentLength: length)
         bodyParts.append(bodyPart)
     }
@@ -373,7 +373,7 @@ internal  class MultipartFormData {
 
         - returns: The encoded `NSData` if encoding is successful.
     */
-    public func encode() throws -> NSData {
+    internal func encode() throws -> NSData {
         if let bodyPartError = bodyPartError {
             throw bodyPartError
         }
@@ -401,7 +401,7 @@ internal  class MultipartFormData {
 
         - throws: An `NSError` if encoding encounters an error.
     */
-    public func writeEncodedDataToDisk(fileURL: NSURL) throws {
+    internal func writeEncodedDataToDisk(fileURL: NSURL) throws {
         if let bodyPartError = bodyPartError {
             throw bodyPartError
         }

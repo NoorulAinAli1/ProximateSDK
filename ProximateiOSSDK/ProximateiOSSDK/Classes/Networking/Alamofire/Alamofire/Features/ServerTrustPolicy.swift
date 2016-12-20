@@ -53,7 +53,7 @@ internal class ServerTrustPolicyManager {
      
      - returns: The server trust policy for the given host if found.
      */
-    public func serverTrustPolicyForHost(host: String) -> ServerTrustPolicy? {
+    internal func serverTrustPolicyForHost(host: String) -> ServerTrustPolicy? {
         return policies[host]
     }
 }
@@ -173,7 +173,7 @@ public enum ServerTrustPolicy {
      
      - returns: Whether the server trust is valid.
      */
-    public func evaluateServerTrust(serverTrust: SecTrust, isValidForHost host: String) -> Bool {
+    internal func evaluateServerTrust(serverTrust: SecTrust, isValidForHost host: String) -> Bool {
         var serverTrustIsValid = false
         
         switch self {

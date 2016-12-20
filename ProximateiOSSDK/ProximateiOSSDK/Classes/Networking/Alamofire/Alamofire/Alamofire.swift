@@ -125,7 +125,7 @@ func URLRequest(
 
     - returns: The created request.
 */
-public func request(
+internal func request(
     method: Method,
     _ URLString: URLStringConvertible,
     parameters: [String: AnyObject]? = nil,
@@ -142,7 +142,7 @@ public func request(
     )
 }
     
-public func startRequest(
+internal func startRequest(
     method method: Method,
            URLString: URLStringConvertible,
            parameters: [String: AnyObject]?,
@@ -168,7 +168,7 @@ public func startRequest(
 
     - returns: The created request.
 */
-public func request(URLRequest: URLRequestConvertible) -> Request {
+internal func request(URLRequest: URLRequestConvertible) -> Request {
     return AuthorizationManager.sharedInstance.request(URLRequest.URLRequest)
 }
 
@@ -186,7 +186,7 @@ public func request(URLRequest: URLRequestConvertible) -> Request {
 
     - returns: The created upload request.
 */
-public func upload(
+internal func upload(
     method: Method,
     _ URLString: URLStringConvertible,
     headers: [String: String]? = nil,
@@ -204,7 +204,7 @@ public func upload(
 
     - returns: The created upload request.
 */
-public func upload(URLRequest: URLRequestConvertible, file: NSURL) -> Request {
+internal func upload(URLRequest: URLRequestConvertible, file: NSURL) -> Request {
     return AuthorizationManager.sharedInstance.upload(URLRequest, file: file)
 }
 
@@ -220,7 +220,7 @@ public func upload(URLRequest: URLRequestConvertible, file: NSURL) -> Request {
 
     - returns: The created upload request.
 */
-public func upload(
+internal func upload(
     method: Method,
     _ URLString: URLStringConvertible,
     headers: [String: String]? = nil,
@@ -238,7 +238,7 @@ public func upload(
 
     - returns: The created upload request.
 */
-public func upload(URLRequest: URLRequestConvertible, data: NSData) -> Request {
+internal func upload(URLRequest: URLRequestConvertible, data: NSData) -> Request {
     return AuthorizationManager.sharedInstance.upload(URLRequest, data: data)
 }
 
@@ -254,7 +254,7 @@ public func upload(URLRequest: URLRequestConvertible, data: NSData) -> Request {
 
     - returns: The created upload request.
 */
-public func upload(
+internal func upload(
     method: Method,
     _ URLString: URLStringConvertible,
     headers: [String: String]? = nil,
@@ -272,7 +272,7 @@ public func upload(
 
     - returns: The created upload request.
 */
-public func upload(URLRequest: URLRequestConvertible, stream: NSInputStream) -> Request {
+internal func upload(URLRequest: URLRequestConvertible, stream: NSInputStream) -> Request {
     return AuthorizationManager.sharedInstance.upload(URLRequest, stream: stream)
 }
 
@@ -289,7 +289,7 @@ public func upload(URLRequest: URLRequestConvertible, stream: NSInputStream) -> 
                                          `MultipartFormDataEncodingMemoryThreshold` by default.
     - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
 */
-public func upload(
+internal func upload(
     method: Method,
     _ URLString: URLStringConvertible,
     headers: [String: String]? = nil,
@@ -316,7 +316,7 @@ public func upload(
                                          `MultipartFormDataEncodingMemoryThreshold` by default.
     - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
 */
-public func upload(
+internal func upload(
     URLRequest: URLRequestConvertible,
     multipartFormData: MultipartFormData -> Void,
     encodingMemoryThreshold: UInt64 = AuthorizationManager.MultipartFormDataEncodingMemoryThreshold,
@@ -346,7 +346,7 @@ public func upload(
 
     - returns: The created download request.
 */
-public func download(
+internal func download(
     method: Method,
     _ URLString: URLStringConvertible,
     parameters: [String: AnyObject]? = nil,
@@ -373,7 +373,7 @@ public func download(
 
     - returns: The created download request.
 */
-public func download(URLRequest: URLRequestConvertible, destination: Request.DownloadFileDestination) -> Request {
+internal func download(URLRequest: URLRequestConvertible, destination: Request.DownloadFileDestination) -> Request {
     return AuthorizationManager.sharedInstance.download(URLRequest, destination: destination)
 }
 
@@ -390,7 +390,7 @@ public func download(URLRequest: URLRequestConvertible, destination: Request.Dow
 
     - returns: The created download request.
 */
-public func download(resumeData data: NSData, destination: Request.DownloadFileDestination) -> Request {
+internal func download(resumeData data: NSData, destination: Request.DownloadFileDestination) -> Request {
     return AuthorizationManager.sharedInstance.download(data, destination: destination)
 }
 }

@@ -13,14 +13,15 @@ import UIKit
 }
 
 class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
-    private var innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
-    let rowHeight : CGFloat  = 30.0
-    
+    private let innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
+    let rowHeight : CGFloat  = 30
+    let reuseIdentifier = "cell"
+
     private var contentHeight : CGFloat  = 0.0
 
     var campaignStoreTitle : BaseLabel!
 
-    var campaignStoreTable : UITableView!
+    var campaignStoreTable : BaseTableView!
     private var campaignStore : [ObjectStore]!
     var storeDelegate : CampaignStoreDelegate?
 
@@ -32,26 +33,26 @@ class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
         super.awakeFromNib()
     }
     
-    init(frame : CGRect, campaignStore cStore : [ObjectStore], withInnerPadding iPadding : CGFloat){
+    init(frame : CGRect, campaignStore cStore : [ObjectStore]){
         super.init(frame: frame)
-        innerPadding = iPadding
-        let viewWidth = frame.width/600 * UIScreen.mainScreen().bounds.size.width
-        DebugLogger.debugLog("screenWidth \(viewWidth)")
+        
+        let outerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.outerPadding
+        
+        let viewWidth = self.frame.width/600 * UIScreen.mainScreen().bounds.size.width - (outerPadding * 3)
         campaignStoreTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize))
-        campaignStoreTitle.backgroundColor = UIColor.cyanColor()
+        campaignStoreTitle.backgroundColor = UIColor.clearColor()
         campaignStoreTitle.text = "psdk_title_stores".localized
         campaignStoreTitle.isBold = true
         campaignStoreTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTitleColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize)
         self.addSubview(campaignStoreTitle)
         
-        campaignStoreTable = UITableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), rowHeight * CGFloat(cStore.count)))
-        campaignStoreTable.bounces = false
-        campaignStoreTable.backgroundColor = UIColor.darkGrayColor()
+        campaignStoreTable = BaseTableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), rowHeight * CGFloat(cStore.count)))
+        campaignStoreTable.allowsSelection = true
         self.addSubview(campaignStoreTable)
         campaignStoreTable.delegate = self
         campaignStoreTable.dataSource = self
         
-        self.campaignStoreTable.registerClass(UITableViewCell.self, forCellReuseIdentifier:"cell")
+        self.campaignStoreTable.registerNib(UINib(nibName:"StoreTableViewCell", bundle:ProximateSDKSettings.getBundle()), forCellReuseIdentifier: reuseIdentifier)
 
         self.campaignStore = cStore
 
@@ -59,7 +60,6 @@ class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: - Table view data source
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -78,14 +78,8 @@ class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let reuseIdentifier = "cell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) //as! UITableViewCell
-        cell.backgroundColor = UIColor.clearColor()
-        let store = self.campaignStore[indexPath.row]
-        cell.textLabel?.text = store.getTitle()
-        cell.imageView?.image = ProximateSDKSettings.getImageForName("icon_location")
-        cell.textLabel?.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTextColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
-        cell.textLabel?.font = UIFont(name: ProximateSDKSettings.psdkViewOptions.fontRegular, size: (cell.textLabel?.font.pointSize)!)
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! StoreTableViewCell
+        cell.mStore = self.campaignStore[indexPath.row]
         return cell
     }
     
@@ -93,7 +87,9 @@ class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
         return contentHeight
     }
     
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         storeDelegate?.didClickCampaignStore(self.campaignStore[indexPath.row])
     }
     

@@ -20,16 +20,19 @@
                     <rect key="frame" x="0.0" y="168" width="600" height="312"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnI-WR-21B" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="463" y="347.5" width="132.5" height="132.5"/>
-                    <color key="backgroundColor" red="0.22776822831867852" green="0.78829308712121215" blue="0.27440408526761983" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="505" y="337" width="95" height="143"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="61" id="uaD-vE-GzL"/>
-                        <constraint firstAttribute="width" secondItem="vnI-WR-21B" secondAttribute="height" multiplier="1:1" id="zAN-33-KbZ"/>
+                        <constraint firstAttribute="width" secondItem="vnI-WR-21B" secondAttribute="height" multiplier="2:3" id="zAN-33-KbZ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <state key="normal" title="Share" image="button_share"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightedColor">
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundNormalColor">
                             <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
@@ -43,8 +46,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGS-Yp-adb" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="330.5" y="347" width="132.5" height="132.5"/>
-                    <color key="backgroundColor" red="1" green="0.67323704769736847" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="400.5" y="336.5" width="104.5" height="143"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="61" id="4Nk-nv-wJt"/>
                         <constraint firstAttribute="width" secondItem="lGS-Yp-adb" secondAttribute="height" multiplier="1:1" id="MJk-xw-oiu"/>
@@ -53,6 +56,9 @@
                     <state key="normal" title="Location" image="button_location"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="backgroundNormalColor">
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightedColor">
                             <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
@@ -67,8 +73,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSc-ig-5Md" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="268.5" y="347" width="62" height="132.5"/>
-                    <color key="backgroundColor" red="0.49574373459999999" green="0.92922491779999994" blue="0.34246504934210525" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="338.5" y="336.5" width="62" height="143"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="2lJ-Wc-cH1"/>
                         <constraint firstAttribute="height" constant="61" id="Cja-dO-7ET"/>
@@ -80,6 +86,9 @@
                     <state key="normal" title="Website" image="button_website.png"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightedColor">
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundNormalColor">
                             <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
@@ -123,8 +132,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxN-9i-Juj" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="136" y="347.5" width="132.5" height="132.5"/>
-                    <color key="backgroundColor" red="0.84742495888157898" green="0.92922491779999972" blue="0.34246504934210525" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="243.5" y="337" width="95" height="143"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nxN-9i-Juj" secondAttribute="height" multiplier="1:1" id="B2j-lm-U6T"/>
                         <constraint firstAttribute="height" constant="61" id="EqK-JP-b1B"/>
@@ -133,8 +142,14 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <state key="normal" title="Phone" image="button_phone"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightedColor">
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="B2j-lm-U6T"/>
                             <exclude reference="EqK-JP-b1B"/>
                             <exclude reference="VrK-4e-2PJ"/>
                             <exclude reference="qOM-q9-iMN"/>
@@ -169,7 +184,7 @@
                 <constraint firstItem="Gcp-fE-KJs" firstAttribute="height" secondItem="Wp4-wG-cFU" secondAttribute="height" multiplier="0.65" id="URJ-5r-xfK"/>
                 <constraint firstItem="Wp4-wG-cFU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ucd-Ux-QeL"/>
                 <constraint firstItem="nxN-9i-Juj" firstAttribute="height" secondItem="vnI-WR-21B" secondAttribute="height" id="UzM-Jq-Wff"/>
-                <constraint firstItem="lGS-Yp-adb" firstAttribute="width" secondItem="vnI-WR-21B" secondAttribute="width" id="VNW-NE-RCK"/>
+                <constraint firstItem="lGS-Yp-adb" firstAttribute="width" secondItem="vnI-WR-21B" secondAttribute="width" multiplier="1.1" id="VNW-NE-RCK"/>
                 <constraint firstItem="Gcp-fE-KJs" firstAttribute="centerX" secondItem="Wp4-wG-cFU" secondAttribute="centerX" id="WaC-yG-xCf"/>
                 <constraint firstItem="eTq-uj-ZTc" firstAttribute="leading" secondItem="y4r-5a-4Kx" secondAttribute="leading" id="and-U3-HCA"/>
                 <constraint firstItem="eTq-uj-ZTc" firstAttribute="width" secondItem="y4r-5a-4Kx" secondAttribute="width" id="bZJ-sY-eeM"/>
@@ -179,14 +194,15 @@
                 <constraint firstItem="Wp4-wG-cFU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="e21-oi-zcE"/>
                 <constraint firstItem="lGS-Yp-adb" firstAttribute="height" secondItem="nxN-9i-Juj" secondAttribute="height" id="eMK-99-jr9"/>
                 <constraint firstItem="bSc-ig-5Md" firstAttribute="height" secondItem="lGS-Yp-adb" secondAttribute="height" id="g42-9Y-nuf"/>
-                <constraint firstAttribute="trailing" secondItem="vnI-WR-21B" secondAttribute="trailing" constant="4" id="gDX-Q0-hju"/>
+                <constraint firstAttribute="trailing" secondItem="vnI-WR-21B" secondAttribute="trailing" id="gDX-Q0-hju"/>
                 <constraint firstItem="8m1-xM-FJ2" firstAttribute="centerY" secondItem="Wp4-wG-cFU" secondAttribute="centerY" multiplier="2" id="hi1-pC-5Vs"/>
+                <constraint firstItem="nxN-9i-Juj" firstAttribute="width" secondItem="vnI-WR-21B" secondAttribute="width" id="iIK-bf-n5V"/>
                 <constraint firstItem="Gcp-fE-KJs" firstAttribute="bottom" secondItem="Wp4-wG-cFU" secondAttribute="bottom" id="j51-Ac-79E"/>
                 <constraint firstItem="lGS-Yp-adb" firstAttribute="bottom" secondItem="vnI-WR-21B" secondAttribute="bottom" id="kgj-b6-4cs"/>
                 <constraint firstItem="bSc-ig-5Md" firstAttribute="leading" secondItem="nxN-9i-Juj" secondAttribute="trailing" id="lQQ-KN-hhL"/>
                 <constraint firstItem="Wp4-wG-cFU" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.8" id="leO-Kz-gaF"/>
                 <constraint firstItem="vnI-WR-21B" firstAttribute="leading" secondItem="lGS-Yp-adb" secondAttribute="trailing" id="qXo-l9-7SL"/>
-                <constraint firstItem="vnI-WR-21B" firstAttribute="height" secondItem="8m1-xM-FJ2" secondAttribute="height" multiplier="0.65" id="rAh-DC-qMw"/>
+                <constraint firstItem="vnI-WR-21B" firstAttribute="height" secondItem="8m1-xM-FJ2" secondAttribute="height" multiplier="0.7" id="rAh-DC-qMw"/>
                 <constraint firstItem="nxN-9i-Juj" firstAttribute="height" secondItem="lGS-Yp-adb" secondAttribute="height" id="s54-bV-12W"/>
                 <constraint firstItem="y4r-5a-4Kx" firstAttribute="height" secondItem="8m1-xM-FJ2" secondAttribute="height" multiplier="0.225" id="sOG-9Q-RUk"/>
                 <constraint firstItem="Gcp-fE-KJs" firstAttribute="width" secondItem="Wp4-wG-cFU" secondAttribute="width" id="tyg-tN-M7b"/>
@@ -198,18 +214,18 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="PF0-gC-j6J"/>
+                    <exclude reference="BZE-rL-Ibl"/>
                     <exclude reference="EKy-8G-8kt"/>
                     <exclude reference="PbV-mj-SWZ"/>
                     <exclude reference="UzM-Jq-Wff"/>
-                    <exclude reference="BZE-rL-Ibl"/>
                     <exclude reference="0ke-33-Htq"/>
                     <exclude reference="16W-XP-hZa"/>
                     <exclude reference="TRw-i5-TYx"/>
                     <exclude reference="cNi-qT-6J7"/>
                     <exclude reference="vGg-FX-j38"/>
+                    <exclude reference="RIv-Ep-lOR"/>
                     <exclude reference="8cK-yQ-cTL"/>
                     <exclude reference="eMK-99-jr9"/>
-                    <exclude reference="RIv-Ep-lOR"/>
                     <exclude reference="5Dw-4o-wnO"/>
                     <exclude reference="Bxo-cl-b8o"/>
                 </mask>
@@ -229,7 +245,7 @@
         </view>
     </objects>
     <resources>
-        <image name="background_gradient.png" width="1040" height="361"/>
+        <image name="background_gradient.png" width="346" height="120"/>
         <image name="button_location" width="16" height="16"/>
         <image name="button_phone" width="16" height="16"/>
         <image name="button_share" width="16" height="16"/>

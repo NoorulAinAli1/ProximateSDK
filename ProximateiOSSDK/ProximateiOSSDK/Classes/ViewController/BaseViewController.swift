@@ -9,13 +9,12 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
-   
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,16 +24,15 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.primaryColor
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
     }
     
-
-    
-
     /*
     // MARK: - Navigation
 

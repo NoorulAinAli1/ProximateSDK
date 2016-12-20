@@ -22,7 +22,7 @@
 
 import Foundation
 
-extension Manager {
+internal extension Manager {
     private enum Downloadable {
         case Request(NSURLRequest)
         case ResumeData(NSData)
@@ -76,7 +76,7 @@ extension Manager {
 
         - returns: The created download request.
     */
-    public func download(
+    internal func download(
         method: Method,
         _ URLString: URLStringConvertible,
         parameters: [String: AnyObject]? = nil,
@@ -101,7 +101,7 @@ extension Manager {
 
         - returns: The created download request.
     */
-    public func download(URLRequest: URLRequestConvertible, destination: Request.DownloadFileDestination) -> Request {
+    internal func download(URLRequest: URLRequestConvertible, destination: Request.DownloadFileDestination) -> Request {
         return download(.Request(URLRequest.URLRequest), destination: destination)
     }
 
@@ -119,7 +119,7 @@ extension Manager {
 
         - returns: The created download request.
     */
-    public func download(resumeData: NSData, destination: Request.DownloadFileDestination) -> Request {
+    internal func download(resumeData: NSData, destination: Request.DownloadFileDestination) -> Request {
         return download(.ResumeData(resumeData), destination: destination)
     }
 }

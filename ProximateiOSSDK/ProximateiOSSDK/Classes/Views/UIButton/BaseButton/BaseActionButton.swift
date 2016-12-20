@@ -29,7 +29,7 @@ class BaseActionButton : BaseButton {
         self.clipsToBounds = true
 
         self.layer.borderWidth = 0.8
-        self.layer.borderColor = UIColor.psdkPrimaryDarkColor().CGColor
+        self.layer.borderColor = ProximateSDKSettings.psdkViewOptions.primaryDarkColor.CGColor
         self.layer.cornerRadius = 4///self.frame.size.height/2
 
         self.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Disabled);
@@ -43,7 +43,7 @@ class BaseActionButton : BaseButton {
         layer.frame.origin = CGPointMake(0.0,0.0)
         layer.cornerRadius = 4///self.frame.size.height/2
 
-        layer.colors = [ProximateSDKSettings.psdkViewOptions.primaryColor.CGColor, UIColor.psdkPrimaryDarkColor().CGColor]
+        layer.colors = [ProximateSDKSettings.psdkViewOptions.primaryColor.CGColor, ProximateSDKSettings.psdkViewOptions.primaryDarkColor.CGColor]
         self.layer.insertSublayer(layer, atIndex: 0)
     }
     

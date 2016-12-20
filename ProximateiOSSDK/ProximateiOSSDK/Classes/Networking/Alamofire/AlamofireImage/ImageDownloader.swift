@@ -256,7 +256,7 @@ internal class ImageDownloader {
         - returns: The request receipt for the download request if available. `nil` if the image is stored in the image
                    cache and the URL request cache policy allows the cache to be used.
     */
-    public func downloadImage(
+    internal func downloadImage(
         URLRequest URLRequest: URLRequestConvertible,
         receiptID: String = NSUUID().UUIDString,
         filter: ImageFilter? = nil,
@@ -427,7 +427,7 @@ internal class ImageDownloader {
                    cache and the URL request cache policy allows the cache to be used, a receipt will not be returned
                    for that request.
     */
-    public func downloadImages(
+    internal func downloadImages(
         URLRequests URLRequests: [URLRequestConvertible],
         filter: ImageFilter? = nil,
         progress: ProgressHandler? = nil,
@@ -455,7 +455,7 @@ internal class ImageDownloader {
 
         - parameter requestReceipt: The request receipt to cancel.
     */
-    public func cancelRequestForRequestReceipt(requestReceipt: RequestReceipt) {
+    internal func cancelRequestForRequestReceipt(requestReceipt: RequestReceipt) {
         dispatch_sync(synchronizationQueue) {
             let identifier = ImageDownloader.identifierForURLRequest(requestReceipt.request.request!)
             guard let responseHandler = self.responseHandlers[identifier] else { return }

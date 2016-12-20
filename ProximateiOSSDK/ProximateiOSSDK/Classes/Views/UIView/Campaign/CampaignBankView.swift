@@ -9,14 +9,15 @@
 import UIKit
 
 class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
-    private var innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
-    let rowHeight : CGFloat  = 200.0
+    private let innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
+    let rowHeight : CGFloat  = 100.0
     
     private var contentHeight : CGFloat  = 0.0
+    let reuseIdentifier = "cell"
 
     var campaignBankTitle : BaseLabel!
 
-    var campaignBankTable : UITableView!
+    var campaignBankTable : BaseTableView!
     private var campaignBank : [ObjectBank]!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -26,13 +27,15 @@ class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
         super.awakeFromNib()
     }
     
-    init(frame : CGRect, campaignBank cBank : [ObjectBank], withInnerPadding iPadding : CGFloat){
+    init(frame : CGRect, campaignBank cBank : [ObjectBank]){
         super.init(frame: frame)
-        innerPadding = iPadding
-        let viewWidth = frame.width/600 * UIScreen.mainScreen().bounds.size.width
+        
+        let outerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.outerPadding
+        
+        let viewWidth = self.frame.width/600 * UIScreen.mainScreen().bounds.size.width - (outerPadding * 3)
         
         campaignBankTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize))
-        campaignBankTitle.backgroundColor = UIColor.cyanColor()
+        campaignBankTitle.backgroundColor = UIColor.clearColor()
         campaignBankTitle.isBold = true
         campaignBankTitle.text = "psdk_title_deals_available_at".localized
         campaignBankTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTitleColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize)
@@ -41,14 +44,13 @@ class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
         for bank in cBank {
             contentHeight += (rowHeight * CGFloat((bank.cards?.count)!))
         }
-        campaignBankTable = UITableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), contentHeight))
+        campaignBankTable = BaseTableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), contentHeight))
         
-        campaignBankTable.backgroundColor = UIColor.darkGrayColor()
         self.addSubview(campaignBankTable)
         campaignBankTable.delegate = self
         campaignBankTable.dataSource = self
         
-        self.campaignBankTable.registerNib(UINib(nibName:"BankCardTableViewCell", bundle:ProximateSDKSettings.getBundle()), forCellReuseIdentifier: "cell")
+        self.campaignBankTable.registerNib(UINib(nibName:"BankCardTableViewCell", bundle:ProximateSDKSettings.getBundle()), forCellReuseIdentifier: reuseIdentifier)
         
         self.campaignBank = cBank
         DebugLogger.debugLog("campaignBank \(campaignBank)")
@@ -77,7 +79,6 @@ class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let reuseIdentifier = "cell"
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! BankCardTableViewCell
 
         let bank = self.campaignBank[indexPath.section]

@@ -158,7 +158,7 @@ internal class NetworkReachabilityManager {
 
         - returns: `true` if listening was started successfully, `false` otherwise.
     */
-    public func startListening() -> Bool {
+    internal func startListening() -> Bool {
         var context = SCNetworkReachabilityContext(version: 0, info: nil, retain: nil, release: nil, copyDescription: nil)
         context.info = UnsafeMutablePointer(Unmanaged.passUnretained(self).toOpaque())
 
@@ -184,7 +184,7 @@ internal class NetworkReachabilityManager {
     /**
         Stops listening for changes in network reachability status.
     */
-    public func stopListening() {
+    internal func stopListening() {
         SCNetworkReachabilitySetCallback(reachability, nil, nil)
         SCNetworkReachabilitySetDispatchQueue(reachability, nil)
     }

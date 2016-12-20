@@ -64,7 +64,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     }
    
     @IBAction func campaignShareClicked() {
-        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mCampaign.title, self.mCampaign.getMerchant().merchantName, self.mCampaign.details, ])
+        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mCampaign.title, self.mCampaign.getMerchant().merchantName, ProximateSDK.getAppName()])
         delegate?.didClickCampaignShare(shareText)
     }
     

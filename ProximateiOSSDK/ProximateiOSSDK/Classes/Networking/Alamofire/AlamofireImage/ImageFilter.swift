@@ -39,7 +39,7 @@ internal protocol ImageFilter {
     var identifier: String { get }
 }
 
-extension ImageFilter {
+internal extension ImageFilter {
     /// The unique identifier for any `ImageFilter` type.
     internal var identifier: String { return "\(self.dynamicType)" }
 }
@@ -52,7 +52,7 @@ internal protocol Sizable {
     var size: CGSize { get }
 }
 
-extension ImageFilter where Self: Sizable {
+internal extension ImageFilter where Self: Sizable {
     /// The unique idenitifier for an `ImageFilter` conforming to the `Sizable` protocol.
     internal var identifier: String {
         let width = Int64(round(size.width))

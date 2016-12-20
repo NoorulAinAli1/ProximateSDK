@@ -80,7 +80,7 @@ internal class Request {
 
         - returns: The request.
     */
-    public func authenticate(
+    internal func authenticate(
         user user: String,
         password: String,
         persistence: NSURLCredentialPersistence = .ForSession)
@@ -98,7 +98,7 @@ internal class Request {
 
         - returns: The request.
     */
-    public func authenticate(usingCredential credential: NSURLCredential) -> Self {
+    internal func authenticate(usingCredential credential: NSURLCredential) -> Self {
         delegate.credential = credential
 
         return self
@@ -119,7 +119,7 @@ internal class Request {
 
         - returns: The request.
     */
-    public func progress(closure: ((Int64, Int64, Int64) -> Void)? = nil) -> Self {
+    internal func progress(closure: ((Int64, Int64, Int64) -> Void)? = nil) -> Self {
         if let uploadDelegate = delegate as? UploadTaskDelegate {
             uploadDelegate.uploadProgress = closure
         } else if let dataDelegate = delegate as? DataTaskDelegate {
@@ -142,7 +142,7 @@ internal class Request {
 
         - returns: The request.
     */
-    public func stream(closure: (NSData -> Void)? = nil) -> Self {
+    internal func stream(closure: (NSData -> Void)? = nil) -> Self {
         if let dataDelegate = delegate as? DataTaskDelegate {
             dataDelegate.dataStream = closure
         }
@@ -155,7 +155,7 @@ internal class Request {
     /**
         Resumes the request.
     */
-    public func resume() {
+    internal func resume() {
         if startTime == nil { startTime = CFAbsoluteTimeGetCurrent() }
 
         task.resume()
@@ -165,7 +165,7 @@ internal class Request {
     /**
         Suspends the request.
     */
-    public func suspend() {
+    internal func suspend() {
         task.suspend()
         NSNotificationCenter.defaultCenter().postNotificationName(Notifications.Task.DidSuspend, object: task)
     }
@@ -173,7 +173,7 @@ internal class Request {
     /**
         Cancels the request.
     */
-    public func cancel() {
+    internal func cancel() {
         if let
             downloadDelegate = delegate as? DownloadTaskDelegate,
             downloadTask = downloadDelegate.downloadTask

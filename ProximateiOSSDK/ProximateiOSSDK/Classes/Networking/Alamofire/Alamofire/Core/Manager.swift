@@ -177,7 +177,7 @@ internal class Manager {
 
         - returns: The created request.
     */
-    public func request(
+    internal func request(
         method: Method,
         _ URLString: URLStringConvertible,
         parameters: [String: AnyObject]? = nil,
@@ -200,7 +200,7 @@ internal class Manager {
 
         - returns: The created request.
     */
-    public func request(URLRequest: URLRequestConvertible) -> Request {
+    internal func request(URLRequest: URLRequestConvertible) -> Request {
         var dataTask: NSURLSessionDataTask!
         dispatch_sync(queue) { dataTask = self.session.dataTaskWithRequest(URLRequest.URLRequest) }
 
@@ -269,7 +269,7 @@ internal class Manager {
             - parameter session: The session object that was invalidated.
             - parameter error:   The error that caused invalidation, or nil if the invalidation was explicit.
         */
-        public func URLSession(session: NSURLSession, didBecomeInvalidWithError error: NSError?) {
+        internal func URLSession(session: NSURLSession, didBecomeInvalidWithError error: NSError?) {
             sessionDidBecomeInvalidWithError?(session, error)
         }
 
@@ -280,7 +280,7 @@ internal class Manager {
             - parameter challenge:         An object that contains the request for authentication.
             - parameter completionHandler: A handler that your delegate method must call providing the disposition and credential.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             didReceiveChallenge challenge: NSURLAuthenticationChallenge,
             completionHandler: ((NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void))
@@ -319,7 +319,7 @@ internal class Manager {
 
             - parameter session: The session that no longer has any outstanding requests.
         */
-        public func URLSessionDidFinishEventsForBackgroundURLSession(session: NSURLSession) {
+        internal func URLSessionDidFinishEventsForBackgroundURLSession(session: NSURLSession) {
             sessionDidFinishEventsForBackgroundURLSession?(session)
         }
 
@@ -367,7 +367,7 @@ internal class Manager {
                                            parameter, a modified URL request object, or NULL to refuse the redirect and 
                                            return the body of the redirect response.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             task: NSURLSessionTask,
             willPerformHTTPRedirection response: NSHTTPURLResponse,
@@ -396,7 +396,7 @@ internal class Manager {
             - parameter challenge:         An object that contains the request for authentication.
             - parameter completionHandler: A handler that your delegate method must call providing the disposition and credential.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             task: NSURLSessionTask,
             didReceiveChallenge challenge: NSURLAuthenticationChallenge,
@@ -429,7 +429,7 @@ internal class Manager {
             - parameter task:              The task that needs a new body stream.
             - parameter completionHandler: A completion handler that your delegate method should call with the new body stream.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             task: NSURLSessionTask,
             needNewBodyStream completionHandler: NSInputStream? -> Void)
@@ -455,7 +455,7 @@ internal class Manager {
             - parameter totalBytesSent:           The total number of bytes sent so far.
             - parameter totalBytesExpectedToSend: The expected length of the body data.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             task: NSURLSessionTask,
             didSendBodyData bytesSent: Int64,
@@ -482,7 +482,7 @@ internal class Manager {
             - parameter task:    The task whose request finished transferring data.
             - parameter error:   If an error occurred, an error object indicating how the transfer failed, otherwise nil.
         */
-        public func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+        internal func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
             if let taskDidComplete = taskDidComplete {
                 taskDidComplete(session, task, error)
             } else if let delegate = self[task] {
@@ -530,7 +530,7 @@ internal class Manager {
                                            constant to indicate whether the transfer should continue as a data task or 
                                            should become a download task.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             dataTask: NSURLSessionDataTask,
             didReceiveResponse response: NSURLResponse,
@@ -557,7 +557,7 @@ internal class Manager {
             - parameter dataTask:     The data task that was replaced by a download task.
             - parameter downloadTask: The new download task that replaced the data task.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             dataTask: NSURLSessionDataTask,
             didBecomeDownloadTask downloadTask: NSURLSessionDownloadTask)
@@ -577,7 +577,7 @@ internal class Manager {
             - parameter dataTask: The data task that provided data.
             - parameter data:     A data object containing the transferred data.
         */
-        public func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
+        internal func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
             if let dataTaskDidReceiveData = dataTaskDidReceiveData {
                 dataTaskDidReceiveData(session, dataTask, data)
             } else if let delegate = self[dataTask] as? Request.DataTaskDelegate {
@@ -598,7 +598,7 @@ internal class Manager {
                                            response. If your delegate implements this method, it must call this completion 
                                            handler; otherwise, your app leaks memory.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             dataTask: NSURLSessionDataTask,
             willCacheResponse proposedResponse: NSCachedURLResponse,
@@ -647,7 +647,7 @@ internal class Manager {
                                       the file for reading or move it to a permanent location in your app’s sandbox 
                                       container directory before returning from this delegate method.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             downloadTask: NSURLSessionDownloadTask,
             didFinishDownloadingToURL location: NSURL)
@@ -671,7 +671,7 @@ internal class Manager {
                                                    header. If this header was not provided, the value is 
                                                    `NSURLSessionTransferSizeUnknown`.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             downloadTask: NSURLSessionDownloadTask,
             didWriteData bytesWritten: Int64,
@@ -703,7 +703,7 @@ internal class Manager {
             - parameter expectedTotalBytes: The expected length of the file, as provided by the Content-Length header. 
                                             If this header was not provided, the value is NSURLSessionTransferSizeUnknown.
         */
-        public func URLSession(
+        internal func URLSession(
             session: NSURLSession,
             downloadTask: NSURLSessionDownloadTask,
             didResumeAtOffset fileOffset: Int64,

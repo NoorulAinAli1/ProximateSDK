@@ -102,7 +102,7 @@ extension UIImage {
         Inflating compressed image formats (such as PNG or JPEG) can significantly improve drawing performance as it
         allows a bitmap representation to be constructed in the background rather than on the main thread.
     */
-    public func af_inflate() {
+    internal func af_inflate() {
         guard !af_inflated else { return }
 
         af_inflated = true
@@ -139,7 +139,7 @@ extension UIImage {
 
         - returns: A new image object.
     */
-    public func af_imageScaledToSize(size: CGSize) -> UIImage {
+    internal func af_imageScaledToSize(size: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, af_isOpaque, 0.0)
         drawInRect(CGRect(origin: CGPointZero, size: size))
 
@@ -162,7 +162,7 @@ extension UIImage {
 
         - returns: A new image object.
     */
-    public func af_imageAspectScaledToFitSize(size: CGSize) -> UIImage {
+    internal func af_imageAspectScaledToFitSize(size: CGSize) -> UIImage {
         let imageAspectRatio = self.size.width / self.size.height
         let canvasAspectRatio = size.width / size.height
 
@@ -194,7 +194,7 @@ extension UIImage {
 
         - returns: A new image object.
     */
-    public func af_imageAspectScaledToFillSize(size: CGSize) -> UIImage {
+    internal func af_imageAspectScaledToFillSize(size: CGSize) -> UIImage {
         let imageAspectRatio = self.size.width / self.size.height
         let canvasAspectRatio = size.width / size.height
 
@@ -234,7 +234,7 @@ extension UIImage {
 
         - returns: A new image object.
     */
-    public func af_imageWithRoundedCornerRadius(radius: CGFloat, divideRadiusByImageScale: Bool = false) -> UIImage {
+    internal func af_imageWithRoundedCornerRadius(radius: CGFloat, divideRadiusByImageScale: Bool = false) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
 
         let scaledRadius = divideRadiusByImageScale ? radius / scale : radius
@@ -255,7 +255,7 @@ extension UIImage {
 
         - returns: A new image object.
     */
-    public func af_imageRoundedIntoCircle() -> UIImage {
+    internal func af_imageRoundedIntoCircle() -> UIImage {
         let radius = min(size.width, size.height) / 2.0
         var squareImage = self
 
@@ -296,7 +296,7 @@ extension UIImage {
 
         - returns: A new image object, or `nil` if the filter failed for any reason.
     */
-    public func af_imageWithAppliedCoreImageFilter(
+    internal func af_imageWithAppliedCoreImageFilter(
         filterName: String,
         filterParameters: [String: AnyObject]? = nil) -> UIImage?
     {

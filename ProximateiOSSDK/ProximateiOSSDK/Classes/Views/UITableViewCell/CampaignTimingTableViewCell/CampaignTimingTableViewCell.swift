@@ -9,24 +9,43 @@
 import UIKit
 
 class CampaignTimingTableViewCell: UITableViewCell {
-    @IBOutlet var timingImage : UIImageView!
+    @IBOutlet var timingImageHeight : NSLayoutConstraint! {
+        didSet {
+            timingImageHeight.constant = ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize
+        }
+    }
     
-    @IBOutlet var timingDay : BaseLabel!
-    @IBOutlet var timingInfo : BaseLabel!
+    @IBOutlet var timingInfoHeight : NSLayoutConstraint!
     
-    var timing : ObjectCampaignTiming! {
+    @IBOutlet var timingImage : UIImageView! {
+        didSet {
+            timingImage.image = ProximateSDKSettings.getImageForName("icon_timing")
+        }
+    }
+    
+    @IBOutlet var timingDay : BaseLabel! {
+        didSet {
+            timingDay.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTextColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
+        }
+    }
+    
+    @IBOutlet var timingInfo : BaseLabel! {
+        didSet {
+//            timingInfo.backgroundColor = UIColor.cyanColor()
+            timingInfo.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTextColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
+        }
+    }
+    
+    var mTiming : ObjectCampaignTiming! {
         didSet {
             updateView()
         }
     }
     
-    private func updateTimingImage() {
-        timingImage.image = ProximateSDKSettings.getImageForName("icon_timing")
-    }
-    
-    private func updateView(){
-        timingDay.text = timing.getDay()
-        timingInfo.text = timing.getTiming()
+     private func updateView(){
+        timingDay.text = mTiming.getDay()
+        timingInfo.text = mTiming.getTiming()
+        
 
     }
     

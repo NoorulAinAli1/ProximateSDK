@@ -81,7 +81,7 @@ extension Request {
 
         - returns: The request.
     */
-    public func response(
+    internal func response(
         queue queue: dispatch_queue_t? = nil,
         completionHandler: (NSURLRequest?, NSHTTPURLResponse?, NSData?, NSError?) -> Void)
         -> Self
@@ -105,7 +105,7 @@ extension Request {
 
         - returns: The request.
     */
-    public func response<T: ResponseSerializerType>(
+    internal func response<T: ResponseSerializerType>(
         queue queue: dispatch_queue_t? = nil,
         responseSerializer: T,
         completionHandler: Response<T.SerializedObject, T.ErrorObject> -> Void)
@@ -176,7 +176,7 @@ extension Request {
 
         - returns: The request.
     */
-    public func responseData(
+    internal func responseData(
         queue queue: dispatch_queue_t? = nil,
         completionHandler: Response<NSData, NSError> -> Void)
         -> Self
@@ -243,7 +243,7 @@ extension Request {
 
         - returns: The request.
     */
-    public func responseString(
+    internal func responseString(
         queue queue: dispatch_queue_t? = nil,
         encoding: NSStringEncoding? = nil,
         completionHandler: Response<String, NSError> -> Void)
@@ -302,7 +302,7 @@ extension Request {
 
         - returns: The request.
     */
-    public func responseJSON(
+    internal func responseJSON(
         queue queue: dispatch_queue_t? = nil,
         options: NSJSONReadingOptions = .AllowFragments,
         completionHandler: Response<AnyObject, NSError> -> Void)
@@ -362,7 +362,7 @@ extension Request {
 
         - returns: The request.
     */
-    public func responsePropertyList(
+    internal func responsePropertyList(
         queue queue: dispatch_queue_t? = nil,
         options: NSPropertyListReadOptions = NSPropertyListReadOptions(),
         completionHandler: Response<AnyObject, NSError> -> Void)

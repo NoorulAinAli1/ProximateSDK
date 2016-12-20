@@ -171,7 +171,7 @@ internal class AutoPurgingImageCache: ImageRequestCache {
         - parameter request:    The request used to generate the image's unique identifier.
         - parameter identifier: The additional identifier to append to the image's unique identifier.
     */
-    public func addImage(image: Image, forRequest request: NSURLRequest, withAdditionalIdentifier identifier: String? = nil) {
+    internal func addImage(image: Image, forRequest request: NSURLRequest, withAdditionalIdentifier identifier: String? = nil) {
         let requestIdentifier = imageCacheKeyFromURLRequest(request, withAdditionalIdentifier: identifier)
         addImage(image, withIdentifier: requestIdentifier)
     }
@@ -182,7 +182,7 @@ internal class AutoPurgingImageCache: ImageRequestCache {
         - parameter image:      The image to add to the cache.
         - parameter identifier: The identifier to use to uniquely identify the image.
     */
-    public func addImage(image: Image, withIdentifier identifier: String) {
+    internal func addImage(image: Image, withIdentifier identifier: String) {
         dispatch_barrier_async(synchronizationQueue) {
             let cachedImage = CachedImage(image, identifier: identifier)
 
@@ -232,7 +232,7 @@ internal class AutoPurgingImageCache: ImageRequestCache {
 
         - returns: `true` if the image was removed, `false` otherwise.
     */
-    public func removeImageForRequest(request: NSURLRequest, withAdditionalIdentifier identifier: String?) -> Bool {
+    internal func removeImageForRequest(request: NSURLRequest, withAdditionalIdentifier identifier: String?) -> Bool {
         let requestIdentifier = imageCacheKeyFromURLRequest(request, withAdditionalIdentifier: identifier)
         return removeImageWithIdentifier(requestIdentifier)
     }
@@ -244,7 +244,7 @@ internal class AutoPurgingImageCache: ImageRequestCache {
 
         - returns: `true` if the image was removed, `false` otherwise.
     */
-    public func removeImageWithIdentifier(identifier: String) -> Bool {
+    internal func removeImageWithIdentifier(identifier: String) -> Bool {
         var removed = false
 
         dispatch_barrier_async(synchronizationQueue) {
@@ -262,7 +262,7 @@ internal class AutoPurgingImageCache: ImageRequestCache {
 
         - returns: `true` if images were removed from the cache, `false` otherwise.
     */
-    @objc public func removeAllImages() -> Bool {
+    @objc internal func removeAllImages() -> Bool {
         var removed = false
 
         dispatch_sync(synchronizationQueue) {
@@ -287,7 +287,7 @@ internal class AutoPurgingImageCache: ImageRequestCache {
 
         - returns: The image if it is stored in the cache, `nil` otherwise.
     */
-    public func imageForRequest(request: NSURLRequest, withAdditionalIdentifier identifier: String? = nil) -> Image? {
+    internal func imageForRequest(request: NSURLRequest, withAdditionalIdentifier identifier: String? = nil) -> Image? {
         let requestIdentifier = imageCacheKeyFromURLRequest(request, withAdditionalIdentifier: identifier)
         return imageWithIdentifier(requestIdentifier)
     }
@@ -299,7 +299,7 @@ internal class AutoPurgingImageCache: ImageRequestCache {
 
         - returns: The image if it is stored in the cache, `nil` otherwise.
     */
-    public func imageWithIdentifier(identifier: String) -> Image? {
+    internal func imageWithIdentifier(identifier: String) -> Image? {
         var image: Image?
 
         dispatch_sync(synchronizationQueue) {

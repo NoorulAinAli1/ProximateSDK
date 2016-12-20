@@ -49,15 +49,19 @@ internal class ObjectCampaignTiming: NSObject {
         return days[day.integerValue]
     }
     
+    internal func getIsSingleLine() -> Bool {
+        return isFullDay() || startTime2 == endTime// check for startTime2
+    }
+    
     internal func getTiming() -> String {
-        var timingText = ""//startTime + " - " + endTime + " \n" + startTime2 + " - " + endTime2;
+        var timingText =  "\(startTime) - \(endTime)\n\(startTime) - \(endTime)"
     
         if (isFullDay()) {
-            timingText = "Whole Day"
+            timingText = "\("psdk_text_whole_day".localized)"
         } else if (startTime2 == endTime) {// check for startTime2
-            timingText = startTime + " - " + endTime2!
+            timingText = "\(startTime) - \(endTime2)"
         } else {
-            timingText = startTime + " - " + endTime + " \n" + startTime! + " - " + endTime!
+            timingText =  "\(startTime) - \(endTime)\n\(startTime) - \(endTime)"
         }
         return timingText;
     }

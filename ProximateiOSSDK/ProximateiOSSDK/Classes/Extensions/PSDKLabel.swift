@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UILabel {
+internal extension UILabel {
     var sdkFontSize : CGFloat {
         get { return self.font.pointSize }
         set { self.font = UIFont(name: self.font!.fontName, size: newValue) }
@@ -31,14 +31,14 @@ extension UILabel {
     }
 }
 
-extension UIButton {
+internal extension UIButton {
     var sdkFontName : String {
         get { return (self.titleLabel!.font.fontName) }
         set { self.titleLabel!.font = UIFont(name: newValue, size: self.titleLabel!.font.pointSize) }
     }
 }
 
-extension UITextField {
+internal extension UITextField {
     var sdkFontName : String {
         get { return (self.font!.fontName) }
         set { self.font = UIFont(name: newValue, size: self.font!.pointSize) }

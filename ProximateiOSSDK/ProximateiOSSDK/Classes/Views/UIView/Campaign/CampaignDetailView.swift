@@ -13,7 +13,7 @@ import UIKit
 }
 
 class CampaignDetailView: CardView {
-    private var innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
+    private let innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
     private var contentHeight : CGFloat  = 0.0
 
     var campaignDetailTitle : BaseLabel!
@@ -30,15 +30,15 @@ class CampaignDetailView: CardView {
         super.init(coder: aDecoder)
     }
     
-    
-    init(frame : CGRect, withInnerPadding iPadding : CGFloat, withDetails detailText : String, withCampaignActions cAction : [ObjectCampaignAction]) {
+    init(frame : CGRect, withDetails detailText : String, withCampaignActions cAction : [ObjectCampaignAction]) {
         super.init(frame: frame)
-        innerPadding = iPadding
 
-        let viewWidth = self.frame.width/600 * UIScreen.mainScreen().bounds.size.width
+        let outerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.outerPadding
+
+        let viewWidth = self.frame.width/600 * UIScreen.mainScreen().bounds.size.width - (outerPadding * 3)
 
         campaignDetailTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize))
-        campaignDetailTitle.backgroundColor = UIColor.cyanColor()
+        campaignDetailTitle.backgroundColor = UIColor.clearColor()
         campaignDetailTitle.text = "psdk_title_details".localized
         campaignDetailTitle.isBold = true
         campaignDetailTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTitleColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize)
@@ -48,7 +48,7 @@ class CampaignDetailView: CardView {
         campaignDetailText.numberOfLines = 0
         campaignDetailText.numberOfLines = 0
         campaignDetailText.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTextColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
-        campaignDetailText.backgroundColor = UIColor.darkGrayColor()
+        campaignDetailText.backgroundColor = UIColor.clearColor()
         self.addSubview(campaignDetailText)
         
         campaignDetailText.text = detailText
@@ -63,9 +63,9 @@ class CampaignDetailView: CardView {
         DebugLogger.debugLog("height \(contentHeight)")
         
         var startIndex = 0
-        let height : CGFloat = 40
-        campaignActionView = UIView(frame: CGRectMake(innerPadding, contentHeight + innerPadding + campaignDetailText.frame.origin.y, viewWidth - (innerPadding * 2), CGFloat(cAction.count) * height))
-        campaignActionView.backgroundColor = UIColor.redColor()
+        let height : CGFloat = ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize * 2.5
+        campaignActionView = UIView(frame: CGRectMake(innerPadding*2, contentHeight + innerPadding + campaignDetailText.frame.origin.y, viewWidth - (innerPadding * 4), CGFloat(cAction.count) * height))
+        campaignActionView.backgroundColor = UIColor.clearColor()
         campaignActionView.userInteractionEnabled = true
         self.addSubview( campaignActionView)
         
@@ -75,7 +75,7 @@ class CampaignDetailView: CardView {
             contentHeight += height
 
             floatIndex = height * CGFloat(startIndex)
-            let button = BaseActionButton(frame: CGRect(x:30, y:floatIndex, width: viewWidth - 60, height:height - innerPadding))
+            let button = BaseActionButton(frame: CGRect(x:0, y:floatIndex, width: campaignActionView.frame.size.width, height:height - innerPadding))
             button.setTitle(campaignAction.actionTitle, forState: UIControlState.Normal)
             button.tag  = startIndex
             startIndex += 1

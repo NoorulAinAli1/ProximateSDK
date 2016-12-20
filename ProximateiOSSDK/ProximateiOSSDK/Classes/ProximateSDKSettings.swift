@@ -86,6 +86,14 @@ public enum PSDKFontStyleOptions {
     
 }
 
+public enum CampaignSectionSequence : Int {
+    case Detail
+    case Store
+    case Timing
+    case Bank
+}
+
+
 struct FontStyleOptions {
     var seeAllFontColor     : UIColor!  = UIColor.blackColor()
     var seeAllFontSize      : CGFloat!  = 10.0
@@ -174,7 +182,7 @@ struct PageIndicatorOptions {
 }
 
 public enum PSDKViewOptions {
-    case PrimaryColor(UIColor)
+    case PrimaryColor(UIColor, UIColor)
     case ViewBackgroundColor(UIColor)
     case NavigationBarTitle(UIColor, CGFloat)
     case NavigationBarTintColor(UIColor)
@@ -187,13 +195,27 @@ public enum PSDKViewOptions {
 
 struct ViewOptions {
     var primaryColor : UIColor! = UIColor.psdkPrimaryColor()
+    var primaryDarkColor : UIColor! = UIColor.psdkPrimaryDarkColor()
     var viewBackgroundColor : UIColor! = UIColor.grayColor()
     var navigationBarTintColor  : UIColor! = UIColor.grayColor()
     var navigationBarTitleSize  : CGFloat! = 16.0
     var navigationBarTitleColor  : UIColor! = UIColor.whiteColor()
     var searchBarColor     : UIColor!  = UIColor.brownColor()
-    var fontRegular   : String! = "Futura"
-    var fontBold   : String! = "Futura-CondensedExtraBold"
+    var fontRegular   : String! = "TrebuchetMS" {
+        didSet {
+            if UIFont(name: fontRegular, size: 10) == nil {
+                fontRegular = "TrebuchetMS"
+            }
+        }
+    }
+    var fontBold   : String! = "TrebuchetMS-Bold" {
+        didSet {
+            if UIFont(name: fontBold, size: 10) == nil {
+                fontBold = "TrebuchetMS-Bold"
+            }
+    }
+}
+
     var innerPadding  : CGFloat! = 6.0
     var outerPadding  : CGFloat! = 10.0
     var cardHeight  : CGFloat! = 200.0
@@ -205,8 +227,9 @@ struct ViewOptions {
     init(viewOptions: [PSDKViewOptions]){
         for option in viewOptions {
             switch (option) {
-            case let .PrimaryColor(value):
+            case let .PrimaryColor(value, valueDark):
                 self.primaryColor = value
+                self.primaryDarkColor = valueDark
             case let .ViewBackgroundColor(value):
                 self.viewBackgroundColor = value
             case let .NavigationBarTitle(valueColor, valueSize):
@@ -278,7 +301,6 @@ struct CardOptions {
             default: break
             }
         }
-    
     }
 }
 
@@ -292,30 +314,29 @@ public class ProximateSDKSettings: NSObject {
     internal static var psdkPageIndicatorOptions : PageIndicatorOptions! = PageIndicatorOptions()
     internal static var psdkFontOptions : FontStyleOptions! = FontStyleOptions()
     internal static var psdkTabOptions : TabStyleOptions! = TabStyleOptions()
+    internal static var psdkCampaignSectionSequence : [CampaignSectionSequence] = [CampaignSectionSequence.Detail,  CampaignSectionSequence.Timing, CampaignSectionSequence.Store, CampaignSectionSequence.Bank]
     
     internal static func configure() {
         OCMapperConfig.configure()
-        
     }
    
+    public static func setCampaignSectionSequence(seq: [CampaignSectionSequence])  {
+        psdkCampaignSectionSequence = seq
+    }
+
     private static func initializeFonts() {
         
         BaseButton.appearance().sdkFontName = self.psdkViewOptions.fontRegular
         UITextField.appearance().sdkFontName = self.psdkViewOptions.fontRegular
 
         UISegmentedControl.appearance().tintColor = ProximateSDKSettings.psdkViewOptions.primaryColor
-        
-        UISegmentedControl.appearance().setTitleTextAttributes([
-                                                  NSFontAttributeName : UIFont(name: ProximateSDKSettings.psdkViewOptions.fontRegular, size: 16.0)!], forState: UIControlState.Normal)
-
-        //        UISegmentedControl.appearance().backgroundColor = UIColor.cyanColor()
+        UISegmentedControl.appearance().setTitleTextAttributes([NSFontAttributeName : UIFont(name: ProximateSDKSettings.psdkViewOptions.fontRegular, size: 16.0)!], forState: UIControlState.Normal)
 //        UILabel.appearance().sdkFontName = "Futura"
 //        UILabel.appearance().sdkBoldFontName = "Futura-CondensedExtraBold"
     }
     
     public static func configureSettingsPlist(plistName : String) {
         if let path = NSBundle.mainBundle().pathForResource(plistName, ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
-            // use swift dictionary as normal
             DebugLogger.debugLog("path \(path)")
             DebugLogger.debugLog("dict \(dict)")
             
@@ -336,8 +357,7 @@ public class ProximateSDKSettings: NSObject {
             }
             
             if let tabStyles = dict["Tab"] as? [String: AnyObject] {
-                DebugLogger.debugLog("tabStyles \(tabStyles)")
-                
+                setTabStyle(tabStyles)
             }
         }
     }

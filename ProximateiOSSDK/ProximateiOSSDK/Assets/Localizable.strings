@@ -8,25 +8,15 @@
 
 "psdk_app_name" = "ProximateiOSSDK";
 
-// Progress Text
-"psdk_progress_loading" = "Loading...";
-"psdk_progress_searching" = "Searching...";
-"psdk_progress_fetching_route" = "Fetching route...";
-
-// Toast Messages
+// Messages
 "psdk_message_enable_location_services" = "Please enable location service";
-"psdk_message_campaign_not_found" = "Campaign not found";
 "psdk_message_please_enter_some_search_criteria" = "Please enter some filter text in order to perform search";
 "psdk_message_no_campaign_found_in_search" = "No campaign found with the search text '%1$@'";
-
-// Share
-"psdk_merchant_share" = "Amazing deals at %1$@. Avail them using %2$@.\n\nDownload now %3$@.";
-"psdk_campaign_share" = "Amazing deal \'%1$@\' Avail it using %2$@.\n\nDownload now %3$@.";
 
 // Title
 "psdk_title_merchant_list" = "Merchants List";
 "psdk_title_stores" = "Stores:";
-"psdk_title_timingsn" = "Timings:";
+"psdk_title_timings" = "Timings:";
 "psdk_title_deals_available_at" = "Deals available at:";
 "psdk_title_details" = "Details";
 
@@ -40,12 +30,11 @@
 "psdk_alert_campaign_has_expired" = "Campaign titled '%1$@' has been expired.'";
 "psdk_alert_app_wants_to_call" = "%1$@ wants to call %2$@";
 
-
 // Hints
 "psdk_hint_search" = "Search...";
 "psdk_text_ends_on" = "Ends on %1$@";
 "psdk_text_expired_on" = "Expired on %1$@";
-
+"psdk_text_whole_day" = "Whole Day";
 
 // Empty Texts
 "psdk_text_empty_no_campaigns_for_merchant" = "There are no active campaigns for this merchant yet";
@@ -54,7 +43,10 @@
 // Error Messages
 "psdk_error_view_no_internet" = "Cannot connect at this time.\nPlease check your internet connection.";
 "psdk_error_location_permission" = "You have not granted location permission for this app";
-"psdk_error_location_nearby"     = "%1$@ cannot determine your current location now. Please try again later";
-"psdk_error_campaign_not_found"  = "Campaign was not found on server";
+"psdk_error_campaign_not_found"  = "Campaign not found";
 "psdk_error_something_went_wrong" = "Oops! Something went wrong. Please try again later.";
 
+
+// Share
+"psdk_merchant_share" = "Amazing deals at %1$@. Avail them using %2$@.\n\nDownload now %3$@.";
+"psdk_campaign_share" = "Amazing deal \'%1$@\' Avail it using %2$@.\n\nDownload now %3$@.";

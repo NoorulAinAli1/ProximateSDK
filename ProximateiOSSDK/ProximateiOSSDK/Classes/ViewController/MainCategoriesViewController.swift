@@ -27,7 +27,9 @@ class MainCategoriesViewController: BaseViewController, CAPSPageMenuDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
    
-        let btnBack = UIBarButtonItem.init(barButtonSystemItem: .Add, target: self, action: #selector(MainCategoriesViewController.removeSDK(_:)))
+        let backImage =  ProximateSDKSettings.getImageForName("button_back")
+        let btnBack : UIBarButtonItem = UIBarButtonItem(image: backImage, style: .Plain, target: self, action: #selector(MainCategoriesViewController.removeSDK(_:)))
+
         self.navigationItem.leftBarButtonItem = btnBack
         
         let searchImage =  ProximateSDKSettings.getImageForName("button_search")

@@ -64,7 +64,7 @@ extension Manager {
 
         :returns: The created stream request.
     */
-    public func stream(hostName hostName: String, port: Int) -> Request {
+    internal func stream(hostName hostName: String, port: Int) -> Request {
         return stream(.Stream(hostName, port))
     }
 
@@ -75,7 +75,7 @@ extension Manager {
 
         - returns: The created stream request.
     */
-    public func stream(netService netService: NSNetService) -> Request {
+    internal func stream(netService netService: NSNetService) -> Request {
         return stream(.NetService(netService))
     }
 }
@@ -135,7 +135,7 @@ extension Manager.SessionDelegate: NSURLSessionStreamDelegate {
         - parameter session:    The session.
         - parameter streamTask: The stream task.
     */
-    public func URLSession(session: NSURLSession, readClosedForStreamTask streamTask: NSURLSessionStreamTask) {
+    internal func URLSession(session: NSURLSession, readClosedForStreamTask streamTask: NSURLSessionStreamTask) {
         streamTaskReadClosed?(session, streamTask)
     }
 
@@ -145,7 +145,7 @@ extension Manager.SessionDelegate: NSURLSessionStreamDelegate {
         - parameter session:    The session.
         - parameter streamTask: The stream task.
     */
-    public func URLSession(session: NSURLSession, writeClosedForStreamTask streamTask: NSURLSessionStreamTask) {
+    internal func URLSession(session: NSURLSession, writeClosedForStreamTask streamTask: NSURLSessionStreamTask) {
         streamTaskWriteClosed?(session, streamTask)
     }
 
@@ -155,7 +155,7 @@ extension Manager.SessionDelegate: NSURLSessionStreamDelegate {
         - parameter session:    The session.
         - parameter streamTask: The stream task.
     */
-    public func URLSession(session: NSURLSession, betterRouteDiscoveredForStreamTask streamTask: NSURLSessionStreamTask) {
+    internal func URLSession(session: NSURLSession, betterRouteDiscoveredForStreamTask streamTask: NSURLSessionStreamTask) {
         streamTaskBetterRouteDiscovered?(session, streamTask)
     }
 
@@ -167,7 +167,7 @@ extension Manager.SessionDelegate: NSURLSessionStreamDelegate {
         - parameter inputStream:  The new input stream.
         - parameter outputStream: The new output stream.
     */
-    public func URLSession(
+    internal func URLSession(
         session: NSURLSession,
         streamTask: NSURLSessionStreamTask,
         didBecomeInputStream inputStream: NSInputStream,

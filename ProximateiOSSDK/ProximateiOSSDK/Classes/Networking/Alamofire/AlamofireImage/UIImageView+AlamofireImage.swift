@@ -360,7 +360,7 @@ extension UIImageView {
         - parameter imageTransition: The image transition to ran on the image view.
         - parameter image:           The image to use for the image transition.
     */
-    public func runImageTransition(imageTransition: ImageTransition, withImage image: UIImage) {
+    internal func runImageTransition(imageTransition: ImageTransition, withImage image: UIImage) {
         UIView.transitionWithView(
             self,
             duration: imageTransition.duration,

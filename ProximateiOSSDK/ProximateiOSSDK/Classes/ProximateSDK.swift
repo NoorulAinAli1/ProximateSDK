@@ -24,30 +24,14 @@ import UIKit
 
 }
 
-internal enum CAMPAIGN_MEDIA_TYPE : Int {
-    case Image  = 6601
-    case Video  = 6602
-    case PDF    = 6603
-    case Word   = 6604
-    case Doc    = 6605
-    case PPT    = 6606
-}
-
-internal enum CAMPAIGN_ACTION_TYPE : String {
-    case IMAGELIST  = "ImageList"
-    case VIDEO      = "Video"
-    case URL        = "URL"
-    case MAP        = "MAP"
-    case REDEEM     = "REDEEM"
-}
-
 public class ProximateSDK: NSObject {
     private static let psdkMerchantKey  = "ProximateMerchantKey"
     private static var psdkBundleIdentifer : String!
     private static var screenInteractionDelegate : PSDKScreenInteractionDelegate?
     private static var messageDelegate : PSDKMessageDelegate?
     private static var mPSDKValidated : Bool! = false
-      
+
+    
     public static func initialize(messageDelegate msgDelegate : PSDKMessageDelegate? = nil, screenInteractionDelegate screenDelegate : PSDKScreenInteractionDelegate? = nil) {
         
         ProximateSDK.psdkBundleIdentifer         = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleIdentifierKey as String) as! String
@@ -68,6 +52,10 @@ public class ProximateSDK: NSObject {
         })
     }
     
+    public static func enableDebugLogging(enable : Bool = true) {
+        DebugLogger.enableDebugMode(enable)
+    }
+    
     internal static func getMessageDelegate() -> PSDKMessageDelegate? {
         return messageDelegate
     }
@@ -86,5 +74,9 @@ public class ProximateSDK: NSObject {
     
     internal static func getPackageIdentifer() -> String {
         return ProximateSDK.psdkBundleIdentifer!
+    }
+    
+    internal static func getAppName() -> String {
+        return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleNameKey as String) as! String
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class CampaignTitleView: CardView {
     
-    private var innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
+    private let innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
     var campaignExpiryImage : UIImageView?
     private var contentHeight : CGFloat  = 0.0
     
@@ -29,9 +29,8 @@ class CampaignTitleView: CardView {
         
     }
     
-    init(frame : CGRect, withInnerPadding iPadding : CGFloat){
+    override init(frame : CGRect){
         super.init(frame: frame)
-        innerPadding = iPadding
         addViews()
     }
 
@@ -39,11 +38,11 @@ class CampaignTitleView: CardView {
         let viewWidth = self.frame.width/600 * UIScreen.mainScreen().bounds.size.width
 
         campaignTitle = BaseLabel(frame: CGRectMake(innerPadding, innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.campaignTextFontSize))
-        campaignTitle.backgroundColor = UIColor.cyanColor()
+        campaignTitle.backgroundColor = UIColor.clearColor()
         self.addSubview(campaignTitle)
         
         campaignExpiryDateTime = BaseLabel(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignTextFontSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.expiryTextFontSize))
-        campaignExpiryDateTime.backgroundColor = UIColor.darkGrayColor()
+        campaignExpiryDateTime.backgroundColor = UIColor.clearColor()
         self.addSubview(campaignExpiryDateTime)
 
     }
@@ -61,7 +60,7 @@ class CampaignTitleView: CardView {
         campaignExpiryDateTime?.setStyle(expiryStyle.campaignExpiryTextColor, size: ProximateSDKSettings.psdkFontOptions.expiryTextFontSize)
 
 //        campaignTitle.text = campaign.getCampaignTitle()
-        campaignTitle.setHTMLFromString(campaign.getCampaignTitle(), singleLine: false)
+        campaignTitle.setHTMLFromString(campaign.getCampaignTitle(), isSingleLine: false)
         
         contentHeight = campaignTitle.heightForText( campaign.title, maxWidth: viewWidth - (innerPadding * 4))
         
@@ -69,7 +68,7 @@ class CampaignTitleView: CardView {
         titleFrame.size.height = contentHeight
         campaignTitle.frame = titleFrame
         
-//        campaignTitle.setHTMLFromString(campaign.getCampaignTitle(), singleLine: false)
+//        campaignTitle.setHTMLFromString(campaign.getCampaignTitle(), isSingleLine: false)
 
         var expFrame = campaignExpiryDateTime.frame
         expFrame.origin.y = contentHeight + innerPadding*2
@@ -80,7 +79,7 @@ class CampaignTitleView: CardView {
     
     func getContentHeight() -> CGFloat {
 
-        return contentHeight + ProximateSDKSettings.psdkFontOptions.expiryTextFontSize + innerPadding*5
+        return contentHeight + ProximateSDKSettings.psdkFontOptions.expiryTextFontSize + innerPadding*3
 
     }
 
