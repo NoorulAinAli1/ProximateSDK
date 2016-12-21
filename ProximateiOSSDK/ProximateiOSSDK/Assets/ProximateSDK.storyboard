@@ -261,7 +261,7 @@
                                             <rect key="frame" x="15" y="9" width="570" height="283"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="brJ-1X-Gfg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="570" height="216.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="570" height="212.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XPa-yt-Sgo">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -287,11 +287,11 @@
                                                     </connections>
                                                 </collectionView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_gradient@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="dQf-QX-hYf">
-                                                    <rect key="frame" x="0.0" y="86.5" width="570" height="130"/>
+                                                    <rect key="frame" x="0.0" y="84.5" width="570" height="128"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOS-Nk-LDx" customClass="BaseLabel" customModule="ProximateiOSSDK">
-                                                    <rect key="frame" x="10" y="218.5" width="550" height="34"/>
-                                                    <color key="backgroundColor" red="1" green="0.7250976562" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="10" y="212.5" width="550" height="34"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="x1p-IU-9Lv"/>
                                                     </constraints>
@@ -307,20 +307,20 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Expiry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qie-Aq-g5O" customClass="BaseLabel" customModule="ProximateiOSSDK">
-                                                    <rect key="frame" x="40" y="252.5" width="519.5" height="24"/>
+                                                    <rect key="frame" x="40" y="246.5" width="519.5" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uC0-gC-CX6">
-                                                    <rect key="frame" x="10" y="252.5" width="24" height="24"/>
+                                                    <rect key="frame" x="10" y="246.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="uC0-gC-CX6" secondAttribute="height" multiplier="1:1" id="Rdg-fP-BOh"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97X-pQ-bZ7" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                                                    <rect key="frame" x="499.5" y="119" width="64.5" height="97.5"/>
+                                                    <rect key="frame" x="500.5" y="117" width="63.5" height="95.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="97X-pQ-bZ7" secondAttribute="height" multiplier="2:3" id="6WY-0l-t8E"/>
@@ -332,7 +332,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYm-g4-kOM" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                                                    <rect key="frame" x="432.5" y="119" width="65" height="97.5"/>
+                                                    <rect key="frame" x="435.5" y="117" width="63" height="95.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="61" id="cgN-J6-wBm"/>
@@ -349,7 +349,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNq-7v-WGr" customClass="DDPageControl">
-                                                    <rect key="frame" x="0.0" y="272.5" width="570" height="10.5"/>
+                                                    <rect key="frame" x="0.0" y="266.5" width="570" height="16.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -379,14 +379,14 @@
                                                 <constraint firstItem="brJ-1X-Gfg" firstAttribute="height" secondItem="RCd-c2-gMY" secondAttribute="height" multiplier="0.7" id="Pbe-aV-sJg"/>
                                                 <constraint firstItem="iNq-7v-WGr" firstAttribute="height" secondItem="Qie-Aq-g5O" secondAttribute="height" multiplier="0.8" id="SFG-Is-nVc"/>
                                                 <constraint firstItem="ZYm-g4-kOM" firstAttribute="bottom" secondItem="97X-pQ-bZ7" secondAttribute="bottom" id="TMY-HV-AU8"/>
-                                                <constraint firstItem="eOS-Nk-LDx" firstAttribute="top" secondItem="dQf-QX-hYf" secondAttribute="bottom" constant="2" id="XTV-3c-p3e"/>
+                                                <constraint firstItem="eOS-Nk-LDx" firstAttribute="top" secondItem="dQf-QX-hYf" secondAttribute="bottom" id="XTV-3c-p3e"/>
                                                 <constraint firstItem="iNq-7v-WGr" firstAttribute="centerX" secondItem="RCd-c2-gMY" secondAttribute="centerX" id="Yz3-kZ-Qnt"/>
                                                 <constraint firstAttribute="bottom" secondItem="iNq-7v-WGr" secondAttribute="bottom" constant="4" id="bIw-zf-TKP"/>
                                                 <constraint firstItem="brJ-1X-Gfg" firstAttribute="centerX" secondItem="RCd-c2-gMY" secondAttribute="centerX" id="gE5-K9-qwB"/>
                                                 <constraint firstAttribute="bottom" secondItem="iNq-7v-WGr" secondAttribute="bottom" constant="10" id="gTx-Ob-Agv"/>
                                                 <constraint firstAttribute="trailing" secondItem="eOS-Nk-LDx" secondAttribute="trailing" constant="10" id="iwy-sB-zHC"/>
                                                 <constraint firstItem="Qie-Aq-g5O" firstAttribute="trailing" secondItem="eOS-Nk-LDx" secondAttribute="trailing" id="jdI-0g-WxR"/>
-                                                <constraint firstItem="brJ-1X-Gfg" firstAttribute="height" secondItem="RCd-c2-gMY" secondAttribute="height" multiplier="0.765" id="lI9-P1-zJo"/>
+                                                <constraint firstItem="brJ-1X-Gfg" firstAttribute="height" secondItem="RCd-c2-gMY" secondAttribute="height" multiplier="0.75" id="lI9-P1-zJo"/>
                                                 <constraint firstItem="eOS-Nk-LDx" firstAttribute="top" secondItem="brJ-1X-Gfg" secondAttribute="bottom" constant="2" id="lKl-eu-fjY"/>
                                                 <constraint firstItem="dQf-QX-hYf" firstAttribute="centerX" secondItem="brJ-1X-Gfg" secondAttribute="centerX" id="lNs-aj-Ckl"/>
                                                 <constraint firstItem="eOS-Nk-LDx" firstAttribute="height" secondItem="RCd-c2-gMY" secondAttribute="height" multiplier="0.1" id="lYX-Qc-ULY"/>
