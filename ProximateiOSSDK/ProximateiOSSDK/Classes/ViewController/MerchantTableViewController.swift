@@ -203,26 +203,42 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let addLoadMoreRow = self.loadMoreAvailable && mCampaigns.count > 0 ? 1 : 0
-        return mCampaigns.count + addLoadMoreRow
+        if mCampaigns.count == 0 {
+            return 1
+        } else {
+            let addLoadMoreRow = self.loadMoreAvailable && mCampaigns.count > 0 ? 1 : 0
+            return mCampaigns.count + addLoadMoreRow
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.row < mCampaigns.count ? ProximateSDKSettings.psdkViewOptions.cardHeight : 100
+        if mCampaigns.count == 0 {
+            return ProximateSDKSettings.psdkViewOptions.cardHeight * 0.7
+        } else {
+             return indexPath.row < mCampaigns.count ? ProximateSDKSettings.psdkViewOptions.cardHeight : 100
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if indexPath.row < mCampaigns.count {
-            let cell = tableView.dequeueReusableCellWithIdentifier("CampaignCell", forIndexPath: indexPath) as! CampaignTableViewCell
-            cell.setCampaign(mCampaigns[indexPath.row])
-            cell.delegate = self
-            return cell
-        } else {
-            let cellnib  = ProximateSDKSettings.getBundle().loadNibNamed("LoadMoreTableViewCell", owner:self, options: nil)![0] as! LoadMoreTableViewCell
-            loadMore()
-        
+        if mCampaigns.count == 0 {
+            
+            let cellnib  = ProximateSDKSettings.getBundle().loadNibNamed("EmptyTableViewCell", owner:self, options: nil)![0] as! EmptyTableViewCell
+            cellnib.setEmptyText("psdk_text_empty_no_campaigns_for_merchant".localized)
             return cellnib
+        } else {
+            
+            if indexPath.row < mCampaigns.count {
+                let cell = tableView.dequeueReusableCellWithIdentifier("CampaignCell", forIndexPath: indexPath) as! CampaignTableViewCell
+                cell.setCampaign(mCampaigns[indexPath.row])
+                cell.delegate = self
+                return cell
+            } else {
+                let cellnib  = ProximateSDKSettings.getBundle().loadNibNamed("LoadMoreTableViewCell", owner:self, options: nil)![0] as! LoadMoreTableViewCell
+                loadMore()
+            
+                return cellnib
+            }
         }
     }
     

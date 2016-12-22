@@ -27,7 +27,7 @@ class BankCardTableViewCell : UITableViewCell {
 
     @IBOutlet var bankCardOfferText : BaseLabel!  {
         didSet {
-            bankCardOfferText.setStyle(ProximateSDKSettings.psdkFontOptions.campaignBoldFontColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
+            bankCardOfferText.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailBankOfferColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
         }
         
     }

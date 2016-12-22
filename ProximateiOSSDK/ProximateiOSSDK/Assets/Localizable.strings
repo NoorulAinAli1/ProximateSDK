@@ -11,7 +11,7 @@
 // Messages
 "psdk_message_enable_location_services" = "Please enable location service";
 "psdk_message_please_enter_some_search_criteria" = "Please enter some filter text in order to perform search";
-"psdk_message_no_campaign_found_in_search" = "No campaign found with the search text '%1$@'";
+"psdk_message_no_campaign_found_in_search" = "No deal found with the search text '%1$@'";
 
 // Title
 "psdk_title_merchant_list" = "Merchants List";
@@ -27,7 +27,7 @@
 "psdk_button_see_all" = "See All (%1$d)";
 
 // Alert Text
-"psdk_alert_campaign_has_expired" = "Campaign titled '%1$@' has been expired.'";
+"psdk_alert_campaign_has_expired" = "Deal titled '%1$@' has been expired.'";
 "psdk_alert_app_wants_to_call" = "%1$@ wants to call %2$@";
 
 // Hints
@@ -37,13 +37,13 @@
 "psdk_text_whole_day" = "Whole Day";
 
 // Empty Texts
-"psdk_text_empty_no_campaigns_for_merchant" = "There are no active campaigns for this merchant yet";
-"psdk_text_empty_no_active_campaigns" = "There are no active campaigns at the moment";
+"psdk_text_empty_no_campaigns_for_merchant" = "There are no <b>active deals</b> for this merchant yet";
+"psdk_text_empty_no_active_campaigns" = "There are no <b>active deals</b> at the moment";
 
 // Error Messages
 "psdk_error_view_no_internet" = "Cannot connect at this time.\nPlease check your internet connection.";
 "psdk_error_location_permission" = "You have not granted location permission for this app";
-"psdk_error_campaign_not_found"  = "Campaign not found";
+"psdk_error_campaign_not_found"  = "Deal not found";
 "psdk_error_something_went_wrong" = "Oops! Something went wrong. Please try again later.";
 
 

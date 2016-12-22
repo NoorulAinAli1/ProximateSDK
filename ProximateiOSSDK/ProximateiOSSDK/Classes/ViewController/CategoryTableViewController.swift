@@ -62,6 +62,7 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
     }
 
     func didCancelSearch(){
+        initialize()
         self.searchString = ""
         
         DebugLogger.debugLog("cancel")
@@ -108,11 +109,8 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
     }
     
     private func reloadList(){
-        //                DebugLogger.debugLog("campaigns \(campaigns)")
         pageNumber += 1
         mMerchantGroup.sort({ $0.sortOrder.integerValue > $1.sortOrder.integerValue })
-
-//        mMerchantGroup.sortInPlace { $0.getSortOrder().compare($1.getSortOrder()) == .OrderedAscending }
         
         self.refreshControl!.endRefreshing()
         self.tableView.reloadData()
@@ -145,26 +143,41 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let addLoadMoreRow = self.loadMoreAvailable && mMerchantGroup.count > 0 ? 1 : 0
-        return mMerchantGroup.count + addLoadMoreRow
+        if mMerchantGroup.count == 0 {
+            return 1
+        } else {
+            let addLoadMoreRow = self.loadMoreAvailable && mMerchantGroup.count > 0 ? 1 : 0
+            return mMerchantGroup.count + addLoadMoreRow
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.row < mMerchantGroup.count ? ProximateSDKSettings.psdkViewOptions.cardHeight : 100
+        if mMerchantGroup.count == 0 {
+            return ProximateSDKSettings.psdkViewOptions.cardHeight * 0.7
+        } else {
+            return indexPath.row < mMerchantGroup.count ? ProximateSDKSettings.psdkViewOptions.cardHeight : 100
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-        if indexPath.row < mMerchantGroup.count {
-            let cell = tableView.dequeueReusableCellWithIdentifier("MerchantCell", forIndexPath: indexPath) as! MerchantTableViewCell
-            cell.setMerchantGroup(mMerchantGroup[indexPath.row])
-            cell.delegate = self
-            return cell
-        } else {
-            let cellnib  = ProximateSDKSettings.getBundle().loadNibNamed("LoadMoreTableViewCell", owner:self, options: nil)![0] as! LoadMoreTableViewCell
-            loadMore()
-    
+        if mMerchantGroup.count == 0 {
+
+            let cellnib  = ProximateSDKSettings.getBundle().loadNibNamed("EmptyTableViewCell", owner:self, options: nil)![0] as! EmptyTableViewCell
+            cellnib.setEmptyText("psdk_text_empty_no_active_campaigns".localized)
             return cellnib
+        } else {
+            if indexPath.row < mMerchantGroup.count {
+                let cell = tableView.dequeueReusableCellWithIdentifier("MerchantCell", forIndexPath: indexPath) as! MerchantTableViewCell
+                cell.setMerchantGroup(mMerchantGroup[indexPath.row])
+                cell.delegate = self
+                return cell
+            } else {
+                let cellnib  = ProximateSDKSettings.getBundle().loadNibNamed("LoadMoreTableViewCell", owner:self, options: nil)![0] as! LoadMoreTableViewCell
+                loadMore()
+        
+                return cellnib
+            }
         }
     }
     

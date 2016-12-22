@@ -78,6 +78,7 @@ struct TabStyleOptions {
 
 public enum PSDKFontStyleOptions {
     case SeeAllFontStyle(UIColor, CGFloat)
+    case ImageButtonFontStyle(UIColor, CGFloat)
     case MerchantTitleFontStyle(UIColor, CGFloat)
     case ExpiryTextFontStyle(UIColor, UIColor, CGFloat)
     case MerchantTaglineFontStyle(UIColor, CGFloat)
@@ -110,7 +111,10 @@ struct FontStyleOptions {
     var campaignDetailTitleSize     : CGFloat!  = 16.0
     var campaignDetailTextSize      : CGFloat!  = 12.0
     var campaignDetailTitleColor    : UIColor!  =  UIColor.blueColor()
+    var campaignDetailBankOfferColor : UIColor! = UIColor.orangeColor()
     var campaignDetailTextColor     : UIColor!  =  UIColor.orangeColor()
+    var imageButtonFontColor     : UIColor!  = UIColor.whiteColor()
+    var imageButtonFontSize      : CGFloat!  = 10.0
     
     init(){
     }
@@ -118,6 +122,9 @@ struct FontStyleOptions {
     init(fontOptions: [PSDKFontStyleOptions]){
         for option in fontOptions {
             switch (option) {
+            case let .ImageButtonFontStyle(valueColor, valueSize):
+                self.imageButtonFontColor    = valueColor
+                self.imageButtonFontSize     = valueSize
             case let .SeeAllFontStyle(valueColor, valueSize):
                 self.seeAllFontColor    = valueColor
                 self.seeAllFontSize     = valueSize
@@ -197,7 +204,7 @@ struct ViewOptions {
     var primaryColor : UIColor! = UIColor.psdkPrimaryColor()
     var primaryDarkColor : UIColor! = UIColor.psdkPrimaryDarkColor()
     var viewBackgroundColor : UIColor! = UIColor.grayColor()
-    var navigationBarTintColor  : UIColor! = UIColor.grayColor()
+    var navigationBarTintColor  : UIColor! = UIColor.whiteColor()
     var navigationBarTitleSize  : CGFloat! = 16.0
     var navigationBarTitleColor  : UIColor! = UIColor.whiteColor()
     var searchBarColor     : UIColor!  = UIColor.brownColor()
@@ -437,6 +444,14 @@ public class ProximateSDKSettings: NSObject {
                 psdkFontOptions.seeAllFontColor = UIColor.hexToColor(fColor)
             }
         }
+        if let imageButtonStyles = fontStyles["ImageButton"] as? [String: AnyObject] {
+            if let fValue = imageButtonStyles[fontSize], fSize = fValue as? CGFloat {
+                psdkFontOptions.imageButtonFontSize = fSize
+            }
+            if let fValue = imageButtonStyles[color], fColor = fValue as? String {
+                psdkFontOptions.imageButtonFontColor = UIColor.hexToColor(fColor)
+            }
+        }
         if let merchantTitleStyles = fontStyles["MerchantTitle"] as? [String: AnyObject] {
             if let fValue = merchantTitleStyles[fontSize], fSize = fValue as? CGFloat {
             	psdkFontOptions.merchantTitleFontSize = fSize
@@ -484,13 +499,18 @@ public class ProximateSDKSettings: NSObject {
             if let fValue2 = campaignDetailStyles["TitleFontSize"], fSize2 = fValue2 as? CGFloat {
                 psdkFontOptions.campaignDetailTitleSize = fSize2
             }
+            
             if let fValue = campaignDetailStyles[color], fColor = fValue as? String {
                 psdkFontOptions.campaignDetailTextColor = UIColor.hexToColor(fColor)
             }
             if let fValue2 = campaignDetailStyles["TitleColor"], fColor2 = fValue2 as? String {
                 psdkFontOptions.campaignDetailTitleColor = UIColor.hexToColor(fColor2)
             }
+            if let fValue3 = campaignDetailStyles["BankOfferColor"], fColor3 = fValue3 as? String {
+                psdkFontOptions.campaignDetailBankOfferColor = UIColor.hexToColor(fColor3)
+            }
         }
+        
     }
     
     public static func setPageIndicatorOptions(options: [PSDKPageIndicatorOptions])  {

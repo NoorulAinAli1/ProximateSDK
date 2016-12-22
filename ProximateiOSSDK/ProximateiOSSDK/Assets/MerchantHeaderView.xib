@@ -20,7 +20,7 @@
                     <rect key="frame" x="0.0" y="168" width="600" height="312"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnI-WR-21B" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="505" y="337" width="95" height="143"/>
+                    <rect key="frame" x="503" y="334" width="97" height="146"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="61" id="uaD-vE-GzL"/>
@@ -46,7 +46,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGS-Yp-adb" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="400.5" y="336.5" width="104.5" height="143"/>
+                    <rect key="frame" x="396.5" y="333.5" width="106.5" height="146"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="61" id="4Nk-nv-wJt"/>
@@ -73,7 +73,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSc-ig-5Md" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="338.5" y="336.5" width="62" height="143"/>
+                    <rect key="frame" x="334.5" y="333.5" width="62" height="146"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="2lJ-Wc-cH1"/>
@@ -117,7 +117,7 @@
                     </variation>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merchant Titiel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4r-5a-4Kx" customClass="BaseLabel" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="218" y="486" width="377.5" height="46"/>
+                    <rect key="frame" x="220.5" y="486" width="375" height="46"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -126,13 +126,13 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTq-uj-ZTc" customClass="BaseLabel" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="218" y="536" width="377.5" height="35"/>
+                    <rect key="frame" x="220.5" y="536" width="375" height="35"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxN-9i-Juj" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="243.5" y="337" width="95" height="143"/>
+                    <rect key="frame" x="237.5" y="334" width="97" height="146"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nxN-9i-Juj" secondAttribute="height" multiplier="1:1" id="B2j-lm-U6T"/>
@@ -190,7 +190,7 @@
                 <constraint firstItem="eTq-uj-ZTc" firstAttribute="width" secondItem="y4r-5a-4Kx" secondAttribute="width" id="bZJ-sY-eeM"/>
                 <constraint firstItem="nxN-9i-Juj" firstAttribute="bottom" secondItem="Gcp-fE-KJs" secondAttribute="bottom" id="cGk-k1-nIF"/>
                 <constraint firstItem="bSc-ig-5Md" firstAttribute="width" secondItem="lGS-Yp-adb" secondAttribute="width" id="cNi-qT-6J7"/>
-                <constraint firstItem="y4r-5a-4Kx" firstAttribute="leading" secondItem="8m1-xM-FJ2" secondAttribute="trailing" constant="4" id="cX7-ff-Z0j"/>
+                <constraint firstItem="y4r-5a-4Kx" firstAttribute="leading" secondItem="8m1-xM-FJ2" secondAttribute="trailing" constant="6" id="cX7-ff-Z0j"/>
                 <constraint firstItem="Wp4-wG-cFU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="e21-oi-zcE"/>
                 <constraint firstItem="lGS-Yp-adb" firstAttribute="height" secondItem="nxN-9i-Juj" secondAttribute="height" id="eMK-99-jr9"/>
                 <constraint firstItem="bSc-ig-5Md" firstAttribute="height" secondItem="lGS-Yp-adb" secondAttribute="height" id="g42-9Y-nuf"/>
@@ -202,7 +202,7 @@
                 <constraint firstItem="bSc-ig-5Md" firstAttribute="leading" secondItem="nxN-9i-Juj" secondAttribute="trailing" id="lQQ-KN-hhL"/>
                 <constraint firstItem="Wp4-wG-cFU" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.8" id="leO-Kz-gaF"/>
                 <constraint firstItem="vnI-WR-21B" firstAttribute="leading" secondItem="lGS-Yp-adb" secondAttribute="trailing" id="qXo-l9-7SL"/>
-                <constraint firstItem="vnI-WR-21B" firstAttribute="height" secondItem="8m1-xM-FJ2" secondAttribute="height" multiplier="0.7" id="rAh-DC-qMw"/>
+                <constraint firstItem="vnI-WR-21B" firstAttribute="height" secondItem="8m1-xM-FJ2" secondAttribute="height" multiplier="0.72" id="rAh-DC-qMw"/>
                 <constraint firstItem="nxN-9i-Juj" firstAttribute="height" secondItem="lGS-Yp-adb" secondAttribute="height" id="s54-bV-12W"/>
                 <constraint firstItem="y4r-5a-4Kx" firstAttribute="height" secondItem="8m1-xM-FJ2" secondAttribute="height" multiplier="0.225" id="sOG-9Q-RUk"/>
                 <constraint firstItem="Gcp-fE-KJs" firstAttribute="width" secondItem="Wp4-wG-cFU" secondAttribute="width" id="tyg-tN-M7b"/>
@@ -223,9 +223,9 @@
                     <exclude reference="TRw-i5-TYx"/>
                     <exclude reference="cNi-qT-6J7"/>
                     <exclude reference="vGg-FX-j38"/>
-                    <exclude reference="RIv-Ep-lOR"/>
                     <exclude reference="8cK-yQ-cTL"/>
                     <exclude reference="eMK-99-jr9"/>
+                    <exclude reference="RIv-Ep-lOR"/>
                     <exclude reference="5Dw-4o-wnO"/>
                     <exclude reference="Bxo-cl-b8o"/>
                 </mask>

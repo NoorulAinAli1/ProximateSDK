@@ -30,7 +30,7 @@
                     <rect key="frame" x="0.0" y="168" width="600" height="312"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1W-P7-Tcb" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="505" y="337" width="95" height="143"/>
+                    <rect key="frame" x="503.5" y="334" width="96.5" height="146"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="G1W-P7-Tcb" secondAttribute="height" multiplier="1:1" id="RHb-a3-WRz"/>
@@ -54,7 +54,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ad-Hm-4uz" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="400.5" y="337" width="104.5" height="143"/>
+                    <rect key="frame" x="397" y="334" width="106.5" height="146"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="61" id="Q5D-Ok-h7P"/>
                     </constraints>
@@ -65,7 +65,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDp-Jt-e9F" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="341" y="337" width="59" height="143"/>
+                    <rect key="frame" x="337.5" y="334" width="59" height="146"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="59" id="jLF-YD-Ou3"/>
                     </constraints>
@@ -76,7 +76,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEQ-q3-006" customClass="BaseImageButton" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="291" y="337" width="50" height="143"/>
+                    <rect key="frame" x="287.5" y="334" width="50" height="146"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="61" id="D2W-Ms-bQQ"/>
                         <constraint firstAttribute="width" secondItem="HEQ-q3-006" secondAttribute="height" multiplier="1:1" id="Ncg-5Q-ajl"/>
@@ -107,7 +107,7 @@
                     </variation>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merchant Titiel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASQ-e1-4uy" customClass="BaseLabel" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="218" y="486" width="378" height="46"/>
+                    <rect key="frame" x="220" y="486" width="376" height="46"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -116,7 +116,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfd-2B-zJj" customClass="BaseLabel" customModule="ProximateiOSSDK">
-                    <rect key="frame" x="218" y="534" width="378" height="35"/>
+                    <rect key="frame" x="220" y="534" width="376" height="35"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -168,21 +168,21 @@
                 <constraint firstItem="Zba-te-u8D" firstAttribute="width" secondItem="I0D-eC-Rgd" secondAttribute="width" id="sKU-iY-oYf"/>
                 <constraint firstItem="HEQ-q3-006" firstAttribute="height" secondItem="G1W-P7-Tcb" secondAttribute="height" id="tSr-HA-25C"/>
                 <constraint firstItem="LDp-Jt-e9F" firstAttribute="bottom" secondItem="G1W-P7-Tcb" secondAttribute="bottom" id="tUK-vb-WmP"/>
-                <constraint firstItem="G1W-P7-Tcb" firstAttribute="height" secondItem="mOE-Mt-0l4" secondAttribute="height" multiplier="0.7" id="vfk-Pd-dC7"/>
+                <constraint firstItem="G1W-P7-Tcb" firstAttribute="height" secondItem="mOE-Mt-0l4" secondAttribute="height" multiplier="0.72" id="vfk-Pd-dC7"/>
                 <constraint firstAttribute="trailing" secondItem="JFa-TS-Pqk" secondAttribute="trailing" id="wVd-C1-ml7"/>
                 <constraint firstItem="4ad-Hm-4uz" firstAttribute="height" secondItem="G1W-P7-Tcb" secondAttribute="height" id="wrB-ga-g2K"/>
                 <constraint firstItem="Zba-te-u8D" firstAttribute="centerX" secondItem="I0D-eC-Rgd" secondAttribute="centerX" id="xu3-CR-VY4"/>
-                <constraint firstItem="ASQ-e1-4uy" firstAttribute="leading" secondItem="mOE-Mt-0l4" secondAttribute="trailing" constant="4" id="y1F-F7-ncf"/>
+                <constraint firstItem="ASQ-e1-4uy" firstAttribute="leading" secondItem="mOE-Mt-0l4" secondAttribute="trailing" constant="6" id="y1F-F7-ncf"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="22x-IC-kYh"/>
                     <exclude reference="UAA-e0-bek"/>
                     <exclude reference="7GA-JB-fFP"/>
-                    <exclude reference="o9B-Qr-jJH"/>
-                    <exclude reference="s0L-VE-3jT"/>
                     <exclude reference="Tbz-GU-C4e"/>
                     <exclude reference="wrB-ga-g2K"/>
+                    <exclude reference="o9B-Qr-jJH"/>
+                    <exclude reference="s0L-VE-3jT"/>
                 </mask>
             </variation>
             <connections>

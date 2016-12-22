@@ -5,42 +5,42 @@
 	<key>View</key>
 	<dict>
 		<key>PrimaryColor</key>
-		<string>ydaf</string>
+		<string>c61726</string>
 		<key>PrimaryDarkColor</key>
 		<string>#dea9f0</string>
 		<key>SearchBarColor</key>
-		<string></string>
+		<string>c61726</string>
 		<key>NavigationBarTintColor</key>
-		<string>892152</string>
+		<string>c61726</string>
 		<key>ViewBackgroundColor</key>
-		<string>#ffeeff</string>
+		<string>f1f2f3</string>
 		<key>NavigationBarTitle</key>
 		<dict>
 			<key>FontSize</key>
 			<integer>14</integer>
 			<key>Color</key>
-			<string>#148142</string>
+			<string>#ffffff</string>
 		</dict>
 		<key>Font</key>
 		<dict>
 			<key>Regular</key>
-			<string>Fuutura</string>
+			<string>Montserrat-Light</string>
 			<key>Bold</key>
-			<string>Futura-CuondensedExtraBold</string>
+			<string>Montserrat-SemiBold</string>
 		</dict>
 		<key>Padding</key>
 		<dict>
 			<key>InnerPadding</key>
-			<integer>4</integer>
+			<integer>10</integer>
 			<key>OuterPadding</key>
 			<integer>2</integer>
 		</dict>
 		<key>Height</key>
 		<dict>
 			<key>CardHeight</key>
-			<integer>250</integer>
+			<integer>240</integer>
 			<key>HeaderHeight</key>
-			<integer>300</integer>
+			<integer>280</integer>
 		</dict>
 	</dict>
 	<key>Card</key>
@@ -48,9 +48,9 @@
 		<key>CardBackgroundColor</key>
 		<string>#feffff</string>
 		<key>CardShadowColor</key>
-		<string>#0d0d0d</string>
+		<string>#e9eaeb</string>
 		<key>CardBorderColor</key>
-		<string>#cdcdcd</string>
+		<string>#e9eaeb</string>
 		<key>CardCornerRadius</key>
 		<integer>2</integer>
 		<key>CardShadowRadius</key>
@@ -70,22 +70,29 @@
 		<key>SeeAll</key>
 		<dict>
 			<key>Color</key>
-			<string>#cdcdcd</string>
+			<string>#c61726</string>
+			<key>FontSize</key>
+			<integer>12</integer>
+		</dict>
+		<key>ImageButton</key>
+		<dict>
+			<key>Color</key>
+			<string>#ffffff</string>
 			<key>FontSize</key>
 			<integer>12</integer>
 		</dict>
 		<key>MerchantTitle</key>
 		<dict>
 			<key>Color</key>
-			<string>#9d939d</string>
+			<string>#242425</string>
 			<key>FontSize</key>
-			<integer>20</integer>
+			<integer>12</integer>
 		</dict>
 		<key>ExpiryText</key>
 		<dict>
 			<key>Color</key>
-			<string>#a6201d</string>
-			<key>ExpiryColor</key>
+			<string>#939495</string>
+			<key>ExpiredColor</key>
 			<string>#cdcdcd</string>
 			<key>FontSize</key>
 			<real>10</real>
@@ -100,22 +107,24 @@
 		<key>CampaignTitle</key>
 		<dict>
 			<key>Color</key>
-			<string>#8d8281</string>
+			<string>#262426</string>
 			<key>BoldColor</key>
-			<string>#710421</string>
+			<string>#c41826</string>
 			<key>FontSize</key>
 			<integer>14</integer>
 		</dict>
 		<key>CampaignDetail</key>
 		<dict>
 			<key>Color</key>
-			<string>#8d8281</string>
-			<key>BoldColor</key>
-			<string>#710421</string>
+			<string>#b4b6b6</string>
+			<key>TitleColor</key>
+			<string>#000000</string>
+			<key>BankOfferColor</key>
+			<string>fb8a24</string>
 			<key>FontSize</key>
-			<integer>16</integer>
+			<integer>12</integer>
 			<key>TitleFontSize</key>
-			<integer>20</integer>
+			<integer>14</integer>
 		</dict>
 	</dict>
 	<key>PageIndicator</key>
@@ -132,9 +141,9 @@
 	<key>Tab</key>
 	<dict>
 		<key>ViewBackgroundColor</key>
-		<string>#feffff</string>
+		<string>fafbfd</string>
 		<key>MenuHeight</key>
-		<integer>40</integer>
+		<integer>30</integer>
 		<key>MenuMargin</key>
 		<dict>
 			<key>X</key>
@@ -145,30 +154,30 @@
 		<key>MenuItemLabelColor</key>
 		<dict>
 			<key>Selected</key>
-			<string>#000000</string>
+			<string>#ffffff</string>
 			<key>Unselected</key>
-			<string>#dd88dd</string>
+			<string>#71696b</string>
 		</dict>
 		<key>MenuItemBackgroundColor</key>
 		<dict>
 			<key>Selected</key>
-			<string>#dd88dd</string>
+			<string>1379c0</string>
 			<key>Unselected</key>
-			<string>#6d56d3</string>
+			<string>feffff</string>
 		</dict>
 		<key>MenuItemBorderColor</key>
 		<dict>
 			<key>Selected</key>
-			<string>#1e0010</string>
+			<string>1379c0</string>
 			<key>Unselected</key>
-			<string>#de87d2</string>
+			<string>#eff0f2</string>
 		</dict>
 		<key>MenuItemBorderWidth</key>
-		<real>1.2</real>
+		<real>0.65</real>
 		<key>MenuItemFontSize</key>
-		<integer>14</integer>
+		<integer>12</integer>
 		<key>ScrollAnimation</key>
-		<integer>1000</integer>
+		<integer>500</integer>
 	</dict>
 </dict>
 </plist>

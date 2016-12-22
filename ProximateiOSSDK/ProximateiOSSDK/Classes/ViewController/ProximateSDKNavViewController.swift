@@ -10,7 +10,7 @@ import UIKit
 
 class ProximateSDKNavViewController: UINavigationController, UINavigationControllerDelegate {
     var campaignControllerAnimationController : ReversibleAnimationController!
-    var navigationControllerAnimationController : ReversibleAnimationController!
+    var merchantControllerAnimationController : ReversibleAnimationController!
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -21,20 +21,26 @@ class ProximateSDKNavViewController: UINavigationController, UINavigationControl
         super.viewDidLoad()
         
         self.campaignControllerAnimationController = PortalAnimationController()
-        self.navigationControllerAnimationController = CrossFadeAnimationController()
+        self.merchantControllerAnimationController = CrossFadeAnimationController()
         self.navigationBar.barTintColor =  ProximateSDKSettings.psdkViewOptions.primaryColor
         
         self.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
         
-        self.navigationBar.tintColor = ProximateSDKSettings.psdkViewOptions.navigationBarTintColor
+        self.navigationBar.tintColor = ProximateSDKSettings.psdkViewOptions.navigationBarTitleColor
         
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ProximateSDKSettings.psdkViewOptions.navigationBarTitleColor,
-        NSFontAttributeName : UIFont(name: "Futura", size: 16.0)!]
-
+        let textAttributes =  [NSForegroundColorAttributeName: ProximateSDKSettings.psdkViewOptions.navigationBarTitleColor,
+                               NSFontAttributeName : UIFont(name: ProximateSDKSettings.psdkViewOptions.fontRegular, size: 16.0)!]
+        self.navigationBar.titleTextAttributes = textAttributes//[NSForegroundColorAttributeName: ProximateSDKSettings.psdkViewOptions.navigationBarTitleColor,
+//                                                  NSFontAttributeName : UIFont(name: "Futura", size: 16.0)!]
+//        UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: ProximateSDKSettings.psdkViewOptions.navigationBarTitleColor,
+//            NSFontAttributeName : UIFont(name: "Futura", size: 16.0)!], forState: .Normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes(textAttributes, forState: .Normal)
+        
         self.navigationBar.shadowImage = UIImage()
         self.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationBar.barStyle = UIBarStyle.Black
         
+//        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar"] forBarMetrics:UIBarMetricsDefault];
 
 //        let textTitleOptionsNormal = [NSForegroundColorAttributeName: ProximateSDKSettings.psdkViewOptions.navigationBarTextColor, NSFontAttributeName : UIFont(name: "Futura", size: 11.0)]
 
@@ -61,22 +67,20 @@ class ProximateSDKNavViewController: UINavigationController, UINavigationControl
     }
     
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
-
     }
-
 
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
-        if toVC is MerchantTableViewController {
+        if toVC is CampaignViewController {//|| fromVC is CampaignViewController {
+            if (self.merchantControllerAnimationController != nil) {
+                self.merchantControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
+            }
+            return self.merchantControllerAnimationController;
+        } else if toVC is MerchantTableViewController {
             if (self.campaignControllerAnimationController != nil) {
                 self.campaignControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
             }
             return self.campaignControllerAnimationController;
-        } else if toVC is CampaignViewController {
-            if (self.navigationControllerAnimationController != nil) {
-                self.navigationControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
-            }
-            return self.navigationControllerAnimationController;
         } else {
             return nil
         }

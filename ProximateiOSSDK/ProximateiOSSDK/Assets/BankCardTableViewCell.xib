@@ -24,6 +24,7 @@
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="cyu-Ri-YId"/>
+                            <exclude reference="qu0-EM-Z1u"/>
                         </mask>
                     </variation>
                 </imageView>
@@ -55,6 +56,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="qGb-ZH-8u3" firstAttribute="bottom" secondItem="Sd3-Jx-QAL" secondAttribute="bottom" id="6Rm-x1-mOr"/>
+                <constraint firstItem="Sd3-Jx-QAL" firstAttribute="bottom" secondItem="qGb-ZH-8u3" secondAttribute="bottom" id="8wr-Lw-V89"/>
                 <constraint firstItem="fOX-cA-uu3" firstAttribute="leading" secondItem="Sd3-Jx-QAL" secondAttribute="trailing" constant="10" id="9jk-Af-UqC"/>
                 <constraint firstItem="Sd3-Jx-QAL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Cvs-Rw-XbD"/>
                 <constraint firstItem="fOX-cA-uu3" firstAttribute="top" secondItem="Sd3-Jx-QAL" secondAttribute="top" id="EHl-9K-Ze9"/>

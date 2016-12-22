@@ -49,7 +49,7 @@ class BaseLabel: UILabel {
         return NSString(format: "#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255));
     }
     
-    func setHTMLFromString(text: String, isSingleLine singleLine : Bool = true) {
+    func setHTMLFromString(text: String, isSingleLine singleLine : Bool = true, setTextAlignment textAlignment : NSTextAlignment = NSTextAlignment.Left) {
         let boldColor = hexStringFromColor(ProximateSDKSettings.psdkFontOptions.campaignBoldFontColor)
         let normalColor = hexStringFromColor(ProximateSDKSettings.psdkFontOptions.campaignTextFontColor)
 //        let modifiedFont = NSString(format:"<style>b {color: \(boldColor); font-family: \(ProximateSDKSettings.psdkViewOptions.fontBold);}</style><span style=\"font-family: \(self.font!.fontName); color: \(normalColor); font-size: \(self.font!.pointSize)\">%@</span>", text) as String
@@ -60,19 +60,43 @@ class BaseLabel: UILabel {
             options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
             documentAttributes: nil)
         let style = NSMutableParagraphStyle()
+        style.alignment         = textAlignment
 
         
         if singleLine {
-            style.lineSpacing = -10.0 //self.font.lineHeight
-            style.paragraphSpacing = -10.0// 1.25 * self.font.lineHeight
+            style.lineSpacing = -2.0 //-10
+            style.paragraphSpacing = -10.0// -10
             style.minimumLineHeight = ProximateSDKSettings.psdkFontOptions.campaignTextFontSize
             style.maximumLineHeight = ProximateSDKSettings.psdkFontOptions.campaignTextFontSize
-            style.alignment         = .Left
             style.lineBreakMode     = .ByTruncatingTail
         }
         attrStr.addAttributes([ NSParagraphStyleAttributeName: style ],
                               range: NSMakeRange(0, attrStr.length))
-
+        //        self.text = text
+        self.attributedText = attrStr
+    }
+    
+    func setFromString(text: String, setTextAlignment textAlignment : NSTextAlignment = NSTextAlignment.Left) {
+        let boldColor = hexStringFromColor(ProximateSDKSettings.psdkFontOptions.campaignBoldFontColor)
+        let normalColor = hexStringFromColor(ProximateSDKSettings.psdkFontOptions.campaignTextFontColor)
+        //        let modifiedFont = NSString(format:"<style>b {color: \(boldColor); font-family: \(ProximateSDKSettings.psdkViewOptions.fontBold);}</style><span style=\"font-family: \(self.font!.fontName); color: \(normalColor); font-size: \(self.font!.pointSize)\">%@</span>", text) as String
+        let modifiedFont = NSString(format:"<style>span {font-family: \(ProximateSDKSettings.psdkViewOptions.fontRegular); color: \(normalColor); font-size: \(self.font!.pointSize)}; b {color: \(boldColor); font-family: \(ProximateSDKSettings.psdkViewOptions.fontBold);}</style><span>%@</span>", text) as String
+        
+        let attrStr = try! NSMutableAttributedString(
+            data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
+            options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
+            documentAttributes: nil)
+        let style = NSMutableParagraphStyle()
+        style.alignment         = textAlignment
+        
+        style.lineSpacing = 0.0 //-10
+        style.paragraphSpacing = -10.0// -10
+        style.minimumLineHeight = ProximateSDKSettings.psdkFontOptions.campaignTextFontSize
+        style.maximumLineHeight = ProximateSDKSettings.psdkFontOptions.campaignTextFontSize
+        style.lineBreakMode     = .ByTruncatingTail
+    
+        attrStr.addAttributes([ NSParagraphStyleAttributeName: style ],
+                              range: NSMakeRange(0, attrStr.length))
         //        self.text = text
         self.attributedText = attrStr
     }

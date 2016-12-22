@@ -29,7 +29,7 @@ class BaseImageButton: ImageCenterButton {
         self.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.backgroundHighlightedColor = UIColor.clearColor()
         self.backgroundNormalColor = UIColor.clearColor()
-        setStyle(UIColor.whiteColor(), size: 13.0)
+        setStyle(ProximateSDKSettings.psdkFontOptions.imageButtonFontColor, size: ProximateSDKSettings.psdkFontOptions.imageButtonFontSize)
     }
 
     internal func setStyle(textColor : UIColor, size fontSize: CGFloat){

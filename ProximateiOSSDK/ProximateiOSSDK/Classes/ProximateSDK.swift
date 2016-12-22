@@ -26,6 +26,7 @@ import UIKit
 
 public class ProximateSDK: NSObject {
     private static let psdkMerchantKey  = "ProximateMerchantKey"
+    private static let psdkCacheTime = "ProximateCacheTime"
     private static var psdkBundleIdentifer : String!
     private static var screenInteractionDelegate : PSDKScreenInteractionDelegate?
     private static var messageDelegate : PSDKMessageDelegate?
@@ -34,7 +35,7 @@ public class ProximateSDK: NSObject {
     
     public static func initialize(messageDelegate msgDelegate : PSDKMessageDelegate? = nil, screenInteractionDelegate screenDelegate : PSDKScreenInteractionDelegate? = nil) {
         
-        ProximateSDK.psdkBundleIdentifer         = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleIdentifierKey as String) as! String
+        ProximateSDK.psdkBundleIdentifer         = "com.proximate.app"//NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleIdentifierKey as String) as! String
 
         ProximateSDK.messageDelegate             = msgDelegate
         ProximateSDK.screenInteractionDelegate   = screenDelegate
@@ -74,6 +75,14 @@ public class ProximateSDK: NSObject {
     
     internal static func getPackageIdentifer() -> String {
         return ProximateSDK.psdkBundleIdentifer!
+    }
+    
+    internal static func getCacheTime() -> Int {
+        guard let cacheTime = NSBundle.mainBundle().objectForInfoDictionaryKey(psdkCacheTime) as? NSInteger else {
+           
+            return 24 * 60 * 60
+        }
+        return cacheTime
     }
     
     internal static func getAppName() -> String {

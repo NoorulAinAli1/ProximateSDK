@@ -11,6 +11,8 @@
 		498D076EF63969A52FA22604 /* Pods_ProximateiOSSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252CFA02E791D9BB68ED5E76 /* Pods_ProximateiOSSDK_Tests.framework */; };
 		4EAF3C2F1E07173000B40B26 /* PSDKSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EAF3C2E1E07173000B40B26 /* PSDKSettings.plist */; };
 		4EAF3C301E07238000B40B26 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 607FACEA1AFB9204008FA782 /* Info.plist */; };
+		4ECB76A01E0BCDBE00A7880A /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB769E1E0BCDBE00A7880A /* Montserrat-Light.otf */; };
+		4ECB76A11E0BCDBE00A7880A /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB769F1E0BCDBE00A7880A /* Montserrat-SemiBold.otf */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		34956DA43886576E9134B7CC /* ProximateiOSSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ProximateiOSSDK.podspec; path = ../ProximateiOSSDK.podspec; sourceTree = "<group>"; };
 		3E065B3551682506E3D7FE06 /* Pods-ProximateiOSSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProximateiOSSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProximateiOSSDK_Example/Pods-ProximateiOSSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4EAF3C2E1E07173000B40B26 /* PSDKSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PSDKSettings.plist; sourceTree = "<group>"; };
+		4ECB769E1E0BCDBE00A7880A /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.otf"; path = "../../../../../Android/sdk.android/app/src/main/assets/fonts/Montserrat-Light.otf"; sourceTree = "<group>"; };
+		4ECB769F1E0BCDBE00A7880A /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.otf"; path = "../../../../../Android/sdk.android/app/src/main/assets/fonts/Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		564AAA1C8BCE201467F69F8F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ProximateiOSSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProximateiOSSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4ECB769E1E0BCDBE00A7880A /* Montserrat-Light.otf */,
+				4ECB769F1E0BCDBE00A7880A /* Montserrat-SemiBold.otf */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -219,6 +225,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 5H5DV35BTW;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -250,8 +257,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ECB76A01E0BCDBE00A7880A /* Montserrat-Light.otf in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				4ECB76A11E0BCDBE00A7880A /* Montserrat-SemiBold.otf in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				4EAF3C2F1E07173000B40B26 /* PSDKSettings.plist in Resources */,
 			);
@@ -495,12 +504,15 @@
 			baseConfigurationReference = 3E065B3551682506E3D7FE06 /* Pods-ProximateiOSSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Muhammad Irfan (5H5DV35BTW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Muhammad Irfan (5H5DV35BTW)";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ProximateiOSSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.proximate.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.proximate.customer.retailapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cfc7c9d9-3d15-486f-8ad3-22d7ecf797b9";
 			};
 			name = Debug;
 		};
@@ -509,12 +521,14 @@
 			baseConfigurationReference = 717A50EFD99F5D788CC14D91 /* Pods-ProximateiOSSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Muhammad Irfan (5H5DV35BTW)";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ProximateiOSSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.proximate.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.proximate.customer.retailapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cfc7c9d9-3d15-486f-8ad3-22d7ecf797b9";
 			};
 			name = Release;
 		};

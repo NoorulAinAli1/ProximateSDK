@@ -10,7 +10,7 @@ import UIKit
 
 class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
     private let innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
-    let rowHeight : CGFloat  = 100.0
+    let rowHeight : CGFloat  = 80.0
     
     private var contentHeight : CGFloat  = 0.0
     let reuseIdentifier = "cell"

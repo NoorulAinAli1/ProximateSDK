@@ -15,7 +15,7 @@ class ReversibleAnimationController: NSObject, UIViewControllerAnimatedTransitio
     
     override init(){
         super.init()
-        self.duration = 1.0
+        self.duration = 0.50
     }
     
     func animateTransition(transitionContext : UIViewControllerContextTransitioning, fromVC fromVC : UIViewController, toVC toVC:UIViewController, fromView fromView:UIView, toView toView: UIView) {

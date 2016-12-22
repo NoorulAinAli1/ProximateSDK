@@ -63,13 +63,15 @@
 		4E47A3261E07B6CD00AB1322 /* button_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E47A3241E07B6CD00AB1322 /* button_back@3x.png */; };
 		4E47A3291E08D77000AB1322 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47A3281E08D77000AB1322 /* BaseTableView.swift */; };
 		4E47A32C1E09234200AB1322 /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E47A32A1E09234200AB1322 /* StoreTableViewCell.xib */; };
-		4E47A3301E0923F200AB1322 /* CampaignBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47A32F1E0923F200AB1322 /* CampaignBankView.swift */; };
-		4E47A3321E0923FB00AB1322 /* CampaignDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47A3311E0923FB00AB1322 /* CampaignDetailView.swift */; };
-		4E47A3341E09240300AB1322 /* CampaignStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47A3331E09240300AB1322 /* CampaignStoreView.swift */; };
-		4E47A3361E09240B00AB1322 /* CampaignTimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47A3351E09240B00AB1322 /* CampaignTimingView.swift */; };
-		4E47A3381E09241100AB1322 /* CampaignTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47A3371E09241100AB1322 /* CampaignTitleView.swift */; };
 		4E47A33A1E09242400AB1322 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47A3391E09242400AB1322 /* StoreTableViewCell.swift */; };
 		4E47A33C1E0929E600AB1322 /* CampaignTimingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E47A33B1E0929E600AB1322 /* CampaignTimingTableViewCell.xib */; };
+		4E5C32E01E0A59A00003A406 /* CampaignBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C32DB1E0A59A00003A406 /* CampaignBankView.swift */; };
+		4E5C32E11E0A59A00003A406 /* CampaignDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C32DC1E0A59A00003A406 /* CampaignDetailView.swift */; };
+		4E5C32E21E0A59A00003A406 /* CampaignStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C32DD1E0A59A00003A406 /* CampaignStoreView.swift */; };
+		4E5C32E31E0A59A00003A406 /* CampaignTimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C32DE1E0A59A00003A406 /* CampaignTimingView.swift */; };
+		4E5C32E41E0A59A00003A406 /* CampaignTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C32DF1E0A59A00003A406 /* CampaignTitleView.swift */; };
+		4ECB769A1E0BACB600A7880A /* EmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB76971E0BACA700A7880A /* EmptyTableViewCell.xib */; };
+		4ECB769D1E0BAD6D00A7880A /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB769C1E0BAD6D00A7880A /* EmptyTableViewCell.swift */; };
 		5172EB7DF0FCD8CA64FBDADFED5A90C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5CB7FF42057FE8AFFB837B0CB7BA43 /* UIKit.framework */; };
 		51BA6A645222F99F847C72556906A014 /* CampaignHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D744F14899FBFB31F5B2626DDB7134 /* CampaignHeaderView.xib */; };
 		54826C9335247EFBC251E63DBCFB2125 /* button_search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29719F82708BEAE5509357BB1FB8AD2E /* button_search@3x.png */; };
@@ -308,13 +310,15 @@
 		4E47A3241E07B6CD00AB1322 /* button_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_back@3x.png"; sourceTree = "<group>"; };
 		4E47A3281E08D77000AB1322 /* BaseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableView.swift; path = UITableView/BaseTableView.swift; sourceTree = "<group>"; };
 		4E47A32A1E09234200AB1322 /* StoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
-		4E47A32F1E0923F200AB1322 /* CampaignBankView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampaignBankView.swift; path = ../CampaignBankView.swift; sourceTree = "<group>"; };
-		4E47A3311E0923FB00AB1322 /* CampaignDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampaignDetailView.swift; path = ../CampaignDetailView.swift; sourceTree = "<group>"; };
-		4E47A3331E09240300AB1322 /* CampaignStoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampaignStoreView.swift; path = ../CampaignStoreView.swift; sourceTree = "<group>"; };
-		4E47A3351E09240B00AB1322 /* CampaignTimingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampaignTimingView.swift; path = ../CampaignTimingView.swift; sourceTree = "<group>"; };
-		4E47A3371E09241100AB1322 /* CampaignTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampaignTitleView.swift; path = ../CampaignTitleView.swift; sourceTree = "<group>"; };
 		4E47A3391E09242400AB1322 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		4E47A33B1E0929E600AB1322 /* CampaignTimingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CampaignTimingTableViewCell.xib; sourceTree = "<group>"; };
+		4E5C32DB1E0A59A00003A406 /* CampaignBankView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignBankView.swift; sourceTree = "<group>"; };
+		4E5C32DC1E0A59A00003A406 /* CampaignDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignDetailView.swift; sourceTree = "<group>"; };
+		4E5C32DD1E0A59A00003A406 /* CampaignStoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignStoreView.swift; sourceTree = "<group>"; };
+		4E5C32DE1E0A59A00003A406 /* CampaignTimingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignTimingView.swift; sourceTree = "<group>"; };
+		4E5C32DF1E0A59A00003A406 /* CampaignTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignTitleView.swift; sourceTree = "<group>"; };
+		4ECB76971E0BACA700A7880A /* EmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableViewCell.xib; sourceTree = "<group>"; };
+		4ECB769C1E0BAD6D00A7880A /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
 		5041204BB70C1E1A3A72B852201D0B31 /* ExplodeAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExplodeAnimationController.swift; sourceTree = "<group>"; };
 		5049AA98DF58EC816AE948C8FF04367E /* CommonLoggingProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CommonLoggingProvider.m; path = "OCMapper/Source/Logging Provider/CommonLoggingProvider.m"; sourceTree = "<group>"; };
 		51D4458465FD1425B52B383A1562B9CE /* ObjectCampaignTiming.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ObjectCampaignTiming.swift; sourceTree = "<group>"; };
@@ -606,14 +610,6 @@
 			path = CampaignHeaderView;
 			sourceTree = "<group>";
 		};
-		1A51640D134A41A720C717DEEC9FE733 /* CampaignTimingView */ = {
-			isa = PBXGroup;
-			children = (
-				4E47A3351E09240B00AB1322 /* CampaignTimingView.swift */,
-			);
-			path = CampaignTimingView;
-			sourceTree = "<group>";
-		};
 		1D8B64E08F3274E5227E2F6BB6F838CD /* Pods-ProximateiOSSDK_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -736,6 +732,7 @@
 				F743B688AC405362761DDD7A5B244F54 /* CampaignTimingTableViewCell.swift */,
 				18015B6761F61AFB09817F2E6B091E24 /* CampaignTableViewCell.swift */,
 				3E4CA326BE0823BF13A0A0B55411D3B6 /* MerchantTableViewCell.swift */,
+				4ECB769B1E0BAD5A00A7880A /* EmptyTableViewCell */,
 				60ACBCEEC8E5EA5DC1E35959F2FB4F36 /* LoadMoreTableViewCell */,
 			);
 			path = UITableViewCell;
@@ -768,6 +765,7 @@
 				989BD8AFA1B37789953F9DB73748569F /* placeholder_campaign@3x.png */,
 				25E701B107307048D435A44178713295 /* placeholder_loading@3x.png */,
 				3894C0F1D8FD54FE70E1A79BCA085510 /* ProximateSDK.storyboard */,
+				4ECB76971E0BACA700A7880A /* EmptyTableViewCell.xib */,
 				E561DD0A47E726816140C418782E6A96 /* sdk_map_marker@3x.png */,
 				6C3AE1194862D6FC1F8BC27BC6E7CC87 /* SearchCategoryView.xib */,
 				7939334E050023C5B80503D6516FC9B3 /* time_icon_gray@3x.png */,
@@ -781,6 +779,14 @@
 				4E47A3281E08D77000AB1322 /* BaseTableView.swift */,
 			);
 			name = UITableView;
+			sourceTree = "<group>";
+		};
+		4ECB769B1E0BAD5A00A7880A /* EmptyTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4ECB769C1E0BAD6D00A7880A /* EmptyTableViewCell.swift */,
+			);
+			name = EmptyTableViewCell;
 			sourceTree = "<group>";
 		};
 		5123578BE698376EBE182B395693B9E8 /* ViewController */ = {
@@ -871,14 +877,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		6680E7C17F9941955B35A1DF01D8AE20 /* CampaignBankView */ = {
-			isa = PBXGroup;
-			children = (
-				4E47A32F1E0923F200AB1322 /* CampaignBankView.swift */,
-			);
-			path = CampaignBankView;
-			sourceTree = "<group>";
-		};
 		6D2CBD676956262F6A0DD7E121958276 /* ProximateiOSSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -959,14 +957,6 @@
 			path = ImageCenterButton;
 			sourceTree = "<group>";
 		};
-		8282CD7DE991323C0A66D04CB2CA4E7D /* CampaignTitleView */ = {
-			isa = PBXGroup;
-			children = (
-				4E47A3371E09241100AB1322 /* CampaignTitleView.swift */,
-			);
-			path = CampaignTitleView;
-			sourceTree = "<group>";
-		};
 		8CEBAA6C2BD4D02207F8B5D76605DC47 /* Pods-ProximateiOSSDK_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -983,14 +973,6 @@
 			);
 			name = "Pods-ProximateiOSSDK_Tests";
 			path = "Target Support Files/Pods-ProximateiOSSDK_Tests";
-			sourceTree = "<group>";
-		};
-		9596923592A1881F8C494A95C99BF8E5 /* CampaignStoreView */ = {
-			isa = PBXGroup;
-			children = (
-				4E47A3331E09240300AB1322 /* CampaignStoreView.swift */,
-			);
-			path = CampaignStoreView;
 			sourceTree = "<group>";
 		};
 		95FC12450901894B3FDDE4661BEBF37E /* Development Pods */ = {
@@ -1105,11 +1087,11 @@
 		BB932D36D98B4D9F7D9980C074D5A866 /* Campaign */ = {
 			isa = PBXGroup;
 			children = (
-				6680E7C17F9941955B35A1DF01D8AE20 /* CampaignBankView */,
-				D5498C9D5AC03C5780A128F43F0DA694 /* CampaignDetailView */,
-				9596923592A1881F8C494A95C99BF8E5 /* CampaignStoreView */,
-				1A51640D134A41A720C717DEEC9FE733 /* CampaignTimingView */,
-				8282CD7DE991323C0A66D04CB2CA4E7D /* CampaignTitleView */,
+				4E5C32DB1E0A59A00003A406 /* CampaignBankView.swift */,
+				4E5C32DC1E0A59A00003A406 /* CampaignDetailView.swift */,
+				4E5C32DD1E0A59A00003A406 /* CampaignStoreView.swift */,
+				4E5C32DE1E0A59A00003A406 /* CampaignTimingView.swift */,
+				4E5C32DF1E0A59A00003A406 /* CampaignTitleView.swift */,
 			);
 			path = Campaign;
 			sourceTree = "<group>";
@@ -1188,14 +1170,6 @@
 				3CA06311D1C0343EC31849F7F05F815D /* VideoCampaignActionViewController.swift */,
 			);
 			path = CampaignAction;
-			sourceTree = "<group>";
-		};
-		D5498C9D5AC03C5780A128F43F0DA694 /* CampaignDetailView */ = {
-			isa = PBXGroup;
-			children = (
-				4E47A3311E0923FB00AB1322 /* CampaignDetailView.swift */,
-			);
-			path = CampaignDetailView;
 			sourceTree = "<group>";
 		};
 		E500164BE32F671555893B3E202C8A7F /* Utilities */ = {
@@ -1506,6 +1480,7 @@
 				FA0E2E5653BE5D7198FD5FB66FB59E11 /* MerchantHeaderView.xib in Resources */,
 				E204F8F94A30E1C26618828B835E68CC /* placeholder_campaign@3x.png in Resources */,
 				DEA21B878FBB0DE5C3AE1249471E601A /* placeholder_loading@3x.png in Resources */,
+				4ECB769A1E0BACB600A7880A /* EmptyTableViewCell.xib in Resources */,
 				D1D3D399ECB83D220D81801EE6232E7F /* ProximateSDK.storyboard in Resources */,
 				4E47A33C1E0929E600AB1322 /* CampaignTimingTableViewCell.xib in Resources */,
 				21DD2A6361C0DDBCF5752C7E3E6F16B5 /* sdk_map_marker@3x.png in Resources */,
@@ -1572,6 +1547,7 @@
 				F591099920804163B932E50DF5E68264 /* BaseActionButton.swift in Sources */,
 				0579B77BC33B90F98D715B112D9E8057 /* BaseButton.swift in Sources */,
 				C2F663A6154AC2846C25EC960B9F314B /* BaseImageButton.swift in Sources */,
+				4E5C32E21E0A59A00003A406 /* CampaignStoreView.swift in Sources */,
 				74633CB600BB379B57E103918DD4244A /* BaseLabel.swift in Sources */,
 				3342EE37B76E8EBB8A11070BEFAA8647 /* BaseMapViewController.swift in Sources */,
 				0D7404F1395DF63A3E695A77D836EA94 /* BaseViewController.swift in Sources */,
@@ -1579,16 +1555,17 @@
 				0FAD0C4FC0CE8D46EF9406BE59347A09 /* CampaignMapViewController.swift in Sources */,
 				2A9B490CD720F44609AF3D83AEBB7D01 /* CampaignTableViewCell.swift in Sources */,
 				9B3550AC82A829858627C9DF4311369D /* CampaignTimingTableViewCell.swift in Sources */,
+				4E5C32E41E0A59A00003A406 /* CampaignTitleView.swift in Sources */,
 				320CDEEF37DAE49619F0DE3B5ABFBD15 /* CampaignViewController.swift in Sources */,
 				305C0F1E36246EE46590D612D8678A5F /* CAPSPageMenu.swift in Sources */,
 				1839F541C9671880EA292BB194338C4E /* CardView.swift in Sources */,
+				4E5C32E01E0A59A00003A406 /* CampaignBankView.swift in Sources */,
 				4E47A33A1E09242400AB1322 /* StoreTableViewCell.swift in Sources */,
 				2483926DA5A7A61E5E5DE5AB3E529EF1 /* CategoryTableViewController.swift in Sources */,
 				E4CB765C643CBA60F4D16D44AC1D8F10 /* CCColorCube.m in Sources */,
 				FA4F9B1C8F517140D76426CD83E2BF66 /* CCLocalMaximum.m in Sources */,
 				1AD42C4CC14FD56CF9507EE512E4FBFE /* CrossFadeAnimationController.swift in Sources */,
 				35D1272DF6883BF9A8408C05958D978B /* DateTimeUtility.swift in Sources */,
-				4E47A3361E09240B00AB1322 /* CampaignTimingView.swift in Sources */,
 				54A3770B529D9E00104968F76C9A65E6 /* DebugLogger.swift in Sources */,
 				D04133A3882EF0ADFD252105B292F922 /* Download.swift in Sources */,
 				57A59A7439AEBA86DC049A324476FDC8 /* Error.swift in Sources */,
@@ -1596,8 +1573,6 @@
 				49882B946800A3FCF2C887FE0FA51797 /* FragmentCollectionViewCell.swift in Sources */,
 				A5BD278275A99FC49382D66DF82DD913 /* Image.swift in Sources */,
 				124A0B9DE5DF09325ACF6644F6E52EF0 /* ImageCache.swift in Sources */,
-				4E47A3301E0923F200AB1322 /* CampaignBankView.swift in Sources */,
-				4E47A3381E09241100AB1322 /* CampaignTitleView.swift in Sources */,
 				FC2DE78B71F8993430A9A61E96D64911 /* ImageDownloader.swift in Sources */,
 				EDB0AD6E2BA5260C044FA189F8FCDE9C /* ImageFilter.swift in Sources */,
 				24F237C17E9960ABF9F2F3801EA789FF /* ImageSuperView.swift in Sources */,
@@ -1607,9 +1582,9 @@
 				70838A2908B0DAD34AD7046CE5E81634 /* Manager.swift in Sources */,
 				7FA2DEF4F1D29326D9D952506C3873DE /* MapCampaignActionViewController.swift in Sources */,
 				5D8F1D54FEF2E5B033D33C960DEAFBFF /* MediaPagerViewController.swift in Sources */,
+				4E5C32E11E0A59A00003A406 /* CampaignDetailView.swift in Sources */,
 				D69E09690864033A21B17241BC15C76B /* MerchantHeaderView.swift in Sources */,
 				F366BAEF1322FA710C3FDD704C9FF50C /* MerchantMapViewController.swift in Sources */,
-				4E47A3341E09240300AB1322 /* CampaignStoreView.swift in Sources */,
 				3C0CF6CA480FF9E4174D7D49DAEBE575 /* MerchantTableViewCell.swift in Sources */,
 				B2105437064F57C057F4E373FE671582 /* MerchantTableViewController.swift in Sources */,
 				C794DF13CDDCD267F53943CAD0DBA161 /* MultipartFormData.swift in Sources */,
@@ -1620,7 +1595,6 @@
 				48415C7D7D887E195AECDBB34110F719 /* ObjectBeacon.swift in Sources */,
 				D60D49D9D0C9E82588D3AB320DA3C5BF /* ObjectCampaign.swift in Sources */,
 				4A3C71C62C989B208B23B804FEAC84F6 /* ObjectCampaignAction.swift in Sources */,
-				4E47A3321E0923FB00AB1322 /* CampaignDetailView.swift in Sources */,
 				F246455DE397DF26B85445477EE3A506 /* ObjectCampaignMedia.swift in Sources */,
 				621DF2415B0864D9D4F0383DE74F0060 /* ObjectCampaignTiming.swift in Sources */,
 				0EEF13DCDFEA8365C739461936DD4844 /* ObjectCategory.swift in Sources */,
@@ -1629,6 +1603,7 @@
 				48A39DAD7FD7EC61357278BC4A02831D /* ObjectMerchantGroup.swift in Sources */,
 				62F0941CCB72FEB2674AA494714F40CD /* ObjectMerchantStore.swift in Sources */,
 				ABB5D6073D28A48B239E9D16271D5C2C /* ObjectStore.swift in Sources */,
+				4ECB769D1E0BAD6D00A7880A /* EmptyTableViewCell.swift in Sources */,
 				97B0FCF089C1CCBEC7402AD6011F4931 /* OCMapperConfig.swift in Sources */,
 				CBE5A134EDF1AF810FC406F52B3ECC97 /* ParameterEncoding.swift in Sources */,
 				678224B8B302D16343718D8A27EA1264 /* PortalAnimationController.swift in Sources */,
@@ -1650,6 +1625,7 @@
 				1A1055A10127E18CE89AD8DE7823873E /* SearchCategoryView.swift in Sources */,
 				1310DA361E8143EF6E76E2738C308E96 /* ServerTrustPolicy.swift in Sources */,
 				DCC74E39E2C207074FC11F9BF201AFE5 /* Stream.swift in Sources */,
+				4E5C32E31E0A59A00003A406 /* CampaignTimingView.swift in Sources */,
 				74742FB44ABBD45A1D43DE1E2CC40A70 /* Timeline.swift in Sources */,
 				E5BFCC558F3DEA00E76516AA0CB67452 /* UIButton+AlamofireImage.swift in Sources */,
 				4E47A3291E08D77000AB1322 /* BaseTableView.swift in Sources */,
