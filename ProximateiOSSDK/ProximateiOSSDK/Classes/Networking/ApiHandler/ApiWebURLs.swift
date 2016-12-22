@@ -9,8 +9,8 @@
 import UIKit
 
 class ApiWebURLs: NSObject {
-//    private static let baseURLService   = "http://125.209.114.194:8082/ProximateService/restsimple/"
-    static let baseURLService   = "http://services.proximate.ae:8082/ProximateService/restsimple/"
+    private static let baseURLService   = "http://125.209.114.194:8082/ProximateService/restsimple/"
+//    static let baseURLService   = "http://services.proximate.ae:8082/ProximateService/restsimple/"
     private static let baseURLRestCampaign  = "\(baseURLService)campaign/"
     private static let baseURLRestCategory  = "\(baseURLService)category/"
     private static let baseURLRestMerchant  = "\(baseURLService)merchant/"

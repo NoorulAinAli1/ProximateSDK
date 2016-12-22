@@ -13,7 +13,7 @@ protocol SearchDelegate{
     func didCancelSearch()
 }
 
-class MainCategoriesViewController: BaseViewController, CAPSPageMenuDelegate {
+class MainCategoriesViewController: BaseViewController, CAPSPageMenuDelegate, UITextFieldDelegate {
 
     var pageMenu : CAPSPageMenu?
     var navSearchView : SearchCategoryView? = nil
@@ -59,16 +59,23 @@ class MainCategoriesViewController: BaseViewController, CAPSPageMenuDelegate {
             navSearchView = ProximateSDKSettings.getBundle().loadNibNamed("SearchCategoryView", owner: self, options: nil)!.first as! SearchCategoryView
             navSearchView!.frame = (self.navigationController?.navigationBar.bounds)!
             navSearchView!.btnClose.addTarget(self, action: #selector(MainCategoriesViewController.removeSearchView(_:)), forControlEvents: .TouchUpInside)
-            navSearchView!.btnSearch.addTarget(self, action: #selector(MainCategoriesViewController.performSearch(_:)), forControlEvents: .TouchUpInside)
+            navSearchView!.btnSearch.addTarget(self, action: #selector(MainCategoriesViewController.performSearch), forControlEvents: .TouchUpInside)
             self.navSearchView!.transform = CGAffineTransformMakeTranslation(self.navSearchView!.frame.width, 0.0)
 
             self.navigationController?.navigationBar.addSubview(navSearchView!)
         }
+        navSearchView?.searchBar.delegate = self
         navSearchView!.slideInFromRight()
         DebugLogger.debugLog("showSearchView \(navSearchView!)")
     }
-    
-    func performSearch(sender : UIButton){
+   
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        performSearch()
+        return true
+    }
+
+    func performSearch(){
         if(navSearchView!.searchBar.text!.isEmpty){
             // show Error
             ProximateSDK.getMessageDelegate()?.showMessage("psdk_message_please_enter_some_search_criteria".localized)

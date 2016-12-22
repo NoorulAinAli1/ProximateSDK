@@ -70,20 +70,20 @@ class ProximateSDKNavViewController: UINavigationController, UINavigationControl
     }
 
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-
-        if toVC is CampaignViewController {//|| fromVC is CampaignViewController {
-            if (self.merchantControllerAnimationController != nil) {
-                self.merchantControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
-            }
-            return self.merchantControllerAnimationController;
-        } else if toVC is MerchantTableViewController {
-            if (self.campaignControllerAnimationController != nil) {
-                self.campaignControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
-            }
-            return self.campaignControllerAnimationController;
-        } else {
+//
+//        if toVC is CampaignViewController {//|| fromVC is CampaignViewController {
+//            if (self.merchantControllerAnimationController != nil) {
+//                self.merchantControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
+//            }
+//            return self.merchantControllerAnimationController;
+//        } else if toVC is MerchantTableViewController {
+//            if (self.campaignControllerAnimationController != nil) {
+//                self.campaignControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
+//            }
+//            return self.campaignControllerAnimationController;
+//        } else {
             return nil
-        }
+//         }
     }
 
     /*

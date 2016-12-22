@@ -81,6 +81,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         pageControl.hidesForSinglePage = true
         pageControl.numberOfPages =  (mainCampaign.getMedia().count)
         campaignCollectionView.pagingEnabled = true
+        campaignCollectionView.bounces = false
     }
     
     private func updateCampaign(){
@@ -109,8 +110,9 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         
         cell.frame.size = self.campaignCollectionView.frame.size
         cell.sizeToFit()
-        cell.setCampaignMedia(mainCampaign.getMedia()[indexPath.row])
-       
+        if (mainCampaign.getMedia().count > 0){
+            cell.setCampaignMedia(mainCampaign.getMedia()[indexPath.row])
+        }
         return cell
     }
     
