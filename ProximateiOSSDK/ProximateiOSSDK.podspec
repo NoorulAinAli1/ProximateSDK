@@ -45,6 +45,5 @@ s.resource_bundles = {
 s.frameworks = ['UIKit', 'MapKit', 'SafariServices']
 s.dependency 'OCMapper', '~> 2.1'
 s.dependency 'DDPageControl', '~> 0.1'
-s.dependency 'ImageCenterButton', '~> 0.1.4'
 
 end

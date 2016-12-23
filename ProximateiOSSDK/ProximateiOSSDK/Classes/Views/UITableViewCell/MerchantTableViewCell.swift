@@ -56,8 +56,8 @@ class MerchantTableViewCell: UITableViewCell {
 
     @IBOutlet var campaignExpiryDateTime : BaseLabel!
 
-    @IBOutlet var btnLocation : BaseImageButton!
-    @IBOutlet var btnShare : BaseImageButton!
+    @IBOutlet var btnLocation : UIButton!
+    @IBOutlet var btnShare : UIButton!
     @IBOutlet var btnMerchantTotalCampaigns : BaseButton!
     private var mainCampaign : ObjectCampaign! {
         didSet {

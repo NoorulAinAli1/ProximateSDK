@@ -42,10 +42,10 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
         }
     }
     
-    @IBOutlet var btnLocation : BaseImageButton!
-    @IBOutlet var btnShare : BaseImageButton!
-    @IBOutlet var btnPhone : BaseImageButton!
-    @IBOutlet var btnWebsite : BaseImageButton!
+    @IBOutlet var btnLocation : UIButton!
+    @IBOutlet var btnShare : UIButton!
+    @IBOutlet var btnPhone : UIButton!
+    @IBOutlet var btnWebsite : UIButton!
     
     private var mCampaign  : ObjectCampaign!
     private var campaignBannerColor : UIColor! = ProximateSDKSettings.psdkViewOptions.primaryColor

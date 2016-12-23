@@ -20,7 +20,7 @@ internal class AuthorizationManager: Manager {
     
     internal static let sharedManager: AuthorizationManager = {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        configuration.HTTPAdditionalHeaders = Manager.defaultHTTPHeaders
+        configuration.HTTPAdditionalHeaders = AuthorizationManager.defaultHTTPHeaders
         
         return AuthorizationManager(configuration: configuration)
     }()

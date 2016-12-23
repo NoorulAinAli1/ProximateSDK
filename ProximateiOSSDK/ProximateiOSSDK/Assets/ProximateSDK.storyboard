@@ -40,10 +40,10 @@
                                                         <constraint firstAttribute="width" secondItem="g1C-vT-eJw" secondAttribute="height" multiplier="1:1" id="Xeg-I7-Opn"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="can-Z6-wMa" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="can-Z6-wMa">
                                                     <rect key="frame" x="373.5" y="157" width="93" height="138.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="Location" image="button_location.png"/>
+                                                    <state key="normal" image="button_location.png"/>
                                                     <connections>
                                                         <action selector="campaignLocationClicked" destination="4tb-pN-Iga" eventType="touchUpInside" id="xbS-zr-cUM"/>
                                                     </connections>
@@ -97,13 +97,13 @@
                                                         <constraint firstAttribute="width" secondItem="Ewl-T0-2GF" secondAttribute="height" multiplier="1:1" id="0jb-c6-myr"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbE-PX-ZCh" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbE-PX-ZCh">
                                                     <rect key="frame" x="467.5" y="156.5" width="92.5" height="138.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="nbE-PX-ZCh" secondAttribute="height" multiplier="2:3" id="qqE-gX-An2"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="Share" image="button_share.png"/>
+                                                    <state key="normal" image="button_share.png"/>
                                                     <connections>
                                                         <action selector="campaignShareClicked" destination="4tb-pN-Iga" eventType="touchUpInside" id="tod-Sv-lCe"/>
                                                     </connections>
@@ -341,26 +341,26 @@
                                                         <constraint firstAttribute="width" secondItem="uC0-gC-CX6" secondAttribute="height" multiplier="1:1" id="Rdg-fP-BOh"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97X-pQ-bZ7" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97X-pQ-bZ7">
                                                     <rect key="frame" x="494" y="100" width="70" height="105"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="97X-pQ-bZ7" secondAttribute="height" multiplier="2:3" id="6WY-0l-t8E"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="Share" image="button_share"/>
+                                                    <state key="normal" image="button_share.png"/>
                                                     <connections>
                                                         <action selector="campaignShareClicked" destination="Hfg-ne-cIc" eventType="touchUpInside" id="XSA-wk-45q"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYm-g4-kOM" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYm-g4-kOM">
                                                     <rect key="frame" x="422" y="100" width="70" height="105"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="61" id="cgN-J6-wBm"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="Location" image="button_location"/>
+                                                    <state key="normal" image="button_location.png"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="cgN-J6-wBm"/>
@@ -1090,9 +1090,7 @@
     <resources>
         <image name="background_gradient.png" width="346" height="120"/>
         <image name="button_cross.png" width="24" height="24"/>
-        <image name="button_location" width="16" height="16"/>
         <image name="button_location.png" width="16" height="16"/>
-        <image name="button_share" width="16" height="16"/>
         <image name="button_share.png" width="16" height="16"/>
         <image name="time_icon_gray.png" width="12" height="12"/>
     </resources>

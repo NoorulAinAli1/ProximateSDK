@@ -1,10 +1,8 @@
 PODS:
   - DDPageControl (0.1)
-  - ImageCenterButton (0.1.4)
   - OCMapper (2.1)
   - ProximateiOSSDK (0.1.0):
     - DDPageControl (~> 0.1)
-    - ImageCenterButton (~> 0.1.4)
     - OCMapper (~> 2.1)
 
 DEPENDENCIES:
@@ -16,9 +14,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   DDPageControl: 60c7d350477922b1e67fcf927f7e50eddc7dd207
-  ImageCenterButton: 5c04d336f678ae10fef7dd297910ecb8592b7bdd
   OCMapper: fa22e7b51de7cc38e66b993037076d28a0f31b29
-  ProximateiOSSDK: 053e433543b49334b337efda5f08ecd6303eb69e
+  ProximateiOSSDK: 3244da53a2c0720a2243d6566db924cf7fea0826
 
 PODFILE CHECKSUM: 1ec100c8169a20d2e0f9e2d2d2b1094952c3d23d
 

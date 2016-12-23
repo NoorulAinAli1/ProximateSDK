@@ -19,7 +19,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gcp-fE-KJs">
                     <rect key="frame" x="0.0" y="168" width="600" height="312"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnI-WR-21B" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnI-WR-21B">
                     <rect key="frame" x="503" y="334" width="97" height="146"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -27,15 +27,7 @@
                         <constraint firstAttribute="width" secondItem="vnI-WR-21B" secondAttribute="height" multiplier="2:3" id="zAN-33-KbZ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="Share" image="button_share"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightedColor">
-                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundNormalColor">
-                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
+                    <state key="normal" image="button_share.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="uaD-vE-GzL"/>
@@ -45,7 +37,7 @@
                         <action selector="merchantShareClicked" destination="iN0-l3-epB" eventType="touchUpInside" id="J8j-bz-uCn"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGS-Yp-adb" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGS-Yp-adb">
                     <rect key="frame" x="396.5" y="333.5" width="106.5" height="146"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -53,15 +45,7 @@
                         <constraint firstAttribute="width" secondItem="lGS-Yp-adb" secondAttribute="height" multiplier="1:1" id="MJk-xw-oiu"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="Location" image="button_location"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundNormalColor">
-                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightedColor">
-                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
+                    <state key="normal" image="button_location.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="4Nk-nv-wJt"/>
@@ -72,7 +56,7 @@
                         <action selector="merchantLocationClicked" destination="iN0-l3-epB" eventType="touchUpInside" id="hOc-lp-G6M"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSc-ig-5Md" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSc-ig-5Md">
                     <rect key="frame" x="334.5" y="333.5" width="62" height="146"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -83,15 +67,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <inset key="imageEdgeInsets" minX="20" minY="-10" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Website" image="button_website.png"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightedColor">
-                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundNormalColor">
-                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
+                    <state key="normal" image="button_website.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="2lJ-Wc-cH1"/>
@@ -131,7 +107,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxN-9i-Juj" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxN-9i-Juj">
                     <rect key="frame" x="237.5" y="334" width="97" height="146"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -141,12 +117,7 @@
                         <constraint firstAttribute="width" secondItem="nxN-9i-Juj" secondAttribute="height" multiplier="1:1" id="qOM-q9-iMN"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="Phone" image="button_phone"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightedColor">
-                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
+                    <state key="normal" image="button_phone.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="B2j-lm-U6T"/>
@@ -246,9 +217,9 @@
     </objects>
     <resources>
         <image name="background_gradient.png" width="346" height="120"/>
-        <image name="button_location" width="16" height="16"/>
-        <image name="button_phone" width="16" height="16"/>
-        <image name="button_share" width="16" height="16"/>
+        <image name="button_location.png" width="16" height="16"/>
+        <image name="button_phone.png" width="16" height="16"/>
+        <image name="button_share.png" width="16" height="16"/>
         <image name="button_website.png" width="16" height="16"/>
     </resources>
 </document>

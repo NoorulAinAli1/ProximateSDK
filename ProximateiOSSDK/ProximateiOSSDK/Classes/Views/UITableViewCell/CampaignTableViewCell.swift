@@ -36,8 +36,8 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
 
     @IBOutlet var campaignExpiryDateTime : BaseLabel!
     
-    @IBOutlet var btnLocation : BaseImageButton!
-    @IBOutlet var btnShare : BaseImageButton!
+    @IBOutlet var btnLocation : UIButton!
+    @IBOutlet var btnShare :UIButton!
     @IBOutlet var pageControl : DDPageControl! {
         didSet {
             pageControl.onColor = ProximateSDKSettings.psdkPageIndicatorOptions.pageIndicatorSelectedColor

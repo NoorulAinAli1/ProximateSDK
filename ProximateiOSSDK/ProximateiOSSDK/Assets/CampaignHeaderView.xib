@@ -29,7 +29,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="UXA-HJ-tCS">
                     <rect key="frame" x="0.0" y="168" width="600" height="312"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1W-P7-Tcb" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1W-P7-Tcb">
                     <rect key="frame" x="503.5" y="334" width="96.5" height="146"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -37,12 +37,7 @@
                         <constraint firstAttribute="height" constant="61" id="pbb-Wd-HVZ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="Share" image="button_share"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightedColor">
-                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
+                    <state key="normal" image="button_share.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="RHb-a3-WRz"/>
@@ -53,36 +48,36 @@
                         <action selector="campaignShareClicked" destination="I0D-eC-Rgd" eventType="touchUpInside" id="Qqf-LC-IpY"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ad-Hm-4uz" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ad-Hm-4uz">
                     <rect key="frame" x="397" y="334" width="106.5" height="146"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="61" id="Q5D-Ok-h7P"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="Location" image="button_location"/>
+                    <state key="normal" image="button_location.png"/>
                     <connections>
                         <action selector="campaignLocationClicked" destination="I0D-eC-Rgd" eventType="touchUpInside" id="yzz-16-W3O"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDp-Jt-e9F" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDp-Jt-e9F">
                     <rect key="frame" x="337.5" y="334" width="59" height="146"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="59" id="jLF-YD-Ou3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="Website" image="button_website"/>
+                    <state key="normal" image="button_website.png"/>
                     <connections>
                         <action selector="campaignWebsiteClicked" destination="I0D-eC-Rgd" eventType="touchUpInside" id="kMi-bG-ibI"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEQ-q3-006" customClass="BaseImageButton" customModule="ProximateiOSSDK">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEQ-q3-006">
                     <rect key="frame" x="287.5" y="334" width="50" height="146"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="61" id="D2W-Ms-bQQ"/>
                         <constraint firstAttribute="width" secondItem="HEQ-q3-006" secondAttribute="height" multiplier="1:1" id="Ncg-5Q-ajl"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="Phone" image="button_phone"/>
+                    <state key="normal" image="button_phone.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="D2W-Ms-bQQ"/>
@@ -202,9 +197,9 @@
     </objects>
     <resources>
         <image name="background_gradient" width="600" height="450"/>
-        <image name="button_location" width="16" height="16"/>
-        <image name="button_phone" width="16" height="16"/>
-        <image name="button_share" width="16" height="16"/>
-        <image name="button_website" width="16" height="16"/>
+        <image name="button_location.png" width="16" height="16"/>
+        <image name="button_phone.png" width="16" height="16"/>
+        <image name="button_share.png" width="16" height="16"/>
+        <image name="button_website.png" width="16" height="16"/>
     </resources>
 </document>

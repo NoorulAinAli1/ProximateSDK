@@ -50,7 +50,7 @@ class CampaignDetailView: CardView {
         campaignDetailText.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTextColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
         campaignDetailText.backgroundColor = UIColor.clearColor()
         self.addSubview(campaignDetailText)
-        
+
         campaignDetailText.text = detailText
         
         contentHeight = campaignDetailText.heightForText(detailText, maxWidth: viewWidth - (innerPadding * 4))
@@ -63,7 +63,7 @@ class CampaignDetailView: CardView {
         DebugLogger.debugLog("height \(contentHeight)")
         
         var startIndex = 0
-        let height : CGFloat = ProximateSDKSettings.psdkFontOptions.imageButtonFontSize * 2.5
+        let height : CGFloat = ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize * 2.5
         campaignActionView = UIView(frame: CGRectMake(innerPadding*2, contentHeight + innerPadding + campaignDetailText.frame.origin.y, viewWidth - (innerPadding * 4), CGFloat(cAction.count) * height))
         campaignActionView.backgroundColor = UIColor.clearColor()
         campaignActionView.userInteractionEnabled = true

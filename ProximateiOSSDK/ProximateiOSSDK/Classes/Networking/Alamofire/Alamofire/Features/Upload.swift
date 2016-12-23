@@ -236,7 +236,7 @@ extension Manager {
         _ URLString: URLStringConvertible,
         headers: [String: String]? = nil,
         multipartFormData: MultipartFormData -> Void,
-        encodingMemoryThreshold: UInt64 = Manager.MultipartFormDataEncodingMemoryThreshold,
+        encodingMemoryThreshold: UInt64 = AuthorizationManager.MultipartFormDataEncodingMemoryThreshold,
         encodingCompletion: (MultipartFormDataEncodingResult -> Void)?)
     {
         let mutableURLRequest =  Alamofire.sharedInstance.URLRequest(method, URLString, headers: headers)
@@ -276,7 +276,7 @@ extension Manager {
     internal func upload(
         URLRequest: URLRequestConvertible,
         multipartFormData: MultipartFormData -> Void,
-        encodingMemoryThreshold: UInt64 = Manager.MultipartFormDataEncodingMemoryThreshold,
+        encodingMemoryThreshold: UInt64 = AuthorizationManager.MultipartFormDataEncodingMemoryThreshold,
         encodingCompletion: (MultipartFormDataEncodingResult -> Void)?)
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {

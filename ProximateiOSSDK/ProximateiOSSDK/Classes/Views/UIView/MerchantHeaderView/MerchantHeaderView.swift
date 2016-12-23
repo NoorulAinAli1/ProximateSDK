@@ -28,10 +28,10 @@ class MerchantHeaderView: UIView {
 
     @IBOutlet var btnWebsiteWidth : NSLayoutConstraint!
 
-    @IBOutlet var btnLocation : BaseImageButton!
-    @IBOutlet var btnShare : BaseImageButton!
-    @IBOutlet var btnWebsite : BaseImageButton!
-    @IBOutlet var btnPhone : BaseImageButton!
+    @IBOutlet var btnLocation : UIButton!
+    @IBOutlet var btnShare : UIButton!
+    @IBOutlet var btnWebsite : UIButton!
+    @IBOutlet var btnPhone : UIButton!
     private let colorCube = CCColorCube()
 
     private var merchantBannerColor : UIColor! = ProximateSDKSettings.psdkViewOptions.primaryColor

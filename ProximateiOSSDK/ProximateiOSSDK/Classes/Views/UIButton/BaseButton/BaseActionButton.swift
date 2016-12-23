@@ -23,8 +23,8 @@ class BaseActionButton : BaseButton {
     
     override func customize(){
         self.userInteractionEnabled = true
-        self.titleLabel?.textColor = ProximateSDKSettings.psdkFontOptions.imageButtonFontColor
-        self.setTitleColor(ProximateSDKSettings.psdkFontOptions.imageButtonFontColor, forState: UIControlState.Normal);
+        self.titleLabel?.textColor = ProximateSDKSettings.psdkCardOptions.cardBackgroundColor
+        self.setTitleColor(ProximateSDKSettings.psdkCardOptions.cardBackgroundColor, forState: UIControlState.Normal);
         self.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Highlighted);
         self.clipsToBounds = true
 
@@ -35,7 +35,7 @@ class BaseActionButton : BaseButton {
         self.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Disabled);
 
         setAppThemeGradientLayer()
-        setStyle(ProximateSDKSettings.psdkFontOptions.imageButtonFontColor, size: ProximateSDKSettings.psdkFontOptions.imageButtonFontSize)
+        setStyle(ProximateSDKSettings.psdkCardOptions.cardBackgroundColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTextSize)
 
     }
 

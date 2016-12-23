@@ -121,7 +121,7 @@ internal class ImageDownloader {
     internal class func defaultURLSessionConfiguration() -> NSURLSessionConfiguration {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
 
-        configuration.HTTPAdditionalHeaders = Manager.defaultHTTPHeaders
+        configuration.HTTPAdditionalHeaders = AuthorizationManager.defaultHTTPHeaders
         configuration.HTTPShouldSetCookies = true
         configuration.HTTPShouldUsePipelining = false
 

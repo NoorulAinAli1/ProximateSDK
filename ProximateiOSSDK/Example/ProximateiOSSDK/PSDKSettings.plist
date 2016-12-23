@@ -74,13 +74,6 @@
 			<key>FontSize</key>
 			<integer>12</integer>
 		</dict>
-		<key>ImageButton</key>
-		<dict>
-			<key>Color</key>
-			<string>#ffffff</string>
-			<key>FontSize</key>
-			<integer>12</integer>
-		</dict>
 		<key>MerchantTitle</key>
 		<dict>
 			<key>Color</key>

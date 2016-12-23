@@ -78,7 +78,6 @@ struct TabStyleOptions {
 
 public enum PSDKFontStyleOptions {
     case SeeAllFontStyle(UIColor, CGFloat)
-    case ImageButtonFontStyle(UIColor, CGFloat)
     case MerchantTitleFontStyle(UIColor, CGFloat)
     case ExpiryTextFontStyle(UIColor, UIColor, CGFloat)
     case MerchantTaglineFontStyle(UIColor, CGFloat)
@@ -113,8 +112,6 @@ struct FontStyleOptions {
     var campaignDetailTitleColor    : UIColor!  =  UIColor.blueColor()
     var campaignDetailBankOfferColor : UIColor! = UIColor.orangeColor()
     var campaignDetailTextColor     : UIColor!  =  UIColor.orangeColor()
-    var imageButtonFontColor     : UIColor!  = UIColor.whiteColor()
-    var imageButtonFontSize      : CGFloat!  = 10.0
     
     init(){
     }
@@ -122,9 +119,6 @@ struct FontStyleOptions {
     init(fontOptions: [PSDKFontStyleOptions]){
         for option in fontOptions {
             switch (option) {
-            case let .ImageButtonFontStyle(valueColor, valueSize):
-                self.imageButtonFontColor    = valueColor
-                self.imageButtonFontSize     = valueSize
             case let .SeeAllFontStyle(valueColor, valueSize):
                 self.seeAllFontColor    = valueColor
                 self.seeAllFontSize     = valueSize
@@ -444,14 +438,7 @@ public class ProximateSDKSettings: NSObject {
                 psdkFontOptions.seeAllFontColor = UIColor.hexToColor(fColor)
             }
         }
-        if let imageButtonStyles = fontStyles["ImageButton"] as? [String: AnyObject] {
-            if let fValue = imageButtonStyles[fontSize], fSize = fValue as? CGFloat {
-                psdkFontOptions.imageButtonFontSize = fSize
-            }
-            if let fValue = imageButtonStyles[color], fColor = fValue as? String {
-                psdkFontOptions.imageButtonFontColor = UIColor.hexToColor(fColor)
-            }
-        }
+       
         if let merchantTitleStyles = fontStyles["MerchantTitle"] as? [String: AnyObject] {
             if let fValue = merchantTitleStyles[fontSize], fSize = fValue as? CGFloat {
             	psdkFontOptions.merchantTitleFontSize = fSize

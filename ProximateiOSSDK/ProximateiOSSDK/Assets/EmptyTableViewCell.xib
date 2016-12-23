@@ -72,6 +72,7 @@
             <connections>
                 <outlet property="emptyImage" destination="lRX-Aj-vFi" id="xSR-sb-4oe"/>
                 <outlet property="emptyLabel" destination="L5y-Ds-reA" id="OEB-J3-Npm"/>
+                <outlet property="mainView" destination="5zI-H1-zy1" id="TVR-l5-Fec"/>
                 <outletCollection property="viewSpacing" destination="La4-IS-2VF" collectionClass="NSMutableArray" id="zhE-QB-g6O"/>
                 <outletCollection property="viewSpacing" destination="McH-B0-DvU" collectionClass="NSMutableArray" id="htl-wb-d07"/>
                 <outletCollection property="viewSpacing" destination="h7e-xh-hDm" collectionClass="NSMutableArray" id="WF8-lv-aD9"/>

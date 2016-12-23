@@ -320,7 +320,7 @@ internal func upload(
     URLRequest: URLRequestConvertible,
     multipartFormData: MultipartFormData -> Void,
     encodingMemoryThreshold: UInt64 = AuthorizationManager.MultipartFormDataEncodingMemoryThreshold,
-    encodingCompletion: (Manager.MultipartFormDataEncodingResult -> Void)?)
+    encodingCompletion: (AuthorizationManager.MultipartFormDataEncodingResult -> Void)?)
 {
     return AuthorizationManager.sharedInstance.upload(
         URLRequest,
