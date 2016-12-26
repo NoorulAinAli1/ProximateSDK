@@ -26,7 +26,13 @@ class BaseViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.hidden = false
         self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.primaryColor
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+
+        if ProximateSDKSettings.psdkNavBarHasImage  {
+            self.navigationController?.navigationBar.setBackgroundImage(ProximateSDKSettings.psdkViewOptions.navigationBarImage, forBarMetrics: UIBarMetrics.Default)
+        } else {
+            self.navigationController?.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.primaryColor
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {

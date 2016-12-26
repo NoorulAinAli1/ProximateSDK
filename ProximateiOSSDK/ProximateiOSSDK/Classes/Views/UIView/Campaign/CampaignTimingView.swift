@@ -11,7 +11,7 @@ import UIKit
 class CampaignTimingView: CardView, UITableViewDelegate, UITableViewDataSource {
     private let innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
     var rowHeight : CGFloat  = 30
-    let reuseIdentifier = "cell"
+    let reuseCellIdentifier: String = "campaignCell"
 
     private var contentHeight : CGFloat  = 0.0
     private var singleLine = true
@@ -51,7 +51,7 @@ class CampaignTimingView: CardView, UITableViewDelegate, UITableViewDataSource {
         campaignTimingTable.delegate = self
         campaignTimingTable.dataSource = self
         
-        self.campaignTimingTable.registerNib(UINib(nibName:"CampaignTimingTableViewCell", bundle:ProximateSDKSettings.getBundle()), forCellReuseIdentifier: reuseIdentifier)
+        self.campaignTimingTable.registerNib(UINib(nibName:"CampaignTimingTableViewCell", bundle:ProximateSDKSettings.getBundle()), forCellReuseIdentifier: reuseCellIdentifier)
         self.campaignTiming = cTiming
 
         contentHeight =  ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize  + innerPadding*3 + (rowHeight * CGFloat(campaignTiming.count))
@@ -75,7 +75,7 @@ class CampaignTimingView: CardView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CampaignTimingTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseCellIdentifier, forIndexPath: indexPath) as! CampaignTimingTableViewCell
         
         cell.mTiming = self.campaignTiming[indexPath.row]
         cell.timingInfoHeight.constant = rowHeight * 0.8

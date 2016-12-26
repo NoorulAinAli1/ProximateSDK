@@ -20,8 +20,8 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     @IBOutlet var viewSpacing : [NSLayoutConstraint]!
-    @IBOutlet var promotionImage : UIImageView!
-    @IBOutlet var campaignNewImage : UIImageView!
+    let reuseCellIdentifier: String = "campaignCell"
+    
     var delegate : CampaignInfoClickDelegate?
 
     @IBOutlet var campaignExpiryImage : UIImageView!
@@ -74,7 +74,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     
     func setCampaign(campaign : ObjectCampaign){
         setOuterSpacing()
-        self.campaignCollectionView.registerNib(UINib(nibName:"FragmentCollectionViewCell", bundle:ProximateSDKSettings.getBundle()), forCellWithReuseIdentifier: "cell")
+        self.campaignCollectionView.registerNib(UINib(nibName:"CampaignMediaCollectionViewCell", bundle:ProximateSDKSettings.getBundle()), forCellWithReuseIdentifier: reuseCellIdentifier)
         
         mainCampaign  = campaign
 
@@ -106,11 +106,12 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell : FragmentCollectionViewCell  = campaignCollectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! FragmentCollectionViewCell
+        let cell : CampaignMediaCollectionViewCell  = campaignCollectionView.dequeueReusableCellWithReuseIdentifier( reuseCellIdentifier, forIndexPath: indexPath) as! CampaignMediaCollectionViewCell
         
         cell.frame.size = self.campaignCollectionView.frame.size
         cell.sizeToFit()
         if (mainCampaign.getMedia().count > 0){
+            DebugLogger.debugLog("media url \(mainCampaign.getMedia()[indexPath.row])")
             cell.setCampaignMedia(mainCampaign.getMedia()[indexPath.row])
         }
         return cell
@@ -118,7 +119,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         delegate?.didClickOnCampaign!(mainCampaign)
-//        let cell =  collectionView.cellForItemAtIndexPath(indexPath) as! FragmentCollectionViewCell
+//        let cell =  collectionView.cellForItemAtIndexPath(indexPath) as! CampaignMediaCollectionViewCell
 //        if cell.content.type == "6601" {
 //            pageControl.currentPage = indexPath.row
 //            
@@ -138,7 +139,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     
 //    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
 //        
-//        let cell =  cell as! FragmentCollectionViewCell
+//        let cell =  cell as! CampaignMediaCollectionViewCell
 ////        if cell.content.type == "6601" { // image type
 ////            
 ////        } else if cell.content.type == "6602"{ // video type
@@ -151,7 +152,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
 //
 //    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
 //        pageControl.currentPage = indexPath.row
-//        let cell : FragmentCollectionViewCell  = campaignCollectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! FragmentCollectionViewCell
+//        let cell : CampaignMediaCollectionViewCell  = campaignCollectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CampaignMediaCollectionViewCell
 //        cell.backgroundColor = UIColor.clearColor()
 //    }
     

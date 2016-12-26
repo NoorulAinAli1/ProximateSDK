@@ -43,7 +43,7 @@ class BaseActionButton : BaseButton {
         let layer : CAGradientLayer = CAGradientLayer()
         layer.frame.size = self.frame.size
         layer.frame.origin = CGPointMake(0.0,0.0)
-        layer.cornerRadius = 4///self.frame.size.height/2
+        layer.cornerRadius = ProximateSDKSettings.psdkCardOptions.cardCornerRadius
 
         layer.colors = [ProximateSDKSettings.psdkViewOptions.primaryColor.CGColor, ProximateSDKSettings.psdkViewOptions.primaryDarkColor.CGColor]
         self.layer.insertSublayer(layer, atIndex: 0)

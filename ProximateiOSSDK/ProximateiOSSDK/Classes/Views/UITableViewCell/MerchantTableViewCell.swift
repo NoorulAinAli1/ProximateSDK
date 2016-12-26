@@ -32,8 +32,6 @@ class MerchantTableViewCell: UITableViewCell {
         }
     }
 
-    @IBOutlet var promotionImage : UIImageView!
-    @IBOutlet var campaignNewImage : UIImageView!
     @IBOutlet var viewSpacing : [NSLayoutConstraint]!
 
     @IBOutlet var campaignExpiryImage : UIImageView!

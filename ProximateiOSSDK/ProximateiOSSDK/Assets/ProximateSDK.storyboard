@@ -292,7 +292,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="FragmentCollectionViewCell" reuseIdentifier="cell" id="dPX-Zm-iPd" userLabel="FragmentCollectionViewCell" customClass="FragmentCollectionViewCell" customModule="ProximateiOSSDK" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CampaignMediaCollectionViewCell" reuseIdentifier="campaignCell" id="dPX-Zm-iPd" userLabel="CampaignMediaCollectionViewCell" customClass="CampaignMediaCollectionViewCell" customModule="ProximateiOSSDK">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -309,7 +309,7 @@
                                                     </connections>
                                                 </collectionView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="dQf-QX-hYf">
-                                                    <rect key="frame" x="0.0" y="81.5" width="570" height="123.5"/>
+                                                    <rect key="frame" x="0.0" y="102.5" width="570" height="102.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOS-Nk-LDx" customClass="BaseLabel" customModule="ProximateiOSSDK">
                                                     <rect key="frame" x="10" y="215" width="550" height="30"/>
@@ -394,7 +394,7 @@
                                                 <constraint firstItem="eOS-Nk-LDx" firstAttribute="height" secondItem="dQf-QX-hYf" secondAttribute="height" id="GC1-0f-Bcp"/>
                                                 <constraint firstItem="dQf-QX-hYf" firstAttribute="width" secondItem="brJ-1X-Gfg" secondAttribute="width" id="Hti-cO-DAe"/>
                                                 <constraint firstItem="Qie-Aq-g5O" firstAttribute="top" secondItem="eOS-Nk-LDx" secondAttribute="bottom" constant="-10" id="IsH-4f-O3a"/>
-                                                <constraint firstItem="dQf-QX-hYf" firstAttribute="height" secondItem="brJ-1X-Gfg" secondAttribute="height" multiplier="0.6" id="K9T-le-JJY"/>
+                                                <constraint firstItem="dQf-QX-hYf" firstAttribute="height" secondItem="brJ-1X-Gfg" secondAttribute="height" multiplier="0.5" id="K9T-le-JJY"/>
                                                 <constraint firstItem="ZYm-g4-kOM" firstAttribute="height" secondItem="dQf-QX-hYf" secondAttribute="height" multiplier="0.85" id="KR1-oR-flD"/>
                                                 <constraint firstItem="uC0-gC-CX6" firstAttribute="top" secondItem="Qie-Aq-g5O" secondAttribute="top" id="Lvj-T3-HMu"/>
                                                 <constraint firstAttribute="bottom" secondItem="Qie-Aq-g5O" secondAttribute="bottom" constant="6" id="Mf6-MS-JyT"/>
@@ -772,13 +772,33 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="zoomableCollectionCell" id="KLH-zW-0Xo" customClass="ZoomableCollectionViewCell" customModule="ProximateiOSSDK" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="zoomableCollectionCell" id="KLH-zW-0Xo" customClass="ZoomableCollectionViewCell" customModule="ProximateiOSSDK">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LF4-pe-U4F">
+                                                    <rect key="frame" x="515" y="2" width="45" height="45"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="LF4-pe-U4F" secondAttribute="height" multiplier="1:1" id="5VK-hI-huJ"/>
+                                                        <constraint firstAttribute="width" constant="45" id="BTd-Op-mGB"/>
+                                                        <constraint firstAttribute="width" secondItem="LF4-pe-U4F" secondAttribute="height" multiplier="1:1" id="YRL-9q-HPX"/>
+                                                        <constraint firstAttribute="width" secondItem="LF4-pe-U4F" secondAttribute="height" multiplier="1:1" id="cCU-g9-IXl"/>
+                                                    </constraints>
+                                                    <state key="normal" image="button_video_play.png"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="5VK-hI-huJ"/>
+                                                            <exclude reference="cCU-g9-IXl"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="videoButtonPressed" destination="KLH-zW-0Xo" eventType="touchUpInside" id="glG-wM-rOK"/>
+                                                    </connections>
+                                                </button>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yR9-Y7-v5B">
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Je5-K9-cnz">
@@ -814,15 +834,35 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="yR9-Y7-v5B" firstAttribute="height" secondItem="KLH-zW-0Xo" secondAttribute="height" id="3Wd-rF-f76"/>
+                                            <constraint firstItem="Je5-K9-cnz" firstAttribute="height" secondItem="KLH-zW-0Xo" secondAttribute="height" id="Ahm-kP-Vqi"/>
                                             <constraint firstItem="yR9-Y7-v5B" firstAttribute="width" secondItem="KLH-zW-0Xo" secondAttribute="width" id="Dj1-xn-zCf"/>
+                                            <constraint firstItem="LF4-pe-U4F" firstAttribute="width" secondItem="KLH-zW-0Xo" secondAttribute="width" multiplier="0.15" id="Jyv-Ys-55T"/>
                                             <constraint firstItem="yR9-Y7-v5B" firstAttribute="leading" secondItem="KLH-zW-0Xo" secondAttribute="leading" id="QqM-3s-eye"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="LF4-pe-U4F" secondAttribute="trailing" constant="4" id="RSd-hs-F2p"/>
+                                            <constraint firstItem="LF4-pe-U4F" firstAttribute="top" secondItem="KLH-zW-0Xo" secondAttribute="topMargin" constant="2" id="RvV-p1-Dtz"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="LF4-pe-U4F" secondAttribute="trailing" constant="4" id="jCB-Hm-aga"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="LF4-pe-U4F" secondAttribute="trailing" multiplier="0.075" constant="4" id="kCM-RB-nl3"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="LF4-pe-U4F" secondAttribute="trailing" constant="40" id="srH-Af-tZz"/>
                                             <constraint firstItem="yR9-Y7-v5B" firstAttribute="top" secondItem="KLH-zW-0Xo" secondAttribute="top" id="t6b-yf-YdQ"/>
+                                            <constraint firstItem="LF4-pe-U4F" firstAttribute="height" secondItem="KLH-zW-0Xo" secondAttribute="height" multiplier="0.25" id="tMV-QY-5aO"/>
+                                            <constraint firstItem="LF4-pe-U4F" firstAttribute="height" secondItem="KLH-zW-0Xo" secondAttribute="height" id="yUZ-im-3Ch"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                         <size key="customSize" width="600" height="600"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Jyv-Ys-55T"/>
+                                                <exclude reference="RSd-hs-F2p"/>
+                                                <exclude reference="jCB-Hm-aga"/>
+                                                <exclude reference="kCM-RB-nl3"/>
+                                                <exclude reference="tMV-QY-5aO"/>
+                                                <exclude reference="yUZ-im-3Ch"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="collectionViewImage" destination="Je5-K9-cnz" id="I4K-G3-Mcq"/>
                                             <outlet property="scrollView" destination="yR9-Y7-v5B" id="Fjt-ho-W1F"/>
+                                            <outlet property="videoButton" destination="LF4-pe-U4F" id="bX0-Vf-7ug"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -839,11 +879,13 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zni-ee-BnE">
-                                <rect key="frame" x="535" y="20" width="45" height="45"/>
+                                <rect key="frame" x="547" y="20" width="45" height="45"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zni-ee-BnE" secondAttribute="height" multiplier="1:1" id="5md-Q1-QeR"/>
+                                    <constraint firstAttribute="height" constant="45" id="kna-Yl-4q0"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="button_cross.png"/>
+                                <state key="normal" image="button_cross.png"/>
                                 <connections>
                                     <action selector="crossBtnPressed" destination="17f-NA-KZE" eventType="touchUpInside" id="Syz-Sh-0vB"/>
                                 </connections>
@@ -859,9 +901,14 @@
                             <constraint firstItem="kvg-Rd-pGx" firstAttribute="centerY" secondItem="qYR-Ij-gHb" secondAttribute="centerY" id="jTe-kf-d4c"/>
                             <constraint firstItem="i2c-8r-1yw" firstAttribute="top" secondItem="Jxr-dh-nb5" secondAttribute="bottom" id="wLT-XE-K7f"/>
                             <constraint firstItem="Jxr-dh-nb5" firstAttribute="leading" secondItem="qYR-Ij-gHb" secondAttribute="leadingMargin" id="xlu-My-BPV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zni-ee-BnE" secondAttribute="trailing" id="yMD-dk-5Od"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zni-ee-BnE" secondAttribute="trailing" multiplier="0.98" id="yMD-dk-5Od"/>
                             <constraint firstItem="kvg-Rd-pGx" firstAttribute="width" secondItem="qYR-Ij-gHb" secondAttribute="width" id="zuq-mS-S9D"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OWs-5c-Vfu"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="contentsCollectionView" destination="kvg-Rd-pGx" id="1l5-tm-CKr"/>
@@ -1091,9 +1138,10 @@
     </scenes>
     <resources>
         <image name="background_gradient.png" width="346" height="120"/>
-        <image name="button_cross.png" width="24" height="24"/>
+        <image name="button_cross.png" width="16" height="16"/>
         <image name="button_location.png" width="16" height="16"/>
         <image name="button_share.png" width="16" height="16"/>
+        <image name="button_video_play.png" width="16" height="16"/>
         <image name="time_icon_gray.png" width="12" height="12"/>
     </resources>
 </document>

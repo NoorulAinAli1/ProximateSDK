@@ -1,5 +1,5 @@
 //
-//  FragmentCollectionViewCell.swift
+//  CampaignMediaCollectionViewCell.swift
 //  ProximateiOSSDK
 // 
 //  Created by Noor ul Ain Ali on 12/06/2015.
@@ -10,12 +10,14 @@ import UIKit
 import MediaPlayer
 import AVFoundation
 
-class FragmentCollectionViewCell: UICollectionViewCell {
+class CampaignMediaCollectionViewCell: UICollectionViewCell {
     
     var mCampaignMedia : ObjectCampaignMedia!
     var videoViewCampaign : MPMoviePlayerController!
     @IBOutlet var collectionViewImage: UIImageView!
-   
+    @IBOutlet var videoButton: UIButton!
+    private var isVideoPlaying : Bool = false
+    
     override init(frame:CGRect) {
         super.init(frame:frame)
         self.customize()
@@ -36,15 +38,26 @@ class FragmentCollectionViewCell: UICollectionViewCell {
     
     func setCampaignMedia(content : ObjectCampaignMedia){
         mCampaignMedia = content
-        if mCampaignMedia.type == "6601" { // image type
-            self.setUpImageView()
-            
-        } else if mCampaignMedia.type == "6602" { // video type
-            collectionViewImage.hidden = true
-            setupVideoPlayer()
-            videoViewCampaign.view.hidden = false
+        
+        let mediaType = CAMPAIGN_MEDIA_TYPE(rawValue: mCampaignMedia.type)!
+        videoButton.hidden = mediaType != .Video
+        switch mediaType {
+            case .Image:
+                collectionViewImage.af_setImageWithURL(NSURL(string: self.mCampaignMedia.getMediaURL())!, placeholderImage: ProximateSDKSettings.getLoadingPlaceholderImage())
+                
+                collectionViewImage.hidden = false
+                if videoViewCampaign !=  nil {
+                    videoViewCampaign.view.hidden = true
+                }
+                
+                self.collectionViewImage.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+
+            case .Video:
+                setupVideoPlayer()
+            default:
+            DebugLogger.debugLog("no view")
         }
-       
+
     }
     
     private func setUpImageView(){
@@ -56,10 +69,10 @@ class FragmentCollectionViewCell: UICollectionViewCell {
             videoViewCampaign.view.hidden = true
         }
         self.collectionViewImage.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-//        self.addSubview(collectionViewImage)
     }
     
     private func setupVideoPlayer (){
+        collectionViewImage.hidden = true
 
         videoViewCampaign = MPMoviePlayerController()
         videoViewCampaign.contentURL = NSURL(string: self.mCampaignMedia.path)
@@ -68,22 +81,28 @@ class FragmentCollectionViewCell: UICollectionViewCell {
         videoViewCampaign.movieSourceType = MPMovieSourceType.Streaming
         videoViewCampaign.view.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height )
         videoViewCampaign.view.backgroundColor = UIColor.blackColor()
-        videoViewCampaign.controlStyle = MPMovieControlStyle.Embedded
+        videoViewCampaign.controlStyle = MPMovieControlStyle.None
         videoViewCampaign.repeatMode = MPMovieRepeatMode.None
-//        videoViewCampaign.fullscreen = true
-
-        videoViewCampaign.playbackState
         videoViewCampaign.prepareToPlay()
         videoViewCampaign.shouldAutoplay = false
         videoViewCampaign.view.hidden = false
         
-        self.addSubview(videoViewCampaign.view)
-//        let videoURL = NSURL(string: self.content.path)
-//        let player = AVPlayer(URL: videoURL!)
-//        let playerLayer = AVPlayerLayer(player: player)
-//        playerLayer.frame = self.bounds
-//       let view = self.contentView.viewWithTag(101)
-//        view?.layer.addSublayer(playerLayer)
-//        player.play()
+        videoViewCampaign.allowsAirPlay = true
+        self.insertSubview(videoViewCampaign.view, atIndex: 0)
+    }
+    
+    @IBAction func videoButtonPressed(){
+        
+        var imageName : UIImage
+        if isVideoPlaying {
+            imageName = ProximateSDKSettings.getImageForName("button_video_play")
+            videoViewCampaign.pause()
+        } else {
+            imageName = ProximateSDKSettings.getImageForName("button_video_pause")
+            videoViewCampaign.play()
+        }
+      
+        self.videoButton.setImage(imageName, forState: .Normal)
+        self.isVideoPlaying = !self.isVideoPlaying
     }
 }

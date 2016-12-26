@@ -10,14 +10,14 @@ import UIKit
 import SafariServices
 
 internal enum CAMPAIGN_ACTION_TYPE : String {
-    case IMAGELIST  = "ImageList"
-    case VIDEO      = "Video"
+    case IMAGELIST  = "IMAGELIST"
+    case VIDEO      = "VIDEO"
     case URL        = "URL"
     case MAP        = "MAP"
     case REDEEM     = "REDEEM"
 }
 
-class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, CampaignStoreDelegate, CampaignActionButtonDelegate, UIAlertViewDelegate, UIScrollViewDelegate {
+class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, CampaignStoreDelegate, CampaignActionButtonDelegate, UIAlertViewDelegate, UIScrollViewDelegate {
     
     var mCampaign : ObjectCampaign!
     private let outerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.outerPadding
@@ -49,8 +49,10 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-
+        
         self.scrollView.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
         self.scrollView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
         
@@ -202,7 +204,7 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     func didClickActionButton(campaignActionTag: NSInteger) {
         let campaignAction = mCampaign.campaignActions![campaignActionTag]
         
-        let actionClass = CAMPAIGN_ACTION_TYPE(rawValue: campaignAction.actionClass)!
+        let actionClass = CAMPAIGN_ACTION_TYPE(rawValue: campaignAction.actionClass.uppercaseString)!
         switch actionClass {
         case .IMAGELIST:
             DebugLogger.debugLog("images list")
@@ -319,34 +321,30 @@ class CampaignViewController:  BaseViewController, CampaignInfoClickDelegate, Ca
     }
     
     // MARK: - CollapsingNavigationBar
-    
     private func hideNavigationBar(){
         self.navBarVisible = false
-        //        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.translucent = true
-        //        self.navigationController?.view.backgroundColor = UIColor.clearColor()
+        self.navigationController?.navigationBar.translucent = !self.navBarVisible
         self.navigationController?.navigationBar.barTintColor =  UIColor.clearColor()
         self.title = ""
-        
     }
     
     private func showNavigationBar(){
         self.navBarVisible = true
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.translucent = !self.navBarVisible
         self.navigationController?.navigationBar.barTintColor = self.campaignHeaderView.getAverageColor()
-        //        self.navigationController?.view.backgroundColor = self.campaignHeaderView.getAverageColor()
         self.title = mCampaign.getMerchant().merchantName
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+
         ProximateSDK.getScreenInteractionDelegate()?.screenInteracted()
         if self.navBarVisible {
             showNavigationBar()
         } else {
             hideNavigationBar()
         }
-
     }
     
     // MARK: - Scroll view delegate methods

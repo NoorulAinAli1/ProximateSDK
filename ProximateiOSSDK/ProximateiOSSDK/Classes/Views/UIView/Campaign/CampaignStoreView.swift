@@ -15,7 +15,7 @@ import UIKit
 class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
     private let innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
     let rowHeight : CGFloat  = 30
-    let reuseIdentifier = "cell"
+    let reuseCellIdentifier: String = "campaignCell"
 
     private var contentHeight : CGFloat  = 0.0
 
@@ -52,7 +52,7 @@ class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
         campaignStoreTable.delegate = self
         campaignStoreTable.dataSource = self
         
-        self.campaignStoreTable.registerNib(UINib(nibName:"StoreTableViewCell", bundle:ProximateSDKSettings.getBundle()), forCellReuseIdentifier: reuseIdentifier)
+        self.campaignStoreTable.registerNib(UINib(nibName:"StoreTableViewCell", bundle:ProximateSDKSettings.getBundle()), forCellReuseIdentifier: reuseCellIdentifier)
 
         self.campaignStore = cStore
 
@@ -78,7 +78,7 @@ class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! StoreTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseCellIdentifier, forIndexPath: indexPath) as! StoreTableViewCell
         cell.mStore = self.campaignStore[indexPath.row]
         return cell
     }

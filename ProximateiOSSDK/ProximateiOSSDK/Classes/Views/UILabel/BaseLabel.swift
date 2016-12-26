@@ -52,8 +52,8 @@ class BaseLabel: UILabel {
     func setHTMLFromString(text: String, isSingleLine singleLine : Bool = true, setTextAlignment textAlignment : NSTextAlignment = NSTextAlignment.Left) {
         let boldColor = hexStringFromColor(ProximateSDKSettings.psdkFontOptions.campaignBoldFontColor)
         let normalColor = hexStringFromColor(ProximateSDKSettings.psdkFontOptions.campaignTextFontColor)
-//        let modifiedFont = NSString(format:"<style>b {color: \(boldColor); font-family: \(ProximateSDKSettings.psdkViewOptions.fontBold);}</style><span style=\"font-family: \(self.font!.fontName); color: \(normalColor); font-size: \(self.font!.pointSize)\">%@</span>", text) as String
-        let modifiedFont = NSString(format:"<style>span {font-family: \(ProximateSDKSettings.psdkViewOptions.fontRegular); color: \(normalColor); font-size: \(self.font!.pointSize)}; b {color: \(boldColor); font-family: \(ProximateSDKSettings.psdkViewOptions.fontBold);}</style><span>%@</span>", text) as String
+        let modifiedFont = NSString(format:"<style>b {color: \(boldColor); font-family: \(ProximateSDKSettings.psdkViewOptions.fontBold);}</style><span style=\"font-family: \(self.font!.fontName); color: \(normalColor); font-size: \(self.font!.pointSize)\">%@</span>", text) as String
+//        let modifiedFont = NSString(format:"<style>span {font-family: \(ProximateSDKSettings.psdkViewOptions.fontRegular); color: \(normalColor); font-size: \(self.font!.pointSize)}; b {color: \(red); font-family: \(ProximateSDKSettings.psdkViewOptions.fontBold);}</style><span>%@</span>", text) as String
         
         let attrStr = try! NSMutableAttributedString(
             data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,

@@ -185,6 +185,7 @@ struct PageIndicatorOptions {
 public enum PSDKViewOptions {
     case PrimaryColor(UIColor, UIColor)
     case ViewBackgroundColor(UIColor)
+    case NavigationBarImage(String)
     case NavigationBarTitle(UIColor, CGFloat)
     case NavigationBarTintColor(UIColor)
     case SearchBar(UIColor)
@@ -198,6 +199,7 @@ struct ViewOptions {
     var primaryColor : UIColor! = UIColor.psdkPrimaryColor()
     var primaryDarkColor : UIColor! = UIColor.psdkPrimaryDarkColor()
     var viewBackgroundColor : UIColor! = UIColor.grayColor()
+    var navigationBarImage  : UIImage?
     var navigationBarTintColor  : UIColor! = UIColor.whiteColor()
     var navigationBarTitleSize  : CGFloat! = 16.0
     var navigationBarTitleColor  : UIColor! = UIColor.whiteColor()
@@ -214,8 +216,8 @@ struct ViewOptions {
             if UIFont(name: fontBold, size: 10) == nil {
                 fontBold = "TrebuchetMS-Bold"
             }
+        }
     }
-}
 
     var innerPadding  : CGFloat! = 6.0
     var outerPadding  : CGFloat! = 10.0
@@ -233,6 +235,8 @@ struct ViewOptions {
                 self.primaryDarkColor = valueDark
             case let .ViewBackgroundColor(value):
                 self.viewBackgroundColor = value
+            case let .NavigationBarImage(value):
+                self.navigationBarImage = ProximateSDKSettings.getImageForName(value)
             case let .NavigationBarTitle(valueColor, valueSize):
                 self.navigationBarTitleColor = valueColor
                 self.navigationBarTitleSize = valueSize
@@ -311,6 +315,7 @@ public class ProximateSDKSettings: NSObject {
             initializeFonts()
         }
     }
+    internal static var psdkNavBarHasImage : Bool = false
     internal static var psdkCardOptions : CardOptions! = CardOptions()
     internal static var psdkPageIndicatorOptions : PageIndicatorOptions! = PageIndicatorOptions()
     internal static var psdkFontOptions : FontStyleOptions! = FontStyleOptions()
@@ -538,6 +543,10 @@ public class ProximateSDKSettings: NSObject {
         
         if let fValue = viewStyles["NavigationBarTintColor"], fColor = fValue as? String {
             psdkViewOptions.navigationBarTintColor = UIColor.hexToColor(fColor)
+        }
+        
+        if let fValue = viewStyles["NavigationBarImage"], fImage = fValue as? String {
+            psdkViewOptions.navigationBarImage = ProximateSDKSettings.getImageForName(fImage)
         }
 
         if let fValue = viewStyles["SearchBarColor"], fColor = fValue as? String {

@@ -18,7 +18,7 @@ internal enum CAMPAIGN_MEDIA_TYPE : String {
     case PPT    = "6606"
 }
 
-class MediaPagerFullScreenViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MediaPagerFullScreenViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var screenTitle : String!
     var mediaItem :[ObjectCampaignMedia]! = [ObjectCampaignMedia]()
@@ -68,27 +68,26 @@ class MediaPagerFullScreenViewController: BaseViewController, UICollectionViewDa
             self.pageControl.currentPage = indexPath.row
             
         }
-        cell.content = self.mediaItem[indexPath.row]
-        
         cell.collectionViewImage.frame.size = cell.frame.size
-        let mediaType = CAMPAIGN_MEDIA_TYPE(rawValue: cell.content.type)!
+
+        cell.sizeToFit()
+        cell.setCampaignMedia(self.mediaItem[indexPath.row])
+        
+        let mediaType = CAMPAIGN_MEDIA_TYPE(rawValue: cell.mCampaignMedia.type)!
 
         switch mediaType {
         case .Image:
-            cell.collectionViewImage.af_setImageWithURL(NSURL(string: cell.content.getMediaURL())!,placeholderImage: ProximateSDKSettings.getLoadingPlaceholderImage())
             cell.scrollView.minimumZoomScale = 1.0
             cell.scrollView.maximumZoomScale = 3.0
             cell.scrollView.frame.size = self.view.frame.size
             cell.scrollView.contentSize =  self.view.frame.size
         case .Video:
-            cell.collectionViewImage.hidden = true
-            cell.setupVideoPlayer()
+            cell.scrollView.hidden = true
             cell.scrollView.minimumZoomScale = 1.0
             cell.scrollView.maximumZoomScale = 1.0
         default:
             DebugLogger.debugLog("no view")
         }
-        
         
         return cell
     }
@@ -118,7 +117,6 @@ class MediaPagerFullScreenViewController: BaseViewController, UICollectionViewDa
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-//        self.navigationController?.navigationBar.hidden = false
     }
 
 

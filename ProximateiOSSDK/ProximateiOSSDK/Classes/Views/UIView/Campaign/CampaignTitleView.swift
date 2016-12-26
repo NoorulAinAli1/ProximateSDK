@@ -11,7 +11,7 @@ import UIKit
 class CampaignTitleView: CardView {
     
     private let innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
-    var campaignExpiryImage : UIImageView?
+    var campaignExpiryImage : UIImageView!
     private var contentHeight : CGFloat  = 0.0
     
     var campaignTitle : BaseLabel! {
@@ -41,7 +41,14 @@ class CampaignTitleView: CardView {
         campaignTitle.backgroundColor = UIColor.clearColor()
         self.addSubview(campaignTitle)
         
-        campaignExpiryDateTime = BaseLabel(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignTextFontSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), ProximateSDKSettings.psdkFontOptions.expiryTextFontSize))
+        
+        let expHeight = ProximateSDKSettings.psdkFontOptions.expiryTextFontSize
+        campaignExpiryImage = UIImageView(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignTextFontSize + innerPadding + innerPadding, expHeight * 1.75, expHeight * 1.75))
+        campaignExpiryImage.backgroundColor = UIColor.clearColor()
+        self.addSubview(campaignExpiryImage)
+
+
+        campaignExpiryDateTime = BaseLabel(frame: CGRectMake(innerPadding * 2 + expHeight, ProximateSDKSettings.psdkFontOptions.campaignTextFontSize + innerPadding + innerPadding, viewWidth - (innerPadding*3) - expHeight, expHeight))
         campaignExpiryDateTime.backgroundColor = UIColor.clearColor()
         self.addSubview(campaignExpiryDateTime)
 
@@ -55,7 +62,7 @@ class CampaignTitleView: CardView {
         let viewWidth = self.frame.width/600 * UIScreen.mainScreen().bounds.size.width
 
         let expiryStyle = campaign.getCampaignExpiryStyle()
-        campaignExpiryImage?.image = expiryStyle.campaignExpiryImage
+        campaignExpiryImage.image = expiryStyle.campaignExpiryImage
         campaignExpiryDateTime?.text = expiryStyle.campaignExpiryText
         campaignExpiryDateTime?.setStyle(expiryStyle.campaignExpiryTextColor, size: ProximateSDKSettings.psdkFontOptions.expiryTextFontSize)
 
@@ -68,7 +75,11 @@ class CampaignTitleView: CardView {
         titleFrame.size.height = contentHeight
         campaignTitle.frame = titleFrame
         
-//        campaignTitle.setHTMLFromString(campaign.getCampaignTitle(), isSingleLine: false)
+        
+        var expImageFrame = campaignExpiryImage.frame
+        expImageFrame.origin.y = contentHeight + (innerPadding*1.5)
+        campaignExpiryImage.frame = expImageFrame
+
 
         var expFrame = campaignExpiryDateTime.frame
         expFrame.origin.y = contentHeight + innerPadding*2

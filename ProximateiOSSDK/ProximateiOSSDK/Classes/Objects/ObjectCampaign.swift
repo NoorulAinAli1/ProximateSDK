@@ -126,7 +126,10 @@ internal class ObjectCampaign: NSObject {
         var actions : [ObjectCampaignAction] = []
     
         for cAction in self.campaignActions! {
-            cAction.actionClass != "REDEEM" ? actions.append(cAction) : DebugLogger.debugLog("not appended")
+            let actionClass = CAMPAIGN_ACTION_TYPE(rawValue: cAction.actionClass.uppercaseString)!
+            DebugLogger.debugLog("actionClass \(actionClass)")
+                DebugLogger.debugLog("cAction.actionClass \(cAction.actionClass)")
+            actionClass != CAMPAIGN_ACTION_TYPE.REDEEM ? actions.append(cAction) : DebugLogger.debugLog("not appended")
         }
        
         return actions

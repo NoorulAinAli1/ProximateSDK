@@ -12,11 +12,11 @@ import DDPageControl
 class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     var delegate : CampaignInfoClickDelegate?
-    @IBOutlet var promotionImage : UIImageView!
-    @IBOutlet var campaignNewImage : UIImageView!
     @IBOutlet var btnWebsiteWidth : NSLayoutConstraint?
     @IBOutlet var btnLocationWidth : NSLayoutConstraint?
-
+    
+    private let reuseCellIdentifier: String = "campaignCell"
+    
     @IBOutlet var campaignCollectionView : UICollectionView!
     @IBOutlet var pageControl : DDPageControl! {
         didSet {
@@ -78,7 +78,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     
     func setCampaign(campaign : ObjectCampaign){
         mCampaign = campaign
-        self.campaignCollectionView.registerNib(UINib(nibName:"FragmentCollectionViewCell", bundle:ProximateSDKSettings.getBundle()), forCellWithReuseIdentifier: "cell")
+        self.campaignCollectionView.registerNib(UINib(nibName:"CampaignMediaCollectionViewCell", bundle:ProximateSDKSettings.getBundle()), forCellWithReuseIdentifier: reuseCellIdentifier)
 
         merchantTitle.text = campaign.getMerchant().merchantName
         merchantSlogan.text = campaign.getMerchant().tagLine
@@ -104,6 +104,9 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
         pageControl.numberOfPages =  (mCampaign.getMedia().count)
         campaignCollectionView.pagingEnabled = true
      
+        DebugLogger.debugLog("media Items \(mCampaign.getMedia().count)")
+        DebugLogger.debugLog("contents Items \(mCampaign.contents.count)")
+        
         btnPhone.hidden = !campaign.getMerchant().hasPhoneNumber()
         
         btnLocation.hidden = (campaign.beacons == nil)
@@ -124,7 +127,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell : FragmentCollectionViewCell  = campaignCollectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! FragmentCollectionViewCell
+        let cell : CampaignMediaCollectionViewCell  = campaignCollectionView.dequeueReusableCellWithReuseIdentifier(reuseCellIdentifier, forIndexPath: indexPath) as! CampaignMediaCollectionViewCell
         
         cell.frame.size = self.campaignCollectionView.frame.size
         cell.sizeToFit()
@@ -136,7 +139,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         delegate?.didClickOnCampaign!(mCampaign)
 
-//        let cell =  collectionView.cellForItemAtIndexPath(indexPath) as! FragmentCollectionViewCell
+//        let cell =  collectionView.cellForItemAtIndexPath(indexPath) as! CampaignMediaCollectionViewCell
         //        if cell.content.type == "6601" {
         //            pageControl.currentPage = indexPath.row
         //
@@ -156,7 +159,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     
     //    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
     //
-    //        let cell =  cell as! FragmentCollectionViewCell
+    //        let cell =  cell as! CampaignMediaCollectionViewCell
     ////        if cell.content.type == "6601" { // image type
     ////
     ////        } else if cell.content.type == "6602"{ // video type
@@ -169,7 +172,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     //
     //    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
     //        pageControl.currentPage = indexPath.row
-    //        let cell : FragmentCollectionViewCell  = campaignCollectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! FragmentCollectionViewCell
+    //        let cell : CampaignMediaCollectionViewCell  = campaignCollectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CampaignMediaCollectionViewCell
     //        cell.backgroundColor = UIColor.clearColor()
     //    }
     

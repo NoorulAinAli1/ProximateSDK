@@ -21,6 +21,8 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+
         self.tableView.backgroundColor =  ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
         self.view.backgroundColor =  ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
 
@@ -122,9 +124,7 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     
     private func hideNavigationBar(){
         self.navBarVisible = false
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clearColor()
         self.navigationController?.navigationBar.barTintColor =  UIColor.clearColor()
 
         self.title = ""
@@ -139,6 +139,8 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+
         ProximateSDK.getScreenInteractionDelegate()?.screenInteracted()
         if self.navBarVisible {
             showNavigationBar()

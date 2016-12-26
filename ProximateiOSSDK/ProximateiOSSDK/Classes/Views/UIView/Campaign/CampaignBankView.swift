@@ -13,7 +13,7 @@ class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
     let rowHeight : CGFloat  = 80.0
     
     private var contentHeight : CGFloat  = 0.0
-    let reuseIdentifier = "cell"
+    let reuseCellIdentifier: String = "campaignCell"
 
     var campaignBankTitle : BaseLabel!
 
@@ -50,7 +50,7 @@ class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
         campaignBankTable.delegate = self
         campaignBankTable.dataSource = self
         
-        self.campaignBankTable.registerNib(UINib(nibName:"BankCardTableViewCell", bundle:ProximateSDKSettings.getBundle()), forCellReuseIdentifier: reuseIdentifier)
+        self.campaignBankTable.registerNib(UINib(nibName:"BankCardTableViewCell", bundle:ProximateSDKSettings.getBundle()), forCellReuseIdentifier: reuseCellIdentifier)
         
         self.campaignBank = cBank
         DebugLogger.debugLog("campaignBank \(campaignBank)")
@@ -79,7 +79,7 @@ class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! BankCardTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseCellIdentifier, forIndexPath: indexPath) as! BankCardTableViewCell
 
         let bank = self.campaignBank[indexPath.section]
         let bankCard = bank.cards![indexPath.row]
