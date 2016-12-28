@@ -341,6 +341,7 @@ class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, Camp
 
         ProximateSDK.getScreenInteractionDelegate()?.screenInteracted()
         if self.navBarVisible {
+            self.navigationController?.navigationBar.hidden = false
             showNavigationBar()
         } else {
             hideNavigationBar()

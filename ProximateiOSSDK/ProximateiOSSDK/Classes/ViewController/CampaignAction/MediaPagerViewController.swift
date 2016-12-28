@@ -37,7 +37,8 @@ class MediaPagerFullScreenViewController: UIViewController, UICollectionViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = self.screenTitle
+        self.title = ""//self.screenTitle
+        self.navigationItem.backBarButtonItem = nil
         self.view.backgroundColor = UIColor.blackColor()
         self.contentsCollectionView.pagingEnabled = true
         self.contentsCollectionView.backgroundColor = UIColor.blackColor()
@@ -117,6 +118,9 @@ class MediaPagerFullScreenViewController: UIViewController, UICollectionViewData
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBar.hidden = false
+
     }
 
 

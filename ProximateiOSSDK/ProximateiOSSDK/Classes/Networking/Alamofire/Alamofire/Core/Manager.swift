@@ -27,6 +27,27 @@ import Foundation
 */
 internal class Manager {
 
+    struct CacheControl {
+        static let publicControl = "public"
+        static let privateControl = "private"
+        static let maxAgeNonExpired = "max-age=3600"
+        static let maxAgeExpired = "max-age=120"
+        static let noCache = "no-cache"
+        static let noStore = "no-store"
+        
+        static var allValues: [String] {
+            return [
+                CacheControl.publicControl,
+                CacheControl.privateControl,
+                CacheControl.maxAgeNonExpired,
+                CacheControl.maxAgeExpired,
+                CacheControl.noCache,
+                CacheControl.noStore
+            ]
+        }
+    }
+    
+    
     // MARK: - Properties
 
     /**
@@ -34,9 +55,14 @@ internal class Manager {
         for any ad hoc requests.
     */
     public static let sharedInstance: Manager = {
+        let capacity =  50 * 1024 * 1024 // MBs
+        let urlCache : NSURLCache! = NSURLCache(memoryCapacity: capacity, diskCapacity: capacity, diskPath: nil)
+
+        
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.HTTPAdditionalHeaders = Manager.defaultHTTPHeaders
-
+        configuration.requestCachePolicy = .UseProtocolCachePolicy
+        configuration.URLCache = urlCache
         return Manager(configuration: configuration)
     }()
 
@@ -71,12 +97,20 @@ internal class Manager {
 
             return "Alamofire"
         }()
-
-        return [
+        let param = [
             "Accept-Encoding": acceptEncoding,
             "Accept-Language": acceptLanguage,
-            "User-Agent": userAgent
+            "User-Agent": userAgent,
+            "Cache-Control": CacheControl.maxAgeExpired
+            
         ]
+        return param//[
+//            "Accept-Encoding": acceptEncoding,
+//            "Accept-Language": acceptLanguage,
+//            "User-Agent": userAgent,
+//            "Cache-Control": CacheControl.maxAgeNonExpired
+//
+//        ]
     }()
 
     let queue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL)

@@ -17,8 +17,7 @@ public enum PSDKTabOption {
     case MenuItemBorderColor(UIColor, UIColor)
     case MenuItemBorderWidth(CGFloat)
     case MenuItemFontSize(CGFloat)
-//    case EnableHorizontalBounce(Bool)
-//    case MenuItemWidthBasedOnTitleTextWidth(Bool)
+    case MenuItemShadowColor(UIColor)
     case ScrollAnimationDurationOnMenuItemTap(Int)
 }
 
@@ -33,14 +32,13 @@ struct TabStyleOptions {
     var selectedMenuColor : UIColor      = UIColor.psdkTabSelectedColor()
     var unselectedMenuColor : UIColor    = UIColor.psdkTabUnselectedColor()
     var viewBackgroundColor : UIColor    = UIColor.psdkTabViewBackgroundColor()
+    var menuItemShadowColor : UIColor    = UIColor.darkGrayColor()
     var menuItemSelectedBorderColor : UIColor    = UIColor.psdkTabViewBackgroundColor()
     var menuItemUnselectedBorderColor : UIColor    = UIColor.psdkTabSelectedColor()
     var menuItemBorderWidth : CGFloat    = 1.0
     
     var menuItemFontSize : CGFloat = 15.0
     
-//    var menuItemWidthBasedOnTitleTextWidth : Bool = true
-//    var enableHorizontalBounce : Bool = false
     init(){
     }
     
@@ -67,6 +65,8 @@ struct TabStyleOptions {
                 self.menuItemBorderWidth    = value
             case let .MenuItemFontSize(value):
                 self.menuItemFontSize = value
+            case let .MenuItemShadowColor(value):
+                self.menuItemShadowColor = value
             case let .ScrollAnimationDurationOnMenuItemTap(value):
                 self.scrollAnimationDurationOnMenuItemTap = value
                 

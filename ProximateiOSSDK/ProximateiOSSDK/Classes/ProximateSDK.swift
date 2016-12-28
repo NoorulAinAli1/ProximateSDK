@@ -69,7 +69,7 @@ public class ProximateSDK: NSObject {
         assert(ProximateSDK.mPSDKValidated.boolValue, "ProximateiOSSDK is not initialized")
         
         let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDKSettings.getBundle())
-        let proximateViewController = storyBoard.instantiateViewControllerWithIdentifier("ProximateSDKMainNav") as! UINavigationController
+        let proximateViewController = storyBoard.instantiateViewControllerWithIdentifier("ProximateSDKMainNav") as! ProximateSDKNavViewController
         viewController.presentViewController(proximateViewController, animated: true, completion: nil)
     }
     

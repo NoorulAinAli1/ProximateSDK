@@ -126,7 +126,7 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
         self.navBarVisible = false
         self.navigationController?.navigationBar.translucent = true
         self.navigationController?.navigationBar.barTintColor =  UIColor.clearColor()
-
+    
         self.title = ""
     }
     
