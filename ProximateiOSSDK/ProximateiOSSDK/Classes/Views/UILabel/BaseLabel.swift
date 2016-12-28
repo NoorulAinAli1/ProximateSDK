@@ -33,12 +33,7 @@ class BaseLabel: UILabel {
         let fontName = isBold.boolValue ? ProximateSDKSettings.psdkViewOptions.fontBold : ProximateSDKSettings.psdkViewOptions.fontRegular
         self.font = UIFont(name: fontName, size: self.font.pointSize)
     }
-    
-//    func setStyle(textColor : UIColor, size fontSize: CGFloat){
-//        self.textColor = textColor
-//        self.sdkFontSize = fontSize
-//    }
-
+  
     func hexStringFromColor (color : UIColor) -> NSString {
         let components = CGColorGetComponents(color.CGColor)
         

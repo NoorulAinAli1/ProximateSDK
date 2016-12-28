@@ -68,11 +68,11 @@ class ProximateSDKNavViewController: UINavigationController, UINavigationControl
                 self.merchantControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
             }
             return self.merchantControllerAnimationController;
-//        } else if toVC is MerchantTableViewController {
-//            if (self.campaignControllerAnimationController != nil) {
-//                self.campaignControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
-//            }
-//            return self.campaignControllerAnimationController;
+        } else if toVC is MerchantTableViewController {
+            if (self.campaignControllerAnimationController != nil) {
+                self.campaignControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
+            }
+            return self.campaignControllerAnimationController;
         } else {
             return nil
         }

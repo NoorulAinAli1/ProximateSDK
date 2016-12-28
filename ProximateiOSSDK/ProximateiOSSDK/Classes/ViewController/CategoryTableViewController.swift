@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryTableViewController: UITableViewController, SearchDelegate, CampaignInfoClickDelegate, UIViewControllerTransitioningDelegate {    var navigationControllerAnimationController : ReversibleAnimationController!
+internal class CategoryTableViewController: UITableViewController, SearchDelegate, CampaignInfoClickDelegate, UIViewControllerTransitioningDelegate {    var navigationControllerAnimationController : ReversibleAnimationController!
     var mCategory : ObjectCategory!
     var parentNavigationController : UINavigationController?
 
@@ -28,7 +28,8 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
         super.viewDidLoad()
         
         self.navigationControllerAnimationController = PortalAnimationController()
-        
+        self.tableView.contentInset = UIEdgeInsetsMake(ProximateSDKSettings.psdkTabOptions.menuHeight, 0, 0, 0);
+
         self.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
         self.tableView.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
 
@@ -132,6 +133,7 @@ class CategoryTableViewController: UITableViewController, SearchDelegate, Campai
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
+        DebugLogger.debugLog("scrollViewDidScroll")
 //        ProximateSDK.getScreenInteractionDelegate()?.screenInteracted()
     }
     

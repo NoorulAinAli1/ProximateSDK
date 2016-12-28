@@ -77,12 +77,12 @@ class MenuItemView: UIView {
     }
 }
 
-public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
+internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
     // MARK: - Properties
     
     let menuScrollView = UIScrollView()
-    let controllerScrollView = UIScrollView()
+    var controllerScrollView : UICollectionView!
     var controllerArray : [UIViewController] = []
     var menuItems : [MenuItemView] = []
     var menuItemWidths : [CGFloat] = []
@@ -166,15 +166,24 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
     // MARK: - UI Setup
     
     func setUpUserInterface() {
-        let viewsDictionary = ["menuScrollView":menuScrollView, "controllerScrollView":controllerScrollView]
+        let layoutCollection = UICollectionViewFlowLayout()
+        layoutCollection.scrollDirection = .Horizontal
+        layoutCollection.minimumInteritemSpacing = 0
+        layoutCollection.minimumLineSpacing = 0
         
+        self.controllerScrollView = UICollectionView(frame: CGRectMake(0.0, 100, self.view.frame.width, self.view.frame.height - self.tabOptions.menuHeight), collectionViewLayout: layoutCollection)
+        self.controllerScrollView.dataSource = self
+        self.controllerScrollView.delegate = self
+        controllerScrollView.registerClass(TableCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "viewControllerCell")
+
+        let viewsDictionary = ["menuScrollView":menuScrollView, "controllerScrollView":controllerScrollView]
         // Set up controller scroll view
         controllerScrollView.pagingEnabled = true
         controllerScrollView.translatesAutoresizingMaskIntoConstraints = false
         controllerScrollView.alwaysBounceHorizontal = enableHorizontalBounce
         controllerScrollView.bounces = enableHorizontalBounce
         
-        controllerScrollView.frame = CGRectMake(0.0, self.tabOptions.menuHeight, self.view.frame.width, self.view.frame.height)
+//        controllerScrollView.frame = CGRectMake(0.0, self.tabOptions.menuHeight, self.view.frame.width, self.view.frame.height)
         
         self.view.addSubview(controllerScrollView)
         
@@ -231,7 +240,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
         menuScrollView.contentSize = CGSizeMake((self.menuItemWidth + self.tabOptions.menuMarginX) * CGFloat(controllerArray.count) + self.tabOptions.menuMarginX, self.tabOptions.menuHeight)
         
         // Configure controller scroll view content size
-        controllerScrollView.contentSize = CGSizeMake(self.view.frame.width * CGFloat(controllerArray.count), 0.0)
+//        controllerScrollView.contentSize = CGSizeMake(self.view.frame.width * CGFloat(controllerArray.count), 0.0)
         
         var index : CGFloat = 0.0
         
@@ -500,8 +509,8 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
             }
         } else {
             didLayoutSubviewsAfterRotation = false
-            
-            // Move selection indicator view when swiping
+        
+//             Move selection indicator view when swiping
             moveSelectionIndicator(currentPageIndex)
         }
     }
@@ -629,7 +638,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
                 
                 UIView.animateWithDuration(duration, animations: { () -> Void in
                     let xOffset : CGFloat = CGFloat(itemIndex) * self.controllerScrollView.frame.width
-                    self.controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: self.controllerScrollView.contentOffset.y), animated: false)
+//                    self.controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: self.controllerScrollView.contentOffset.y), animated: false)
                 })
                 
                 if tapTimer != nil {
@@ -645,28 +654,28 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
     
     // MARK: - Remove/Add Page
     func addPageAtIndex(index : Int) {
-        // Call didMoveToPage delegate function
-        let currentController = controllerArray[index]
-        delegate?.willMoveToPage?(currentController, index: index)
-        
-        let newVC = controllerArray[index]
-        
-        newVC.willMoveToParentViewController(self)
-        
-        newVC.view.frame = CGRectMake(self.view.frame.width * CGFloat(index), self.tabOptions.menuHeight, self.view.frame.width, self.view.frame.height - self.tabOptions.menuHeight)
-        
-        self.addChildViewController(newVC)
-        self.controllerScrollView.addSubview(newVC.view)
-        newVC.didMoveToParentViewController(self)
+//        // Call didMoveToPage delegate function
+//        let currentController = controllerArray[index]
+//        delegate?.willMoveToPage?(currentController, index: index)
+//        
+//        let newVC = controllerArray[index]
+//        
+//        newVC.willMoveToParentViewController(self)
+//        
+//        newVC.view.frame = CGRectMake(self.view.frame.width * CGFloat(index), self.tabOptions.menuHeight, self.view.frame.width, self.view.frame.height - self.tabOptions.menuHeight)
+//        
+//        self.addChildViewController(newVC)
+//        self.controllerScrollView.addSubview(newVC.view)
+//        newVC.didMoveToParentViewController(self)
     }
     
     func removePageAtIndex(index : Int) {
-        let oldVC = controllerArray[index]
-        
-        oldVC.willMoveToParentViewController(nil)
-        
-        oldVC.view.removeFromSuperview()
-        oldVC.removeFromParentViewController()
+//        let oldVC = controllerArray[index]
+//        
+//        oldVC.willMoveToParentViewController(nil)
+//        
+//        oldVC.view.removeFromSuperview()
+//        oldVC.removeFromParentViewController()
     }
     
     
@@ -674,7 +683,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
     
     override public func viewDidLayoutSubviews() {
         // Configure controller scroll view content size
-        controllerScrollView.contentSize = CGSizeMake(self.view.frame.width * CGFloat(controllerArray.count), self.view.frame.height - self.tabOptions.menuHeight)
+//        controllerScrollView.contentSize = CGSizeMake(self.view.frame.width * CGFloat(controllerArray.count), self.view.frame.height - self.tabOptions.menuHeight)
         
         let oldCurrentOrientationIsPortrait : Bool = currentOrientationIsPortrait
         currentOrientationIsPortrait = UIApplication.sharedApplication().statusBarOrientation.isPortrait
@@ -691,7 +700,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
             }
             
             let xOffset : CGFloat = CGFloat(self.currentPageIndex) * controllerScrollView.frame.width
-            controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: controllerScrollView.contentOffset.y), animated: false)
+//            controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: controllerScrollView.contentOffset.y), animated: false)
             
             let ratio : CGFloat = (menuScrollView.contentSize.width - self.view.frame.width) / (controllerScrollView.contentSize.width - self.view.frame.width)
             
@@ -752,8 +761,35 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
             
             UIView.animateWithDuration(duration, animations: { () -> Void in
                 let xOffset : CGFloat = CGFloat(index) * self.controllerScrollView.frame.width
-                self.controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: self.controllerScrollView.contentOffset.y), animated: false)
+//                self.controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: self.controllerScrollView.contentOffset.y), animated: false)
             })
         }
+    }
+    
+    // MARK: - UICollectionViewDelegate
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    // MARK: - UICollectionViewDataSource
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.controllerArray.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell : TableCollectionViewCell  = collectionView.dequeueReusableCellWithReuseIdentifier("viewControllerCell", forIndexPath: indexPath) as! TableCollectionViewCell
+        
+        let table = self.controllerArray[indexPath.row] as! CategoryTableViewController
+
+        cell.addSubview(table.tableView)
+        cell.sizeToFit()
+        return cell
+    }
+
+    func collectionView(collectionView: UICollectionView!,
+                        layout collectionViewLayout: UICollectionViewLayout!,
+                               sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
+        return self.controllerScrollView.bounds.size
     }
 }
