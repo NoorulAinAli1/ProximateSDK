@@ -251,10 +251,13 @@ class MerchantTableViewController: UITableViewController, MerchantInfoClickDeleg
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        didSelectCampaign(mCampaigns[indexPath.row])
+        if mCampaigns.count > 0 {
+            didSelectCampaign(mCampaigns[indexPath.row])
+        }
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    func  loadMore() {
+    func loadMore() {
         callWebservice()
     }
     

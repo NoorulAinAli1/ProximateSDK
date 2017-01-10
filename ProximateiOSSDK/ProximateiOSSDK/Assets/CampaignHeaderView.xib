@@ -60,7 +60,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDp-Jt-e9F">
-                    <rect key="frame" x="350.5" y="388" width="59" height="92"/>
+                    <rect key="frame" x="324" y="388" width="80" height="92"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="59" id="jLF-YD-Ou3"/>
                     </constraints>
@@ -71,7 +72,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEQ-q3-006">
-                    <rect key="frame" x="334.5" y="388" width="16" height="92"/>
+                    <rect key="frame" x="250" y="388" width="80" height="92"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="61" id="D2W-Ms-bQQ"/>
                         <constraint firstAttribute="width" secondItem="HEQ-q3-006" secondAttribute="height" multiplier="1:1" id="Ncg-5Q-ajl"/>
@@ -154,6 +155,7 @@
                 <constraint firstItem="LDp-Jt-e9F" firstAttribute="height" secondItem="G1W-P7-Tcb" secondAttribute="height" id="h1E-kf-K5E"/>
                 <constraint firstItem="mOE-Mt-0l4" firstAttribute="height" secondItem="Zba-te-u8D" secondAttribute="height" multiplier="0.425" id="jIG-Pf-gEf"/>
                 <constraint firstItem="Zfd-2B-zJj" firstAttribute="height" secondItem="ASQ-e1-4uy" secondAttribute="height" multiplier="0.75" id="jtP-4F-DKA"/>
+                <constraint firstItem="HEQ-q3-006" firstAttribute="width" secondItem="G1W-P7-Tcb" secondAttribute="width" id="ktG-BN-vyb"/>
                 <constraint firstAttribute="trailing" secondItem="G1W-P7-Tcb" secondAttribute="trailing" constant="6" id="ljd-TC-cPs"/>
                 <constraint firstItem="mOE-Mt-0l4" firstAttribute="leading" secondItem="I0D-eC-Rgd" secondAttribute="leading" constant="10" id="mLc-as-cwU"/>
                 <constraint firstItem="mOE-Mt-0l4" firstAttribute="centerY" secondItem="Zba-te-u8D" secondAttribute="centerY" multiplier="2" id="mwd-BY-DPn"/>
@@ -172,11 +174,12 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="22x-IC-kYh"/>
+                    <exclude reference="0V8-8U-DgE"/>
                     <exclude reference="UAA-e0-bek"/>
                     <exclude reference="7GA-JB-fFP"/>
+                    <exclude reference="o9B-Qr-jJH"/>
                     <exclude reference="Tbz-GU-C4e"/>
                     <exclude reference="wrB-ga-g2K"/>
-                    <exclude reference="o9B-Qr-jJH"/>
                     <exclude reference="s0L-VE-3jT"/>
                 </mask>
             </variation>
@@ -196,7 +199,7 @@
         </view>
     </objects>
     <resources>
-        <image name="background_gradient" width="600" height="450"/>
+        <image name="background_gradient" width="346" height="120"/>
         <image name="button_location.png" width="16" height="16"/>
         <image name="button_phone.png" width="16" height="16"/>
         <image name="button_share.png" width="16" height="16"/>

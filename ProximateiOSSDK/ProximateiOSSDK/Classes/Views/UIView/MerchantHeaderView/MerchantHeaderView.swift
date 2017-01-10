@@ -60,12 +60,15 @@ class MerchantHeaderView: UIView {
         img.af_setImageWithURL(NSURL(string: mMerchant.merchantLogoPath)!,  completion: { response in
             self.merchantLogo.image = response.result.value
         })
-        
-        btnPhone.hidden = !merchant.hasPhoneNumber()
-        btnWebsite.hidden = !merchant.hasWebsite()
-        btnWebsiteWidth.constant = merchant.hasWebsite() ? self.btnWebsite.frame.width : 0
-
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        btnPhone.hidden = !mMerchant.hasPhoneNumber()
+        btnWebsite.hidden = !mMerchant.hasWebsite()
+        btnWebsiteWidth.constant = mMerchant.hasWebsite() ? self.btnShare.frame.width : 0
+    }
+    
     
     @IBAction func merchantLocationClicked() {
         delegate?.didClickMerchantLocation!()

@@ -225,7 +225,6 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 5H5DV35BTW;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -504,7 +503,7 @@
 			baseConfigurationReference = 3E065B3551682506E3D7FE06 /* Pods-ProximateiOSSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Muhammad Irfan (5GHX2WQVQ8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Muhammad Irfan (5GHX2WQVQ8)";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ProximateiOSSDK/Info.plist;
@@ -521,7 +520,7 @@
 			baseConfigurationReference = 717A50EFD99F5D788CC14D91 /* Pods-ProximateiOSSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Muhammad Irfan (5GHX2WQVQ8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = ProximateiOSSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

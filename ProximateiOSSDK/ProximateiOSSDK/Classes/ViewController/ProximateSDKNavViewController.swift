@@ -9,19 +9,19 @@
 import UIKit
 
 class ProximateSDKNavViewController: UINavigationController, UINavigationControllerDelegate {
-    var campaignControllerAnimationController : ReversibleAnimationController!
-    var merchantControllerAnimationController : ReversibleAnimationController!
+//    var campaignControllerAnimationController : ReversibleAnimationController!
+//    var merchantControllerAnimationController : ReversibleAnimationController!
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.delegate = self;
-
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.campaignControllerAnimationController = PortalAnimationController()
-        self.merchantControllerAnimationController = CrossFadeAnimationController()
+//        self.campaignControllerAnimationController = PortalAnimationController()
+//        self.merchantControllerAnimationController = CrossFadeAnimationController()
         
         self.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
         
@@ -62,20 +62,20 @@ class ProximateSDKNavViewController: UINavigationController, UINavigationControl
     }
 
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-
-        if toVC is CampaignViewController {//|| fromVC is CampaignViewController {
-            if (self.merchantControllerAnimationController != nil) {
-                self.merchantControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
-            }
-            return self.merchantControllerAnimationController;
-        } else if toVC is MerchantTableViewController {
-            if (self.campaignControllerAnimationController != nil) {
-                self.campaignControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
-            }
-            return self.campaignControllerAnimationController;
-        } else {
+//
+//        if toVC is CampaignViewController {//|| fromVC is CampaignViewController {
+//            if (self.merchantControllerAnimationController != nil) {
+//                self.merchantControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
+//            }
+//            return self.merchantControllerAnimationController;
+//        } else if toVC is MerchantTableViewController {
+//            if (self.campaignControllerAnimationController != nil) {
+//                self.campaignControllerAnimationController.reverse = operation == UINavigationControllerOperation.Pop
+//            }
+//            return self.campaignControllerAnimationController;
+//        } else {
             return nil
-        }
+//        }
     }
 
     /*

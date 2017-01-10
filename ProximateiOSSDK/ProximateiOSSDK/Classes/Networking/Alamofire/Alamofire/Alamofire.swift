@@ -98,9 +98,8 @@ func URLRequest(
 {
 //    let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: URLString.URLString)!, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 100)
     let Url = URLString.URLString.stringByReplacingOccurrencesOfString("\\s", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
-
     
-    let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: Url)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 500)
+    let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: Url)!, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 500)
     mutableURLRequest.HTTPMethod = method.rawValue
 
     if let headers = headers {

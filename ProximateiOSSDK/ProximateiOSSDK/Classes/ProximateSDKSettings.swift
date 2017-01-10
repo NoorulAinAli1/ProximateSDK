@@ -221,8 +221,10 @@ struct ViewOptions {
 
     var innerPadding  : CGFloat! = 6.0
     var outerPadding  : CGFloat! = 10.0
-    var cardHeight  : CGFloat! = 200.0
-    var headerHeight  : CGFloat! = 300.0
+    private static let defaultCardHeight  : CGFloat! = 200.0
+    private static let defaultHeaderHeight  : CGFloat! = 240.0
+    var cardHeight  : CGFloat! = defaultCardHeight
+    var headerHeight  : CGFloat! = defaultHeaderHeight
 
     init(){
     }
@@ -251,9 +253,17 @@ struct ViewOptions {
                 self.innerPadding = valueInner
                 self.outerPadding = valueOuter
             case let .CardHeight(value):
-                self.cardHeight = value
+                if value >= ViewOptions.defaultCardHeight {
+                    self.cardHeight = value
+                } else {
+                    assertionFailure("Card Height cannot be less than defaultCardHeight \(ViewOptions.defaultCardHeight)")
+                }
             case let .HeaderHeight(value):
-                self.headerHeight = value
+                if value >= ViewOptions.defaultHeaderHeight {
+                    self.headerHeight = value
+                } else {
+                    assertionFailure("Header Height cannot be less than defaultHeaderHeight \(ViewOptions.defaultHeaderHeight)")
+                }
             default: break
             }
         }
@@ -279,7 +289,7 @@ struct CardOptions {
     var cardBorderColor     : UIColor! = UIColor.clearColor()
     var cardCornerRadius    : CGFloat! = 4.0
     var cardShadowRadius    : CGFloat! = 4.0
-    var cardShadowOpacity   : Float = 2.0
+    var cardShadowOpacity   : Float! = 2.0
     
     init(){
     }
@@ -580,10 +590,18 @@ public class ProximateSDKSettings: NSObject {
         }
         if let heightStyle = viewStyles["Height"] as? [String: AnyObject] {
             if let fValue =  heightStyle["CardHeight"], fHeight = fValue as? CGFloat {
-                psdkViewOptions.cardHeight = fHeight
+                if fHeight >= ViewOptions.defaultCardHeight {
+                    psdkViewOptions.cardHeight = fHeight
+                } else {
+                    assertionFailure("Card Height cannot be less than defaultCardHeight \(ViewOptions.defaultCardHeight)")
+                }
             }
             if let fValue2 = heightStyle["HeaderHeight"], fHeight = fValue2 as? CGFloat {
-                psdkViewOptions.headerHeight = fHeight
+                if fHeight >= ViewOptions.defaultHeaderHeight {
+                    psdkViewOptions.headerHeight = fHeight
+                } else {
+                    assertionFailure("Header Height cannot be less than defaultHeaderHeight \(ViewOptions.defaultHeaderHeight)")
+                }
             }
         }
     }
@@ -637,12 +655,13 @@ public class ProximateSDKSettings: NSObject {
         return bundle
     }
     
-    
     internal static func getImageForName(name : String) -> UIImage {
         guard let appImage = UIImage(named: name, inBundle: NSBundle.mainBundle(), compatibleWithTraitCollection: nil) else {
-           return UIImage(named: name, inBundle: ProximateSDKSettings.getBundle(), compatibleWithTraitCollection: nil)!
+            guard let sdkImage = UIImage(named: name, inBundle: ProximateSDKSettings.getBundle(), compatibleWithTraitCollection: nil) else {
+                return UIImage(named: "placeholder_loading", inBundle: ProximateSDKSettings.getBundle(), compatibleWithTraitCollection: nil)!
+            }
+            return sdkImage
         }
-
         return appImage
     }
     

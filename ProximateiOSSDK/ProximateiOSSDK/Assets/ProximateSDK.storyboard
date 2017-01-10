@@ -1141,7 +1141,7 @@
         <image name="button_cross.png" width="16" height="16"/>
         <image name="button_location.png" width="16" height="16"/>
         <image name="button_share.png" width="16" height="16"/>
-        <image name="button_video_play.png" width="16" height="16"/>
+        <image name="button_video_play.png" width="20" height="20"/>
         <image name="time_icon_gray.png" width="12" height="12"/>
     </resources>
 </document>

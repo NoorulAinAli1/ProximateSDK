@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePN-yS-Jpc">
-                        <rect key="frame" x="146" y="4" width="50" height="50"/>
+                        <rect key="frame" x="136" y="10" width="60" height="60"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ePN-yS-Jpc" secondAttribute="height" multiplier="1:1" id="epj-Xz-ZlL"/>
@@ -35,12 +35,12 @@
             </view>
             <constraints>
                 <constraint firstItem="7n0-VB-WMs" firstAttribute="leading" secondItem="bsF-rc-2un" secondAttribute="leading" id="2SP-cP-FXA"/>
-                <constraint firstItem="ePN-yS-Jpc" firstAttribute="height" secondItem="bsF-rc-2un" secondAttribute="height" multiplier="0.25" id="605-Mk-IGl"/>
+                <constraint firstItem="ePN-yS-Jpc" firstAttribute="height" secondItem="bsF-rc-2un" secondAttribute="height" multiplier="0.3" id="605-Mk-IGl"/>
                 <constraint firstAttribute="trailing" secondItem="ePN-yS-Jpc" secondAttribute="trailing" constant="4" id="U7C-89-heq"/>
                 <constraint firstItem="7n0-VB-WMs" firstAttribute="height" secondItem="bsF-rc-2un" secondAttribute="height" id="VBf-z0-YbF"/>
                 <constraint firstItem="7n0-VB-WMs" firstAttribute="width" secondItem="bsF-rc-2un" secondAttribute="width" id="aEe-qh-8kO"/>
                 <constraint firstItem="7n0-VB-WMs" firstAttribute="top" secondItem="bsF-rc-2un" secondAttribute="top" id="aHB-0N-xvw"/>
-                <constraint firstItem="ePN-yS-Jpc" firstAttribute="top" secondItem="bsF-rc-2un" secondAttribute="top" constant="4" id="giV-Y7-cIz"/>
+                <constraint firstItem="ePN-yS-Jpc" firstAttribute="top" secondItem="bsF-rc-2un" secondAttribute="top" constant="10" id="giV-Y7-cIz"/>
             </constraints>
             <connections>
                 <outlet property="collectionViewImage" destination="7n0-VB-WMs" id="HYd-wz-9M3"/>
@@ -50,6 +50,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="button_video_play.png" width="16" height="16"/>
+        <image name="button_video_play.png" width="20" height="20"/>
     </resources>
 </document>

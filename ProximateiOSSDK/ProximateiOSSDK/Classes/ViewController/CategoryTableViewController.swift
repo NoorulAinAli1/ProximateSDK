@@ -28,8 +28,10 @@ internal class CategoryTableViewController: UITableViewController, SearchDelegat
         super.viewDidLoad()
         
         self.navigationControllerAnimationController = PortalAnimationController()
-        self.tableView.contentInset = UIEdgeInsetsMake(ProximateSDKSettings.psdkTabOptions.menuHeight, 0, 0, 0);
-
+//        self.tableView.contentInset = UIEdgeInsetsMake(ProximateSDKSettings.psdkTabOptions.menuHeight, 0, 0, 0);
+        self.edgesForExtendedLayout = .All
+        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, (ProximateSDKSettings.psdkTabOptions.menuHeight + 64.0), 0.0);
+    
         self.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
         self.tableView.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
 
@@ -112,11 +114,10 @@ internal class CategoryTableViewController: UITableViewController, SearchDelegat
     private func reloadList(){
         pageNumber += 1
         mMerchantGroup.sort({ $0.sortOrder.integerValue > $1.sortOrder.integerValue })
-        
-        self.refreshControl!.endRefreshing()
+    
+        self.refreshControl?.endRefreshing()
         self.tableView.reloadData()
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -133,7 +134,7 @@ internal class CategoryTableViewController: UITableViewController, SearchDelegat
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        DebugLogger.debugLog("scrollViewDidScroll")
+//        DebugLogger.debugLog("scrollViewDidScroll")
 //        ProximateSDK.getScreenInteractionDelegate()?.screenInteracted()
     }
     
@@ -184,16 +185,18 @@ internal class CategoryTableViewController: UITableViewController, SearchDelegat
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let vC = storyBoard.instantiateViewControllerWithIdentifier("MerchantTableViewController") as! MerchantTableViewController
-        vC.mMerchant = mMerchantGroup[indexPath.row].getMerchant()
-        self.parentNavigationController?.pushViewController(vC, animated: true)
+        if mMerchantGroup.count > 0 {
+            let vC = storyBoard.instantiateViewControllerWithIdentifier("MerchantTableViewController") as! MerchantTableViewController
+            vC.mMerchant = mMerchantGroup[indexPath.row].getMerchant()
+            self.parentNavigationController?.pushViewController(vC, animated: true)
+        }
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    func  loadMore() {
+    func loadMore() {
         callWebservice()
     }
 
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "ShowMerchant" {

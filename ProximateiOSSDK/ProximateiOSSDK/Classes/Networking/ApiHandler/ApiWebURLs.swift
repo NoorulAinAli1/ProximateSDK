@@ -9,19 +9,18 @@
 import UIKit
 
 class ApiWebURLs: NSObject {
-    private static let baseURLService   = "http://125.209.114.194:8082/ProximateService/restsimple/"
-//    static let baseURLService   = "http://services.proximate.ae:8082/ProximateService/restsimple/"
-    private static let baseURLRestCampaign  = "\(baseURLService)campaign/"
-    private static let baseURLRestCategory  = "\(baseURLService)category/"
-    private static let baseURLRestMerchant  = "\(baseURLService)merchant/"
-    private static let baseURLRestStore     = "\(baseURLService)store/"
     
-    static func fetchMerchantStores(tag : String)-> String {
+    private static let baseURLRestCampaign  = "\(DebugLogger.getServerUrl())campaign/"
+    private static let baseURLRestCategory  = "\(DebugLogger.getServerUrl())category/"
+    private static let baseURLRestMerchant  = "\(DebugLogger.getServerUrl())merchant/"
+    private static let baseURLRestStore     = "\(DebugLogger.getServerUrl())store/"
+    
+    static func fetchMerchantStores(tag : String) -> String {
         return "\(baseURLRestStore)list?\(tag)".urlEncoding()
     }
     
-    static func verifyMerchantApiKey(tag : String)-> String {
-        return "\(baseURLService)verification/verifyMerchantAPIKey?\(tag))".urlEncoding()
+    static func verifyMerchantApiKey(tag : String) -> String {
+        return "\(DebugLogger.getServerUrl())verification/verifyMerchantAPIKey?\(tag))".urlEncoding()
     }
     
     static func getCampaignByCampaignId(tag : String) -> String {

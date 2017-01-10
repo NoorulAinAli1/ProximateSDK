@@ -21,7 +21,6 @@ import UIKit
 @objc public protocol PSDKMessageDelegate {
     func showMessage(message : String)
     func showMessage(message : String, forMessageType messageType : PSDKMessageType)
-
 }
 
 public class ProximateSDK: NSObject {
@@ -32,10 +31,10 @@ public class ProximateSDK: NSObject {
     private static var messageDelegate : PSDKMessageDelegate?
     private static var mPSDKValidated : Bool! = false
 
-    
     public static func initialize(messageDelegate msgDelegate : PSDKMessageDelegate? = nil, screenInteractionDelegate screenDelegate : PSDKScreenInteractionDelegate? = nil) {
         
-        ProximateSDK.psdkBundleIdentifer         = "com.proximate.app"//NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleIdentifierKey as String) as! String
+        ProximateSDK.psdkBundleIdentifer         = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleIdentifierKey as String) as! String
+//        "com.novo.cinema"//"com.proximate.app"//
 
         ProximateSDK.messageDelegate             = msgDelegate
         ProximateSDK.screenInteractionDelegate   = screenDelegate
@@ -56,6 +55,11 @@ public class ProximateSDK: NSObject {
     public static func enableDebugLogging(enable : Bool = true) {
         DebugLogger.enableDebugMode(enable)
     }
+    
+    public static func enabledDebugServer(enable : Bool = true) {
+        DebugLogger.enableDebugMode(enable)
+    }
+    
     
     internal static func getMessageDelegate() -> PSDKMessageDelegate? {
         return messageDelegate
@@ -79,7 +83,6 @@ public class ProximateSDK: NSObject {
     
     internal static func getCacheTime() -> Int {
         guard let cacheTime = NSBundle.mainBundle().objectForInfoDictionaryKey(psdkCacheTime) as? NSInteger else {
-           
             return 24 * 60 * 60
         }
         return cacheTime

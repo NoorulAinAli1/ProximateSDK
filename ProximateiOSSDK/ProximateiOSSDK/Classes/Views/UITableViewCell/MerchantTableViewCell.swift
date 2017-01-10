@@ -17,6 +17,8 @@ import QuartzCore
 }
 
 @objc protocol CampaignInfoClickDelegate {
+    optional func didSetCampaignMediaVideo()
+
     func didClickCampaignShare(shareText : String )
     func didClickCampaignLocation(campaign : ObjectCampaign)
     optional func didClickCampaignWebsite()
@@ -78,9 +80,7 @@ class MerchantTableViewCell: UITableViewCell {
         btnMerchantTotalCampaigns.setStyle(ProximateSDKSettings.psdkFontOptions.seeAllFontColor, size: ProximateSDKSettings.psdkFontOptions.seeAllFontSize)
 
         btnMerchantTotalCampaigns.setTitle(seeAll, forState: .Normal)
-        
         merchantTitle.text = merchantGroup.merchantName
-        
         mainCampaign = merchantGroup.campaigns![0]
         
         let imgView = UIImageView()

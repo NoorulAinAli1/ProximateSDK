@@ -84,7 +84,10 @@ class CampaignBankView: CardView, UITableViewDelegate, UITableViewDataSource {
         let bank = self.campaignBank[indexPath.section]
         let bankCard = bank.cards![indexPath.row]
         
-//        cell.bankImage = bank.merchantLogoImagePath
+        if bank.merchantLogoImagePath != nil {
+            cell.bankImage = bank.merchantLogoImagePath
+        } else {
+        }
         cell.bankCard = bankCard
         return cell
     }

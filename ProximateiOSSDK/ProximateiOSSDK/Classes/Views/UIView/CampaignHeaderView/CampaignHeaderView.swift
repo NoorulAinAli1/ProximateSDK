@@ -14,7 +14,8 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     var delegate : CampaignInfoClickDelegate?
     @IBOutlet var btnWebsiteWidth : NSLayoutConstraint?
     @IBOutlet var btnLocationWidth : NSLayoutConstraint?
-    
+    var btnVideo : UIBarButtonItem?
+
     private let reuseCellIdentifier: String = "campaignCell"
     
     @IBOutlet var campaignCollectionView : UICollectionView!
@@ -64,7 +65,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     }
    
     @IBAction func campaignShareClicked() {
-        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mCampaign.title, self.mCampaign.getMerchant().merchantName, ProximateSDK.getAppName()])
+        let shareText = String(format: "psdk_campaign_share".localized, arguments: [self.mCampaign.title, ProximateSDK.getAppName(), ProximateSDK.getAppName()])
         delegate?.didClickCampaignShare(shareText)
     }
     
@@ -103,19 +104,19 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
         pageControl.hidesForSinglePage = true
         pageControl.numberOfPages =  (mCampaign.getMedia().count)
         campaignCollectionView.pagingEnabled = true
-     
-        DebugLogger.debugLog("media Items \(mCampaign.getMedia().count)")
-        DebugLogger.debugLog("contents Items \(mCampaign.contents.count)")
-        
-        btnPhone.hidden = !campaign.getMerchant().hasPhoneNumber()
-        
-        btnLocation.hidden = (campaign.beacons == nil)
-        btnLocationWidth?.constant = (campaign.beacons == nil) ? 1 : self.btnLocation.frame.width
-        
-        btnWebsite.hidden = !campaign.getMerchant().hasWebsite()
-        btnWebsiteWidth?.constant = !campaign.getMerchant().hasWebsite() ? 1 : self.btnWebsite.frame.width
-
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        btnPhone.hidden = !mCampaign.getMerchant().hasPhoneNumber()
+        
+        btnLocation.hidden = (mCampaign.beacons == nil)
+        btnLocationWidth?.constant = (mCampaign.beacons == nil) ? 1 : self.btnShare.frame.width
+        
+        btnWebsite.hidden = !mCampaign.getMerchant().hasWebsite()
+        btnWebsiteWidth?.constant = !mCampaign.getMerchant().hasWebsite() ? 1 : self.btnShare.frame.width
+    }
+
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -128,11 +129,19 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell : CampaignMediaCollectionViewCell  = campaignCollectionView.dequeueReusableCellWithReuseIdentifier(reuseCellIdentifier, forIndexPath: indexPath) as! CampaignMediaCollectionViewCell
-        
         cell.frame.size = self.campaignCollectionView.frame.size
         cell.sizeToFit()
-        cell.setCampaignMedia(mCampaign.getMedia()[indexPath.row])
+        let cMedia = mCampaign.getMedia()[indexPath.row]
         
+        cell.setCampaignMedia(cMedia)
+        let mediaType = CAMPAIGN_MEDIA_TYPE(rawValue: cMedia.type)!
+        if mediaType == .Video {
+            let videoImage =  ProximateSDKSettings.getImageForName("button_video_play")
+            self.btnVideo = UIBarButtonItem(image: videoImage, style: .Plain, target: cell, action: #selector(CampaignMediaCollectionViewCell.videoButtonPressed))
+            cell.barBtnVideo = self.btnVideo
+            delegate?.didSetCampaignMediaVideo!()
+        }
+
         return cell
     }
     

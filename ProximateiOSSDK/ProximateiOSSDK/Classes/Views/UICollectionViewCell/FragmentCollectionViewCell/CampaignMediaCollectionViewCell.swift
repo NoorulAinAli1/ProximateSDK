@@ -10,12 +10,13 @@ import UIKit
 import MediaPlayer
 import AVFoundation
 
-class CampaignMediaCollectionViewCell: UICollectionViewCell {
-    
+class CampaignMediaCollectionViewCell: UICollectionViewCell{
+
     var mCampaignMedia : ObjectCampaignMedia!
     var videoViewCampaign : MPMoviePlayerController!
     @IBOutlet var collectionViewImage: UIImageView!
-    @IBOutlet var videoButton: UIButton!
+    @IBOutlet var videoButton: UIButton?
+    @IBOutlet var barBtnVideo: UIBarButtonItem?
     private var isVideoPlaying : Bool = false
     
     override init(frame:CGRect) {
@@ -40,7 +41,7 @@ class CampaignMediaCollectionViewCell: UICollectionViewCell {
         mCampaignMedia = content
         
         let mediaType = CAMPAIGN_MEDIA_TYPE(rawValue: mCampaignMedia.type)!
-        videoButton.hidden = mediaType != .Video
+        videoButton?.hidden = mediaType != .Video
         switch mediaType {
             case .Image:
                 collectionViewImage.af_setImageWithURL(NSURL(string: self.mCampaignMedia.getMediaURL())!, placeholderImage: ProximateSDKSettings.getLoadingPlaceholderImage())
@@ -75,7 +76,7 @@ class CampaignMediaCollectionViewCell: UICollectionViewCell {
         collectionViewImage.hidden = true
 
         videoViewCampaign = MPMoviePlayerController()
-        videoViewCampaign.contentURL = NSURL(string: self.mCampaignMedia.path)
+        videoViewCampaign.contentURL = NSURL(string: self.mCampaignMedia.path) //http://www.html5videoplayer.net/videos/toystory.mp4
 
         videoViewCampaign.scalingMode = MPMovieScalingMode.AspectFit
         videoViewCampaign.movieSourceType = MPMovieSourceType.Streaming
@@ -89,6 +90,8 @@ class CampaignMediaCollectionViewCell: UICollectionViewCell {
         
         videoViewCampaign.allowsAirPlay = true
         self.insertSubview(videoViewCampaign.view, atIndex: 0)
+        
+        self.videoButton!.hidden = self.barBtnVideo != nil
     }
     
     @IBAction func videoButtonPressed(){
@@ -101,8 +104,10 @@ class CampaignMediaCollectionViewCell: UICollectionViewCell {
             imageName = ProximateSDKSettings.getImageForName("button_video_pause")
             videoViewCampaign.play()
         }
-      
-        self.videoButton.setImage(imageName, forState: .Normal)
+        self.barBtnVideo?.image = imageName
+
+        self.videoButton?.setImage(imageName, forState: .Normal)
         self.isVideoPlaying = !self.isVideoPlaying
+
     }
 }

@@ -66,7 +66,6 @@
                         <constraint firstAttribute="width" secondItem="bSc-ig-5Md" secondAttribute="height" multiplier="1:1" id="kYs-8v-ILM"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <inset key="imageEdgeInsets" minX="20" minY="-10" maxX="0.0" maxY="0.0"/>
                     <state key="normal" image="button_website.png"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -194,9 +193,9 @@
                     <exclude reference="TRw-i5-TYx"/>
                     <exclude reference="cNi-qT-6J7"/>
                     <exclude reference="vGg-FX-j38"/>
+                    <exclude reference="RIv-Ep-lOR"/>
                     <exclude reference="8cK-yQ-cTL"/>
                     <exclude reference="eMK-99-jr9"/>
-                    <exclude reference="RIv-Ep-lOR"/>
                     <exclude reference="5Dw-4o-wnO"/>
                     <exclude reference="Bxo-cl-b8o"/>
                 </mask>

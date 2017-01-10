@@ -9,7 +9,6 @@
 import UIKit
 
 class ImageSuperView: UIView {
-    
     private var bgColor         : UIColor!  = UIColor.whiteColor()
     private var shadowColor     : UIColor!  = UIColor.grayColor()
     private var shadowOffset    : CGSize!   = CGSizeMake(0, 2)
@@ -49,7 +48,6 @@ class ImageSuperView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
 //        if imageLayer == nil {
 //            let radius: CGFloat = 6, offset: CGFloat = 4
 //            
@@ -73,47 +71,33 @@ class ImageSuperView: UIView {
 //        }
         
         let options = ProximateSDKSettings.psdkCardOptions
-//        for option in options {
-//            switch (option) {
-//            case let .CardBackgroundColor(value):
-//                bgColor = value
-//            case let .CardShadowColor(value):
-//                shadowColor = value
-//            case let .CardShadowOffset(value):
-//                shadowOffset = value
-//            case let .CardCornerRadius(value):
-//                cornerRadius = value
-//            case let .CardShadowRadius(value):
-//                shadowRadius = value
-//            case let .CardShadowOpacity(value):
-//                shadowOpacity = value
-//            case let .CardBorderWidth(value):
-//                borderWidth = value
-//            case let .CardBorderColor(value):
-//                borderColor = value
-//            default: break
-//            }
-//        }
-        
+        self.bgColor = options?.cardBackgroundColor
+        self.shadowColor = options?.cardShadowColor
+        self.shadowOffset = options?.cardShadowOffset
+        self.borderWidth = options?.cardBorderWidth
+        self.borderColor = options?.cardBorderColor
+        self.cornerRadius = options?.cardCornerRadius
+        self.shadowRadius = options?.cardShadowRadius
+        self.shadowOpacity = (options?.cardShadowOpacity)!
+
         if imageLayer == nil {
-            
             let shadowLayer = CALayer()
-            shadowLayer.shadowColor = shadowColor.CGColor
-            shadowLayer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius).CGPath
-            shadowLayer.shadowOffset =  shadowOffset
-            shadowLayer.shadowOpacity = shadowOpacity
-            shadowLayer.shadowRadius = shadowRadius
+            shadowLayer.shadowColor = self.shadowColor.CGColor
+            shadowLayer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.cornerRadius).CGPath
+            shadowLayer.shadowOffset    =  self.shadowOffset
+            shadowLayer.shadowOpacity   = self.shadowOpacity
+            shadowLayer.shadowRadius    = self.shadowRadius
             layer.addSublayer(shadowLayer)
             
             let maskLayer = CAShapeLayer()
-            maskLayer.path = UIBezierPath(roundedRect: CGRectInset(self.bounds, 2.0, 2.0), cornerRadius: cornerRadius).CGPath
+            maskLayer.path = UIBezierPath(roundedRect: CGRectInset(self.bounds, 2.0, 2.0), cornerRadius: self.cornerRadius).CGPath
             
             imageLayer = CALayer()
             imageLayer.mask = maskLayer
             imageLayer.frame = self.bounds
-            imageLayer.backgroundColor = bgColor.CGColor
-            imageLayer.borderColor = borderColor.CGColor
-            imageLayer.borderWidth = borderWidth
+            imageLayer.backgroundColor = self.bgColor.CGColor
+            imageLayer.borderColor = self.borderColor.CGColor
+            imageLayer.borderWidth = self.borderWidth
             imageLayer.contentsGravity = kCAGravityResizeAspect//kCAGravityResizeAspectFill
             layer.addSublayer(imageLayer)
         }

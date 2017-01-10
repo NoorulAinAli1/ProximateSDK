@@ -15,7 +15,7 @@
 		<key>ViewBackgroundColor</key>
 		<string>f1f2f3</string>
 		<key>NavigationBarImage</key>
-		<string>bg_navbar</string>
+		<string>bgnavbar</string>
 		<key>NavigationBarTitle</key>
 		<dict>
 			<key>FontSize</key>

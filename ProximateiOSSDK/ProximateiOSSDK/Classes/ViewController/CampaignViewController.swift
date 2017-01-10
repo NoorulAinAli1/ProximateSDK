@@ -17,12 +17,11 @@ internal enum CAMPAIGN_ACTION_TYPE : String {
     case REDEEM     = "REDEEM"
 }
 
-class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, CampaignStoreDelegate, CampaignActionButtonDelegate, UIAlertViewDelegate, UIScrollViewDelegate {
+class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, CampaignStoreDelegate, CampaignActionButtonDelegate, UIAlertViewDelegate, UIScrollViewDelegate{
     
     var mCampaign : ObjectCampaign!
     private let outerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.outerPadding
     private let innerPadding : CGFloat  = ProximateSDKSettings.psdkViewOptions.innerPadding
-
     @IBOutlet var scrollView: UIScrollView!
     private var navBarVisible : Bool = false
 
@@ -44,7 +43,6 @@ class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, Camp
     @IBOutlet var viewSpacing : [NSLayoutConstraint]!
     
     private let campaignHeaderView = ProximateSDKSettings.getBundle().loadNibNamed("CampaignHeaderView", owner: CampaignViewController.self, options: nil)!.first as! CampaignHeaderView
-
     private let storyBoard = UIStoryboard(name: "ProximateSDK", bundle: ProximateSDKSettings.getBundle())
     
     override func viewDidLoad() {
@@ -52,7 +50,7 @@ class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, Camp
         self.view.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-        
+    
         self.scrollView.backgroundColor = ProximateSDKSettings.psdkViewOptions.viewBackgroundColor
         self.scrollView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
         
@@ -116,6 +114,7 @@ class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, Camp
         view0Height.constant = yIndex
         campaignHeaderView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         yIndex += outerPadding
+        
     }
     
     private func setTitleView(){
@@ -239,9 +238,6 @@ class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, Camp
             
         }
         
-        
-        DebugLogger.debugLog("action is \(campaignActionTag)")
-        DebugLogger.debugLog("action-- is \(campaignAction.toString())")
     }
     
     func loadExternalURL(url : NSURL){
@@ -267,6 +263,10 @@ class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, Camp
     }
     
     // MARK: - CampaignInfoClickDelegate methods
+    func didSetCampaignMediaVideo(){
+        self.navigationItem.rightBarButtonItem = campaignHeaderView.btnVideo
+
+    }
     
     func didClickCampaignShare(shareText: String) {
         let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
@@ -326,6 +326,10 @@ class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, Camp
         self.navigationController?.navigationBar.translucent = !self.navBarVisible
         self.navigationController?.navigationBar.barTintColor =  UIColor.clearColor()
         self.title = ""
+        
+        if self.campaignHeaderView.btnVideo != nil {
+            self.navigationItem.rightBarButtonItem = self.campaignHeaderView.btnVideo
+        }
     }
     
     private func showNavigationBar(){
@@ -333,6 +337,7 @@ class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, Camp
         self.navigationController?.navigationBar.translucent = !self.navBarVisible
         self.navigationController?.navigationBar.barTintColor = self.campaignHeaderView.getAverageColor()
         self.title = mCampaign.getMerchant().merchantName
+        self.navigationItem.rightBarButtonItem = nil
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -363,7 +368,7 @@ class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, Camp
         }
         //        ProximateSDK.getScreenInteractionDelegate()?.screenInteracted()
     }
-    
+        
     // MARK: - Memory Warning
     
     override func didReceiveMemoryWarning() {
