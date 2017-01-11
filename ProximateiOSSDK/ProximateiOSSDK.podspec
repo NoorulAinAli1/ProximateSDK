@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'ProximateiOSSDK'
-s.version          = '0.1.0'
+s.version          = '1.0.0'
 s.summary          = 'Integrate ProximateiOSSDK with your merchant or bank app.'
 s.requires_arc = true
 
@@ -32,12 +32,12 @@ s.social_media_url = 'https://twitter.com/ProximateApp'
 
 s.ios.deployment_target = '8.0'
 
-s.source_files     = 'ProximateiOSSDK/Classes/**/*.{swift,h,m}'
+s.source_files     = 'ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.{swift,h,m}'
 #s.source_files = "ProximateiOSSDK/ProximateiOSSDK/**/*.{swift,h,m}"
 
 #s.resources = "ProximateiOSSDK/**/*.{png,strings,storyboard,xib}"
 s.resource_bundles = {
-'ProximateiOSSDK' => ['ProximateiOSSDK/Assets/*']
+'ProximateiOSSDK' => ['ProximateiOSSDK/ProximateiOSSDK/Assets/*']
 }
 
 #s.public_header_files = 'ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.h'

@@ -30,7 +30,7 @@ extension Request {
         - Success: The validation was successful.
         - Failure: The validation failed encountering the provided error.
     */
-    public enum ValidationResult {
+    enum ValidationResult {
         case Success
         case Failure(NSError)
     }

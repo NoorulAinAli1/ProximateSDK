@@ -37,7 +37,7 @@ extension UIImageView {
     // MARK: - ImageTransition
 
     /// Used to wrap all `UIView` animation transition options alongside a duration.
-    public enum ImageTransition {
+    enum ImageTransition {
         case None
         case CrossDissolve(NSTimeInterval)
         case CurlDown(NSTimeInterval)
