@@ -32,12 +32,12 @@ s.social_media_url = 'https://twitter.com/ProximateApp'
 
 s.ios.deployment_target = '8.0'
 
-s.source_files     = 'ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.{swift,h,m}'
+s.source_files     = 'ProximateiOSSDK/Classes/**/*.{swift,h,m}'
 #s.source_files = "ProximateiOSSDK/ProximateiOSSDK/**/*.{swift,h,m}"
 
 #s.resources = "ProximateiOSSDK/**/*.{png,strings,storyboard,xib}"
 s.resource_bundles = {
-'ProximateiOSSDK' => ['ProximateiOSSDK/ProximateiOSSDK/Assets/*']
+'ProximateiOSSDK' => ['ProximateiOSSDK/Assets/*']
 }
 
 #s.public_header_files = 'ProximateiOSSDK/ProximateiOSSDK/Classes/**/*.h'
