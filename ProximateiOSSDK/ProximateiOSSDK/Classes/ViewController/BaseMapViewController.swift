@@ -21,8 +21,15 @@ class BaseMapViewController: BaseViewController, MKMapViewDelegate, CLLocationMa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = ProximateSDKSettings.psdkViewOptions.primaryColor
+//        self.navigationController?.navigationBar.barTintColor = ProximateSDKSettings.psdkViewOptions.primaryColor
         
+        if let navBarImage = ProximateSDKSettings.psdkViewOptions.navigationBarImage  {
+            ProximateSDKSettings.psdkNavBarHasImage = true
+            self.self.navigationController?.navigationBar.setBackgroundImage(navBarImage, forBarMetrics: UIBarMetrics.Default)
+        } else {
+            self.self.navigationController?.navigationBar.barTintColor =  ProximateSDKSettings.psdkViewOptions.primaryColor
+            self.self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        }
 
         initLocationManager()
     }

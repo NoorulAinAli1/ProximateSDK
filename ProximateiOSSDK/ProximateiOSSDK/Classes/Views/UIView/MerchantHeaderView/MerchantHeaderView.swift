@@ -50,7 +50,6 @@ class MerchantHeaderView: UIView {
                 let bannerImage = response.result.value
 
                 let colors = self.colorCube.extractColorsFromImage(bannerImage!, flags: CCAvoidWhite.rawValue) as! [UIColor]
-
                 self.merchantBannerColor = colors[0]
                 self.merchantBanner.image = bannerImage
             }

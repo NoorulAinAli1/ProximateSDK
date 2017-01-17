@@ -1,0 +1,774 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00941523FCC9D98292880B95AB7E86CE /* ObjectMappingInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F2BF82A715C25D9A753D90EF5846238D /* ObjectMappingInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BE4D31A814EEDBD857417A4B8DD46DA /* DDPageControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 696E93E5BE2F89647BA22BFD45213891 /* DDPageControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AD8ABD15D46BC74BA2035D0D887762E /* ObjectInstanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8415D51D9FD0954C513C00148EBD8182 /* ObjectInstanceProvider.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		431CF5D707075663BAD4F722962EF145 /* ManagedObjectInstanceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DDF8C0BDEB0EBD95261FEDBC94F6C4BD /* ManagedObjectInstanceProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4847A0092E85C5E76AD0B97A9037DC93 /* ObjectInstanceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = BC77D8D9F7CD19B9FFB92D02712876C4 /* ObjectInstanceProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48DB69FD4388E8297B06D8A2A324DD32 /* Pods-ProximateiOSSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 675F4E0E55EF6BBBF2FD622DD4119559 /* Pods-ProximateiOSSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54FE3249343D1130C31D89D236673F45 /* MappingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = CCD5B9E1002E307F85A24813CC87E0FE /* MappingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		57C2C4232CAB19A9822711F7D545521D /* InCodeMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 751EED35A8FB2B8BE467EB43414198E9 /* InCodeMappingProvider.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		58A6DE834A160181D266BD28F451A0AC /* NSDictionary+ObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = EE1C47DB83057C1AA3491E8B4DB54B20 /* NSDictionary+ObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F1F7D382AF42363EFFF8991CF3EE767 /* ManagedObjectInstanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F555311C0BF6CEAA4E05AB777CF63832 /* ManagedObjectInstanceProvider.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6F93F6B9B7F5F695AFC008801BD1B1A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		73F52C4CB5B60C14C9172896DDF61C95 /* ObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C11F2893E6343F38712DBFA0F2016 /* ObjectMapper.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		830BF6D8CB451CD39F3781E1A7BAA63B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		87E42AC2BD2D29E7FFD2832D01125718 /* Pods-ProximateiOSSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D0D5BA4D0B21C77CAA7C023D952864 /* Pods-ProximateiOSSDK-dummy.m */; };
+		9267C7C17C5051A7252CEC1AF9C56E79 /* NSDictionary+ObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D269976DD6FFFAAD14AEF4461F4746 /* NSDictionary+ObjectMapper.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9B7B62CAFEB0754930ED9A500A70952B /* DDPageControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CC710375F7ECE05CB233BD5AD32EB4 /* DDPageControl-dummy.m */; };
+		A033D96EC66605AEFB9FE09DFE2BCCD8 /* NSObject+ObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = C7F00EE2F0A09D8C1E018FFEC0F2891A /* NSObject+ObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6DA9961A408F4202BF8A393EA6BF2E0 /* OCMapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B83CA4196534A6C0EE58425BA3632AB /* OCMapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE81D3107EC7060BA7906CEF112FD8A2 /* ObjectMappingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E625867D446AB5FD040985840CC2CB80 /* ObjectMappingInfo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B089259A46EA9C413A5D842629F7B8B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		C1B64D0A18E0D40E2758C1BC48E87A6D /* CommonLoggingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 707306790E771E030A10044379FF39CD /* CommonLoggingProvider.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CCEB41742F31059B525AFC70580E5DC6 /* OCMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7888307336F31770800242EBA72593BE /* OCMapper-dummy.m */; };
+		D1F7BE3B68F35F7E16CCE4DB2BA9B768 /* InstanceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CDD51130FEEE820845F09338DD51310 /* InstanceProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8AD5305B95DC92447AAB738B7CBF00D /* LoggingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B4962A6975C49AB410C7DE65F522372B /* LoggingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F15AC4216ADC1458D7BD7FB2AB97A89C /* DDPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CCC74092F81C672623AD3006ED2353 /* DDPageControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F1C6304F9ED125D58737DFCEA895D543 /* OCMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D50B93D91D5D2A2AE471CBE866F1B4 /* OCMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F28FE5F5F344CDD5ABF404CDE5AA9474 /* NSObject+ObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 489F720779B36E242CB1EFBF5E2712E3 /* NSObject+ObjectMapper.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F5D87E0B998D72B434EDCD9F453B334A /* CommonLoggingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = A44C3C1A2DFDC5D99695B2A90A6C0718 /* CommonLoggingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FBC421FACF2C507F272C059984E26CAD /* ObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 922C72C70C82D6C8B2A6BD971A2FA32B /* ObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC554709996D4687AAA903E8D077E752 /* DDPageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DB729235D301E5A95C57BB2984BE9813 /* DDPageControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF5280EF95598BC5102F0F1FA3F2867D /* InCodeMappingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 13626B94743CC57DA15D49DAE226C29F /* InCodeMappingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79189C32FD13547C2BB55485B6756C67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A567183BDD1C5FA3C958F3D0A2C96241;
+			remoteInfo = OCMapper;
+		};
+		AAA8AC42AF3571F909876E8E69A7FC3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD16BB7605644DEF0EC20E161F41240C;
+			remoteInfo = DDPageControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08406FB4AEA4B080DD28FBD6887F4E5B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A6BF270429F1052C799EB1727CF2453 /* DDPageControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DDPageControl-prefix.pch"; sourceTree = "<group>"; };
+		0C6D3534A35E88E476FC6CE96FDF4A21 /* Pods-ProximateiOSSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ProximateiOSSDK.release.xcconfig"; sourceTree = "<group>"; };
+		12A8A184D7E6AEFEA7C3CEA0A4965783 /* OCMapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OCMapper.xcconfig; sourceTree = "<group>"; };
+		13626B94743CC57DA15D49DAE226C29F /* InCodeMappingProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = InCodeMappingProvider.h; path = "OCMapper/Source/Mapping Provider/In Code Mapping/InCodeMappingProvider.h"; sourceTree = "<group>"; };
+		188FCF0C5681819790CB186FDE94FD99 /* Pods-ProximateiOSSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ProximateiOSSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		1CDD51130FEEE820845F09338DD51310 /* InstanceProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = InstanceProvider.h; path = "OCMapper/Source/Instance Provider/InstanceProvider.h"; sourceTree = "<group>"; };
+		1FED6B2AE9D507FB6139B88443B89526 /* Pods-ProximateiOSSDK-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ProximateiOSSDK-acknowledgements.markdown"; sourceTree = "<group>"; };
+		26CCC74092F81C672623AD3006ED2353 /* DDPageControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDPageControl.m; path = Classes/DDPageControl.m; sourceTree = "<group>"; };
+		2FFFF9FC0EC6F93A3E92D3E5790A3BC5 /* OCMapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = OCMapper.modulemap; sourceTree = "<group>"; };
+		38A789B70B489A5CC27DC9840D6F2ED0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		393A0E900C93037878CE606E97FB0566 /* Pods-ProximateiOSSDK-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ProximateiOSSDK-acknowledgements.plist"; sourceTree = "<group>"; };
+		4345B8749D4E41033D9319FAF4154BFD /* OCMapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OCMapper-prefix.pch"; sourceTree = "<group>"; };
+		489F720779B36E242CB1EFBF5E2712E3 /* NSObject+ObjectMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+ObjectMapper.m"; path = "OCMapper/Source/Categories/NSObject+ObjectMapper.m"; sourceTree = "<group>"; };
+		675F4E0E55EF6BBBF2FD622DD4119559 /* Pods-ProximateiOSSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ProximateiOSSDK-umbrella.h"; sourceTree = "<group>"; };
+		696E93E5BE2F89647BA22BFD45213891 /* DDPageControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DDPageControl-umbrella.h"; sourceTree = "<group>"; };
+		707306790E771E030A10044379FF39CD /* CommonLoggingProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CommonLoggingProvider.m; path = "OCMapper/Source/Logging Provider/CommonLoggingProvider.m"; sourceTree = "<group>"; };
+		751EED35A8FB2B8BE467EB43414198E9 /* InCodeMappingProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = InCodeMappingProvider.m; path = "OCMapper/Source/Mapping Provider/In Code Mapping/InCodeMappingProvider.m"; sourceTree = "<group>"; };
+		77D50B93D91D5D2A2AE471CBE866F1B4 /* OCMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMapper.h; path = OCMapper/Source/OCMapper.h; sourceTree = "<group>"; };
+		7888307336F31770800242EBA72593BE /* OCMapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OCMapper-dummy.m"; sourceTree = "<group>"; };
+		8415D51D9FD0954C513C00148EBD8182 /* ObjectInstanceProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ObjectInstanceProvider.m; path = "OCMapper/Source/Instance Provider/ObjectInstanceProvider.m"; sourceTree = "<group>"; };
+		8B83CA4196534A6C0EE58425BA3632AB /* OCMapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OCMapper-umbrella.h"; sourceTree = "<group>"; };
+		922C72C70C82D6C8B2A6BD971A2FA32B /* ObjectMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ObjectMapper.h; path = OCMapper/Source/ObjectMapper.h; sourceTree = "<group>"; };
+		92D0D5BA4D0B21C77CAA7C023D952864 /* Pods-ProximateiOSSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ProximateiOSSDK-dummy.m"; sourceTree = "<group>"; };
+		93960BC3787D2173DA60A4C8C4DA80F3 /* Pods_ProximateiOSSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ProximateiOSSDK.framework; path = "Pods-ProximateiOSSDK.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D25EB755FA37AB134D60725817BB4F9 /* Pods-ProximateiOSSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ProximateiOSSDK.modulemap"; sourceTree = "<group>"; };
+		A0CC710375F7ECE05CB233BD5AD32EB4 /* DDPageControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DDPageControl-dummy.m"; sourceTree = "<group>"; };
+		A44C3C1A2DFDC5D99695B2A90A6C0718 /* CommonLoggingProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CommonLoggingProvider.h; path = "OCMapper/Source/Logging Provider/CommonLoggingProvider.h"; sourceTree = "<group>"; };
+		A7A512BF9136FE1C4FEA544B8348D32C /* OCMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OCMapper.framework; path = OCMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8A77092E972E6723222FCA92E41435A /* Pods-ProximateiOSSDK-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ProximateiOSSDK-resources.sh"; sourceTree = "<group>"; };
+		AD2C11F2893E6343F38712DBFA0F2016 /* ObjectMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ObjectMapper.m; path = OCMapper/Source/ObjectMapper.m; sourceTree = "<group>"; };
+		B4962A6975C49AB410C7DE65F522372B /* LoggingProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LoggingProvider.h; path = "OCMapper/Source/Logging Provider/LoggingProvider.h"; sourceTree = "<group>"; };
+		BC77D8D9F7CD19B9FFB92D02712876C4 /* ObjectInstanceProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ObjectInstanceProvider.h; path = "OCMapper/Source/Instance Provider/ObjectInstanceProvider.h"; sourceTree = "<group>"; };
+		C14F8FB67C3218D7B5BAF3B1AC36C675 /* DDPageControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DDPageControl.framework; path = DDPageControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7F00EE2F0A09D8C1E018FFEC0F2891A /* NSObject+ObjectMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+ObjectMapper.h"; path = "OCMapper/Source/Categories/NSObject+ObjectMapper.h"; sourceTree = "<group>"; };
+		C8D269976DD6FFFAAD14AEF4461F4746 /* NSDictionary+ObjectMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+ObjectMapper.m"; path = "OCMapper/Source/Categories/NSDictionary+ObjectMapper.m"; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CCD5B9E1002E307F85A24813CC87E0FE /* MappingProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MappingProvider.h; path = "OCMapper/Source/Mapping Provider/MappingProvider.h"; sourceTree = "<group>"; };
+		CF867C2D187EBC06B2E77F2BA586E9A5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB729235D301E5A95C57BB2984BE9813 /* DDPageControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDPageControl.h; path = Classes/DDPageControl.h; sourceTree = "<group>"; };
+		DDF8C0BDEB0EBD95261FEDBC94F6C4BD /* ManagedObjectInstanceProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ManagedObjectInstanceProvider.h; path = "OCMapper/Source/Instance Provider/ManagedObjectInstanceProvider.h"; sourceTree = "<group>"; };
+		E625867D446AB5FD040985840CC2CB80 /* ObjectMappingInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ObjectMappingInfo.m; path = OCMapper/Source/ObjectMappingInfo.m; sourceTree = "<group>"; };
+		E8AFCE5CCD54644B5105438D2D276F1C /* DDPageControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DDPageControl.xcconfig; sourceTree = "<group>"; };
+		EE1C47DB83057C1AA3491E8B4DB54B20 /* NSDictionary+ObjectMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+ObjectMapper.h"; path = "OCMapper/Source/Categories/NSDictionary+ObjectMapper.h"; sourceTree = "<group>"; };
+		F2BF82A715C25D9A753D90EF5846238D /* ObjectMappingInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ObjectMappingInfo.h; path = OCMapper/Source/ObjectMappingInfo.h; sourceTree = "<group>"; };
+		F555311C0BF6CEAA4E05AB777CF63832 /* ManagedObjectInstanceProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ManagedObjectInstanceProvider.m; path = "OCMapper/Source/Instance Provider/ManagedObjectInstanceProvider.m"; sourceTree = "<group>"; };
+		FE31264CE3D07F5E6F9F67DD9636EC14 /* DDPageControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DDPageControl.modulemap; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0F5A6B6AA4B6768D46175E0BC9C582A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F93F6B9B7F5F695AFC008801BD1B1A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1D2282FF8394C4242E211485DBA9294 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B089259A46EA9C413A5D842629F7B8B7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE725273329C44A8A75769C5CEA0D8C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				830BF6D8CB451CD39F3781E1A7BAA63B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0202ED714239C6128EEE7CEA40D32D76 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9CC853D25779A9AF08D8617380D85B26 /* DDPageControl */,
+				53473AA0C75F9711C525CCD7165CCA37 /* OCMapper */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1905C80A9F0B1648CE986F5C4BA32274 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				38A789B70B489A5CC27DC9840D6F2ED0 /* Info.plist */,
+				2FFFF9FC0EC6F93A3E92D3E5790A3BC5 /* OCMapper.modulemap */,
+				12A8A184D7E6AEFEA7C3CEA0A4965783 /* OCMapper.xcconfig */,
+				7888307336F31770800242EBA72593BE /* OCMapper-dummy.m */,
+				4345B8749D4E41033D9319FAF4154BFD /* OCMapper-prefix.pch */,
+				8B83CA4196534A6C0EE58425BA3632AB /* OCMapper-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/OCMapper";
+			sourceTree = "<group>";
+		};
+		2D2FD3988A50F00F757E9FE97B6F3804 /* Pods-ProximateiOSSDK */ = {
+			isa = PBXGroup;
+			children = (
+				08406FB4AEA4B080DD28FBD6887F4E5B /* Info.plist */,
+				9D25EB755FA37AB134D60725817BB4F9 /* Pods-ProximateiOSSDK.modulemap */,
+				1FED6B2AE9D507FB6139B88443B89526 /* Pods-ProximateiOSSDK-acknowledgements.markdown */,
+				393A0E900C93037878CE606E97FB0566 /* Pods-ProximateiOSSDK-acknowledgements.plist */,
+				92D0D5BA4D0B21C77CAA7C023D952864 /* Pods-ProximateiOSSDK-dummy.m */,
+				A8A77092E972E6723222FCA92E41435A /* Pods-ProximateiOSSDK-resources.sh */,
+				675F4E0E55EF6BBBF2FD622DD4119559 /* Pods-ProximateiOSSDK-umbrella.h */,
+				188FCF0C5681819790CB186FDE94FD99 /* Pods-ProximateiOSSDK.debug.xcconfig */,
+				0C6D3534A35E88E476FC6CE96FDF4A21 /* Pods-ProximateiOSSDK.release.xcconfig */,
+			);
+			name = "Pods-ProximateiOSSDK";
+			path = "Target Support Files/Pods-ProximateiOSSDK";
+			sourceTree = "<group>";
+		};
+		3D40EF737ACC56920C4B4E5DE998874D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FE31264CE3D07F5E6F9F67DD9636EC14 /* DDPageControl.modulemap */,
+				E8AFCE5CCD54644B5105438D2D276F1C /* DDPageControl.xcconfig */,
+				A0CC710375F7ECE05CB233BD5AD32EB4 /* DDPageControl-dummy.m */,
+				0A6BF270429F1052C799EB1727CF2453 /* DDPageControl-prefix.pch */,
+				696E93E5BE2F89647BA22BFD45213891 /* DDPageControl-umbrella.h */,
+				CF867C2D187EBC06B2E77F2BA586E9A5 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DDPageControl";
+			sourceTree = "<group>";
+		};
+		53473AA0C75F9711C525CCD7165CCA37 /* OCMapper */ = {
+			isa = PBXGroup;
+			children = (
+				A44C3C1A2DFDC5D99695B2A90A6C0718 /* CommonLoggingProvider.h */,
+				707306790E771E030A10044379FF39CD /* CommonLoggingProvider.m */,
+				13626B94743CC57DA15D49DAE226C29F /* InCodeMappingProvider.h */,
+				751EED35A8FB2B8BE467EB43414198E9 /* InCodeMappingProvider.m */,
+				1CDD51130FEEE820845F09338DD51310 /* InstanceProvider.h */,
+				B4962A6975C49AB410C7DE65F522372B /* LoggingProvider.h */,
+				DDF8C0BDEB0EBD95261FEDBC94F6C4BD /* ManagedObjectInstanceProvider.h */,
+				F555311C0BF6CEAA4E05AB777CF63832 /* ManagedObjectInstanceProvider.m */,
+				CCD5B9E1002E307F85A24813CC87E0FE /* MappingProvider.h */,
+				EE1C47DB83057C1AA3491E8B4DB54B20 /* NSDictionary+ObjectMapper.h */,
+				C8D269976DD6FFFAAD14AEF4461F4746 /* NSDictionary+ObjectMapper.m */,
+				C7F00EE2F0A09D8C1E018FFEC0F2891A /* NSObject+ObjectMapper.h */,
+				489F720779B36E242CB1EFBF5E2712E3 /* NSObject+ObjectMapper.m */,
+				BC77D8D9F7CD19B9FFB92D02712876C4 /* ObjectInstanceProvider.h */,
+				8415D51D9FD0954C513C00148EBD8182 /* ObjectInstanceProvider.m */,
+				922C72C70C82D6C8B2A6BD971A2FA32B /* ObjectMapper.h */,
+				AD2C11F2893E6343F38712DBFA0F2016 /* ObjectMapper.m */,
+				F2BF82A715C25D9A753D90EF5846238D /* ObjectMappingInfo.h */,
+				E625867D446AB5FD040985840CC2CB80 /* ObjectMappingInfo.m */,
+				77D50B93D91D5D2A2AE471CBE866F1B4 /* OCMapper.h */,
+				1905C80A9F0B1648CE986F5C4BA32274 /* Support Files */,
+			);
+			name = OCMapper;
+			path = OCMapper;
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				0202ED714239C6128EEE7CEA40D32D76 /* Pods */,
+				DFE0609747554F4A67E87E349497D353 /* Products */,
+				D691245E336AAA2A480C87488E2B32CF /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9CC853D25779A9AF08D8617380D85B26 /* DDPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				DB729235D301E5A95C57BB2984BE9813 /* DDPageControl.h */,
+				26CCC74092F81C672623AD3006ED2353 /* DDPageControl.m */,
+				3D40EF737ACC56920C4B4E5DE998874D /* Support Files */,
+			);
+			name = DDPageControl;
+			path = DDPageControl;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D691245E336AAA2A480C87488E2B32CF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D2FD3988A50F00F757E9FE97B6F3804 /* Pods-ProximateiOSSDK */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		DFE0609747554F4A67E87E349497D353 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C14F8FB67C3218D7B5BAF3B1AC36C675 /* DDPageControl.framework */,
+				A7A512BF9136FE1C4FEA544B8348D32C /* OCMapper.framework */,
+				93960BC3787D2173DA60A4C8C4DA80F3 /* Pods_ProximateiOSSDK.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		21F41B2AB24A2AA8A844696679C3E8FA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5D87E0B998D72B434EDCD9F453B334A /* CommonLoggingProvider.h in Headers */,
+				FF5280EF95598BC5102F0F1FA3F2867D /* InCodeMappingProvider.h in Headers */,
+				D1F7BE3B68F35F7E16CCE4DB2BA9B768 /* InstanceProvider.h in Headers */,
+				D8AD5305B95DC92447AAB738B7CBF00D /* LoggingProvider.h in Headers */,
+				431CF5D707075663BAD4F722962EF145 /* ManagedObjectInstanceProvider.h in Headers */,
+				54FE3249343D1130C31D89D236673F45 /* MappingProvider.h in Headers */,
+				58A6DE834A160181D266BD28F451A0AC /* NSDictionary+ObjectMapper.h in Headers */,
+				A033D96EC66605AEFB9FE09DFE2BCCD8 /* NSObject+ObjectMapper.h in Headers */,
+				4847A0092E85C5E76AD0B97A9037DC93 /* ObjectInstanceProvider.h in Headers */,
+				FBC421FACF2C507F272C059984E26CAD /* ObjectMapper.h in Headers */,
+				00941523FCC9D98292880B95AB7E86CE /* ObjectMappingInfo.h in Headers */,
+				A6DA9961A408F4202BF8A393EA6BF2E0 /* OCMapper-umbrella.h in Headers */,
+				F1C6304F9ED125D58737DFCEA895D543 /* OCMapper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59E5640DE956ED866E55835BD483DBC0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BE4D31A814EEDBD857417A4B8DD46DA /* DDPageControl-umbrella.h in Headers */,
+				FC554709996D4687AAA903E8D077E752 /* DDPageControl.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE3D4BAD47C199D8F7C7E3DCC1F06AB7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48DB69FD4388E8297B06D8A2A324DD32 /* Pods-ProximateiOSSDK-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A567183BDD1C5FA3C958F3D0A2C96241 /* OCMapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C95C21F422EE35E022F0BD7093CCDC99 /* Build configuration list for PBXNativeTarget "OCMapper" */;
+			buildPhases = (
+				FB122CCA056D5C9805BEC7BE8B06D001 /* Sources */,
+				0F5A6B6AA4B6768D46175E0BC9C582A9 /* Frameworks */,
+				21F41B2AB24A2AA8A844696679C3E8FA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OCMapper;
+			productName = OCMapper;
+			productReference = A7A512BF9136FE1C4FEA544B8348D32C /* OCMapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BD16BB7605644DEF0EC20E161F41240C /* DDPageControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAB64CC823A408F23FF546BF6B6BDC91 /* Build configuration list for PBXNativeTarget "DDPageControl" */;
+			buildPhases = (
+				43AA9BCC4A80BBFCBF330CF197F7A8CE /* Sources */,
+				A1D2282FF8394C4242E211485DBA9294 /* Frameworks */,
+				59E5640DE956ED866E55835BD483DBC0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DDPageControl;
+			productName = DDPageControl;
+			productReference = C14F8FB67C3218D7B5BAF3B1AC36C675 /* DDPageControl.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EA1DE15B0A8775ECA04D3B839349E222 /* Pods-ProximateiOSSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E6F82516E8B9F10F0C008B6A8D2A81E /* Build configuration list for PBXNativeTarget "Pods-ProximateiOSSDK" */;
+			buildPhases = (
+				94C2918386CCA02B495C70E5DA3EB78A /* Sources */,
+				CE725273329C44A8A75769C5CEA0D8C9 /* Frameworks */,
+				EE3D4BAD47C199D8F7C7E3DCC1F06AB7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04091D2CB30B292BC684F32C95DD28C8 /* PBXTargetDependency */,
+				D07DB8D2F0CC3F72D08F4515D5633AD1 /* PBXTargetDependency */,
+			);
+			name = "Pods-ProximateiOSSDK";
+			productName = "Pods-ProximateiOSSDK";
+			productReference = 93960BC3787D2173DA60A4C8C4DA80F3 /* Pods_ProximateiOSSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = DFE0609747554F4A67E87E349497D353 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD16BB7605644DEF0EC20E161F41240C /* DDPageControl */,
+				A567183BDD1C5FA3C958F3D0A2C96241 /* OCMapper */,
+				EA1DE15B0A8775ECA04D3B839349E222 /* Pods-ProximateiOSSDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43AA9BCC4A80BBFCBF330CF197F7A8CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B7B62CAFEB0754930ED9A500A70952B /* DDPageControl-dummy.m in Sources */,
+				F15AC4216ADC1458D7BD7FB2AB97A89C /* DDPageControl.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94C2918386CCA02B495C70E5DA3EB78A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87E42AC2BD2D29E7FFD2832D01125718 /* Pods-ProximateiOSSDK-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB122CCA056D5C9805BEC7BE8B06D001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1B64D0A18E0D40E2758C1BC48E87A6D /* CommonLoggingProvider.m in Sources */,
+				57C2C4232CAB19A9822711F7D545521D /* InCodeMappingProvider.m in Sources */,
+				5F1F7D382AF42363EFFF8991CF3EE767 /* ManagedObjectInstanceProvider.m in Sources */,
+				9267C7C17C5051A7252CEC1AF9C56E79 /* NSDictionary+ObjectMapper.m in Sources */,
+				F28FE5F5F344CDD5ABF404CDE5AA9474 /* NSObject+ObjectMapper.m in Sources */,
+				2AD8ABD15D46BC74BA2035D0D887762E /* ObjectInstanceProvider.m in Sources */,
+				73F52C4CB5B60C14C9172896DDF61C95 /* ObjectMapper.m in Sources */,
+				AE81D3107EC7060BA7906CEF112FD8A2 /* ObjectMappingInfo.m in Sources */,
+				CCEB41742F31059B525AFC70580E5DC6 /* OCMapper-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04091D2CB30B292BC684F32C95DD28C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DDPageControl;
+			target = BD16BB7605644DEF0EC20E161F41240C /* DDPageControl */;
+			targetProxy = AAA8AC42AF3571F909876E8E69A7FC3E /* PBXContainerItemProxy */;
+		};
+		D07DB8D2F0CC3F72D08F4515D5633AD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OCMapper;
+			target = A567183BDD1C5FA3C958F3D0A2C96241 /* OCMapper */;
+			targetProxy = 79189C32FD13547C2BB55485B6756C67 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		015A368F878AC3E2CEAE21DDE8026304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4522B774AADD62CAE55FD46AFDE39188 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12A8A184D7E6AEFEA7C3CEA0A4965783 /* OCMapper.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OCMapper/OCMapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OCMapper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/OCMapper/OCMapper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = OCMapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4C40FDBCCB60774781F08259977E2A50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 188FCF0C5681819790CB186FDE94FD99 /* Pods-ProximateiOSSDK.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ProximateiOSSDK/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ProximateiOSSDK/Pods-ProximateiOSSDK.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ProximateiOSSDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5E316D939D28F0DC15DDBB956AB51035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8AFCE5CCD54644B5105438D2D276F1C /* DDPageControl.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DDPageControl/DDPageControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DDPageControl/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DDPageControl/DDPageControl.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DDPageControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A11D6DD2EABDC28B61C334AE56684324 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C6D3534A35E88E476FC6CE96FDF4A21 /* Pods-ProximateiOSSDK.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ProximateiOSSDK/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ProximateiOSSDK/Pods-ProximateiOSSDK.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ProximateiOSSDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D81783EB9AAA18DD32C72F70B9515527 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8AFCE5CCD54644B5105438D2D276F1C /* DDPageControl.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DDPageControl/DDPageControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DDPageControl/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DDPageControl/DDPageControl.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DDPageControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EBD029BE8DF2563065556749A512669C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12A8A184D7E6AEFEA7C3CEA0A4965783 /* OCMapper.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OCMapper/OCMapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OCMapper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/OCMapper/OCMapper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = OCMapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				015A368F878AC3E2CEAE21DDE8026304 /* Debug */,
+				44CDBB6D11DE06DB64D6268622BDC47E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E6F82516E8B9F10F0C008B6A8D2A81E /* Build configuration list for PBXNativeTarget "Pods-ProximateiOSSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C40FDBCCB60774781F08259977E2A50 /* Debug */,
+				A11D6DD2EABDC28B61C334AE56684324 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C95C21F422EE35E022F0BD7093CCDC99 /* Build configuration list for PBXNativeTarget "OCMapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4522B774AADD62CAE55FD46AFDE39188 /* Debug */,
+				EBD029BE8DF2563065556749A512669C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAB64CC823A408F23FF546BF6B6BDC91 /* Build configuration list for PBXNativeTarget "DDPageControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D81783EB9AAA18DD32C72F70B9515527 /* Debug */,
+				5E316D939D28F0DC15DDBB956AB51035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

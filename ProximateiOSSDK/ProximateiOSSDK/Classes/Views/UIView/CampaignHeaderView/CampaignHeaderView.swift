@@ -148,42 +148,7 @@ class CampaignHeaderView: UIView, UICollectionViewDataSource, UICollectionViewDe
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         delegate?.didClickOnCampaign!(mCampaign)
 
-//        let cell =  collectionView.cellForItemAtIndexPath(indexPath) as! CampaignMediaCollectionViewCell
-        //        if cell.content.type == "6601" {
-        //            pageControl.currentPage = indexPath.row
-        //
-        //            let campId : NSNumber = self.mainCampaign.getCampaignId()
-        ////            DebugLogger.debugLog("selected Campaign \(campId) and showDetail \(self.shouldShowDetail)")
-        ////            delegate?.didClickOnCampaignImage(self.campaign.campaignId, showDetail: self.shouldShowDetail)
-        //
-        //        } else if cell.content.type == "6602"{
-        //            if cell.videoViewCampaign.playbackState == .Playing {
-        //                cell.videoViewCampaign.pause()
-        //            } else{
-        //                cell.videoViewCampaign.play()
-        //
-        //            }
-        //        }
     }
-    
-    //    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-    //
-    //        let cell =  cell as! CampaignMediaCollectionViewCell
-    ////        if cell.content.type == "6601" { // image type
-    ////
-    ////        } else if cell.content.type == "6602"{ // video type
-    ////
-    ////            cell.videoViewCampaign.view.hidden = true
-    ////            cell.collectionViewImage.hidden = false
-    ////            cell.videoViewCampaign.stop()
-    ////        }
-    //    }
-    //
-    //    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-    //        pageControl.currentPage = indexPath.row
-    //        let cell : CampaignMediaCollectionViewCell  = campaignCollectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CampaignMediaCollectionViewCell
-    //        cell.backgroundColor = UIColor.clearColor()
-    //    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(self.frame.width, campaignCollectionView.frame.height)

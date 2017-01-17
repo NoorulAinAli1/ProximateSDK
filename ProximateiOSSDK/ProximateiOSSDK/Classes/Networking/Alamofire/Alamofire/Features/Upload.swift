@@ -189,7 +189,7 @@ extension Manager {
     // MARK: MultipartFormData
 
     /// Default memory threshold used when encoding `MultipartFormData`.
-    public static let MultipartFormDataEncodingMemoryThreshold: UInt64 = 10 * 1024 * 1024
+    internal static let MultipartFormDataEncodingMemoryThreshold: UInt64 = 10 * 1024 * 1024
 
     /**
         Defines whether the `MultipartFormData` encoding was successful and contains result of the encoding as 
