@@ -25,7 +25,7 @@ import Foundation
 /// Responsible for managing the mapping of `ServerTrustPolicy` objects to a given host.
 internal class ServerTrustPolicyManager {
     /// The dictionary of policies mapped to a particular host.
-    public let policies: [String: ServerTrustPolicy]
+    internal let policies: [String: ServerTrustPolicy]
     
     /**
      Initializes the `ServerTrustPolicyManager` instance with the given policies.
@@ -39,7 +39,7 @@ internal class ServerTrustPolicyManager {
      
      - returns: The new `ServerTrustPolicyManager` instance.
      */
-    public init(policies: [String: ServerTrustPolicy]) {
+    init(policies: [String: ServerTrustPolicy]) {
         self.policies = policies
     }
     

@@ -47,10 +47,10 @@ internal protocol ResponseSerializerType {
 */
 internal struct ResponseSerializer<Value, Error: ErrorType>: ResponseSerializerType {
     /// The type of serialized object to be created by this `ResponseSerializer`.
-    public typealias SerializedObject = Value
+    internal typealias SerializedObject = Value
 
     /// The type of error to be created by this `ResponseSerializer` if serialization fails.
-    public typealias ErrorObject = Error
+    internal typealias ErrorObject = Error
 
     /**
         A closure used by response handlers that takes a request, response, data and error and returns a result.
@@ -64,7 +64,7 @@ internal struct ResponseSerializer<Value, Error: ErrorType>: ResponseSerializerT
 
         - returns: The new generic response serializer instance.
     */
-    public init(serializeResponse: (NSURLRequest?, NSHTTPURLResponse?, NSData?, NSError?) -> Result<Value, Error>) {
+    internal init(serializeResponse: (NSURLRequest?, NSHTTPURLResponse?, NSData?, NSError?) -> Result<Value, Error>) {
         self.serializeResponse = serializeResponse
     }
 }
@@ -153,7 +153,7 @@ extension Request {
 
         - returns: A data response serializer.
     */
-    public static func dataResponseSerializer() -> ResponseSerializer<NSData, NSError> {
+    internal static func dataResponseSerializer() -> ResponseSerializer<NSData, NSError> {
         return ResponseSerializer { _, response, data, error in
             guard error == nil else { return .Failure(error!) }
 
@@ -198,7 +198,7 @@ extension Request {
 
         - returns: A string response serializer.
     */
-    public static func stringResponseSerializer(
+    internal static func stringResponseSerializer(
         encoding encoding: NSStringEncoding? = nil)
         -> ResponseSerializer<String, NSError>
     {
@@ -269,7 +269,7 @@ extension Request {
 
         - returns: A JSON object response serializer.
     */
-    public static func JSONResponseSerializer(
+    internal static func JSONResponseSerializer(
         options options: NSJSONReadingOptions = .AllowFragments)
         -> ResponseSerializer<AnyObject, NSError>
     {
@@ -328,7 +328,7 @@ extension Request {
 
         - returns: A property list object response serializer.
     */
-    public static func propertyListResponseSerializer(
+    internal static func propertyListResponseSerializer(
         options options: NSPropertyListReadOptions = NSPropertyListReadOptions())
         -> ResponseSerializer<AnyObject, NSError>
     {

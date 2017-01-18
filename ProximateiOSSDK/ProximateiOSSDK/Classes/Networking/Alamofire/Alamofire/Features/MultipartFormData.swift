@@ -98,7 +98,7 @@ internal  class MultipartFormData {
     internal var contentLength: UInt64 { return bodyParts.reduce(0) { $0 + $1.bodyContentLength } }
 
     /// The boundary used to separate the body parts in the encoded form data.
-    public let boundary: String
+    internal let boundary: String
 
     private var bodyParts: [BodyPart]
     private var bodyPartError: NSError?
@@ -111,7 +111,7 @@ internal  class MultipartFormData {
 
         - returns: The multipart form data object.
     */
-    public init() {
+    init() {
         self.boundary = BoundaryGenerator.randomBoundary()
         self.bodyParts = []
 

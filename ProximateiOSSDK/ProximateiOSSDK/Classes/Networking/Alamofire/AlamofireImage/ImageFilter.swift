@@ -83,10 +83,10 @@ extension ImageFilter where Self: Roundable {
 /// The `DynamicImageFilter` class simplifies custom image filter creation by using a trailing closure initializer.
 internal struct DynamicImageFilter: ImageFilter {
     /// The string used to uniquely identify the image filter operation.
-    public let identifier: String
+    internal let identifier: String
 
     /// A closure used to create an alternative representation of the given image.
-    public let filter: Image -> Image
+    internal let filter: Image -> Image
 
     /**
         Initializes the `DynamicImageFilter` instance with the specified identifier and filter closure.
@@ -96,7 +96,7 @@ internal struct DynamicImageFilter: ImageFilter {
 
         - returns: The new `DynamicImageFilter` instance.
     */
-    public init(_ identifier: String, filter: Image -> Image) {
+    init(_ identifier: String, filter: Image -> Image) {
         self.identifier = identifier
         self.filter = filter
     }
@@ -129,7 +129,7 @@ internal extension CompositeImageFilter {
 /// The `DynamicCompositeImageFilter` class is a composite image filter based on a specified array of filters.
 internal struct DynamicCompositeImageFilter: CompositeImageFilter {
     /// The image filters to apply to the image in sequential order.
-    public let filters: [ImageFilter]
+    internal let filters: [ImageFilter]
 
     /**
         Initializes the `DynamicCompositeImageFilter` instance with the given filters.
@@ -138,7 +138,7 @@ internal struct DynamicCompositeImageFilter: CompositeImageFilter {
 
         - returns: The new `DynamicCompositeImageFilter` instance.
     */
-    public init(_ filters: [ImageFilter]) {
+    init(_ filters: [ImageFilter]) {
         self.filters = filters
     }
 
@@ -149,7 +149,7 @@ internal struct DynamicCompositeImageFilter: CompositeImageFilter {
 
         - returns: The new `DynamicCompositeImageFilter` instance.
     */
-    public init(_ filters: ImageFilter...) {
+    init(_ filters: ImageFilter...) {
         self.init(filters)
     }
 }
@@ -161,7 +161,7 @@ internal struct DynamicCompositeImageFilter: CompositeImageFilter {
 /// Scales an image to a specified size.
 internal struct ScaledToSizeFilter: ImageFilter, Sizable {
     /// The size of the filter.
-    public let size: CGSize
+    internal let size: CGSize
 
     /**
         Initializes the `ScaledToSizeFilter` instance with the given size.
@@ -170,7 +170,7 @@ internal struct ScaledToSizeFilter: ImageFilter, Sizable {
 
         - returns: The new `ScaledToSizeFilter` instance.
     */
-    public init(size: CGSize) {
+    init(size: CGSize) {
         self.size = size
     }
 
@@ -187,7 +187,7 @@ internal struct ScaledToSizeFilter: ImageFilter, Sizable {
 /// Scales an image from the center while maintaining the aspect ratio to fit within a specified size.
 internal struct AspectScaledToFitSizeFilter: ImageFilter, Sizable {
     /// The size of the filter.
-    public let size: CGSize
+    internal let size: CGSize
 
     /**
         Initializes the `AspectScaledToFitSizeFilter` instance with the given size.
@@ -196,7 +196,7 @@ internal struct AspectScaledToFitSizeFilter: ImageFilter, Sizable {
 
         - returns: The new `AspectScaledToFitSizeFilter` instance.
     */
-    public init(size: CGSize) {
+    internal init(size: CGSize) {
         self.size = size
     }
 
@@ -214,7 +214,7 @@ internal struct AspectScaledToFitSizeFilter: ImageFilter, Sizable {
 /// outside the specified size are clipped.
 internal struct AspectScaledToFillSizeFilter: ImageFilter, Sizable {
     /// The size of the filter.
-    public let size: CGSize
+    internal let size: CGSize
 
     /**
         Initializes the `AspectScaledToFillSizeFilter` instance with the given size.
@@ -223,7 +223,7 @@ internal struct AspectScaledToFillSizeFilter: ImageFilter, Sizable {
 
         - returns: The new `AspectScaledToFillSizeFilter` instance.
     */
-    public init(size: CGSize) {
+    internal init(size: CGSize) {
         self.size = size
     }
 
@@ -240,10 +240,10 @@ internal struct AspectScaledToFillSizeFilter: ImageFilter, Sizable {
 /// Rounds the corners of an image to the specified radius.
 internal struct RoundedCornersFilter: ImageFilter, Roundable {
     /// The radius of the filter.
-    public let radius: CGFloat
+    internal let radius: CGFloat
 
     /// Whether to divide the radius by the image scale.
-    public let divideRadiusByImageScale: Bool
+    internal let divideRadiusByImageScale: Bool
 
     /**
         Initializes the `RoundedCornersFilter` instance with the given radius.
@@ -257,7 +257,7 @@ internal struct RoundedCornersFilter: ImageFilter, Roundable {
 
         - returns: The new `RoundedCornersFilter` instance.
     */
-    public init(radius: CGFloat, divideRadiusByImageScale: Bool = false) {
+    internal init(radius: CGFloat, divideRadiusByImageScale: Bool = false) {
         self.radius = radius
         self.divideRadiusByImageScale = divideRadiusByImageScale
     }
@@ -288,7 +288,7 @@ internal struct CircleFilter: ImageFilter {
 
         - returns: The new `CircleFilter` instance.
     */
-    public init() {}
+    internal init() {}
 
     /// The filter closure used to create the modified representation of the given image.
     internal var filter: Image -> Image {
@@ -314,7 +314,7 @@ internal struct BlurFilter: ImageFilter {
 
         - returns: The new `BlurFilter` instance.
     */
-    public init(blurRadius: UInt = 10) {
+    internal init(blurRadius: UInt = 10) {
         self.blurRadius = blurRadius
     }
 
@@ -346,7 +346,7 @@ internal struct ScaledToSizeWithRoundedCornersFilter: CompositeImageFilter {
 
         - returns: The new `ScaledToSizeWithRoundedCornersFilter` instance.
     */
-    public init(size: CGSize, radius: CGFloat, divideRadiusByImageScale: Bool = false) {
+    internal init(size: CGSize, radius: CGFloat, divideRadiusByImageScale: Bool = false) {
         self.filters = [
             ScaledToSizeFilter(size: size),
             RoundedCornersFilter(radius: radius, divideRadiusByImageScale: divideRadiusByImageScale)
@@ -354,7 +354,7 @@ internal struct ScaledToSizeWithRoundedCornersFilter: CompositeImageFilter {
     }
 
     /// The image filters to apply to the image in sequential order.
-    public let filters: [ImageFilter]
+    internal let filters: [ImageFilter]
 }
 
 // MARK: -
@@ -375,7 +375,7 @@ internal struct AspectScaledToFillSizeWithRoundedCornersFilter: CompositeImageFi
 
         - returns: The new `AspectScaledToFillSizeWithRoundedCornersFilter` instance.
     */
-    public init(size: CGSize, radius: CGFloat, divideRadiusByImageScale: Bool = false) {
+    internal init(size: CGSize, radius: CGFloat, divideRadiusByImageScale: Bool = false) {
         self.filters = [
             AspectScaledToFillSizeFilter(size: size),
             RoundedCornersFilter(radius: radius, divideRadiusByImageScale: divideRadiusByImageScale)
@@ -383,7 +383,7 @@ internal struct AspectScaledToFillSizeWithRoundedCornersFilter: CompositeImageFi
     }
 
     /// The image filters to apply to the image in sequential order.
-    public let filters: [ImageFilter]
+    internal let filters: [ImageFilter]
 }
 
 // MARK: -
@@ -397,12 +397,12 @@ internal struct ScaledToSizeCircleFilter: CompositeImageFilter {
 
         - returns: The new `ScaledToSizeCircleFilter` instance.
     */
-    public init(size: CGSize) {
+    internal init(size: CGSize) {
         self.filters = [ScaledToSizeFilter(size: size), CircleFilter()]
     }
 
     /// The image filters to apply to the image in sequential order.
-    public let filters: [ImageFilter]
+    internal let filters: [ImageFilter]
 }
 
 // MARK: -
@@ -417,12 +417,12 @@ internal struct AspectScaledToFillSizeCircleFilter: CompositeImageFilter {
 
         - returns: The new `AspectScaledToFillSizeCircleFilter` instance.
     */
-    public init(size: CGSize) {
+    internal init(size: CGSize) {
         self.filters = [AspectScaledToFillSizeFilter(size: size), CircleFilter()]
     }
 
     /// The image filters to apply to the image in sequential order.
-    public let filters: [ImageFilter]
+    internal let filters: [ImageFilter]
 }
 
 #endif

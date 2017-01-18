@@ -61,7 +61,7 @@ internal class NetworkReachabilityManager {
 
     /// A closure executed when the network reachability status changes. The closure takes a single argument: the 
     /// network reachability status.
-    public typealias Listener = NetworkReachabilityStatus -> Void
+    internal typealias Listener = NetworkReachabilityStatus -> Void
 
     // MARK: - Properties
 
@@ -108,7 +108,7 @@ internal class NetworkReachabilityManager {
 
         - returns: The new `NetworkReachabilityManager` instance.
     */
-    public convenience init?(host: String) {
+    convenience init?(host: String) {
         guard let reachability = SCNetworkReachabilityCreateWithName(nil, host) else { return nil }
         self.init(reachability: reachability)
     }
@@ -118,7 +118,7 @@ internal class NetworkReachabilityManager {
 
         - returns: The new `NetworkReachabilityManager` instance.
      */
-    public convenience init?() {
+    convenience init?() {
         if #available(iOS 9.0, OSX 10.10, *) {
             var address = sockaddr_in6()
             address.sin6_len = UInt8(sizeofValue(address))

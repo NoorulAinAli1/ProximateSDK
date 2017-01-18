@@ -25,19 +25,19 @@ import Foundation
 /// Used to store all response data returned from a completed `Request`.
 internal struct Response<Value, Error: ErrorType> {
     /// The URL request sent to the server.
-    public let request: NSURLRequest?
+    let request: NSURLRequest?
 
     /// The server's response to the URL request.
-    public let response: NSHTTPURLResponse?
+    let response: NSHTTPURLResponse?
 
     /// The data returned by the server.
-    public let data: NSData?
+    let data: NSData?
 
     /// The result of response serialization.
-    public let result: Result<Value, Error>
+    let result: Result<Value, Error>
 
     /// The timeline of the complete lifecycle of the `Request`.
-    public let timeline: Timeline
+    let timeline: Timeline
 
     /**
         Initializes the `Response` instance with the specified URL request, URL response, server data and response
@@ -51,7 +51,7 @@ internal struct Response<Value, Error: ErrorType> {
 
         - returns: the new `Response` instance.
     */
-    public init(
+    init(
         request: NSURLRequest?,
         response: NSHTTPURLResponse?,
         data: NSData?,

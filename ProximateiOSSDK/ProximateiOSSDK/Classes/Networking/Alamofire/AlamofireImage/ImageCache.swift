@@ -108,11 +108,11 @@ internal class AutoPurgingImageCache: ImageRequestCache {
     }
 
     /// The total memory capacity of the cache in bytes.
-    public let memoryCapacity: UInt64
+    internal let memoryCapacity: UInt64
 
     /// The preferred memory usage after purge in bytes. During a purge, images will be purged until the memory 
     /// capacity drops below this limit.
-    public let preferredMemoryUsageAfterPurge: UInt64
+    internal let preferredMemoryUsageAfterPurge: UInt64
 
     private let synchronizationQueue: dispatch_queue_t
     private var cachedImages: [String: CachedImage]
@@ -131,7 +131,7 @@ internal class AutoPurgingImageCache: ImageRequestCache {
 
         - returns: The new `AutoPurgingImageCache` instance.
     */
-    public init(memoryCapacity: UInt64 = 100_000_000, preferredMemoryUsageAfterPurge: UInt64 = 60_000_000) {
+    internal init(memoryCapacity: UInt64 = 100_000_000, preferredMemoryUsageAfterPurge: UInt64 = 60_000_000) {
         self.memoryCapacity = memoryCapacity
         self.preferredMemoryUsageAfterPurge = preferredMemoryUsageAfterPurge
 

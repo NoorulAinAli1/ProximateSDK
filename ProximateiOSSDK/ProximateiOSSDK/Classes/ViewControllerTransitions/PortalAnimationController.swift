@@ -11,7 +11,7 @@ import UIKit
 class PortalAnimationController: ReversibleAnimationController {
     let zoomScale : CGFloat = 0.8
     
-    override func animateTransition(transitionContext : UIViewControllerContextTransitioning, fromVC fromVC : UIViewController, toVC toVC:UIViewController, fromView fromView:UIView, toView toView: UIView) {
+    override func animateTransition(transitionContext : UIViewControllerContextTransitioning, fromVC : UIViewController, toVC:UIViewController, fromView:UIView, toView: UIView) {
     
         if self.reverse.boolValue {
             self.executeReverseAnimation(transitionContext, fromVC:fromVC, toVC:toVC, fromView:fromView, toView:toView)
@@ -20,7 +20,7 @@ class PortalAnimationController: ReversibleAnimationController {
         }
     }
     
-    func executeForwardsAnimation(transitionContext : UIViewControllerContextTransitioning, fromVC fromVC : UIViewController, toVC toVC:UIViewController, fromView fromView:UIView, toView toView: UIView) {
+    func executeForwardsAnimation(transitionContext : UIViewControllerContextTransitioning, fromVC : UIViewController, toVC:UIViewController, fromView:UIView, toView: UIView) {
 
         let containerView : UIView = transitionContext.containerView()!
     
@@ -74,7 +74,7 @@ class PortalAnimationController: ReversibleAnimationController {
     }
     
     
-    func executeReverseAnimation(transitionContext : UIViewControllerContextTransitioning, fromVC fromVC : UIViewController, toVC toVC:UIViewController, fromView fromView:UIView, toView toView: UIView) {
+    func executeReverseAnimation(transitionContext : UIViewControllerContextTransitioning, fromVC : UIViewController, toVC:UIViewController, fromView:UIView, toView: UIView) {
     
         let containerView : UIView = transitionContext.containerView()!
         containerView.addSubview(fromView)

@@ -54,7 +54,7 @@ internal class Manager {
         A shared instance of `Manager`, used by top-level Alamofire request methods, and suitable for use directly 
         for any ad hoc requests.
     */
-    public static let sharedInstance: Manager = {
+    static let sharedInstance: Manager = {
         let capacity =  50 * 1024 * 1024 // MBs
         let urlCache : NSURLCache! = NSURLCache(memoryCapacity: capacity, diskCapacity: capacity, diskPath: nil)
 
@@ -69,7 +69,7 @@ internal class Manager {
     /**
         Creates default values for the "Accept-Encoding", "Accept-Language" and "User-Agent" headers.
     */
-    public static let defaultHTTPHeaders: [String: String] = {
+    static let defaultHTTPHeaders: [String: String] = {
         // Accept-Encoding HTTP Header; see https://tools.ietf.org/html/rfc7230#section-4.2.3
         let acceptEncoding: String = "gzip;q=1.0, compress;q=0.5"
 
@@ -116,10 +116,10 @@ internal class Manager {
     let queue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL)
 
     /// The underlying session.
-    public let session: NSURLSession
+   internal let session: NSURLSession
 
     /// The session delegate handling all the task and session delegate callbacks.
-    public let delegate: SessionDelegate
+    internal let delegate: SessionDelegate
 
     /// Whether to start requests immediately after being constructed. `true` by default.
     internal var startRequestsImmediately: Bool = true
@@ -151,7 +151,7 @@ internal class Manager {
 
         - returns: The new `Manager` instance.
     */
-    public init(
+    init(
         configuration: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration(),
         delegate: SessionDelegate = SessionDelegate(),
         serverTrustPolicyManager: ServerTrustPolicyManager? = nil)
@@ -172,7 +172,7 @@ internal class Manager {
 
         - returns: The new `Manager` instance if the URL session's delegate matches the delegate parameter.
     */
-    public init?(
+    init?(
         session: NSURLSession,
         delegate: SessionDelegate,
         serverTrustPolicyManager: ServerTrustPolicyManager? = nil)
@@ -258,7 +258,7 @@ internal class Manager {
         private let subdelegateQueue = dispatch_queue_create(nil, DISPATCH_QUEUE_CONCURRENT)
 
         /// Access the task delegate for the specified task in a thread-safe manner.
-        public subscript(task: NSURLSessionTask) -> Request.TaskDelegate? {
+        internal subscript(task: NSURLSessionTask) -> Request.TaskDelegate? {
             get {
                 var subdelegate: Request.TaskDelegate?
                 dispatch_sync(subdelegateQueue) { subdelegate = self.subdelegates[task.taskIdentifier] }
@@ -275,7 +275,7 @@ internal class Manager {
 
             - returns: The new `SessionDelegate` instance.
         */
-        public override init() {
+        override init() {
             super.init()
         }
 
@@ -764,7 +764,7 @@ internal class Manager {
 
         // MARK: - NSObject
 
-        public override func respondsToSelector(selector: Selector) -> Bool {
+        override func respondsToSelector(selector: Selector) -> Bool {
             #if !os(OSX)
                 if selector == #selector(NSURLSessionDelegate.URLSessionDidFinishEventsForBackgroundURLSession(_:)) {
                     return sessionDidFinishEventsForBackgroundURLSession != nil

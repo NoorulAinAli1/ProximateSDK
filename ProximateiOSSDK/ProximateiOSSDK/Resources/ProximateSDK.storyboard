@@ -12,16 +12,16 @@
         <scene sceneID="ssJ-rA-KNi">
             <objects>
                 <tableViewController storyboardIdentifier="CategoryTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Syg-on-2ou" userLabel="Category" customClass="CategoryTableViewController" customModule="ProximateiOSSDK" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="j8Y-fu-OtM">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="240" sectionHeaderHeight="28" sectionFooterHeight="28" id="j8Y-fu-OtM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MerchantCell" rowHeight="300" id="4tb-pN-Iga" userLabel="MerchantTableViewCell" customClass="MerchantTableViewCell" customModule="ProximateiOSSDK">
-                                <rect key="frame" x="0.0" y="28" width="600" height="300"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MerchantCell" rowHeight="240" id="4tb-pN-Iga" userLabel="MerchantTableViewCell" customClass="MerchantTableViewCell" customModule="ProximateiOSSDK">
+                                <rect key="frame" x="0.0" y="28" width="600" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4tb-pN-Iga" id="k90-Fq-meH">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SF6-xM-Ngr" customClass="CardView" customModule="ProximateiOSSDK">
@@ -50,9 +50,9 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hp4-gC-qYq" customClass="BaseLabel" customModule="ProximateiOSSDK">
-                                                    <rect key="frame" x="10" y="305" width="550" height="30"/>
+                                                    <rect key="frame" x="10" y="305" width="550" height="34"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="6gU-8C-tvM"/>
+                                                        <constraint firstAttribute="height" constant="34" id="6gU-8C-tvM"/>
                                                         <constraint firstAttribute="height" constant="40" id="EXL-6M-6DF"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
@@ -75,7 +75,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV1-Qf-0lx" customClass="BaseLabel" customModule="ProximateiOSSDK">
-                                                    <rect key="frame" x="39.5" y="335" width="520.5" height="24"/>
+                                                    <rect key="frame" x="42.5" y="339" width="517.5" height="27"/>
                                                     <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" image="time_icon_gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ewl-T0-2GF">
-                                                    <rect key="frame" x="10" y="335" width="24" height="24"/>
+                                                    <rect key="frame" x="10" y="339" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Ewl-T0-2GF" secondAttribute="height" multiplier="1:1" id="0jb-c6-myr"/>
                                                     </constraints>

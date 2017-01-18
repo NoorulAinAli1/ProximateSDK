@@ -34,7 +34,7 @@ import Cocoa
 /// `ImageDownloader` is optimized to handle duplicate request scenarios as well as pending versus active downloads.
 internal class RequestReceipt {
     /// The download request created by the `ImageDownloader`.
-    public let request: Request
+    internal let request: Request
 
     /// The unique identifier for the image filters and completion handlers when duplicate requests are made.
     internal let receiptID: String

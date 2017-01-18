@@ -46,7 +46,7 @@ class CampaignStoreView: CardView, UITableViewDelegate, UITableViewDataSource {
         campaignStoreTitle.setStyle(ProximateSDKSettings.psdkFontOptions.campaignDetailTitleColor, size: ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize)
         self.addSubview(campaignStoreTitle)
         
-        campaignStoreTable = BaseTableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding*2), rowHeight * CGFloat(cStore.count)))
+        campaignStoreTable = BaseTableView(frame: CGRectMake(innerPadding, ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize + innerPadding + innerPadding, viewWidth - (innerPadding), rowHeight * CGFloat(cStore.count)))
         campaignStoreTable.allowsSelection = true
         self.addSubview(campaignStoreTable)
         campaignStoreTable.delegate = self

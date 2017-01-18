@@ -30,13 +30,13 @@ internal class Request {
     // MARK: - Properties
 
     /// The delegate for the underlying task.
-    public let delegate: TaskDelegate
+    internal let delegate: TaskDelegate
 
     /// The underlying task.
     internal var task: NSURLSessionTask { return delegate.task }
 
     /// The session belonging to the underlying task.
-    public let session: NSURLSession
+    internal let session: NSURLSession
 
     /// The request sent or to be sent to the server.
     internal var request: NSURLRequest? { return task.originalRequest }
@@ -197,7 +197,7 @@ internal class Request {
     internal class TaskDelegate: NSObject {
 
         /// The serial operation queue used to execute all operations after the task completes.
-        public let queue: NSOperationQueue
+        internal let queue: NSOperationQueue
 
         let task: NSURLSessionTask
         let progress: NSProgress

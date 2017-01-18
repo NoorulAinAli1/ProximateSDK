@@ -132,7 +132,7 @@ extension Request {
         file written to during the download process. The closure takes two arguments: the temporary file URL and the URL 
         response, and returns a single argument: the file URL where the temporary file should be moved.
     */
-    public typealias DownloadFileDestination = (NSURL, NSHTTPURLResponse) -> NSURL
+    internal typealias DownloadFileDestination = (NSURL, NSHTTPURLResponse) -> NSURL
 
     /**
         Creates a download file destination closure which uses the default file manager to move the temporary file to a 

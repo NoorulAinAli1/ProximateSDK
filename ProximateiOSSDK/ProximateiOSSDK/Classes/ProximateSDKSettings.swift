@@ -70,7 +70,9 @@ struct TabStyleOptions {
             case let .ScrollAnimationDurationOnMenuItemTap(value):
                 self.scrollAnimationDurationOnMenuItemTap = value
                 
-            default: break
+//            default:
+//                DebugLogger.debugLog("default")
+//                break
             }
         }
     }
@@ -106,12 +108,12 @@ struct FontStyleOptions {
     var expiryTextFontSize          : CGFloat!  = 12.0
     var campaignTextFontColor       : UIColor!  = UIColor.grayColor()
     var campaignBoldFontColor       : UIColor!  = UIColor.psdkPrimaryColor()
-    var campaignTextFontSize        : CGFloat!  = 16.0
-    var campaignDetailTitleSize     : CGFloat!  = 16.0
+    var campaignTextFontSize        : CGFloat!  = 14.0
+    var campaignDetailTitleSize     : CGFloat!  = 14.0
     var campaignDetailTextSize      : CGFloat!  = 12.0
-    var campaignDetailTitleColor    : UIColor!  =  UIColor.blueColor()
-    var campaignDetailBankOfferColor : UIColor! = UIColor.orangeColor()
-    var campaignDetailTextColor     : UIColor!  =  UIColor.orangeColor()
+    var campaignDetailTitleColor    : UIColor!  =  UIColor.blackColor()
+    var campaignDetailBankOfferColor : UIColor! = UIColor.grayColor()
+    var campaignDetailTextColor     : UIColor!  =  UIColor.grayColor()
     
     init(){
     }
@@ -145,7 +147,7 @@ struct FontStyleOptions {
                 self.campaignDetailTitleColor   = valueColor1
                 self.campaignDetailTextColor    = valueColor2
   
-            default: break
+//            default: break
             }
         }
     }
@@ -176,7 +178,7 @@ struct PageIndicatorOptions {
                 self.pageIndicatorDiameter = value
             case let .PageIndicatorSpace(value):
                 self.pageIndicatorSpace = value
-            default: break
+//            default: break
             }
         }
     }
@@ -198,12 +200,12 @@ public enum PSDKViewOptions {
 struct ViewOptions {
     var primaryColor : UIColor! = UIColor.psdkPrimaryColor()
     var primaryDarkColor : UIColor! = UIColor.psdkPrimaryDarkColor()
-    var viewBackgroundColor : UIColor! = UIColor.grayColor()
+    var viewBackgroundColor : UIColor! = UIColor.whiteColor()
     var navigationBarImage  : UIImage?
     var navigationBarTintColor  : UIColor! = UIColor.whiteColor()
     var navigationBarTitleSize  : CGFloat! = 16.0
     var navigationBarTitleColor  : UIColor! = UIColor.whiteColor()
-    var searchBarColor     : UIColor!  = UIColor.brownColor()
+    var searchBarColor     : UIColor!  = UIColor.psdkPrimaryColor()
     var fontRegular   : String! = "TrebuchetMS" {
         didSet {
             if UIFont(name: fontRegular, size: 10) == nil {
@@ -221,8 +223,8 @@ struct ViewOptions {
 
     var innerPadding  : CGFloat! = 6.0
     var outerPadding  : CGFloat! = 10.0
-    private static let defaultCardHeight  : CGFloat! = 200.0
-    private static let defaultHeaderHeight  : CGFloat! = 240.0
+    private static let defaultCardHeight  : CGFloat! = 240.0
+    private static let defaultHeaderHeight  : CGFloat! = 280.0
     var cardHeight  : CGFloat! = defaultCardHeight
     var headerHeight  : CGFloat! = defaultHeaderHeight
 
@@ -264,7 +266,7 @@ struct ViewOptions {
                 } else {
                     assertionFailure("Header Height cannot be less than defaultHeaderHeight \(ViewOptions.defaultHeaderHeight)")
                 }
-            default: break
+//            default: break
             }
         }
     }
@@ -313,7 +315,7 @@ struct CardOptions {
                 self.cardShadowRadius = value
             case let .CardShadowOpacity(value):
                 self.cardShadowOpacity = value
-            default: break
+//            default: break
             }
         }
     }

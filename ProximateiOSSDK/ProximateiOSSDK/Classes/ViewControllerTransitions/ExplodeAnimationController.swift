@@ -45,9 +45,9 @@ class ExplodeAnimationController: ReversibleAnimationController {
         
         UIView.animateWithDuration(duration, animations: {
             for view2 in snapshots  {
-                var view = view2 as! UIView
-                let xOffset : CGFloat = self.randomFloatBetween(-100.0, andBigNumber: 100.0)
-                let yOffset : CGFloat = self.randomFloatBetween(-100.0, andBigNumber: 100.0)
+                let view = view2 as! UIView
+//                let xOffset : CGFloat = self.randomFloatBetween(-100.0, andBigNumber: 100.0)
+//                let yOffset : CGFloat = self.randomFloatBetween(-100.0, andBigNumber: 100.0)
 //                view.frame = CGRectOffset(view.frame, xOffset, yOffset);
                 view.alpha = 0.0;
                 view.transform = CGAffineTransformScale(CGAffineTransformMakeRotation(self.randomFloatBetween(-10.0, andBigNumber:10.0)), 0.01, 0.01);

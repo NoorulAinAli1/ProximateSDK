@@ -48,7 +48,7 @@ class MenuItemView: UIView {
     var titleLabel : PaddedLabel?
 
 
-    func setUpMenuItemView(menuItemWidth: CGFloat, menuItemSpacingY spacingY : CGFloat, menuScrollViewHeight: CGFloat, menuBorderColor borderColor : UIColor, menuBorderWidth borderWidth : CGFloat, menuShadowColor menuShadowColor : UIColor){
+    func setUpMenuItemView(menuItemWidth: CGFloat, menuItemSpacingY spacingY : CGFloat, menuScrollViewHeight: CGFloat, menuBorderColor borderColor : UIColor, menuBorderWidth borderWidth : CGFloat, menuShadowColor shadowColor : UIColor){
         titleLabel = PaddedLabel(frame: CGRectMake(0.0, spacingY, self.frame.width, self.frame.height))//CGRectMake(0.0, spacingY, menuItemWidth, menuScrollViewHeight - (spacingY*2)))
         titleLabel?.layer.masksToBounds = true
         titleLabel?.layer.cornerRadius = (menuScrollViewHeight - (spacingY*2))/2
@@ -62,7 +62,7 @@ class MenuItemView: UIView {
         self.layer.cornerRadius = self.frame.height/2
         self.layer.borderColor = UIColor.clearColor().CGColor
         self.layer.borderWidth = borderWidth
-        self.layer.shadowColor = menuShadowColor.CGColor
+        self.layer.shadowColor = shadowColor.CGColor
         self.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
         self.layer.shadowRadius = 1.0
         self.layer.shadowOpacity = 1.0
@@ -130,7 +130,7 @@ internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectio
     :param: frame Frame for page menu view
     :param: options Dictionary holding any customization options user might want to set
     */
-    public init(viewControllers: [UIViewController], frame: CGRect, options: [String: AnyObject]?) {
+    internal init(viewControllers: [UIViewController], frame: CGRect, options: [String: AnyObject]?) {
         super.init(nibName: nil, bundle: nil)
         
         controllerArray = viewControllers
@@ -150,16 +150,16 @@ internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectio
         }
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    required internal init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 	
 	// MARK: - Container View Controller
-	public override func shouldAutomaticallyForwardAppearanceMethods() -> Bool {
+	internal override func shouldAutomaticallyForwardAppearanceMethods() -> Bool {
 		return true
 	}
 	
-	public override func shouldAutomaticallyForwardRotationMethods() -> Bool {
+	internal override func shouldAutomaticallyForwardRotationMethods() -> Bool {
 		return true
 	}
 	
@@ -219,7 +219,7 @@ internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectio
     
     func configureUserInterface() {
         // Add tap gesture recognizer to controller scroll view to recognize menu item selection
-        let menuItemTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleMenuItemTap:"))
+        let menuItemTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CAPSPageMenu.handleMenuItemTap(_:)))
         menuItemTapGestureRecognizer.numberOfTapsRequired = 1
         menuItemTapGestureRecognizer.numberOfTouchesRequired = 1
         menuItemTapGestureRecognizer.delegate = self
@@ -304,7 +304,7 @@ internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectio
         }
         
         self.configureMenuItemWidthBasedOnTitleTextWidth()
-        let leadingAndTrailingMargin = self.getMarginForMenuItemWidthBasedOnTitleTextWidth()
+//        let leadingAndTrailingMargin = self.getMarginForMenuItemWidthBasedOnTitleTextWidth()
     
     }
     
@@ -362,7 +362,7 @@ internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectio
     }
     
     // MARK: - Scroll view delegate
-    public func scrollViewDidScroll(scrollView: UIScrollView) {
+    internal func scrollViewDidScroll(scrollView: UIScrollView) {
         if !didLayoutSubviewsAfterRotation {
             if scrollView.isEqual(controllerScrollView) {
                 if scrollView.contentOffset.x >= 0.0 && scrollView.contentOffset.x <= (CGFloat(controllerArray.count - 1) * self.view.frame.width) {
@@ -380,7 +380,7 @@ internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectio
                                 
                                 if newScrollDirection != .Other {
                                     if lastScrollDirection != newScrollDirection {
-                                        let index : Int = newScrollDirection == .Left ? currentPageIndex + 1 : currentPageIndex - 1
+//                                        let index : Int = newScrollDirection == .Left ? currentPageIndex + 1 : currentPageIndex - 1
                                     }
                                 }
                                 lastScrollDirection = newScrollDirection
@@ -444,11 +444,11 @@ internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectio
                         if page != currentPageIndex {
                             lastPageIndex = currentPageIndex
                             currentPageIndex = page
-        
-                            if !didTapMenuItemToScroll {
-                                let indexLeftTwo : Int = page - 2
-                                let indexRightTwo : Int = page + 2
-                            }
+//        
+//                            if !didTapMenuItemToScroll {
+////                                let indexLeftTwo : Int = page - 2
+////                                let indexRightTwo : Int = page + 2
+//                            }
                         }
                         
                         // Move selection indicator view when swiping
@@ -474,7 +474,7 @@ internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectio
         }
     }
     
-    public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    internal func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         if scrollView.isEqual(controllerScrollView) {
             // Call didMoveToPage delegate function
             let currentController = controllerArray[currentPageIndex]
@@ -582,7 +582,7 @@ internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectio
     
     // MARK: - Orientation Change
     
-    override public func viewDidLayoutSubviews() {
+    override internal func viewDidLayoutSubviews() {
         // Configure controller scroll view content size
 //        controllerScrollView.contentSize = CGSizeMake(self.view.frame.width * CGFloat(controllerArray.count), self.view.frame.height - self.tabOptions.menuHeight)
         
@@ -594,13 +594,13 @@ internal class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UICollectio
             
             //Resize menu items if using as segmented control
             self.configureMenuItemWidthBasedOnTitleTextWidth()
-            let selectionIndicatorX = CGRectGetMinX(menuItems[currentPageIndex].frame)
+//            let selectionIndicatorX = CGRectGetMinX(menuItems[currentPageIndex].frame)
             
             for view : UIView in controllerScrollView.subviews {
                 view.frame = CGRectMake(self.view.frame.width * CGFloat(currentPageIndex), self.tabOptions.menuHeight, controllerScrollView.frame.width, self.view.frame.height - self.tabOptions.menuHeight)
             }
             
-            let xOffset : CGFloat = CGFloat(self.currentPageIndex) * controllerScrollView.frame.width
+//            let xOffset : CGFloat = CGFloat(self.currentPageIndex) * controllerScrollView.frame.width
 //            controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: controllerScrollView.contentOffset.y), animated: false)
             
             let ratio : CGFloat = (menuScrollView.contentSize.width - self.view.frame.width) / (controllerScrollView.contentSize.width - self.view.frame.width)

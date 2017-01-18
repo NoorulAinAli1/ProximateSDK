@@ -64,7 +64,7 @@ class CampaignDetailView: CardView {
         
         var startIndex = 0
         let height : CGFloat = ProximateSDKSettings.psdkFontOptions.campaignDetailTitleSize * 3
-        campaignActionView = UIView(frame: CGRectMake(innerPadding*2, contentHeight + innerPadding + campaignDetailText.frame.origin.y, viewWidth - (innerPadding * 4), CGFloat(cAction.count) * height))
+        campaignActionView = UIView(frame: CGRectMake(innerPadding*2, contentHeight + innerPadding + campaignDetailText.frame.origin.y, viewWidth - (innerPadding * 2), CGFloat(cAction.count) * height))
         campaignActionView.backgroundColor = UIColor.clearColor()
         campaignActionView.userInteractionEnabled = true
         self.addSubview( campaignActionView)
@@ -74,7 +74,7 @@ class CampaignDetailView: CardView {
 
             contentHeight += height
 
-            var floatIndex = height * CGFloat(startIndex)
+            let floatIndex = height * CGFloat(startIndex)
             let button = BaseActionButton(frame: CGRect(x:0, y:floatIndex, width: campaignActionView.frame.size.width, height:height - innerPadding))
             button.setTitle(campaignAction.actionTitle, forState: UIControlState.Normal)
             button.tag  = startIndex

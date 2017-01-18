@@ -18,7 +18,7 @@ class ReversibleAnimationController: NSObject, UIViewControllerAnimatedTransitio
         self.duration = 0.50
     }
     
-    func animateTransition(transitionContext : UIViewControllerContextTransitioning, fromVC fromVC : UIViewController, toVC toVC:UIViewController, fromView fromView:UIView, toView toView: UIView) {
+    func animateTransition(transitionContext : UIViewControllerContextTransitioning, fromVC : UIViewController, toVC:UIViewController, fromView:UIView, toView: UIView) {
     }
 
     func transitionDuration(transitionContext : UIViewControllerContextTransitioning?) -> NSTimeInterval {

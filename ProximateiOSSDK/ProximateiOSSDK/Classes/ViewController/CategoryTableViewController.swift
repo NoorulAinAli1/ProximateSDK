@@ -113,7 +113,7 @@ internal class CategoryTableViewController: UITableViewController, SearchDelegat
     
     private func reloadList(){
         pageNumber += 1
-        mMerchantGroup.sort({ $0.sortOrder.integerValue > $1.sortOrder.integerValue })
+        mMerchantGroup.sortInPlace({ $0.sortOrder.integerValue > $1.sortOrder.integerValue })
     
         self.refreshControl?.endRefreshing()
         self.tableView.reloadData()

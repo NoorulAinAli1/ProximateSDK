@@ -56,7 +56,7 @@ class MainCategoriesViewController: BaseViewController, CAPSPageMenuDelegate, UI
         DebugLogger.debugLog("showSearchView")
         
         if (navSearchView == nil) {
-            navSearchView = ProximateSDKSettings.getBundle().loadNibNamed("SearchCategoryView", owner: self, options: nil)!.first as! SearchCategoryView
+            navSearchView = (ProximateSDKSettings.getBundle().loadNibNamed("SearchCategoryView", owner: self, options: nil)!.first as! SearchCategoryView)
             navSearchView!.frame = (self.navigationController?.navigationBar.bounds)!
             navSearchView!.btnClose.addTarget(self, action: #selector(MainCategoriesViewController.removeSearchView(_:)), forControlEvents: .TouchUpInside)
             navSearchView!.btnSearch.addTarget(self, action: #selector(MainCategoriesViewController.performSearch), forControlEvents: .TouchUpInside)

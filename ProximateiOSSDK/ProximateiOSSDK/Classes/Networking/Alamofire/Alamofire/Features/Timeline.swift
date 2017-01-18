@@ -25,28 +25,28 @@ import Foundation
 /// Responsible for computing the timing metrics for the complete lifecycle of a `Request`.
 internal struct Timeline {
     /// The time the request was initialized.
-    public let requestStartTime: CFAbsoluteTime
+    internal let requestStartTime: CFAbsoluteTime
 
     /// The time the first bytes were received from or sent to the server.
-    public let initialResponseTime: CFAbsoluteTime
+    internal let initialResponseTime: CFAbsoluteTime
 
     /// The time when the request was completed.
-    public let requestCompletedTime: CFAbsoluteTime
+    internal let requestCompletedTime: CFAbsoluteTime
 
     /// The time when the response serialization was completed.
-    public let serializationCompletedTime: CFAbsoluteTime
+    internal let serializationCompletedTime: CFAbsoluteTime
 
     /// The time interval in seconds from the time the request started to the initial response from the server.
-    public let latency: NSTimeInterval
+    internal let latency: NSTimeInterval
 
     /// The time interval in seconds from the time the request started to the time the request completed.
-    public let requestDuration: NSTimeInterval
+    internal let requestDuration: NSTimeInterval
 
     /// The time interval in seconds from the time the request completed to the time response serialization completed.
-    public let serializationDuration: NSTimeInterval
+    internal let serializationDuration: NSTimeInterval
 
     /// The time interval in seconds from the time the request started to the time response serialization completed.
-    public let totalDuration: NSTimeInterval
+    internal let totalDuration: NSTimeInterval
 
     /**
         Creates a new `Timeline` instance with the specified request times.
@@ -60,7 +60,7 @@ internal struct Timeline {
 
         - returns: The new `Timeline` instance.
     */
-    public init(
+    init(
         requestStartTime: CFAbsoluteTime = 0.0,
         initialResponseTime: CFAbsoluteTime = 0.0,
         requestCompletedTime: CFAbsoluteTime = 0.0,

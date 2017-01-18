@@ -95,8 +95,8 @@ class CampaignViewController:  UIViewController, CampaignInfoClickDelegate, Camp
                 setTimingView(testView, andViewHeight: viewHeight)
             case .Bank:
                 setBankView(testView, andViewHeight: viewHeight)
-            default:
-                DebugLogger.debugLog("here")
+//            default:
+//                DebugLogger.debugLog("here")
             }
         }
         

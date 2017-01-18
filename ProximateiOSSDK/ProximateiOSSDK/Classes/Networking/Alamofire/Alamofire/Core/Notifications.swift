@@ -28,18 +28,18 @@ internal struct Notifications {
     internal struct Task {
         /// Notification posted when an `NSURLSessionTask` is resumed. The notification `object` contains the resumed
         /// `NSURLSessionTask`.
-        public static let DidResume = "com.alamofire.notifications.task.didResume"
+        internal static let DidResume = "com.alamofire.notifications.task.didResume"
 
         /// Notification posted when an `NSURLSessionTask` is suspended. The notification `object` contains the 
         /// suspended `NSURLSessionTask`.
-        public static let DidSuspend = "com.alamofire.notifications.task.didSuspend"
+        internal static let DidSuspend = "com.alamofire.notifications.task.didSuspend"
 
         /// Notification posted when an `NSURLSessionTask` is cancelled. The notification `object` contains the
         /// cancelled `NSURLSessionTask`.
-        public static let DidCancel = "com.alamofire.notifications.task.didCancel"
+        internal static let DidCancel = "com.alamofire.notifications.task.didCancel"
 
         /// Notification posted when an `NSURLSessionTask` is completed. The notification `object` contains the
         /// completed `NSURLSessionTask`.
-        public static let DidComplete = "com.alamofire.notifications.task.didComplete"
+        internal static let DidComplete = "com.alamofire.notifications.task.didComplete"
     }
 }
